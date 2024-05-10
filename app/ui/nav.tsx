@@ -14,11 +14,11 @@ import {
 export default function Nav() {
   return (
     <div className="w-full px-6 h-16 flex sticky top-0 lg:relative items-center justify-between bg-slate-50">
-      <div>menu</div>
+      <div className="cursor-pointer select-none">Home</div>
       <div className="flex items-center gap-3">
         <Dropdown>
           <DropdownTrigger>
-            <div className="flex items-center gap-2 cursor-pointer">
+            <div className="flex items-center gap-2 cursor-pointer select-none">
               <div>中文</div>
               <FontAwesomeIcon icon={faCaretDown} />
             </div>

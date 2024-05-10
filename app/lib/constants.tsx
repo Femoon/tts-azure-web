@@ -1,3 +1,5 @@
+export const listSuffixUrl = '.tts.speech.microsoft.com/cognitiveservices/voices/list'
+
 export const langs = [
   {
     label: 'Chinese',

@@ -2,16 +2,14 @@
 import { Textarea } from '@nextui-org/input'
 import { Select, SelectItem } from '@nextui-org/select'
 import { Button } from '@nextui-org/button'
-import { langs, genders } from '../lib/constants'
+import { langs, genders, listSuffixUrl } from '../lib/constants'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleDown, faL } from '@fortawesome/free-solid-svg-icons'
-import { useRef, useState } from 'react'
+import { faCircleDown } from '@fortawesome/free-solid-svg-icons'
+import { useEffect, useRef, useState } from 'react'
 import {
   SpeechConfig,
   SpeechSynthesizer,
-  AudioConfig,
-  PushAudioOutputStream,
 } from 'microsoft-cognitiveservices-speech-sdk'
 import { saveAs } from '../lib/tools'
 
@@ -27,6 +25,7 @@ export default function Content() {
   ) {
     setSelectedGender(gender)
   }
+
   function handleDownload() {
     if (!audioBufferRef.current) return
     saveAs(
@@ -38,6 +37,22 @@ export default function Content() {
         .split('.')[0] + '.mp3'
     )
   }
+
+  async function getList() {
+    const res = await fetch(
+      `https://${process.env.NEXT_PUBLIC_SPEECH_REGION}${listSuffixUrl}`,
+      {
+        headers: {
+          'Ocp-Apim-Subscription-Key': process.env.NEXT_PUBLIC_SPEECH_KEY!,
+        },
+      }
+    )
+    const list = await res.json()
+    console.log(list)
+  }
+  useEffect(() => {
+    getList()
+  }, [])
 
   function play() {
     if (!input.length || isLoading) return
