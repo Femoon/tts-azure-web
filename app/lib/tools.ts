@@ -1,21 +1,5 @@
-export function downloadAudio(arrayBuffer: ArrayBuffer) {
-  // Step 1: Convert ArrayBuffer to Blob
-  const blob = new Blob([arrayBuffer], { type: 'audio/wav' })
-
-  // Step 2: Create a URL for the Blob
-  const url = URL.createObjectURL(blob)
-
-  // Step 3: Create a download link and trigger the download
-  const downloadLink = document.createElement('a')
-  downloadLink.href = url
-  downloadLink.download = 'downloaded_audio.wav' // You can specify the filename here
-  document.body.appendChild(downloadLink)
-  downloadLink.click()
-
-  // Clean up by revoking the Blob URL and removing the link
-  URL.revokeObjectURL(url)
-  document.body.removeChild(downloadLink)
-}
+import { genders } from './constants'
+import { ListItem } from './types'
 
 export function saveAs(blob: Blob, name: string) {
   const a = document.createElement('a')
@@ -26,4 +10,40 @@ export function saveAs(blob: Blob, name: string) {
   a.download = name
   a.click()
   window.URL.revokeObjectURL(url)
+}
+
+interface GenderFilter {
+  label: string
+  value: string
+}
+
+interface GenderResult extends GenderFilter {
+  show: boolean
+}
+
+export function filterAndDeduplicateByGender(data: ListItem[]): GenderResult[] {
+  const genderMap: { [key: string]: GenderResult } = genders.reduce<{ [key: string]: GenderResult }>((acc, gender) => {
+    acc[gender.value] = {
+      ...gender,
+      show: false,
+    }
+    return acc
+  }, {})
+
+  data.forEach((item: ListItem) => {
+    const genderValue = item.Gender.charAt(0).toUpperCase() + item.Gender.slice(1).toLowerCase()
+    if (genderMap[genderValue]) {
+      genderMap[genderValue].show = true
+    }
+  })
+
+  // Ensure all genders are reshowed, even if not show in the data
+  const finalResult: GenderResult[] = Object.values(genderMap).map(gender => {
+    if (!gender.show) {
+      return { ...gender, show: false }
+    }
+    return gender
+  })
+
+  return finalResult
 }

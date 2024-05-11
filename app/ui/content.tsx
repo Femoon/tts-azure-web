@@ -1,66 +1,87 @@
 'use client'
-import { Textarea } from '@nextui-org/input'
-import { Select, SelectItem } from '@nextui-org/select'
-import { Button } from '@nextui-org/button'
-import { langs, genders, listSuffixUrl } from '../lib/constants'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleDown } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useRef, useState } from 'react'
-import {
-  SpeechConfig,
-  SpeechSynthesizer,
-} from 'microsoft-cognitiveservices-speech-sdk'
-import { saveAs } from '../lib/tools'
+import { faCircleDown } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Button } from '@nextui-org/button'
+import { Textarea } from '@nextui-org/input'
+import { SpeechConfig, SpeechSynthesizer } from 'microsoft-cognitiveservices-speech-sdk'
+import { listSuffixUrl } from '../lib/constants'
+import { filterAndDeduplicateByGender, saveAs } from '../lib/tools'
+import { GenderItem, LangsItem, ListItem, VoiceNameItem } from '../lib/types'
+import LanguageSelect from './language-select'
 
 export default function Content() {
   const [input, setInput] = useState('')
   const [isLoading, setLoading] = useState(false)
   const [selectedGender, setSelectedGender] = useState('female')
+  const [langs, setLangs] = useState<LangsItem[]>([])
+  const [list, setList] = useState<ListItem[]>([])
+  const [genders, setGenders] = useState<GenderItem[]>([])
+  const [voiceName, setVoiceName] = useState('')
+  const [voiceNames, setVoiceNames] = useState<VoiceNameItem[]>([])
+  const [selectedLang, setSelectedLang] = useState('zh-CN')
   const audioBufferRef = useRef<Uint8Array | null>(null)
 
-  function handleSelectGender(
-    e: React.MouseEvent<HTMLButtonElement>,
-    gender: string
-  ) {
+  function handleSelectGender(e: React.MouseEvent<HTMLButtonElement>, gender: string) {
     setSelectedGender(gender)
+  }
+
+  function handleSelectLang(e: React.ChangeEvent<HTMLSelectElement>) {
+    setSelectedLang(e.target.value)
+    const data = list?.filter(item => item.Locale === e.target.value)
+    setGenders(filterAndDeduplicateByGender(data))
   }
 
   function handleDownload() {
     if (!audioBufferRef.current) return
     saveAs(
       new Blob([audioBufferRef.current]),
-      new Date()
-        .toISOString()
-        .replace('T', ' ')
-        .replace(':', '_')
-        .split('.')[0] + '.mp3'
+      new Date().toISOString().replace('T', ' ').replace(':', '_').split('.')[0] + '.mp3',
     )
   }
 
-  async function getList() {
-    const res = await fetch(
-      `https://${process.env.NEXT_PUBLIC_SPEECH_REGION}${listSuffixUrl}`,
-      {
+  useEffect(() => {
+    let ignore = false
+    async function getList() {
+      if (ignore) return
+      const res = await fetch(`https://${process.env.NEXT_PUBLIC_SPEECH_REGION}${listSuffixUrl}`, {
         headers: {
           'Ocp-Apim-Subscription-Key': process.env.NEXT_PUBLIC_SPEECH_KEY!,
         },
-      }
-    )
-    const list = await res.json()
-    console.log(list)
-  }
-  useEffect(() => {
+      })
+      const data: ListItem[] = await res.json()
+      setList(data)
+      const map = new Map()
+      data.forEach(item => {
+        map.set(item.Locale, item.LocaleName)
+      })
+      const result = [...map].map(([value, label]) => ({ label, value }))
+      setLangs(result)
+    }
     getList()
+    return () => {
+      ignore = true
+    }
   }, [])
+
+  useEffect(() => {
+    const dataForSelectedLang = list.filter(item => item.Locale === selectedLang)
+    setGenders(filterAndDeduplicateByGender(dataForSelectedLang))
+    const dataForVoiceName = dataForSelectedLang.filter(item => item.Gender === selectedGender)
+    setVoiceNames(dataForVoiceName.map(item => ({ label: item.LocalName, value: item.ShortName })))
+  }, [list, selectedLang, selectedGender])
 
   function play() {
     if (!input.length || isLoading) return
+
     setLoading(true)
+
     const speechConfig = SpeechConfig.fromSubscription(
       process.env.NEXT_PUBLIC_SPEECH_KEY!,
-      process.env.NEXT_PUBLIC_SPEECH_REGION!
+      process.env.NEXT_PUBLIC_SPEECH_REGION!,
     )
+    speechConfig.speechSynthesisLanguage = selectedLang
+    speechConfig.speechSynthesisVoiceName = voiceName
 
     const synthesizer = new SpeechSynthesizer(speechConfig)
     synthesizer.speakTextAsync(
@@ -75,7 +96,7 @@ export default function Content() {
         console.error(err)
         synthesizer?.close()
         setLoading(false)
-      }
+      },
     )
   }
 
@@ -85,7 +106,7 @@ export default function Content() {
         <Textarea
           size="lg"
           minRows={10}
-          placeholder="input text"
+          placeholder="请输入文本"
           value={input}
           onChange={e => setInput(e.target.value)}
         />
@@ -103,30 +124,38 @@ export default function Content() {
       </div>
 
       <div className="flex-1 flex flex-col">
-        <Select label="Select language" className="w-full">
-          {langs.map(item => (
-            <SelectItem key={item.value} value={item.value}>
-              {item.label}
-            </SelectItem>
-          ))}
-        </Select>
+        <LanguageSelect langs={langs} handleSelectLang={handleSelectLang} />
         <div className="pt-4 flex gap-2">
-          {genders.map(item => (
-            <Button
-              color={selectedGender === item.value ? 'primary' : 'default'}
-              onClick={e => handleSelectGender(e, item.value)}
-              key={item.value}
-            >
-              {item.label}
-            </Button>
-          ))}
+          {genders.map(
+            item =>
+              item.show && (
+                <Button
+                  color={selectedGender === item.value ? 'primary' : 'default'}
+                  onClick={e => handleSelectGender(e, item.value)}
+                  key={item.value}
+                >
+                  {item.label}
+                </Button>
+              ),
+          )}
         </div>
         <div className="pt-10">
           <p>语音</p>
-          <Button color="default">晓晨</Button>
+          {voiceNames.map(item => {
+            return (
+              <Button
+                key={item.value}
+                color={item.value === voiceName ? 'primary' : 'default'}
+                className="mt-4 mr-3"
+                onClick={() => setVoiceName(item.value)}
+              >
+                {item.label}
+              </Button>
+            )
+          })}
         </div>
 
-        <div className="pt-10">
+        {/* <div className="pt-10">
           <p>情感</p>
           <Button color="default">助手</Button>
         </div>
@@ -134,7 +163,7 @@ export default function Content() {
         <div className="pt-10">
           <p>扮演</p>
           <Button color="default">扮演</Button>
-        </div>
+        </div> */}
       </div>
     </div>
   )

@@ -18,14 +18,14 @@ export const langs = [
 export const genders = [
   {
     label: '女性',
-    value: 'female',
+    value: 'Female',
   },
   {
     label: '男性',
-    value: 'male',
+    value: 'Male',
   },
   {
     label: '中性',
-    value: 'neuter',
+    value: 'Neuter',
   },
 ]

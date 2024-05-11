@@ -1,16 +1,9 @@
 'use client'
 import React from 'react'
-import {
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
-} from '@nextui-org/react'
+import { faCircleHalfStroke, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faCircleHalfStroke,
-  faCaretDown,
-} from '@fortawesome/free-solid-svg-icons'
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from '@nextui-org/react'
+
 export default function Nav() {
   return (
     <div className="w-full px-6 h-16 flex sticky top-0 lg:relative items-center justify-between bg-slate-50">
@@ -29,10 +22,7 @@ export default function Nav() {
           </DropdownMenu>
         </Dropdown>
 
-        <FontAwesomeIcon
-          icon={faCircleHalfStroke}
-          className="w-4 h-4 cursor-pointer p-2"
-        />
+        <FontAwesomeIcon icon={faCircleHalfStroke} className="w-4 h-4 cursor-pointer p-2" />
       </div>
     </div>
   )
