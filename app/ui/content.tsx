@@ -27,6 +27,7 @@ export default function Content() {
   }
 
   function handleSelectLang(e: React.ChangeEvent<HTMLSelectElement>) {
+    if (!e.target.value) return
     setSelectedLang(e.target.value)
     const data = list?.filter(item => item.Locale === e.target.value)
     setGenders(filterAndDeduplicateByGender(data))
@@ -124,7 +125,7 @@ export default function Content() {
       </div>
 
       <div className="flex-1 flex flex-col">
-        <LanguageSelect langs={langs} handleSelectLang={handleSelectLang} />
+        <LanguageSelect langs={langs} selectedLang={selectedLang} handleSelectLang={handleSelectLang} />
         <div className="pt-4 flex gap-2">
           {genders.map(
             item =>
