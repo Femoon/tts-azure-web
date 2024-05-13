@@ -4,14 +4,14 @@ import { faCircleDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '@nextui-org/button'
 import { Textarea } from '@nextui-org/input'
-import { SpeechConfig, SpeechSynthesizer } from 'microsoft-cognitiveservices-speech-sdk'
+// import textToSpeech from '../lib/api'
 import { listSuffixUrl } from '../lib/constants'
 import { filterAndDeduplicateByGender, saveAs } from '../lib/tools'
 import { GenderItem, LangsItem, ListItem, VoiceNameItem } from '../lib/types'
 import LanguageSelect from './language-select'
 
 export default function Content() {
-  const [input, setInput] = useState('')
+  const [input, setInput] = useState('你好，这是一段测试文字')
   const [isLoading, setLoading] = useState(false)
   const [selectedGender, setSelectedGender] = useState('female')
   const [langs, setLangs] = useState<LangsItem[]>([])
@@ -72,33 +72,39 @@ export default function Content() {
     setVoiceNames(dataForVoiceName.map(item => ({ label: item.LocalName, value: item.ShortName })))
   }, [list, selectedLang, selectedGender])
 
-  function play() {
+  async function play() {
     if (!input.length || isLoading) return
 
     setLoading(true)
+    // const url = await textToSpeech(input, voiceName, selectedLang)
+    // const audio = new Audio(url)
+    // audio.play()
+    // const speechConfig = SpeechConfig.fromSubscription(
+    //   process.env.NEXT_PUBLIC_SPEECH_KEY!,
+    //   process.env.NEXT_PUBLIC_SPEECH_REGION!,
+    // )
+    // speechConfig.speechSynthesisLanguage = selectedLang
+    // speechConfig.speechSynthesisVoiceName = voiceName
 
-    const speechConfig = SpeechConfig.fromSubscription(
-      process.env.NEXT_PUBLIC_SPEECH_KEY!,
-      process.env.NEXT_PUBLIC_SPEECH_REGION!,
-    )
-    speechConfig.speechSynthesisLanguage = selectedLang
-    speechConfig.speechSynthesisVoiceName = voiceName
-
-    const synthesizer = new SpeechSynthesizer(speechConfig)
-    synthesizer.speakTextAsync(
-      input,
-      res => {
-        const { audioData } = res
-        audioBufferRef.current = new Uint8Array(audioData)
-        synthesizer?.close()
-        setLoading(false)
-      },
-      err => {
-        console.error(err)
-        synthesizer?.close()
-        setLoading(false)
-      },
-    )
+    // const synthesizer = new SpeechSynthesizer(speechConfig)
+    // synthesizer.SynthesisCanceled = (s, e) => {
+    //   console.log('canceled')
+    // }
+    // synthesizerRef.current = synthesizer
+    // synthesizerRef.current.speakTextAsync(
+    //   input,
+    //   res => {
+    //     const { audioData } = res
+    //     audioBufferRef.current = new Uint8Array(audioData)
+    //     synthesizerRef.current?.close()
+    //     setLoading(false)
+    //   },
+    //   err => {
+    //     console.error(err)
+    //     synthesizerRef.current?.close()
+    //     setLoading(false)
+    //   },
+    // )
   }
 
   return (
