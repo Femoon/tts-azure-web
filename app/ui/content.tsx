@@ -4,7 +4,7 @@ import { faCircleDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '@nextui-org/button'
 import { Textarea } from '@nextui-org/input'
-// import textToSpeech from '../lib/api'
+import textToSpeech from '../lib/api'
 import { listSuffixUrl } from '../lib/constants'
 import { filterAndDeduplicateByGender, saveAs } from '../lib/tools'
 import { GenderItem, LangsItem, ListItem, VoiceNameItem } from '../lib/types'
@@ -74,37 +74,11 @@ export default function Content() {
 
   async function play() {
     if (!input.length || isLoading) return
-
     setLoading(true)
-    // const url = await textToSpeech(input, voiceName, selectedLang)
-    // const audio = new Audio(url)
-    // audio.play()
-    // const speechConfig = SpeechConfig.fromSubscription(
-    //   process.env.NEXT_PUBLIC_SPEECH_KEY!,
-    //   process.env.NEXT_PUBLIC_SPEECH_REGION!,
-    // )
-    // speechConfig.speechSynthesisLanguage = selectedLang
-    // speechConfig.speechSynthesisVoiceName = voiceName
-
-    // const synthesizer = new SpeechSynthesizer(speechConfig)
-    // synthesizer.SynthesisCanceled = (s, e) => {
-    //   console.log('canceled')
-    // }
-    // synthesizerRef.current = synthesizer
-    // synthesizerRef.current.speakTextAsync(
-    //   input,
-    //   res => {
-    //     const { audioData } = res
-    //     audioBufferRef.current = new Uint8Array(audioData)
-    //     synthesizerRef.current?.close()
-    //     setLoading(false)
-    //   },
-    //   err => {
-    //     console.error(err)
-    //     synthesizerRef.current?.close()
-    //     setLoading(false)
-    //   },
-    // )
+    const url = await textToSpeech(input, voiceName, selectedLang)
+    setLoading(false)
+    const audio = new Audio(url)
+    audio.play()
   }
 
   return (
