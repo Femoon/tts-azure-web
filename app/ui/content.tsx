@@ -4,7 +4,6 @@ import { faCircleDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '@nextui-org/button'
 import { Textarea } from '@nextui-org/input'
-import textToSpeech from '../lib/api'
 import { listSuffixUrl } from '../lib/constants'
 import { filterAndDeduplicateByGender, saveAs } from '../lib/tools'
 import { GenderItem, LangsItem, ListItem, VoiceNameItem } from '../lib/types'
@@ -72,13 +71,23 @@ export default function Content() {
     setVoiceNames(dataForVoiceName.map(item => ({ label: item.LocalName, value: item.ShortName })))
   }, [list, selectedLang, selectedGender])
 
+  async function fetchAudio() {
+    const res = await fetch('/api/audio', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ input, voiceName, selectedLang }),
+    })
+    return res.json()
+  }
+
   async function play() {
     if (!input.length || isLoading) return
     setLoading(true)
-    const url = await textToSpeech(input, voiceName, selectedLang)
+    const url = await fetchAudio()
+    console.log('🚀 ~ play ~ url:', url)
     setLoading(false)
-    const audio = new Audio(url)
-    audio.play()
+    // const audio = new Audio(url)
+    // audio.play()
   }
 
   return (
