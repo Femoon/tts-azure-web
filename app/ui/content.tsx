@@ -4,14 +4,13 @@ import { faCircleDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '@nextui-org/button'
 import { Textarea } from '@nextui-org/input'
-import { listSuffixUrl } from '../lib/constants'
-import { filterAndDeduplicateByGender, saveAs } from '../lib/tools'
+import { base64AudioToBlobUrl, filterAndDeduplicateByGender, saveAs } from '../lib/tools'
 import { GenderItem, LangsItem, ListItem, VoiceNameItem } from '../lib/types'
 import LanguageSelect from './language-select'
 
 export default function Content() {
   const [input, setInput] = useState('你好，这是一段测试文字')
-  const [isLoading, setLoading] = useState(false)
+  const [isLoading, setLoading] = useState<boolean>(false)
   const [selectedGender, setSelectedGender] = useState('female')
   const [langs, setLangs] = useState<LangsItem[]>([])
   const [list, setList] = useState<ListItem[]>([])
@@ -19,7 +18,8 @@ export default function Content() {
   const [voiceName, setVoiceName] = useState('')
   const [voiceNames, setVoiceNames] = useState<VoiceNameItem[]>([])
   const [selectedLang, setSelectedLang] = useState('zh-CN')
-  const audioBufferRef = useRef<Uint8Array | null>(null)
+  const [isPlaying, setIsPlaying] = useState<boolean>(false)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
 
   function handleSelectGender(e: React.MouseEvent<HTMLButtonElement>, gender: string) {
     setSelectedGender(gender)
@@ -32,23 +32,11 @@ export default function Content() {
     setGenders(filterAndDeduplicateByGender(data))
   }
 
-  function handleDownload() {
-    if (!audioBufferRef.current) return
-    saveAs(
-      new Blob([audioBufferRef.current]),
-      new Date().toISOString().replace('T', ' ').replace(':', '_').split('.')[0] + '.mp3',
-    )
-  }
-
   useEffect(() => {
     let ignore = false
     async function getList() {
       if (ignore) return
-      const res = await fetch(`https://${process.env.NEXT_PUBLIC_SPEECH_REGION}${listSuffixUrl}`, {
-        headers: {
-          'Ocp-Apim-Subscription-Key': process.env.NEXT_PUBLIC_SPEECH_KEY!,
-        },
-      })
+      const res = await fetch('/api/list')
       const data: ListItem[] = await res.json()
       setList(data)
       const map = new Map()
@@ -83,11 +71,30 @@ export default function Content() {
   async function play() {
     if (!input.length || isLoading) return
     setLoading(true)
-    const url = await fetchAudio()
-    console.log('🚀 ~ play ~ url:', url)
+    const { base64Audio } = await fetchAudio()
     setLoading(false)
-    // const audio = new Audio(url)
-    // audio.play()
+    const url = base64AudioToBlobUrl(base64Audio)
+    if (!audioRef.current) {
+      audioRef.current = new Audio(url)
+      audioRef.current.onended = () => {
+        setIsPlaying(false)
+      }
+    }
+    setIsPlaying(true)
+    audioRef.current?.play()
+  }
+
+  function pause() {
+    audioRef.current?.pause()
+    audioRef.current = null
+    setIsPlaying(false)
+  }
+
+  async function handleDownload() {
+    if (!audioRef.current || !audioRef.current.src) return
+    const response = await fetch(audioRef.current.src)
+    const blob = await response.blob()
+    saveAs(blob, new Date().toISOString().replace('T', ' ').replace(':', '_').split('.')[0] + '.mp3')
   }
 
   return (
@@ -107,8 +114,8 @@ export default function Content() {
             className="w-8 h-8 text-blue-600 cursor-pointer"
             onClick={handleDownload}
           />
-          <Button color={isLoading ? 'default' : 'primary'} onClick={play}>
-            播放
+          <Button color={isLoading ? 'default' : 'primary'} onClick={isPlaying ? pause : play}>
+            {isPlaying ? '暂停' : '播放'}
           </Button>
         </div>
       </div>
@@ -139,7 +146,7 @@ export default function Content() {
                 className="mt-4 mr-3"
                 onClick={() => setVoiceName(item.value)}
               >
-                {item.label}
+                {item.label.split(' ').join(' - ')}
               </Button>
             )
           })}

@@ -1,9 +1,9 @@
-import { NextApiRequest, NextApiResponse } from 'next'
-
-const url = `https://${process.env.NEXT_PUBLIC_SPEECH_REGION}.tts.speech.microsoft.com/cognitiveservices/v1`
+import { Buffer } from 'buffer'
+import { NextRequest, NextResponse } from 'next/server'
+import { azureCognitiveEndpoint } from '@/app/lib/constants'
 
 async function fetchAudio(token: string, input: string, voiceName: string, selectedLang: string) {
-  const response = await fetch(url, {
+  const response = await fetch(azureCognitiveEndpoint, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -12,17 +12,29 @@ async function fetchAudio(token: string, input: string, voiceName: string, selec
     },
     body: `<speak version='1.0'  xml:lang='${selectedLang}' xml:gender='Female'><voice name='${voiceName}'>${input}</voice></speak>`,
   })
-  return response.json()
+
+  const arrayBuffer = await response.arrayBuffer()
+  const base64String = Buffer.from(arrayBuffer).toString('base64')
+  return base64String
 }
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
-  console.log('post audio')
-  console.log(req.headers.origin)
-  // 获取 token
-  const tokenResponse = await fetch(req.headers.origin + '/api/token')
-  const { token } = await tokenResponse.json()
-  const { input, voiceName, selectedLang } = req.body
-  // 使用 token 发送请求
-  const data = await fetchAudio(token, input, voiceName, selectedLang)
-  res.status(200).json(data)
+export async function POST(req: NextRequest) {
+  try {
+    // fetch token
+    const tokenResponse = await fetch(`${req.nextUrl.origin}/api/token`, { method: 'POST' })
+
+    if (!tokenResponse.ok) {
+      throw new Error(`Failed to fetch token: ${tokenResponse.statusText}`)
+    }
+    const { token } = await tokenResponse.json()
+    const data = await req.json()
+    const { input, voiceName, selectedLang } = data
+
+    // use token to request
+    const base64Audio = await fetchAudio(token, input, voiceName, selectedLang)
+    return NextResponse.json({ base64Audio })
+  } catch (error) {
+    console.error('Error fetching audio:', error)
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
+  }
 }
