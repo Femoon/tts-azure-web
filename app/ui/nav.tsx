@@ -1,9 +1,10 @@
 'use client'
 import { useState } from 'react'
-import { faCircleHalfStroke, faCaretDown } from '@fortawesome/free-solid-svg-icons'
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Selection } from '@nextui-org/react'
 import { langs } from '../lib/constants'
+import { ThemeToggle } from './theme-toggle'
 
 export default function Nav() {
   const [selectedKey, setSelectedKey] = useState<Selection>(new Set(['cn']))
@@ -14,7 +15,7 @@ export default function Nav() {
     setSelectedKey(key)
   }
   return (
-    <div className="w-full px-6 h-16 flex sticky top-0 lg:relative items-center justify-between bg-slate-50">
+    <div className="w-full px-6 h-16 flex sticky top-0 lg:relative items-center justify-between border-b border-slate-900/10 bg-[var(--nav-background)]">
       <div className="cursor-pointer select-none">Home</div>
       <div className="flex items-center gap-3">
         <Dropdown>
@@ -40,7 +41,7 @@ export default function Nav() {
           </DropdownMenu>
         </Dropdown>
 
-        <FontAwesomeIcon icon={faCircleHalfStroke} className="w-4 h-4 cursor-pointer p-2" />
+        <ThemeToggle />
       </div>
     </div>
   )
