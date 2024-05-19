@@ -15,7 +15,7 @@ export default function Nav() {
     setSelectedKey(key)
   }
   return (
-    <div className="w-full px-6 h-16 flex sticky top-0 lg:relative items-center justify-between border-b border-slate-900/10 bg-[var(--nav-background)]">
+    <div className="w-full px-6 h-16 flex sticky top-0 items-center justify-between z-[100] border-b border-light-border dark:border-dark-border bg-nav-light dark:bg-nav-dark">
       <div className="cursor-pointer select-none">Home</div>
       <div className="flex items-center gap-3">
         <Dropdown>

@@ -14,9 +14,17 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      backgroundColor: {
+        'nav-light': '#fff',
+        'nav-dark': 'rgb(28, 33, 40)',
+      },
+      borderColor: {
+        'light-border': '#fff',
+        'dark-border': 'rgb(68, 76, 86)',
+      },
     },
   },
-  darkMode: 'class',
+  darkMode: ['class', '[data-theme="dark"]'],
   plugins: [nextui()],
 }
 export default config

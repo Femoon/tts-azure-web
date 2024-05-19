@@ -117,7 +117,7 @@ export default function Content() {
           value={input}
           onChange={e => setInput(e.target.value)}
         />
-        <p className="text-right pt-2">0/7000</p>
+        <p className="text-right pt-2">{input.length}/7000</p>
         <div className="flex justify-between items-center pt-6">
           <FontAwesomeIcon
             icon={faCircleDown}

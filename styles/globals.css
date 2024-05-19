@@ -6,14 +6,12 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --nav-background: 255, 255, 255;
 }
 
 [data-theme='dark'] {
   --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: #1c2128;
-  --background-end-rgb: #1c2128;
-  --nav-background: 0, 0, 0;
+  --background-start-rgb: 28, 33, 40;
+  --background-end-rgb: 28, 33, 40;
 }
 
 body {
