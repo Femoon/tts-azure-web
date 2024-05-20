@@ -4,11 +4,15 @@ import { faCircleDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '@nextui-org/button'
 import { Textarea } from '@nextui-org/input'
-import { base64AudioToBlobUrl, filterAndDeduplicateByGender, saveAs } from '../lib/tools'
-import { GenderItem, LangsItem, ListItem, VoiceNameItem } from '../lib/types'
+import { base64AudioToBlobUrl, filterAndDeduplicateByGender, saveAs } from '../../lib/tools'
+import { GenderItem, LangsItem, ListItem, VoiceNameItem } from '../../lib/types'
 import LanguageSelect from './language-select'
+// import { Locale } from '@/i18n-config'
+// import { getDictionary } from '@/get-dictionary'
 
 export default function Content() {
+  // const dictionary = (async () => await getDictionary(lang))()
+  console.log(navigator.language)
   const [input, setInput] = useState('你好，这是一段测试文字')
   const [isLoading, setLoading] = useState<boolean>(false)
   const [selectedGender, setSelectedGender] = useState('Female')

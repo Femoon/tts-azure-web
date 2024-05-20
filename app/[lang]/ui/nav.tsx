@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Selection } from '@nextui-org/react'
-import { langs } from '../lib/constants'
+import { langs } from '../../lib/constants'
 import { ThemeToggle } from './theme-toggle'
 
 export default function Nav() {

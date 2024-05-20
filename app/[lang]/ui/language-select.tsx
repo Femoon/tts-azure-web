@@ -1,5 +1,5 @@
 import { Autocomplete, AutocompleteItem } from '@nextui-org/react'
-import { LanguageSelectProps } from '../lib/types'
+import { LanguageSelectProps } from '../../lib/types'
 
 export default function LanguageSelect({ langs, selectedLang, handleSelectLang }: LanguageSelectProps) {
   return (
