@@ -55,8 +55,14 @@ body {
 }
 
 .dark .sun-and-moon > .moon > circle {
-  transform: translate(0);
-  cx: 17;
+  transform: translate(-7px);
+}
+
+@supports (cx: 1) {
+  .dark .sun-and-moon > .moon > circle {
+    transform: translate(0);
+    cx: 17;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -71,7 +77,13 @@ body {
   }
 
   .sun-and-moon .moon > circle {
-    transition: cx 0.25s ease-out;
+    transition: transform 0.25s ease-out;
+  }
+
+  @supports (cx: 1) {
+    .sun-and-moon .moon > circle {
+      transition: cx 0.25s ease-out;
+    }
   }
 
   .dark .sun-and-moon > .sun {

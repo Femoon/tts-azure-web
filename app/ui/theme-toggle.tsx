@@ -13,6 +13,12 @@ export function ThemeToggle() {
   const toggleTheme = (event: MouseEvent) => {
     const newTheme = theme === 'light' ? 'dark' : 'light'
     setTheme(newTheme)
+    // @ts-ignore
+    // document.startViewTransition fallback
+    if (!document.startViewTransition) {
+      document.documentElement.classList.toggle('dark', newTheme === 'dark')
+      return
+    }
 
     const x = event.clientX
     const y = event.clientY
