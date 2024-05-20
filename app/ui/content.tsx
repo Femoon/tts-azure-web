@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { Key, useEffect, useRef, useState } from 'react'
 import { faCircleDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '@nextui-org/button'
@@ -26,10 +26,10 @@ export default function Content() {
     setSelectedGender(gender)
   }
 
-  function handleSelectLang(e: React.ChangeEvent<HTMLSelectElement>) {
-    if (!e.target.value) return
-    setSelectedLang(e.target.value)
-    const data = list?.filter(item => item.Locale === e.target.value)
+  function handleSelectLang(value: Key | null) {
+    if (!value) return
+    setSelectedLang(value.toString())
+    const data = list?.filter(item => item.Locale === value)
     setGenders(filterAndDeduplicateByGender(data))
   }
 

@@ -1,3 +1,5 @@
+import { Key } from 'react'
+
 export interface ListItem {
   Name: string
   DisplayName: string
@@ -39,5 +41,5 @@ export interface VoiceNameItem {
 export interface LanguageSelectProps {
   langs: LangsItem[]
   selectedLang: string
-  handleSelectLang: (e: React.ChangeEvent<HTMLSelectElement>) => void
+  handleSelectLang: (value: Key | null) => void
 }
