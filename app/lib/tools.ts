@@ -44,7 +44,6 @@ export function filterAndDeduplicateByGender(data: ListItem[]): GenderResult[] {
     }
     return gender
   })
-
   return finalResult
 }
 

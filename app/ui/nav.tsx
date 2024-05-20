@@ -17,7 +17,7 @@ export default function Nav() {
   return (
     <div className="w-full px-6 h-16 flex sticky top-0 items-center justify-between z-[100] border-b border-light-border dark:border-dark-border bg-nav-light dark:bg-nav-dark">
       <div className="cursor-pointer select-none">Home</div>
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-6">
         <Dropdown>
           <DropdownTrigger>
             <div className="flex items-center gap-2 cursor-pointer select-none">

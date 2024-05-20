@@ -20,6 +20,7 @@ export default function Content() {
   const [selectedLang, setSelectedLang] = useState('zh-CN')
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
+  const cacheConfigRef = useRef<string | null>(null)
 
   function handleSelectGender(e: React.MouseEvent<HTMLButtonElement>, gender: string) {
     setSelectedGender(gender)
@@ -37,7 +38,7 @@ export default function Content() {
     async function getList() {
       try {
         const res = await fetch('/api/list')
-        // fetch data can't stop, just stop set data
+        // In the development environment, fetch data can't stop, just stop setting the data a second time
         if (ignore) return
         const data: ListItem[] = await res.json()
         setList(data)
@@ -80,23 +81,39 @@ export default function Content() {
 
   async function play() {
     if (!input.length || isLoading) return
-    setLoading(true)
-    const { base64Audio } = await fetchAudio()
-    setLoading(false)
-    const url = base64AudioToBlobUrl(base64Audio)
-    if (!audioRef.current) {
-      audioRef.current = new Audio(url)
-      audioRef.current.onended = () => {
-        setIsPlaying(false)
-      }
+    const cacheString = input + voiceName + selectedLang
+    if (cacheConfigRef.current === cacheString) {
+      setIsPlaying(true)
+      audioRef.current?.play()
+      return
     }
-    setIsPlaying(true)
-    audioRef.current?.play()
+    audioRef.current = null
+    setLoading(true)
+
+    try {
+      const { base64Audio } = await fetchAudio()
+      const url = base64AudioToBlobUrl(base64Audio)
+      if (!audioRef.current) {
+        audioRef.current = new Audio(url)
+        audioRef.current.onended = () => {
+          setIsPlaying(false)
+        }
+      }
+      setIsPlaying(true)
+      audioRef.current?.play()
+      cacheConfigRef.current = cacheString
+    } catch (err) {
+      console.error('Error fetching audio:', err)
+    } finally {
+      setLoading(false)
+    }
   }
 
   function pause() {
-    audioRef.current?.pause()
-    audioRef.current = null
+    if (audioRef.current) {
+      audioRef.current.pause()
+      audioRef.current.currentTime = 0
+    }
     setIsPlaying(false)
   }
 
@@ -108,9 +125,10 @@ export default function Content() {
   }
 
   return (
-    <div className="grow overflow-y-auto flex justify-center gap-10 py-5 px-6 sm:px-10 md:max-2xl:px-20 flex-col md:flex-row">
+    <div className="grow overflow-y-auto flex justify-center gap-10 py-5 px-6 sm:px-10 md:px-10 lg:px-20 xl:px-40 2xl:px-50 flex-col md:flex-row">
       <div className="flex-1">
         <Textarea
+          isRequired
           size="lg"
           minRows={10}
           placeholder="请输入文本"
@@ -131,7 +149,9 @@ export default function Content() {
       </div>
 
       <div className="flex-1 flex flex-col">
-        <LanguageSelect langs={langs} handleSelectLang={handleSelectLang} />
+        {langs.length ? (
+          <LanguageSelect langs={langs} selectedLang={selectedLang} handleSelectLang={handleSelectLang} />
+        ) : null}
         <div className="pt-4 flex gap-2">
           {genders.map(
             item =>
@@ -147,7 +167,7 @@ export default function Content() {
           )}
         </div>
         <div className="pt-10">
-          <p>语音</p>
+          {langs.length ? <p>语音</p> : null}
           <div className="flex flex-wrap gap-2">
             {voiceNames.map(item => {
               return (

@@ -38,5 +38,6 @@ export interface VoiceNameItem {
 
 export interface LanguageSelectProps {
   langs: LangsItem[]
+  selectedLang: string
   handleSelectLang: (e: React.ChangeEvent<HTMLSelectElement>) => void
 }
