@@ -1,17 +1,46 @@
 import React, { useState, useEffect } from 'react'
+import useTheme from '../lib/useTheme'
 
 export function ThemeToggle() {
   const [theme, setTheme] = useState('light')
 
+  const browserTheme = useTheme()
   useEffect(() => {
-    // 在组件挂载时应用当前主题
-    document.documentElement.setAttribute('data-theme', theme)
-  }, [theme])
+    setTheme(browserTheme)
+    document.documentElement.classList.toggle('dark', browserTheme === 'dark')
+  }, [browserTheme])
 
-  const toggleTheme = () => {
+  const toggleTheme = (event: MouseEvent) => {
     const newTheme = theme === 'light' ? 'dark' : 'light'
     setTheme(newTheme)
-    document.documentElement.setAttribute('data-theme', newTheme)
+
+    const x = event.clientX
+    const y = event.clientY
+    const endRadius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y))
+
+    let isDark: boolean
+
+    // @ts-ignore
+    const transition = document.startViewTransition(() => {
+      const root = document.documentElement
+      isDark = root.classList.contains('dark')
+      root.classList.remove(isDark ? 'dark' : 'light')
+      root.classList.add(isDark ? 'light' : 'dark')
+    })
+
+    transition.ready.then(() => {
+      const clipPath = [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`]
+      document.documentElement.animate(
+        {
+          clipPath: isDark ? clipPath.reverse() : clipPath,
+        },
+        {
+          duration: 500,
+          easing: 'ease-in',
+          pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)',
+        },
+      )
+    })
   }
 
   return (
@@ -22,7 +51,7 @@ export function ThemeToggle() {
       title="Toggles light & dark"
       aria-label={theme}
       aria-live="polite"
-      onClick={toggleTheme}
+      onClick={e => toggleTheme(e.nativeEvent)}
     >
       <svg className="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
         <mask className="moon" id="moon-mask">

@@ -108,7 +108,7 @@ export default function Content() {
   }
 
   return (
-    <div className="grow overflow-y-auto flex justify-center gap-10 py-5 px-8 sm:px-10 md:max-2xl:px-20 flex-col md:flex-row">
+    <div className="grow overflow-y-auto flex justify-center gap-10 py-5 px-6 sm:px-10 md:max-2xl:px-20 flex-col md:flex-row">
       <div className="flex-1">
         <Textarea
           size="lg"
