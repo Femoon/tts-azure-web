@@ -7,12 +7,9 @@ import { Textarea } from '@nextui-org/input'
 import { base64AudioToBlobUrl, filterAndDeduplicateByGender, saveAs } from '../../lib/tools'
 import { GenderItem, LangsItem, ListItem, VoiceNameItem } from '../../lib/types'
 import LanguageSelect from './language-select'
-// import { Locale } from '@/i18n-config'
-// import { getDictionary } from '@/get-dictionary'
+import { type getDictionary } from '@/get-dictionary'
 
-export default function Content() {
-  // const dictionary = (async () => await getDictionary(lang))()
-  console.log(navigator.language)
+export default function Content({ t }: { t: Awaited<ReturnType<typeof getDictionary>> }) {
   const [input, setInput] = useState('你好，这是一段测试文字')
   const [isLoading, setLoading] = useState<boolean>(false)
   const [selectedGender, setSelectedGender] = useState('Female')
@@ -135,7 +132,7 @@ export default function Content() {
           isRequired
           size="lg"
           minRows={10}
-          placeholder="请输入文本"
+          placeholder={t['input-text']}
           value={input}
           onChange={e => setInput(e.target.value)}
         />
@@ -147,14 +144,14 @@ export default function Content() {
             onClick={handleDownload}
           />
           <Button color={isLoading ? 'default' : 'primary'} onClick={isPlaying ? pause : play}>
-            {isPlaying ? '暂停' : '播放'}
+            {isPlaying ? t.pause : t.play}
           </Button>
         </div>
       </div>
 
       <div className="flex-1 flex flex-col">
         {langs.length ? (
-          <LanguageSelect langs={langs} selectedLang={selectedLang} handleSelectLang={handleSelectLang} />
+          <LanguageSelect t={t} langs={langs} selectedLang={selectedLang} handleSelectLang={handleSelectLang} />
         ) : null}
         <div className="pt-4 flex gap-2">
           {genders.map(
@@ -165,13 +162,13 @@ export default function Content() {
                   onClick={e => handleSelectGender(e, item.value)}
                   key={item.value}
                 >
-                  {item.label}
+                  {t[item.label]}
                 </Button>
               ),
           )}
         </div>
         <div className="pt-10">
-          {langs.length ? <p>语音</p> : null}
+          {langs.length ? <p>{t.voice}</p> : null}
           <div className="flex flex-wrap gap-2">
             {voiceNames.map(item => {
               return (

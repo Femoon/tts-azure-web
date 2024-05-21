@@ -1,4 +1,5 @@
 import { Key } from 'react'
+import { getDictionary } from '@/get-dictionary'
 
 export interface ListItem {
   Name: string
@@ -39,6 +40,7 @@ export interface VoiceNameItem {
 }
 
 export interface LanguageSelectProps {
+  t: Awaited<ReturnType<typeof getDictionary>>
   langs: LangsItem[]
   selectedLang: string
   handleSelectLang: (value: Key | null) => void

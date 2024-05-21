@@ -17,15 +17,15 @@ export const langs = [
 
 export const genders = [
   {
-    label: '女性',
+    label: 'female',
     value: 'Female',
   },
   {
-    label: '男性',
+    label: 'male',
     value: 'Male',
   },
   {
-    label: '中性',
+    label: 'neuter',
     value: 'Neuter',
   },
 ]

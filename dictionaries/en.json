@@ -1,4 +1,10 @@
 {
-  "play": "play",
-  "pause": "pause"
+  "play": "Play",
+  "pause": "Pause",
+  "input-text": "Please enter text",
+  "select-language": "Please select language",
+  "voice": "Voice",
+  "male": "Man",
+  "female": "Woman",
+  "neuter": "Neuter"
 }
