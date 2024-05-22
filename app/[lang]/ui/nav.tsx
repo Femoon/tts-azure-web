@@ -1,10 +1,9 @@
 'use client'
-import { useEffect, useMemo, useState } from 'react'
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useEffect, useState } from 'react'
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Selection } from '@nextui-org/react'
 import { usePathname, useRouter } from 'next/navigation'
 import { langs } from '../../lib/constants'
+import LanguageIcon from './icon'
 import { ThemeToggle } from './theme-toggle'
 import { Locale } from '@/i18n-config'
 
@@ -13,11 +12,6 @@ export default function Nav() {
 
   const router = useRouter()
   const pathname = usePathname()
-
-  const selectedValue = useMemo(() => {
-    const key = Array.from(selectedKeys).join(', ').replaceAll('_', ' ')
-    return langs.find(item => item.value === key)?.label
-  }, [selectedKeys])
 
   useEffect(() => {
     const locale = pathname.split('/')[1]
@@ -40,16 +34,20 @@ export default function Nav() {
       router.push(newPath)
     }
   }
+  const handleClickTitle = () => {
+    router.refresh()
+  }
 
   return (
     <div className="w-full px-6 h-16 flex sticky top-0 items-center justify-between z-[100] border-b border-light-border dark:border-dark-border bg-nav-light dark:bg-nav-dark">
-      <div className="cursor-pointer select-none">Home</div>
-      <div className="flex items-center gap-6">
+      <div className="cursor-pointer select-none" onClick={handleClickTitle}>
+        TTS Web
+      </div>
+      <div className="flex items-center gap-3">
         <Dropdown>
           <DropdownTrigger>
-            <div className="flex items-center gap-2 cursor-pointer select-none">
-              <div>{selectedValue}</div>
-              <FontAwesomeIcon icon={faCaretDown} />
+            <div className="p-3 cursor-pointer hover:text-[#0ea5e9]">
+              <LanguageIcon />
             </div>
           </DropdownTrigger>
           <DropdownMenu

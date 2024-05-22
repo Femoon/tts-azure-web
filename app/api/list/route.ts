@@ -6,6 +6,9 @@ async function fetchList() {
     headers: {
       'Ocp-Apim-Subscription-Key': process.env.NEXT_PUBLIC_SPEECH_KEY!,
     },
+    next: {
+      revalidate: 60 * 60, // 1 hour
+    },
   })
   const data = await res.json()
   return data

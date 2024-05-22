@@ -1,21 +1,21 @@
 'use client'
-import { Key, useEffect, useRef, useState } from 'react'
+import { Key, useCallback, useEffect, useRef, useState } from 'react'
 import { faCircleDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '@nextui-org/button'
-import { Textarea } from '@nextui-org/input'
 import { base64AudioToBlobUrl, filterAndDeduplicateByGender, saveAs } from '../../lib/tools'
 import { GenderItem, LangsItem, ListItem, VoiceNameItem } from '../../lib/types'
+import InputText from './input-text'
 import LanguageSelect from './language-select'
 import { type getDictionary } from '@/get-dictionary'
 
 export default function Content({ t }: { t: Awaited<ReturnType<typeof getDictionary>> }) {
   const [input, setInput] = useState('你好，这是一段测试文字')
   const [isLoading, setLoading] = useState<boolean>(false)
-  const [selectedGender, setSelectedGender] = useState('Female')
   const [langs, setLangs] = useState<LangsItem[]>([])
   const [list, setList] = useState<ListItem[]>([])
   const [genders, setGenders] = useState<GenderItem[]>([])
+  const [selectedGender, setSelectedGender] = useState('Female')
   const [voiceName, setVoiceName] = useState('')
   const [voiceNames, setVoiceNames] = useState<VoiceNameItem[]>([])
   const [selectedLang, setSelectedLang] = useState('zh-CN')
@@ -23,16 +23,19 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const cacheConfigRef = useRef<string | null>(null)
 
-  function handleSelectGender(e: React.MouseEvent<HTMLButtonElement>, gender: string) {
+  const handleSelectGender = (e: React.MouseEvent<HTMLButtonElement>, gender: string) => {
     setSelectedGender(gender)
   }
 
-  function handleSelectLang(value: Key | null) {
-    if (!value) return
-    setSelectedLang(value.toString())
-    const data = list?.filter(item => item.Locale === value)
-    setGenders(filterAndDeduplicateByGender(data))
-  }
+  const handleSelectLang = useCallback(
+    (value: Key | null) => {
+      if (!value) return
+      setSelectedLang(value.toString())
+      const data = list?.filter(item => item.Locale === value)
+      setGenders(filterAndDeduplicateByGender(data))
+    },
+    [list],
+  )
 
   useEffect(() => {
     let ignore = false
@@ -71,7 +74,7 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
     _voiceNames.length && setVoiceName(_voiceNames[0].value)
   }, [list, selectedLang, selectedGender])
 
-  async function fetchAudio() {
+  const fetchAudio = async () => {
     const res = await fetch('/api/audio', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -80,7 +83,7 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
     return res.json()
   }
 
-  async function play() {
+  const play = async () => {
     if (!input.length || isLoading) return
     const cacheString = input + voiceName + selectedLang
     if (cacheConfigRef.current === cacheString) {
@@ -110,7 +113,7 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
     }
   }
 
-  function pause() {
+  const pause = () => {
     if (audioRef.current) {
       audioRef.current.pause()
       audioRef.current.currentTime = 0
@@ -118,7 +121,7 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
     setIsPlaying(false)
   }
 
-  async function handleDownload() {
+  const handleDownload = async () => {
     if (!audioRef.current || !audioRef.current.src) return
     const response = await fetch(audioRef.current.src)
     const blob = await response.blob()
@@ -128,14 +131,7 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
   return (
     <div className="grow overflow-y-auto flex justify-center gap-10 py-5 px-6 sm:px-10 md:px-10 lg:px-20 xl:px-40 2xl:px-50 flex-col md:flex-row">
       <div className="flex-1">
-        <Textarea
-          isRequired
-          size="lg"
-          minRows={10}
-          placeholder={t['input-text']}
-          value={input}
-          onChange={e => setInput(e.target.value)}
-        />
+        <InputText t={t} input={input} setInput={setInput} />
         <p className="text-right pt-2">{input.length}/7000</p>
         <div className="flex justify-between items-center pt-6">
           <FontAwesomeIcon

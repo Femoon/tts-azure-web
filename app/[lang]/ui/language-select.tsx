@@ -1,7 +1,8 @@
+import { memo } from 'react'
 import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete'
 import { LanguageSelectProps } from '../../lib/types'
 
-export default function LanguageSelect({ t, langs, selectedLang, handleSelectLang }: LanguageSelectProps) {
+const LanguageSelect = ({ t, langs, selectedLang, handleSelectLang }: LanguageSelectProps) => {
   return (
     <Autocomplete
       label={t['select-language']}
@@ -17,3 +18,5 @@ export default function LanguageSelect({ t, langs, selectedLang, handleSelectLan
     </Autocomplete>
   )
 }
+
+export default memo(LanguageSelect)
