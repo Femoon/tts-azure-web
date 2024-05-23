@@ -2,21 +2,39 @@ import { useState, useEffect } from 'react'
 
 type ThemeType = 'light' | 'dark'
 
-function useTheme(): ThemeType {
-  const [theme, setTheme] = useState<ThemeType>('light')
+function useTheme(): [ThemeType, (newTheme: ThemeType) => void] {
+  const [theme, setThemeState] = useState<ThemeType>('light')
+
+  const setTheme = (newTheme: ThemeType) => {
+    setThemeState(newTheme)
+    window.localStorage.setItem('theme', newTheme)
+    const root = document.documentElement
+    const isDark = newTheme === 'dark'
+    root.classList.remove(isDark ? 'light' : 'dark')
+    root.classList.add(isDark ? 'dark' : 'light')
+  }
 
   useEffect(() => {
-    // 仅在客户端执行的代码
-    if (typeof window !== 'undefined') {
-      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-      const handleChange = () => setTheme(mediaQuery.matches ? 'dark' : 'light')
-      setTheme(mediaQuery.matches ? 'dark' : 'light') // 初始化时设置主题
-      mediaQuery.addEventListener('change', handleChange)
-      return () => mediaQuery.removeEventListener('change', handleChange)
+    // client only
+    if (typeof window === 'undefined') return
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    if (window.localStorage.getItem('theme')) {
+      const storedTheme = window.localStorage.getItem('theme') as ThemeType | null
+      setTheme(storedTheme || 'light')
+    } else {
+      setTheme(mediaQuery.matches ? 'dark' : 'light') // init theme
     }
+
+    // listen browser theme change
+    const handleChange = () => {
+      setTheme(mediaQuery.matches ? 'dark' : 'light')
+    }
+    mediaQuery.addEventListener('change', handleChange)
+    return () => mediaQuery.removeEventListener('change', handleChange)
   }, [])
 
-  return theme
+  return [theme, setTheme]
 }
 
 export default useTheme

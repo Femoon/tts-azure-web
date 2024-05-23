@@ -1,22 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import useTheme from '../../lib/useTheme'
+import useTheme from '@/app/lib/useTheme'
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState('light')
-
-  const browserTheme = useTheme()
-  useEffect(() => {
-    setTheme(browserTheme)
-    document.documentElement.classList.toggle('dark', browserTheme === 'dark')
-  }, [browserTheme])
+  const [theme, setTheme] = useTheme()
 
   const toggleTheme = (event: MouseEvent) => {
     const newTheme = theme === 'light' ? 'dark' : 'light'
-    setTheme(newTheme)
+
     // @ts-ignore
     // document.startViewTransition fallback
     if (!document.startViewTransition) {
-      document.documentElement.classList.toggle('dark', newTheme === 'dark')
+      setTheme(newTheme)
       return
     }
 
@@ -24,15 +17,12 @@ export function ThemeToggle() {
     const y = event.clientY
     const endRadius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y))
 
-    let isDark: boolean
-
     // @ts-ignore
     const transition = document.startViewTransition(() => {
-      const root = document.documentElement
-      isDark = root.classList.contains('dark')
-      root.classList.remove(isDark ? 'dark' : 'light')
-      root.classList.add(isDark ? 'light' : 'dark')
+      setTheme(newTheme)
     })
+
+    const isDark: boolean = theme === 'dark'
 
     transition.ready.then(() => {
       const clipPath = [`circle(0px at ${x}px ${y}px)`, `circle(${endRadius}px at ${x}px ${y}px)`]

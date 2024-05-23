@@ -48,7 +48,6 @@ export function filterAndDeduplicateByGender(data: ListItem[]): GenderResult[] {
 }
 
 export function base64AudioToBlobUrl(base64Audio: string) {
-  // 将 Base64 字符串转换为二进制数据
   const binaryString = atob(base64Audio)
   const len = binaryString.length
   const bytes = new Uint8Array(len)
@@ -56,7 +55,6 @@ export function base64AudioToBlobUrl(base64Audio: string) {
     bytes[i] = binaryString.charCodeAt(i)
   }
 
-  // 创建 Blob 并生成 URL
   const blob = new Blob([bytes], { type: 'audio/mp3' })
   return URL.createObjectURL(blob)
 }
