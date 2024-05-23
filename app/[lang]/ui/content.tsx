@@ -129,8 +129,8 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
   }
 
   return (
-    <div className="grow overflow-y-auto flex justify-center gap-10 py-5 px-6 sm:px-10 md:px-10 lg:px-20 xl:px-40 2xl:px-50 flex-col md:flex-row">
-      <div className="flex-1">
+    <div className="grow overflow-y-auto flex md:justify-center gap-10 py-5 px-6 sm:px-10 md:px-10 lg:px-20 xl:px-40 2xl:px-50 flex-col md:flex-row">
+      <div className="md:flex-1">
         <InputText t={t} input={input} setInput={setInput} />
         <p className="text-right pt-2">{input.length}/7000</p>
         <div className="flex justify-between items-center pt-6">
@@ -145,7 +145,7 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
         </div>
       </div>
 
-      <div className="flex-1 flex flex-col">
+      <div className="md:flex-1 flex flex-col">
         {langs.length ? (
           <LanguageSelect t={t} langs={langs} selectedLang={selectedLang} handleSelectLang={handleSelectLang} />
         ) : null}
