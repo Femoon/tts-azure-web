@@ -1,3 +1,4 @@
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Metadata } from 'next'
 import { Providers } from './providers'
 import '@/styles/globals.css'
@@ -16,6 +17,7 @@ export default function RootLayout({ children, params }: { children: React.React
   return (
     <html lang={params.lang}>
       <body>
+        <SpeedInsights />
         <Providers>{children}</Providers>
       </body>
     </html>
