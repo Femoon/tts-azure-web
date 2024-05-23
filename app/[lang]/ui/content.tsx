@@ -1,6 +1,6 @@
 'use client'
 import { Key, useCallback, useEffect, useRef, useState } from 'react'
-import { faCircleDown } from '@fortawesome/free-solid-svg-icons'
+import { faCircleDown, faCirclePause, faCirclePlay } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '@nextui-org/button'
 import { base64AudioToBlobUrl, filterAndDeduplicateByGender, saveAs } from '../../lib/tools'
@@ -139,9 +139,11 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
             className="w-8 h-8 text-blue-600 cursor-pointer"
             onClick={handleDownload}
           />
-          <Button color={isLoading ? 'default' : 'primary'} onClick={isPlaying ? pause : play}>
-            {isPlaying ? t.pause : t.play}
-          </Button>
+          <FontAwesomeIcon
+            icon={isPlaying ? faCirclePause : faCirclePlay}
+            className={`w-8 h-8 text-blue-${isLoading ? '600/50' : '600'} cursor-pointer`}
+            onClick={isPlaying ? pause : play}
+          />
         </div>
       </div>
 
