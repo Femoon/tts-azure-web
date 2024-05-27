@@ -10,7 +10,7 @@ async function fetchToken() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Ocp-Apim-Subscription-Key': process.env.NEXT_PUBLIC_SPEECH_KEY!,
+        'Ocp-Apim-Subscription-Key': process.env.SPEECH_KEY!,
       },
     })
     if (!res.ok) {
