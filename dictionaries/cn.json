@@ -6,5 +6,7 @@
   "voice": "语音",
   "male": "男性",
   "female": "女性",
-  "neuter": "中性"
+  "neuter": "中性",
+  "style": "风格",
+  "role": "角色"
 }

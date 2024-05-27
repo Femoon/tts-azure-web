@@ -6,5 +6,7 @@
   "voice": "Voice",
   "male": "Man",
   "female": "Woman",
-  "neuter": "Neuter"
+  "neuter": "Neuter",
+  "style": "Style",
+  "role": "Role"
 }

@@ -1,10 +1,10 @@
 'use client'
-import { Key, useCallback, useEffect, useRef, useState } from 'react'
+import { Key, useEffect, useMemo, useRef, useState } from 'react'
 import { faCircleDown, faCirclePause, faCirclePlay } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '@nextui-org/button'
 import { base64AudioToBlobUrl, filterAndDeduplicateByGender, saveAs } from '../../lib/tools'
-import { GenderItem, LangsItem, ListItem, VoiceNameItem } from '../../lib/types'
+import { ListItem } from '../../lib/types'
 import InputText from './components/input-text'
 import LanguageSelect from './components/language-select'
 import { type getDictionary } from '@/get-dictionary'
@@ -12,12 +12,9 @@ import { type getDictionary } from '@/get-dictionary'
 export default function Content({ t }: { t: Awaited<ReturnType<typeof getDictionary>> }) {
   const [input, setInput] = useState('你好，这是一段测试文字')
   const [isLoading, setLoading] = useState<boolean>(false)
-  const [langs, setLangs] = useState<LangsItem[]>([])
   const [list, setList] = useState<ListItem[]>([])
-  const [genders, setGenders] = useState<GenderItem[]>([])
   const [selectedGender, setSelectedGender] = useState('Female')
-  const [voiceName, setVoiceName] = useState('')
-  const [voiceNames, setVoiceNames] = useState<VoiceNameItem[]>([])
+  const [selectVoiceName, setSelectVoiceName] = useState('')
   const [selectedLang, setSelectedLang] = useState('zh-CN')
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -27,15 +24,29 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
     setSelectedGender(gender)
   }
 
-  const handleSelectLang = useCallback(
-    (value: Key | null) => {
-      if (!value) return
-      setSelectedLang(value.toString())
-      const data = list?.filter(item => item.Locale === value)
-      setGenders(filterAndDeduplicateByGender(data))
-    },
-    [list],
-  )
+  const langs = useMemo(() => {
+    const map = new Map()
+    list.forEach(item => {
+      map.set(item.Locale, item.LocaleName)
+    })
+    return [...map].map(([value, label]) => ({ label, value }))
+  }, [list])
+
+  const genders = useMemo(() => {
+    const data = list?.filter(item => item.Locale === selectedLang)
+    return filterAndDeduplicateByGender(data)
+  }, [list, selectedLang])
+
+  const voiceNames = useMemo(() => {
+    const dataForSelectedLang = list.filter(item => item.Locale === selectedLang)
+    const dataForVoiceName = dataForSelectedLang.filter(item => item.Gender === selectedGender)
+    return dataForVoiceName.map(item => ({ label: item.LocalName, value: item.ShortName }))
+  }, [list, selectedLang, selectedGender])
+
+  const handleSelectLang = (value: Key | null) => {
+    if (!value) return
+    setSelectedLang(value.toString())
+  }
 
   useEffect(() => {
     let ignore = false
@@ -46,12 +57,6 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
         if (ignore) return
         const data: ListItem[] = await res.json()
         setList(data)
-        const map = new Map()
-        data.forEach(item => {
-          map.set(item.Locale, item.LocaleName)
-        })
-        const result = [...map].map(([value, label]) => ({ label, value }))
-        setLangs(result)
       } catch (error) {
         console.error('Failed to fetch list:', error)
       }
@@ -62,30 +67,25 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
     }
   }, [])
 
+  // set default voice name
   useEffect(() => {
-    // Avoid list data initialization effect
-    if (!list.length) return
-    const dataForSelectedLang = list.filter(item => item.Locale === selectedLang)
-    const _genders = filterAndDeduplicateByGender(dataForSelectedLang)
-    setGenders(_genders)
-    const dataForVoiceName = dataForSelectedLang.filter(item => item.Gender === selectedGender)
-    const _voiceNames = dataForVoiceName.map(item => ({ label: item.LocalName, value: item.ShortName }))
-    setVoiceNames(_voiceNames)
-    _voiceNames.length && setVoiceName(_voiceNames[0].value)
-  }, [list, selectedLang, selectedGender])
+    if (voiceNames.length) {
+      setSelectVoiceName(voiceNames[0].value)
+    }
+  }, [voiceNames])
 
   const fetchAudio = async () => {
     const res = await fetch('/api/audio', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ input, voiceName, selectedLang }),
+      body: JSON.stringify({ input, selectVoiceName, selectedLang }),
     })
     return res.json()
   }
 
   const play = async () => {
     if (!input.length || isLoading) return
-    const cacheString = input + voiceName + selectedLang
+    const cacheString = input + selectVoiceName + selectedLang
     if (cacheConfigRef.current === cacheString) {
       setIsPlaying(true)
       audioRef.current?.play()
@@ -170,9 +170,9 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
               return (
                 <Button
                   key={item.value}
-                  color={item.value === voiceName ? 'primary' : 'default'}
+                  color={item.value === selectVoiceName ? 'primary' : 'default'}
                   className="mt-4"
-                  onClick={() => setVoiceName(item.value)}
+                  onClick={() => setSelectVoiceName(item.value)}
                 >
                   {item.label.split(' ').join(' - ')}
                 </Button>
@@ -182,13 +182,39 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
         </div>
 
         {/* <div className="pt-10">
-          <p>情感</p>
-          <Button color="default">助手</Button>
-        </div>
+          {langs.length ? <p>{t.style}</p> : null}
+          <div className="flex flex-wrap gap-2">
+            {voiceNames.map(item => {
+              return (
+                <Button
+                  key={item.value}
+                  color={item.value === selectVoiceName ? 'primary' : 'default'}
+                  className="mt-4"
+                  onClick={() => setSelectVoiceName(item.value)}
+                >
+                  {item.label.split(' ').join(' - ')}
+                </Button>
+              )
+            })}
+          </div>
+        </div> */}
 
-        <div className="pt-10">
-          <p>扮演</p>
-          <Button color="default">扮演</Button>
+        {/* <div className="pt-10">
+          {langs.length ? <p>{t.role}</p> : null}
+          <div className="flex flex-wrap gap-2">
+            {voiceNames.map(item => {
+              return (
+                <Button
+                  key={item.value}
+                  color={item.value === selectVoiceName ? 'primary' : 'default'}
+                  className="mt-4"
+                  onClick={() => setSelectVoiceName(item.value)}
+                >
+                  {item.label.split(' ').join(' - ')}
+                </Button>
+              )
+            })}
+          </div>
         </div> */}
       </div>
     </div>

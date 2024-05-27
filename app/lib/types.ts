@@ -28,17 +28,6 @@ export interface LangsItem {
   value: string
 }
 
-export interface GenderItem {
-  label: string
-  value: string
-  show: boolean
-}
-
-export interface VoiceNameItem {
-  label: string
-  value: string
-}
-
 export interface LanguageSelectProps {
   t: Awaited<ReturnType<typeof getDictionary>>
   langs: LangsItem[]
