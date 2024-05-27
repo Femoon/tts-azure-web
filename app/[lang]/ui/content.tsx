@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '@nextui-org/button'
 import { base64AudioToBlobUrl, filterAndDeduplicateByGender, saveAs } from '../../lib/tools'
 import { GenderItem, LangsItem, ListItem, VoiceNameItem } from '../../lib/types'
-import InputText from './input-text'
-import LanguageSelect from './language-select'
+import InputText from './components/input-text'
+import LanguageSelect from './components/language-select'
 import { type getDictionary } from '@/get-dictionary'
 
 export default function Content({ t }: { t: Awaited<ReturnType<typeof getDictionary>> }) {
@@ -148,9 +148,7 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
       </div>
 
       <div className="md:flex-1 flex flex-col">
-        {langs.length ? (
-          <LanguageSelect t={t} langs={langs} selectedLang={selectedLang} handleSelectLang={handleSelectLang} />
-        ) : null}
+        <LanguageSelect t={t} langs={langs} selectedLang={selectedLang} handleSelectLang={handleSelectLang} />
         <div className="pt-4 flex gap-2">
           {genders.map(
             item =>

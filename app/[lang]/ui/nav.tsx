@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react'
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Selection } from '@nextui-org/react'
 import { usePathname, useRouter } from 'next/navigation'
 import { langs } from '../../lib/constants'
-import LanguageIcon from './icon'
-import { ThemeToggle } from './theme-toggle'
+import LanguageIcon from './components/icon'
+import { ThemeToggle } from './components/theme-toggle'
 import { Locale } from '@/i18n-config'
 
 export default function Nav() {

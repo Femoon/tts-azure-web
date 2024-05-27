@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete'
-import { LanguageSelectProps } from '../../lib/types'
+import { LanguageSelectProps } from '../../../lib/types'
 
 const LanguageSelect = ({ t, langs, selectedLang, handleSelectLang }: LanguageSelectProps) => {
   return (
