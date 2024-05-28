@@ -10,19 +10,17 @@ import LanguageSelect from './components/language-select'
 import { type getDictionary } from '@/get-dictionary'
 
 export default function Content({ t }: { t: Awaited<ReturnType<typeof getDictionary>> }) {
-  const [input, setInput] = useState('你好，这是一段测试文字')
+  const [input, setInput] = useState('我当时就心跳加速了，收到了重点大学的录取通知书，我太开心了')
   const [isLoading, setLoading] = useState<boolean>(false)
   const [list, setList] = useState<ListItem[]>([])
   const [selectedGender, setSelectedGender] = useState('Female')
-  const [selectVoiceName, setSelectVoiceName] = useState('')
+  const [selectedVoiceName, setSelectedVoiceName] = useState('')
   const [selectedLang, setSelectedLang] = useState('zh-CN')
+  const [selectedStyle, setSelectedStyle] = useState('')
+  const [selectedRole, setSelectedRole] = useState('')
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const cacheConfigRef = useRef<string | null>(null)
-
-  const handleSelectGender = (e: React.MouseEvent<HTMLButtonElement>, gender: string) => {
-    setSelectedGender(gender)
-  }
 
   const langs = useMemo(() => {
     const map = new Map()
@@ -32,16 +30,28 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
     return [...map].map(([value, label]) => ({ label, value }))
   }, [list])
 
-  const genders = useMemo(() => {
-    const data = list?.filter(item => item.Locale === selectedLang)
-    return filterAndDeduplicateByGender(data)
+  const selectedConfigs = useMemo(() => {
+    return list.filter(item => item.Locale === selectedLang)
   }, [list, selectedLang])
 
+  const genders = useMemo(() => {
+    return filterAndDeduplicateByGender(selectedConfigs)
+  }, [selectedConfigs])
+
   const voiceNames = useMemo(() => {
-    const dataForSelectedLang = list.filter(item => item.Locale === selectedLang)
-    const dataForVoiceName = dataForSelectedLang.filter(item => item.Gender === selectedGender)
+    const dataForVoiceName = selectedConfigs.filter(item => item.Gender === selectedGender)
     return dataForVoiceName.map(item => ({ label: item.LocalName, value: item.ShortName }))
-  }, [list, selectedLang, selectedGender])
+  }, [selectedGender, selectedConfigs])
+
+  const { styles, roles } = useMemo(() => {
+    const data = selectedConfigs.find(item => item.ShortName === selectedVoiceName)
+    const { StyleList = [], RolePlayList = [] } = data || {}
+    return { styles: StyleList, roles: RolePlayList }
+  }, [selectedVoiceName, selectedConfigs])
+
+  const handleSelectGender = (e: React.MouseEvent<HTMLButtonElement>, gender: string) => {
+    setSelectedGender(gender)
+  }
 
   const handleSelectLang = (value: Key | null) => {
     if (!value) return
@@ -70,7 +80,7 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
   // set default voice name
   useEffect(() => {
     if (voiceNames.length) {
-      setSelectVoiceName(voiceNames[0].value)
+      setSelectedVoiceName(voiceNames[0].value)
     }
   }, [voiceNames])
 
@@ -78,14 +88,14 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
     const res = await fetch('/api/audio', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ input, selectVoiceName, selectedLang }),
+      body: JSON.stringify({ input, selectedLang, selectedGender, selectedVoiceName, selectedStyle, selectedRole }),
     })
     return res.json()
   }
 
   const play = async () => {
     if (!input.length || isLoading) return
-    const cacheString = input + selectVoiceName + selectedLang
+    const cacheString = getCacheMark()
     if (cacheConfigRef.current === cacheString) {
       setIsPlaying(true)
       audioRef.current?.play()
@@ -105,6 +115,7 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
       }
       setIsPlaying(true)
       audioRef.current?.play()
+      // save cache mark
       cacheConfigRef.current = cacheString
     } catch (err) {
       console.error('Error fetching audio:', err)
@@ -126,6 +137,10 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
     const response = await fetch(audioRef.current.src)
     const blob = await response.blob()
     saveAs(blob, new Date().toISOString().replace('T', ' ').replace(':', '_').split('.')[0] + '.mp3')
+  }
+
+  const getCacheMark = () => {
+    return input + selectedVoiceName + selectedLang + selectedStyle + selectedRole
   }
 
   return (
@@ -170,9 +185,9 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
               return (
                 <Button
                   key={item.value}
-                  color={item.value === selectVoiceName ? 'primary' : 'default'}
+                  color={item.value === selectedVoiceName ? 'primary' : 'default'}
                   className="mt-4"
-                  onClick={() => setSelectVoiceName(item.value)}
+                  onClick={() => setSelectedVoiceName(item.value)}
                 >
                   {item.label.split(' ').join(' - ')}
                 </Button>
@@ -181,41 +196,41 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
           </div>
         </div>
 
-        {/* <div className="pt-10">
-          {langs.length ? <p>{t.style}</p> : null}
+        <div className="pt-10">
+          {styles.length ? <p>{t.style}</p> : null}
           <div className="flex flex-wrap gap-2">
-            {voiceNames.map(item => {
+            {styles.map(item => {
               return (
                 <Button
-                  key={item.value}
-                  color={item.value === selectVoiceName ? 'primary' : 'default'}
+                  key={item}
+                  color={item === selectedStyle ? 'primary' : 'default'}
                   className="mt-4"
-                  onClick={() => setSelectVoiceName(item.value)}
+                  onClick={() => setSelectedStyle(item)}
                 >
-                  {item.label.split(' ').join(' - ')}
+                  {t.styles[item]}
                 </Button>
               )
             })}
           </div>
-        </div> */}
+        </div>
 
-        {/* <div className="pt-10">
-          {langs.length ? <p>{t.role}</p> : null}
+        <div className="pt-10">
+          {roles.length ? <p>{t.role}</p> : null}
           <div className="flex flex-wrap gap-2">
-            {voiceNames.map(item => {
+            {roles.map(item => {
               return (
                 <Button
-                  key={item.value}
-                  color={item.value === selectVoiceName ? 'primary' : 'default'}
+                  key={item}
+                  color={item === selectedRole ? 'primary' : 'default'}
                   className="mt-4"
-                  onClick={() => setSelectVoiceName(item.value)}
+                  onClick={() => setSelectedRole(item)}
                 >
-                  {item.label.split(' ').join(' - ')}
+                  {t.roles[item]}
                 </Button>
               )
             })}
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   )

@@ -2,7 +2,7 @@ import { Buffer } from 'buffer'
 import { NextRequest, NextResponse } from 'next/server'
 import { azureCognitiveEndpoint } from '@/app/lib/constants'
 
-async function fetchAudio(token: string, input: string, selectVoiceName: string, selectedLang: string) {
+async function fetchAudio(token: string, data: any) {
   const response = await fetch(azureCognitiveEndpoint, {
     method: 'POST',
     headers: {
@@ -10,7 +10,7 @@ async function fetchAudio(token: string, input: string, selectVoiceName: string,
       'Content-Type': 'application/ssml+xml',
       'X-MICROSOFT-OutputFormat': 'audio-16khz-32kbitrate-mono-mp3',
     },
-    body: `<speak version='1.0'  xml:lang='${selectedLang}' xml:gender='Female'><voice name='${selectVoiceName}'>${input}</voice></speak>`,
+    body: getXML(data),
   })
 
   const arrayBuffer = await response.arrayBuffer()
@@ -28,13 +28,19 @@ export async function POST(req: NextRequest) {
     }
     const { token } = await tokenResponse.json()
     const data = await req.json()
-    const { input, selectVoiceName, selectedLang } = data
 
     // use token to request
-    const base64Audio = await fetchAudio(token, input, selectVoiceName, selectedLang)
+    const base64Audio = await fetchAudio(token, data)
     return NextResponse.json({ base64Audio })
   } catch (error) {
     console.error('Error fetching audio:', error)
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
   }
+}
+
+function getXML(data: any) {
+  const { input, selectedLang, selectedGender, selectedVoiceName, selectedStyle, selectedRole } = data
+  const xml = `<speak version='1.0'  xml:lang='${selectedLang}'><voice xml:lang='${selectedLang}' xml:gender='${selectedGender}' name='${selectedVoiceName}' xml:style='${selectedStyle}' xml:role='${selectedRole}'>${input}</voice></speak>`
+  // console.log(xml)
+  return xml
 }
