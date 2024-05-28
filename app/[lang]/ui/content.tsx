@@ -55,11 +55,16 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
 
   const handleSelectLang = (value: Key | null) => {
     if (!value) return
-    setSelectedLang(value.toString())
+    const lang = value.toString()
+    setSelectedLang(lang)
+    window.localStorage.setItem('lang', lang)
   }
 
   useEffect(() => {
     let ignore = false
+    if (typeof window !== undefined) {
+      setSelectedLang(window.localStorage.getItem('lang') || 'zh-CN')
+    }
     async function getList() {
       try {
         const res = await fetch('/api/list')
