@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Metadata } from 'next'
+import { OverlayScrollbar } from './overlay-scrollbar'
 import { Providers } from './providers'
 import '@/styles/globals.css'
 import { i18n, type Locale } from '@/i18n-config'
@@ -17,11 +18,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children, params }: { children: React.ReactNode; params: { lang: Locale } }) {
   return (
     <html lang={params.lang}>
-      <body>
-        <Analytics />
-        <SpeedInsights />
+      <Analytics />
+      <SpeedInsights />
+      <OverlayScrollbar>
         <Providers>{children}</Providers>
-      </body>
+      </OverlayScrollbar>
     </html>
   )
 }

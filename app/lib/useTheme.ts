@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { OverlayScrollbars } from 'overlayscrollbars'
 
 type ThemeType = 'light' | 'dark'
 
@@ -12,6 +13,10 @@ function useTheme(): [ThemeType, (newTheme: ThemeType) => void] {
     const isDark = newTheme === 'dark'
     root.classList.remove(isDark ? 'light' : 'dark')
     root.classList.add(isDark ? 'dark' : 'light')
+    // update overlayscrollbar theme
+    const osInstance = OverlayScrollbars(document.body)
+    const scrollbarTheme = newTheme === 'dark' ? 'os-theme-light' : 'os-theme-dark'
+    osInstance?.options({ scrollbars: { theme: scrollbarTheme } })
   }
 
   useEffect(() => {
