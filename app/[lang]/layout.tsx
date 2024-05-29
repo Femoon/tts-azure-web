@@ -17,12 +17,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children, params }: { children: React.ReactNode; params: { lang: Locale } }) {
   return (
-    <html lang={params.lang}>
-      <Analytics />
-      <SpeedInsights />
-      <OverlayScrollbar>
+    <html lang={params.lang} data-overlayscrollbars-initialize>
+      <body data-overlayscrollbars-initialize>
+        <Analytics />
+        <SpeedInsights />
+        <OverlayScrollbar />
         <Providers>{children}</Providers>
-      </OverlayScrollbar>
+      </body>
     </html>
   )
 }

@@ -3,6 +3,8 @@ import { OverlayScrollbars } from 'overlayscrollbars'
 
 type ThemeType = 'light' | 'dark'
 
+let isInitialized = false
+
 function useTheme(): [ThemeType, (newTheme: ThemeType) => void] {
   const [theme, setThemeState] = useState<ThemeType>('light')
 
@@ -22,7 +24,7 @@ function useTheme(): [ThemeType, (newTheme: ThemeType) => void] {
   useEffect(() => {
     // client only
     if (typeof window === 'undefined') return
-
+    if (isInitialized) return
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
     if (window.localStorage.getItem('theme')) {
       const storedTheme = window.localStorage.getItem('theme') as ThemeType | null
@@ -36,6 +38,7 @@ function useTheme(): [ThemeType, (newTheme: ThemeType) => void] {
       setTheme(mediaQuery.matches ? 'dark' : 'light')
     }
     mediaQuery.addEventListener('change', handleChange)
+    isInitialized = true
     return () => mediaQuery.removeEventListener('change', handleChange)
   }, [])
 
