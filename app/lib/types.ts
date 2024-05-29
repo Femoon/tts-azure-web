@@ -34,9 +34,3 @@ export interface LanguageSelectProps {
   selectedLang: string
   handleSelectLang: (value: Key | null) => void
 }
-
-export interface InputTextProps {
-  t: Awaited<ReturnType<typeof getDictionary>>
-  input: string
-  setInput: React.Dispatch<React.SetStateAction<string>>
-}

@@ -3,16 +3,15 @@ import { Key, useEffect, useMemo, useRef, useState } from 'react'
 import { faCircleDown, faCirclePause, faCirclePlay } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '@nextui-org/button'
+import { Textarea } from '@nextui-org/input'
 import { base64AudioToBlobUrl, filterAndDeduplicateByGender, saveAs } from '../../lib/tools'
 import { ListItem } from '../../lib/types'
-import InputText from './components/input-text'
 import LanguageSelect from './components/language-select'
 import { type getDictionary } from '@/get-dictionary'
 
-export default function Content({ t }: { t: Awaited<ReturnType<typeof getDictionary>> }) {
+export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getDictionary>>; list: ListItem[] }) {
   const [input, setInput] = useState('我当时就心跳加速了，收到了重点大学的录取通知书，我太开心了')
   const [isLoading, setLoading] = useState<boolean>(false)
-  const [list, setList] = useState<ListItem[]>([])
   const [selectedGender, setSelectedGender] = useState('Female')
   const [selectedVoiceName, setSelectedVoiceName] = useState('')
   const [selectedLang, setSelectedLang] = useState('zh-CN')
@@ -67,26 +66,10 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
   }
 
   useEffect(() => {
-    let ignore = false
     if (typeof window !== undefined) {
       setSelectedLang(window.localStorage.getItem('lang') || 'zh-CN')
     }
-    async function getList() {
-      try {
-        const res = await fetch('/api/list')
-        // In the development environment, fetch data can't stop, just stop setting the data a second time
-        if (ignore) return
-        const data: ListItem[] = await res.json()
-        setList(data)
-      } catch (error) {
-        console.error('Failed to fetch list:', error)
-      }
-    }
-    getList()
-    return () => {
-      ignore = true
-    }
-  }, [])
+  }, [list])
 
   // set default voice name
   useEffect(() => {
@@ -157,7 +140,16 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
   return (
     <div className="grow overflow-y-auto flex md:justify-center gap-10 py-5 px-6 sm:px-10 md:px-10 lg:px-20 xl:px-40 2xl:px-50 flex-col md:flex-row">
       <div className="md:flex-1">
-        <InputText t={t} input={input} setInput={setInput} />
+        <Textarea
+          size="lg"
+          disableAutosize
+          classNames={{
+            input: 'resize-y min-h-[120px]',
+          }}
+          placeholder={t['input-text']}
+          value={input}
+          onChange={e => setInput(e.target.value)}
+        />
         <p className="text-right pt-2">{input.length}/7000</p>
         <div className="flex justify-between items-center pt-6">
           <FontAwesomeIcon
@@ -210,58 +202,62 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
         </div>
 
         {/* style */}
-        <div className="pt-10">
-          <p>{t.style}</p>
-          <div className="flex flex-wrap gap-2">
-            <Button
-              key="defaultStyle"
-              color={selectedStyle === '' ? 'primary' : 'default'}
-              className="mt-2"
-              onClick={() => setSelectedStyle('')}
-            >
-              {t.default}
-            </Button>
-            {styles.map(item => {
-              return (
-                <Button
-                  key={item}
-                  color={item === selectedStyle ? 'primary' : 'default'}
-                  className="mt-2"
-                  onClick={() => setSelectedStyle(item)}
-                >
-                  {t.styles[item]}
-                </Button>
-              )
-            })}
+        {selectedVoiceName && (
+          <div className="pt-10">
+            <p>{t.style}</p>
+            <div className="flex flex-wrap gap-2">
+              <Button
+                key="defaultStyle"
+                color={selectedStyle === '' ? 'primary' : 'default'}
+                className="mt-2"
+                onClick={() => setSelectedStyle('')}
+              >
+                {t.default}
+              </Button>
+              {styles.map(item => {
+                return (
+                  <Button
+                    key={item}
+                    color={item === selectedStyle ? 'primary' : 'default'}
+                    className="mt-2"
+                    onClick={() => setSelectedStyle(item)}
+                  >
+                    {t.styles[item]}
+                  </Button>
+                )
+              })}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* role */}
-        <div className="pt-10">
-          <p>{t.role}</p>
-          <div className="flex flex-wrap gap-2">
-            <Button
-              key="defaultRole"
-              color={selectedRole === '' ? 'primary' : 'default'}
-              className="mt-2"
-              onClick={() => setSelectedRole('')}
-            >
-              {t.default}
-            </Button>
-            {roles.map(item => {
-              return (
-                <Button
-                  key={item}
-                  color={item === selectedRole ? 'primary' : 'default'}
-                  className="mt-2"
-                  onClick={() => setSelectedRole(item)}
-                >
-                  {t.roles[item]}
-                </Button>
-              )
-            })}
+        {selectedVoiceName && (
+          <div className="pt-10">
+            <p>{t.role}</p>
+            <div className="flex flex-wrap gap-2">
+              <Button
+                key="defaultRole"
+                color={selectedRole === '' ? 'primary' : 'default'}
+                className="mt-2"
+                onClick={() => setSelectedRole('')}
+              >
+                {t.default}
+              </Button>
+              {roles.map(item => {
+                return (
+                  <Button
+                    key={item}
+                    color={item === selectedRole ? 'primary' : 'default'}
+                    className="mt-2"
+                    onClick={() => setSelectedRole(item)}
+                  >
+                    {t.roles[item]}
+                  </Button>
+                )
+              })}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   )
