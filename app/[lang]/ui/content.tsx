@@ -60,6 +60,12 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
     window.localStorage.setItem('lang', lang)
   }
 
+  const handleSelectVoiceName = (voiceName: string) => {
+    setSelectedVoiceName(voiceName)
+    setSelectedStyle('')
+    setSelectedRole('')
+  }
+
   useEffect(() => {
     let ignore = false
     if (typeof window !== undefined) {
@@ -85,7 +91,7 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
   // set default voice name
   useEffect(() => {
     if (voiceNames.length) {
-      setSelectedVoiceName(voiceNames[0].value)
+      handleSelectVoiceName(voiceNames[0].value)
     }
   }, [voiceNames])
 
@@ -183,6 +189,8 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
               ),
           )}
         </div>
+
+        {/* voice */}
         <div className="pt-10">
           {langs.length ? <p>{t.voice}</p> : null}
           <div className="flex flex-wrap gap-2">
@@ -191,8 +199,8 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
                 <Button
                   key={item.value}
                   color={item.value === selectedVoiceName ? 'primary' : 'default'}
-                  className="mt-4"
-                  onClick={() => setSelectedVoiceName(item.value)}
+                  className="mt-2"
+                  onClick={() => handleSelectVoiceName(item.value)}
                 >
                   {item.label.split(' ').join(' - ')}
                 </Button>
@@ -201,15 +209,24 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
           </div>
         </div>
 
+        {/* style */}
         <div className="pt-10">
-          {styles.length ? <p>{t.style}</p> : null}
+          <p>{t.style}</p>
           <div className="flex flex-wrap gap-2">
+            <Button
+              key="defaultStyle"
+              color={selectedStyle === '' ? 'primary' : 'default'}
+              className="mt-2"
+              onClick={() => setSelectedStyle('')}
+            >
+              {t.default}
+            </Button>
             {styles.map(item => {
               return (
                 <Button
                   key={item}
                   color={item === selectedStyle ? 'primary' : 'default'}
-                  className="mt-4"
+                  className="mt-2"
                   onClick={() => setSelectedStyle(item)}
                 >
                   {t.styles[item]}
@@ -219,15 +236,24 @@ export default function Content({ t }: { t: Awaited<ReturnType<typeof getDiction
           </div>
         </div>
 
+        {/* role */}
         <div className="pt-10">
-          {roles.length ? <p>{t.role}</p> : null}
+          <p>{t.role}</p>
           <div className="flex flex-wrap gap-2">
+            <Button
+              key="defaultRole"
+              color={selectedRole === '' ? 'primary' : 'default'}
+              className="mt-2"
+              onClick={() => setSelectedRole('')}
+            >
+              {t.default}
+            </Button>
             {roles.map(item => {
               return (
                 <Button
                   key={item}
                   color={item === selectedRole ? 'primary' : 'default'}
-                  className="mt-4"
+                  className="mt-2"
                   onClick={() => setSelectedRole(item)}
                 >
                   {t.roles[item]}

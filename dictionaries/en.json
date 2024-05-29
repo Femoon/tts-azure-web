@@ -9,6 +9,7 @@
   "neuter": "Neuter",
   "style": "Style",
   "role": "Role",
+  "default": "Default",
   "styles": {
     "affectionate": "Affectionate",
     "angry": "Angry",

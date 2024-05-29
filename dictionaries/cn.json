@@ -9,6 +9,7 @@
   "neuter": "中性",
   "style": "风格",
   "role": "角色",
+  "default": "默认",
   "styles": {
     "affectionate": "亲切",
     "angry": "愤怒",

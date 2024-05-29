@@ -40,7 +40,9 @@ export async function POST(req: NextRequest) {
 
 function getXML(data: any) {
   const { input, selectedLang, selectedGender, selectedVoiceName, selectedStyle, selectedRole } = data
-  const xml = `<speak version='1.0'  xml:lang='${selectedLang}'><voice xml:lang='${selectedLang}' xml:gender='${selectedGender}' name='${selectedVoiceName}' xml:style='${selectedStyle}' xml:role='${selectedRole}'>${input}</voice></speak>`
-  // console.log(xml)
+  const styleProperty = selectedStyle ? ` xml:style='${selectedStyle}'` : ''
+  const roleProperty = selectedRole ? ` xml:role='${selectedRole}` : ''
+  const xml = `<speak version='1.0'  xml:lang='${selectedLang}'><voice xml:lang='${selectedLang}' xml:gender='${selectedGender}' name='${selectedVoiceName}'${styleProperty}${roleProperty}>${input}</voice></speak>`
+  console.log(xml)
   return xml
 }
