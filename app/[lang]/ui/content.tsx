@@ -12,14 +12,16 @@ import { type getDictionary } from '@/get-dictionary'
 export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getDictionary>>; list: ListItem[] }) {
   const [input, setInput] = useState('我当时就心跳加速了，收到了重点大学的录取通知书，我太开心了')
   const [isLoading, setLoading] = useState<boolean>(false)
-  const [selectedGender, setSelectedGender] = useState('Female')
-  const [selectedVoiceName, setSelectedVoiceName] = useState('')
-  const [selectedLang, setSelectedLang] = useState('zh-CN')
-  const [selectedStyle, setSelectedStyle] = useState('')
-  const [selectedRole, setSelectedRole] = useState('')
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const cacheConfigRef = useRef<string | null>(null)
+  const [config, setConfig] = useState({
+    gender: 'Female',
+    voiceName: '',
+    lang: 'zh-CN',
+    style: '',
+    role: '',
+  })
 
   const langs = useMemo(() => {
     const map = new Map()
@@ -30,60 +32,59 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
   }, [list])
 
   const selectedConfigs = useMemo(() => {
-    return list.filter(item => item.Locale === selectedLang)
-  }, [list, selectedLang])
+    return list.filter(item => item.Locale === config.lang)
+  }, [list, config])
 
   const genders = useMemo(() => {
     return filterAndDeduplicateByGender(selectedConfigs)
   }, [selectedConfigs])
 
   const voiceNames = useMemo(() => {
-    const dataForVoiceName = selectedConfigs.filter(item => item.Gender === selectedGender)
+    const dataForVoiceName = selectedConfigs.filter(item => item.Gender === config.gender)
     return dataForVoiceName.map(item => ({ label: item.LocalName, value: item.ShortName }))
-  }, [selectedGender, selectedConfigs])
+  }, [config, selectedConfigs])
 
   const { styles, roles } = useMemo(() => {
-    const data = selectedConfigs.find(item => item.ShortName === selectedVoiceName)
+    const data = selectedConfigs.find(item => item.ShortName === config.voiceName)
     const { StyleList = [], RolePlayList = [] } = data || {}
     return { styles: StyleList, roles: RolePlayList }
-  }, [selectedVoiceName, selectedConfigs])
+  }, [config, selectedConfigs])
 
   const handleSelectGender = (e: React.MouseEvent<HTMLButtonElement>, gender: string) => {
-    setSelectedGender(gender)
+    setConfig(prevConfig => ({ ...prevConfig, gender }))
   }
 
   const handleSelectLang = (value: Key | null) => {
     if (!value) return
     const lang = value.toString()
-    setSelectedLang(lang)
+    setConfig(prevConfig => ({ ...prevConfig, lang }))
     window.localStorage.setItem('lang', lang)
   }
 
   const handleSelectVoiceName = (voiceName: string) => {
-    setSelectedVoiceName(voiceName)
-    setSelectedStyle('')
-    setSelectedRole('')
+    setConfig(prevConfig => ({ ...prevConfig, voiceName, style: '', role: '' }))
   }
 
   useEffect(() => {
     if (typeof window !== undefined) {
       const browserLang = window.localStorage.getItem('browserLang') === 'cn' ? 'zh-CN' : 'en-US'
-      setSelectedLang(window.localStorage.getItem('lang') || browserLang || 'zh-CN')
+      const lang = window.localStorage.getItem('lang') || browserLang || 'zh-CN'
+      setConfig(prevConfig => ({ ...prevConfig, lang }))
     }
   }, [list])
 
   // set default voice name
   useEffect(() => {
-    if (voiceNames.length) {
+    if (voiceNames.length && !config.voiceName) {
       handleSelectVoiceName(voiceNames[0].value)
     }
-  }, [voiceNames])
+  }, [voiceNames, config.voiceName])
 
   const fetchAudio = async () => {
     const res = await fetch('/api/audio', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ input, selectedLang, selectedGender, selectedVoiceName, selectedStyle, selectedRole }),
+      body: JSON.stringify({ input, config }),
     })
     return res.json()
   }
@@ -135,7 +136,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
   }
 
   const getCacheMark = () => {
-    return input + selectedVoiceName + selectedLang + selectedStyle + selectedRole
+    return input + config.gender + config.voiceName + config.lang + config.style + config.role
   }
 
   return (
@@ -167,13 +168,13 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
       </div>
 
       <div className="md:flex-1 flex flex-col">
-        <LanguageSelect t={t} langs={langs} selectedLang={selectedLang} handleSelectLang={handleSelectLang} />
+        <LanguageSelect t={t} langs={langs} selectedLang={config.lang} handleSelectLang={handleSelectLang} />
         <div className="pt-4 flex gap-2">
           {genders.map(
             item =>
               item.show && (
                 <Button
-                  color={selectedGender === item.value ? 'primary' : 'default'}
+                  color={config.gender === item.value ? 'primary' : 'default'}
                   onClick={e => handleSelectGender(e, item.value)}
                   key={item.value}
                 >
@@ -191,7 +192,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
               return (
                 <Button
                   key={item.value}
-                  color={item.value === selectedVoiceName ? 'primary' : 'default'}
+                  color={item.value === config.voiceName ? 'primary' : 'default'}
                   className="mt-2"
                   onClick={() => handleSelectVoiceName(item.value)}
                 >
@@ -203,15 +204,15 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
         </div>
 
         {/* style */}
-        {selectedVoiceName && (
+        {config.voiceName && (
           <div className="pt-10">
             <p>{t.style}</p>
             <div className="flex flex-wrap gap-2">
               <Button
                 key="defaultStyle"
-                color={selectedStyle === '' ? 'primary' : 'default'}
+                color={config.style === '' ? 'primary' : 'default'}
                 className="mt-2"
-                onClick={() => setSelectedStyle('')}
+                onClick={() => setConfig(prevConfig => ({ ...prevConfig, style: '' }))}
               >
                 {t.default}
               </Button>
@@ -219,9 +220,9 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
                 return (
                   <Button
                     key={item}
-                    color={item === selectedStyle ? 'primary' : 'default'}
+                    color={item === config.style ? 'primary' : 'default'}
                     className="mt-2"
-                    onClick={() => setSelectedStyle(item)}
+                    onClick={() => setConfig(prevConfig => ({ ...prevConfig, style: item }))}
                   >
                     {t.styles[item]}
                   </Button>
@@ -232,15 +233,15 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
         )}
 
         {/* role */}
-        {selectedVoiceName && (
+        {config.voiceName && (
           <div className="pt-10">
             <p>{t.role}</p>
             <div className="flex flex-wrap gap-2">
               <Button
                 key="defaultRole"
-                color={selectedRole === '' ? 'primary' : 'default'}
+                color={config.role === '' ? 'primary' : 'default'}
                 className="mt-2"
-                onClick={() => setSelectedRole('')}
+                onClick={() => setConfig(prevConfig => ({ ...prevConfig, role: '' }))}
               >
                 {t.default}
               </Button>
@@ -248,9 +249,9 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
                 return (
                   <Button
                     key={item}
-                    color={item === selectedRole ? 'primary' : 'default'}
+                    color={item === config.role ? 'primary' : 'default'}
                     className="mt-2"
-                    onClick={() => setSelectedRole(item)}
+                    onClick={() => setConfig(prevConfig => ({ ...prevConfig, role: item }))}
                   >
                     {t.roles[item]}
                   </Button>
