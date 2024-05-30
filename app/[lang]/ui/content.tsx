@@ -7,10 +7,11 @@ import { Textarea } from '@nextui-org/input'
 import { base64AudioToBlobUrl, filterAndDeduplicateByGender, saveAs } from '../../lib/tools'
 import { ListItem } from '../../lib/types'
 import LanguageSelect from './components/language-select'
+import { cnText, enText } from '@/app/lib/constants'
 import { type getDictionary } from '@/get-dictionary'
 
 export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getDictionary>>; list: ListItem[] }) {
-  const [input, setInput] = useState('我当时就心跳加速了，收到了重点大学的录取通知书，我太开心了')
+  const [input, setInput] = useState('')
   const [isLoading, setLoading] = useState<boolean>(false)
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -70,6 +71,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
       const browserLang = window.localStorage.getItem('browserLang') === 'cn' ? 'zh-CN' : 'en-US'
       const lang = window.localStorage.getItem('lang') || browserLang || 'zh-CN'
       setConfig(prevConfig => ({ ...prevConfig, lang }))
+      setInput(lang === 'zh-CN' ? cnText : enText)
     }
   }, [list])
 
