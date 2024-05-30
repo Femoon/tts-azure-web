@@ -15,6 +15,7 @@ export default function Nav() {
 
   useEffect(() => {
     const locale = pathname.split('/')[1]
+    window.localStorage.setItem('browserLang', locale)
     setSelectedKeys(new Set([locale]))
   }, [pathname])
 

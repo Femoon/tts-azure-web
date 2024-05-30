@@ -67,7 +67,8 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
 
   useEffect(() => {
     if (typeof window !== undefined) {
-      setSelectedLang(window.localStorage.getItem('lang') || 'zh-CN')
+      const browserLang = window.localStorage.getItem('browserLang') === 'cn' ? 'zh-CN' : 'en-US'
+      setSelectedLang(window.localStorage.getItem('lang') || browserLang || 'zh-CN')
     }
   }, [list])
 
