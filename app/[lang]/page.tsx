@@ -1,3 +1,4 @@
+import { headers } from 'next/headers'
 import { ListItem } from '../lib/types'
 import Content from './ui/content'
 import Nav from './ui/nav'
@@ -7,8 +8,9 @@ import type { Locale } from '@/i18n-config'
 export default async function Home({ params: { lang } }: { params: { lang: Locale } }) {
   const t = await getDictionary(lang)
   let list: ListItem[] = []
+  const originUrl = headers().get('x-current-url')
   try {
-    const res = await fetch(process.env.NEXT_PUBLIC_API_BASE_URL + '/api/list')
+    const res = await fetch(originUrl + '/api/list')
     list = await res.json()
   } catch (err) {
     console.error('Failed to fetch list:', err)
