@@ -2,20 +2,39 @@ import { Buffer } from 'buffer'
 import { NextRequest, NextResponse } from 'next/server'
 import { azureCognitiveEndpoint } from '@/app/lib/constants'
 
-async function fetchAudio(token: string, data: any) {
-  const response = await fetch(azureCognitiveEndpoint, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/ssml+xml',
-      'X-MICROSOFT-OutputFormat': 'audio-16khz-32kbitrate-mono-mp3',
-    },
-    body: getXML(data),
-  })
+async function fetchAudio(token: string, data: any): Promise<string> {
+  // 验证输入参数
+  if (!token) {
+    throw new Error('Token is required')
+  }
 
-  const arrayBuffer = await response.arrayBuffer()
-  const base64String = Buffer.from(arrayBuffer).toString('base64')
-  return base64String
+  if (!data) {
+    throw new Error('Data is required')
+  }
+
+  try {
+    const response = await fetch(azureCognitiveEndpoint, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/ssml+xml',
+        'X-MICROSOFT-OutputFormat': 'audio-16khz-32kbitrate-mono-mp3',
+      },
+      body: getXML(data),
+    })
+
+    // 检查响应状态
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`)
+    }
+
+    const arrayBuffer = await response.arrayBuffer()
+    const base64String = Buffer.from(arrayBuffer).toString('base64')
+    return base64String
+  } catch (error) {
+    console.error('Error fetching audio:', error)
+    throw error
+  }
 }
 
 export async function POST(req: NextRequest) {
@@ -33,7 +52,7 @@ export async function POST(req: NextRequest) {
     const base64Audio = await fetchAudio(token, data)
     return NextResponse.json({ base64Audio })
   } catch (error) {
-    console.error('Error fetching audio:', error)
+    console.error('Error in POST handler:', error)
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
   }
 }
