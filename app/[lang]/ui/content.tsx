@@ -4,6 +4,7 @@ import { faCircleDown, faCirclePause, faCirclePlay } from '@fortawesome/free-sol
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '@nextui-org/button'
 import { Textarea } from '@nextui-org/input'
+import { Slider, SliderValue } from '@nextui-org/slider'
 import { base64AudioToBlobUrl, filterAndDeduplicateByGender, saveAs } from '../../lib/tools'
 import { ListItem } from '../../lib/types'
 import LanguageSelect from './components/language-select'
@@ -21,6 +22,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
     voiceName: '',
     lang: 'zh-CN',
     style: '',
+    styleDegree: '1',
     role: '',
   })
 
@@ -60,6 +62,10 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
     const lang = value.toString()
     setConfig(prevConfig => ({ ...prevConfig, lang }))
     window.localStorage.setItem('lang', lang)
+  }
+
+  const handleSlideStyleDegree = (value: SliderValue) => {
+    setConfig(prevConfig => ({ ...prevConfig, styleDegree: value.toString() }))
   }
 
   const handleSelectVoiceName = (voiceName: string) => {
@@ -145,7 +151,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
   }
 
   const getCacheMark = () => {
-    return input + config.gender + config.voiceName + config.lang + config.style + config.role
+    return input + Object.values(config).join('')
   }
 
   return (
@@ -215,7 +221,28 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
         {/* style */}
         {config.voiceName && (
           <div className="pt-10">
-            <p>{t.style}</p>
+            <div className="flex items-center gap-20">
+              <p className="flex-shrink-0">{t.style}</p>
+
+              <div className="flex flex-1 gap-5 items-center">
+                <Slider
+                  size="sm"
+                  step={0.01}
+                  maxValue={2}
+                  minValue={0.01}
+                  defaultValue={1}
+                  aria-label="风格强度"
+                  onChange={handleSlideStyleDegree}
+                  className="max-w-md"
+                  classNames={{
+                    base: 'max-w-md gap-3',
+                    track: 'border-s-primary-100',
+                    filler: 'bg-gradient-to-r from-primary-100 to-primary-500',
+                  }}
+                />
+                <p className="w-5">{config.styleDegree}</p>
+              </div>
+            </div>
             <div className="flex flex-wrap gap-2">
               <Button
                 key="defaultStyle"

@@ -3,15 +3,6 @@ import { NextRequest, NextResponse } from 'next/server'
 import { azureCognitiveEndpoint } from '@/app/lib/constants'
 
 async function fetchAudio(token: string, data: any): Promise<string> {
-  // 验证输入参数
-  if (!token) {
-    throw new Error('Token is required')
-  }
-
-  if (!data) {
-    throw new Error('Data is required')
-  }
-
   try {
     const response = await fetch(azureCognitiveEndpoint, {
       method: 'POST',
@@ -59,10 +50,17 @@ export async function POST(req: NextRequest) {
 
 function getXML(data: any) {
   const { input, config } = data
-  const { lang, gender, voiceName, style, role } = config
-  const styleProperty = style ? ` xml:style='${style}'` : ''
-  const roleProperty = role ? ` xml:role='${role}` : ''
-  const xml = `<speak version='1.0'  xml:lang='${lang}'><voice xml:lang='${lang}' xml:gender='${gender}' name='${voiceName}'${styleProperty}${roleProperty}>${input}</voice></speak>`
-  // console.log(xml)
+  const { lang, voiceName, style, styleDegree, role } = config
+  const styleProperty = style ? ` style='${style}'` : ''
+  const styleDegreeProperty = styleDegree ? ` styleDegree='${styleDegree}'` : ''
+  const roleProperty = role ? ` role='${role}'` : ''
+  const xml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="${lang}">
+    <voice name="${voiceName}">
+        <mstts:express-as${roleProperty}${styleProperty}${styleDegreeProperty}>
+            ${input}
+        </mstts:express-as>
+    </voice>
+</speak>`
+  console.log(xml)
   return xml
 }
