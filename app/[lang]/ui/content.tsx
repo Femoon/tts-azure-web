@@ -34,7 +34,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
 
   const selectedConfigs = useMemo(() => {
     return list.filter(item => item.Locale === config.lang)
-  }, [list, config])
+  }, [list, config.lang])
 
   const genders = useMemo(() => {
     return filterAndDeduplicateByGender(selectedConfigs)
@@ -43,13 +43,13 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
   const voiceNames = useMemo(() => {
     const dataForVoiceName = selectedConfigs.filter(item => item.Gender === config.gender)
     return dataForVoiceName.map(item => ({ label: item.LocalName, value: item.ShortName }))
-  }, [config, selectedConfigs])
+  }, [config.gender, selectedConfigs])
 
   const { styles, roles } = useMemo(() => {
     const data = selectedConfigs.find(item => item.ShortName === config.voiceName)
     const { StyleList = [], RolePlayList = [] } = data || {}
     return { styles: StyleList, roles: RolePlayList }
-  }, [config, selectedConfigs])
+  }, [config.voiceName, selectedConfigs])
 
   const handleSelectGender = (e: React.MouseEvent<HTMLButtonElement>, gender: string) => {
     setConfig(prevConfig => ({ ...prevConfig, gender }))
@@ -75,12 +75,19 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
     }
   }, [list])
 
-  // set default voice name
+  // set default voice name when voiceNames changes
   useEffect(() => {
     if (voiceNames.length && !config.voiceName) {
       handleSelectVoiceName(voiceNames[0].value)
     }
   }, [voiceNames, config.voiceName])
+
+  // set voiceName when gender changes
+  useEffect(() => {
+    if (voiceNames.length) {
+      setConfig(prevConfig => ({ ...prevConfig, voiceName: voiceNames[0].value }))
+    }
+  }, [voiceNames, config.gender])
 
   const fetchAudio = async () => {
     const res = await fetch('/api/audio', {
