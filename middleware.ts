@@ -33,12 +33,8 @@ export function middleware(request: NextRequest) {
     const locale = getLocale(request)
     return NextResponse.redirect(new URL(`/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url))
   }
-
-  // add origin url to request headers
-  const response = NextResponse.next()
-  response.headers.set('x-current-url', request.nextUrl.origin)
-  return response
 }
+
 export const config = {
   // Matcher ignoring `/_next/` and `/api/`
   matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],

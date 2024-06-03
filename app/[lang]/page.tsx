@@ -8,9 +8,11 @@ import type { Locale } from '@/i18n-config'
 export default async function Home({ params: { lang } }: { params: { lang: Locale } }) {
   const t = await getDictionary(lang)
   let list: ListItem[] = []
-  const originUrl = headers().get('x-current-url')
+  const originHost = headers().get('x-forwarded-host')
+  const originProto = headers().get('x-forwarded-proto')
+  const host = originProto + '://' + originHost
   try {
-    const res = await fetch(originUrl + '/api/list')
+    const res = await fetch(`${host}/api/list`)
     list = await res.json()
   } catch (err) {
     console.error('Failed to fetch list:', err)
