@@ -13,7 +13,13 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
   const host = originProto + '://' + originHost
   try {
     const res = await fetch(`${host}/api/list`)
-    list = await res.json()
+    const contentType = res.headers.get('content-type')
+    if (contentType && contentType.includes('application/json')) {
+      list = await res.json()
+    } else {
+      const text = await res.text()
+      throw new Error(`Unexpected content type: ${contentType}. Response: ${text}`)
+    }
   } catch (err) {
     console.error('Failed to fetch list:', err)
   }
