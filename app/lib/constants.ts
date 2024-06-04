@@ -5,7 +5,7 @@ export const azureListEndpoint = `https://${region}.tts.speech.microsoft.com/cog
 export const azureCognitiveEndpoint = `https://${region}.tts.speech.microsoft.com/cognitiveservices/v1`
 export const enText =
   'I just got back from the most incredible trip. It was a week-long adventure through the Italian countryside, starting in the bustling city of Rome. '
-export const cnText = '我当时就心跳加速了，收到了重点大学的录取通知书，我太开心了'
+export const cnText = '人生是一场旅行，每段经历都是风景。珍惜当下，勇敢追梦。意义在于如何走过，而非走了多远。'
 
 export const langs = [
   {
