@@ -1,6 +1,6 @@
 'use client'
 import { Key, useEffect, useMemo, useRef, useState } from 'react'
-import { faCircleDown, faCirclePause, faCirclePlay } from '@fortawesome/free-solid-svg-icons'
+import { faCircleDown, faCirclePause, faCirclePlay, faRotateRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '@nextui-org/button'
 import { Textarea } from '@nextui-org/input'
@@ -23,7 +23,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
     voiceName: '',
     lang: 'zh-CN',
     style: '',
-    styleDegree: '1',
+    styleDegree: 1,
     role: '',
   })
 
@@ -66,7 +66,13 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
   }
 
   const handleSlideStyleDegree = (value: SliderValue) => {
-    setConfig(prevConfig => ({ ...prevConfig, styleDegree: value.toString() }))
+    if (typeof value === 'number') {
+      setConfig(prevConfig => ({ ...prevConfig, styleDegree: value }))
+    } else if (Array.isArray(value) && value.length > 0) {
+      setConfig(prevConfig => ({ ...prevConfig, styleDegree: value[0] }))
+    } else {
+      console.error('Invalid SliderValue:', value)
+    }
   }
 
   const handleSelectVoiceName = (voiceName: string) => {
@@ -150,6 +156,9 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
     const blob = await response.blob()
     saveAs(blob, new Date().toISOString().replace('T', ' ').replace(':', '_').split('.')[0] + '.mp3')
   }
+  const resetStyleDegree = () => {
+    setConfig(prevConfig => ({ ...prevConfig, styleDegree: 1 }))
+  }
 
   const getCacheMark = () => {
     return input + Object.values(config).join('')
@@ -228,11 +237,16 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
           <div className="pt-10">
             <div className="flex items-center gap-20">
               <p className="flex-shrink-0">{t.style}</p>
-
               <div className="flex flex-1 gap-5 items-center">
+                <FontAwesomeIcon
+                  icon={faRotateRight}
+                  className="text-gray-500 cursor-pointer"
+                  onClick={resetStyleDegree}
+                />
                 <Slider
                   size="sm"
                   step={0.01}
+                  value={config.styleDegree}
                   maxValue={2}
                   minValue={0.01}
                   defaultValue={1}
