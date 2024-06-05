@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '@nextui-org/button'
 import { Textarea } from '@nextui-org/input'
 import { Slider, SliderValue } from '@nextui-org/slider'
+import { Spinner } from '@nextui-org/spinner'
 import { base64AudioToBlobUrl, filterAndDeduplicateByGender, saveAs } from '../../lib/tools'
 import { ListItem } from '../../lib/types'
 import LanguageSelect from './components/language-select'
@@ -174,11 +175,15 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
             className="w-8 h-8 text-blue-600 cursor-pointer"
             onClick={handleDownload}
           />
-          <FontAwesomeIcon
-            icon={isPlaying ? faCirclePause : faCirclePlay}
-            className={`w-8 h-8 text-blue-${isLoading ? '600/50' : '600'} cursor-pointer`}
-            onClick={isPlaying ? pause : play}
-          />
+          {isLoading ? (
+            <Spinner className="w-8 h-8" />
+          ) : (
+            <FontAwesomeIcon
+              icon={isPlaying ? faCirclePause : faCirclePlay}
+              className={`w-8 h-8 text-blue-${isLoading ? '600/50' : '600'} cursor-pointer`}
+              onClick={isPlaying ? pause : play}
+            />
+          )}
         </div>
       </div>
 
