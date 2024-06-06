@@ -25,7 +25,7 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
   }
   return (
     <main className="flex w-full min-h-screen flex-col">
-      <Nav />
+      <Nav t={t} />
       <Content t={t} list={list} />
     </main>
   )

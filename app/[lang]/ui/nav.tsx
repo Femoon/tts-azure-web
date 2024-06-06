@@ -5,9 +5,10 @@ import { usePathname, useRouter } from 'next/navigation'
 import { langs } from '../../lib/constants'
 import LanguageIcon from './components/icon'
 import { ThemeToggle } from './components/theme-toggle'
+import { type getDictionary } from '@/get-dictionary'
 import { Locale } from '@/i18n-config'
 
-export default function Nav() {
+export default function Nav({ t }: { t: Awaited<ReturnType<typeof getDictionary>> }) {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set(['cn']))
 
   const router = useRouter()
@@ -19,7 +20,7 @@ export default function Nav() {
     setSelectedKeys(new Set([locale]))
   }, [pathname])
 
-  function handleSelectionChange(key: Selection) {
+  const handleSelectionChange = (key: Selection) => {
     setSelectedKeys(key)
     const redirectedPathname = (locale: Locale) => {
       if (!pathname) return
@@ -32,9 +33,10 @@ export default function Nav() {
     const locale = Array.from(key)[0] as Locale
     const newPath = redirectedPathname(locale)
     if (newPath && newPath !== pathname) {
-      router.push(newPath)
+      window.location.href = newPath
     }
   }
+
   const handleClickTitle = () => {
     router.refresh()
   }
@@ -47,12 +49,14 @@ export default function Nav() {
       <div className="flex items-center gap-3">
         <Dropdown>
           <DropdownTrigger>
-            <div className="p-3 cursor-pointer hover:text-[#0ea5e9]">
-              <LanguageIcon />
-            </div>
+            <button type="button" title={t['select-language-btn']} aria-label={t['select-language-btn']}>
+              <div className="p-3 cursor-pointer hover:text-[#0ea5e9]">
+                <LanguageIcon />
+              </div>
+            </button>
           </DropdownTrigger>
           <DropdownMenu
-            aria-label="Static Actions"
+            aria-label="select language"
             selectionMode="single"
             disallowEmptySelection
             selectedKeys={selectedKeys}
@@ -68,7 +72,7 @@ export default function Nav() {
           </DropdownMenu>
         </Dropdown>
 
-        <ThemeToggle />
+        <ThemeToggle t={t} />
       </div>
     </div>
   )

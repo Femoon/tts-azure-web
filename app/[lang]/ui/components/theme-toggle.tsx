@@ -1,6 +1,7 @@
 import useTheme from '@/app/lib/useTheme'
+import { getDictionary } from '@/get-dictionary'
 
-export function ThemeToggle() {
+export function ThemeToggle({ t }: { t: Awaited<ReturnType<typeof getDictionary>> }) {
   const [theme, setTheme] = useTheme()
 
   const toggleTheme = (event: MouseEvent) => {
@@ -44,7 +45,7 @@ export function ThemeToggle() {
       type="button"
       className="theme-toggle"
       id="theme-toggle"
-      title="Toggles light & dark"
+      title={t['toggle-theme']}
       aria-label={theme}
       aria-live="polite"
       onClick={e => toggleTheme(e.nativeEvent)}

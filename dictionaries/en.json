@@ -1,4 +1,6 @@
 {
+  "select-language-btn": "Select language",
+  "toggle-theme": "Toggles light & dark",
   "play": "Play",
   "pause": "Pause",
   "input-text": "Please enter text",
