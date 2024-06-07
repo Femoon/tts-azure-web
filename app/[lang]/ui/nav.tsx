@@ -49,7 +49,12 @@ export default function Nav({ t }: { t: Awaited<ReturnType<typeof getDictionary>
       <div className="flex items-center gap-3">
         <Dropdown>
           <DropdownTrigger>
-            <button type="button" title={t['select-language-btn']} aria-label={t['select-language-btn']}>
+            <button
+              type="button"
+              title={t['select-language-btn']}
+              aria-label={t['select-language-btn']}
+              className=" outline-none"
+            >
               <div className="p-3 cursor-pointer hover:text-[#0ea5e9]">
                 <LanguageIcon />
               </div>
