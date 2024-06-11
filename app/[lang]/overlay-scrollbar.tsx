@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 import { OverlayScrollbars } from 'overlayscrollbars'
 import 'overlayscrollbars/overlayscrollbars.css'
-import useTheme from '../lib/useTheme'
+import useTheme from '../lib/use-theme'
 
 export function OverlayScrollbar() {
   const [theme] = useTheme()

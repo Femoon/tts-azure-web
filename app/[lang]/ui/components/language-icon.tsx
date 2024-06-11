@@ -1,4 +1,4 @@
-const SvgComponent = (props: any) => (
+const LanguageIcon = (props: any) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" {...props}>
     <path
       fill="currentColor"
@@ -6,4 +6,4 @@ const SvgComponent = (props: any) => (
     ></path>
   </svg>
 )
-export default SvgComponent
+export default LanguageIcon

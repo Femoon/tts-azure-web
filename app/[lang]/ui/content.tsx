@@ -13,7 +13,7 @@ import { cnText, enText } from '@/app/lib/constants'
 import { type getDictionary } from '@/get-dictionary'
 
 export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getDictionary>>; list: ListItem[] }) {
-  const [input, setInput] = useState('')
+  const [input, setInput] = useState<string>('')
   const [isLoading, setLoading] = useState<boolean>(false)
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)

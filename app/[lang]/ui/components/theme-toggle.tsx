@@ -1,4 +1,4 @@
-import useTheme from '@/app/lib/useTheme'
+import useTheme from '@/app/lib/use-theme'
 import { getDictionary } from '@/get-dictionary'
 
 export function ThemeToggle({ t }: { t: Awaited<ReturnType<typeof getDictionary>> }) {
