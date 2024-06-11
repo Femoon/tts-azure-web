@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# README
+
+TTS-Azure-Web is a azure tts web page. You can run it locally or deploy it with one click, using your Azure Key
 
 ## Getting Started
 
-First, run the development server:
+Get your API Key
+
+- Go to [Microsoft Azure > Text to Speech](https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/) and click "Try Text to Speech"
+- Login
+- Go to [Your APIS](https://azure.microsoft.com/en-us/try/cognitive-services/my-apis/)
+- In the "Speech services" block, click "Add"
+- An endpoint and two subscription keys will be listed beside Speech Services.Add the endpoind and either one of the key to the `.env` file (you can use `.env.example` as reference) or set the corresponding environment variables.
+
+Add environment configuration
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+ # your azure key
+SPEECH_KEY=xxxxxxx
+# your azure tts region
+SPEECH_REGION=southeastasia
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run the development server:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# install dependencies
+pnpm i
+# run serve
+pnpm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Open [http://localhost:3000](http://localhost:3000/) with your browser to see the result.
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FFemoon%2Ftts-web&env=SPEECH_KEY&env=SPEECH_REGION&project-name=tts-azure-web&repository-name=tts-azure-web)
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
