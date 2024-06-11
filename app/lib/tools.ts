@@ -1,5 +1,5 @@
 import { genders } from './constants'
-import { ListItem } from './types'
+import { GenderResult, ListItem } from './types'
 
 export function saveAs(blob: Blob, name: string) {
   const a = document.createElement('a')
@@ -10,15 +10,6 @@ export function saveAs(blob: Blob, name: string) {
   a.download = name
   a.click()
   window.URL.revokeObjectURL(url)
-}
-
-interface GenderFilter {
-  label: string
-  value: string
-}
-
-interface GenderResult extends GenderFilter {
-  show: boolean
 }
 
 export function filterAndDeduplicateByGender(data: ListItem[]): GenderResult[] {

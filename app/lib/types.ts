@@ -22,11 +22,16 @@ export interface ListItem {
 interface ExtendedPropertyMap {
   IsHighQuality48K: string
 }
-
-export interface LangsItem {
+interface KeyValue {
   label: string
   value: string
 }
+
+export interface GenderResult extends KeyValue {
+  show: boolean
+}
+
+export interface LangsItem extends KeyValue {}
 
 export interface LanguageSelectProps {
   t: Awaited<ReturnType<typeof getDictionary>>
