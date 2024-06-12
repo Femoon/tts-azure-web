@@ -20,7 +20,7 @@ Get your API Key
 - Login
 - Go to [Your APIS](https://azure.microsoft.com/en-us/try/cognitive-services/my-apis/)
 - In the "Speech services" block, click "Add"
-- A region and two subscription keys will be listed beside Speech Services. Add the region and either one of the key to the `.env.local` file (you can use `.env.example` as reference) or set the corresponding environment variables.
+- A region and two subscription keys will be listed beside Speech Services. You only need one key and its corresponding region.
 
 ## Deploy on Vercel
 
