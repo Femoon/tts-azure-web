@@ -1,5 +1,6 @@
 import useTheme from '@/app/lib/use-theme'
 import { getDictionary } from '@/get-dictionary'
+import '../../../../styles/theme-button.css'
 
 export function ThemeToggle({ t }: { t: Awaited<ReturnType<typeof getDictionary>> }) {
   const [theme, setTheme] = useTheme()
@@ -7,9 +8,8 @@ export function ThemeToggle({ t }: { t: Awaited<ReturnType<typeof getDictionary>
   const toggleTheme = (event: MouseEvent) => {
     const newTheme = theme === 'light' ? 'dark' : 'light'
 
-    // @ts-ignore
     // document.startViewTransition fallback
-    if (!document.startViewTransition) {
+    if (!(document as any).startViewTransition) {
       setTheme(newTheme)
       return
     }
@@ -18,8 +18,7 @@ export function ThemeToggle({ t }: { t: Awaited<ReturnType<typeof getDictionary>
     const y = event.clientY
     const endRadius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y))
 
-    // @ts-ignore
-    const transition = document.startViewTransition(() => {
+    const transition = (document as any).startViewTransition(() => {
       setTheme(newTheme)
     })
 

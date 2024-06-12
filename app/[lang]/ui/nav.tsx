@@ -2,8 +2,10 @@
 import { useEffect, useState } from 'react'
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Selection } from '@nextui-org/react'
 import { usePathname, useRouter } from 'next/navigation'
+import Github from '../../icons/github.svg'
+import Language from '../../icons/language.svg'
 import { langs } from '../../lib/constants'
-import LanguageIcon from './components/language-icon'
+import IconButton from './components/icon-button'
 import { ThemeToggle } from './components/theme-toggle'
 import { type getDictionary } from '@/get-dictionary'
 import { Locale } from '@/i18n-config'
@@ -46,19 +48,12 @@ export default function Nav({ t }: { t: Awaited<ReturnType<typeof getDictionary>
       <div className="cursor-pointer select-none" onClick={handleClickTitle}>
         TTS Web
       </div>
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-1">
+        <IconButton icon={<Github />} className="hover:text-[#0ea5e9] transition-colors duration-300" />
+
         <Dropdown>
           <DropdownTrigger>
-            <button
-              type="button"
-              title={t['select-language-btn']}
-              aria-label={t['select-language-btn']}
-              className=" outline-none"
-            >
-              <div className="p-3 cursor-pointer hover:text-[#0ea5e9]">
-                <LanguageIcon />
-              </div>
-            </button>
+            <IconButton icon={<Language />} className="hover:text-[#0ea5e9] transition-colors duration-300" />
           </DropdownTrigger>
           <DropdownMenu
             aria-label="select language"
