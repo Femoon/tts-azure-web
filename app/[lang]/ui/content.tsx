@@ -2,6 +2,7 @@
 import { Key, useEffect, useMemo, useRef, useState } from 'react'
 import { faCircleDown, faCirclePause, faCirclePlay, faRotateRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Accordion, AccordionItem } from '@nextui-org/accordion'
 import { Button } from '@nextui-org/button'
 import { Textarea } from '@nextui-org/input'
 import { Slider, SliderValue } from '@nextui-org/slider'
@@ -25,6 +26,9 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
     style: '',
     styleDegree: 1,
     role: '',
+    rate: 0,
+    volume: 100,
+    pitch: 0,
   })
 
   const langs = useMemo(() => {
@@ -68,10 +72,24 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
   const handleSlideStyleDegree = (value: SliderValue) => {
     if (typeof value === 'number') {
       setConfig(prevConfig => ({ ...prevConfig, styleDegree: value }))
-    } else if (Array.isArray(value) && value.length > 0) {
-      setConfig(prevConfig => ({ ...prevConfig, styleDegree: value[0] }))
-    } else {
-      console.error('Invalid SliderValue:', value)
+    }
+  }
+
+  const handleSlideRate = (value: SliderValue) => {
+    if (typeof value === 'number') {
+      setConfig(prevConfig => ({ ...prevConfig, rate: value }))
+    }
+  }
+
+  const handleSlideVolume = (value: SliderValue) => {
+    if (typeof value === 'number') {
+      setConfig(prevConfig => ({ ...prevConfig, volume: value }))
+    }
+  }
+
+  const handleSlidePitch = (value: SliderValue) => {
+    if (typeof value === 'number') {
+      setConfig(prevConfig => ({ ...prevConfig, pitch: value }))
     }
   }
 
@@ -160,6 +178,18 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
     setConfig(prevConfig => ({ ...prevConfig, styleDegree: 1 }))
   }
 
+  const resetRate = () => {
+    setConfig(prevConfig => ({ ...prevConfig, rate: 0 }))
+  }
+
+  const resetVolume = () => {
+    setConfig(prevConfig => ({ ...prevConfig, volume: 100 }))
+  }
+
+  const resetPitch = () => {
+    setConfig(prevConfig => ({ ...prevConfig, pitch: 0 }))
+  }
+
   const getCacheMark = () => {
     return input + Object.values(config).join('')
   }
@@ -214,107 +244,202 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
         </div>
 
         {/* voice */}
-        <div className="pt-10">
-          {langs.length ? <p>{t.voice}</p> : null}
-          <div className="flex flex-wrap gap-2">
-            {voiceNames.map(item => {
-              return (
-                <Button
-                  key={item.value}
-                  color={item.value === config.voiceName ? 'primary' : 'default'}
-                  className="mt-2"
-                  onClick={() => handleSelectVoiceName(item.value)}
-                >
-                  {item.label.split(' ').join(' - ')}
-                </Button>
-              )
-            })}
-          </div>
-        </div>
-
-        {/* style */}
-        {config.voiceName && (
-          <div className="pt-10">
-            <div className="flex items-center gap-20">
-              <p className="flex-shrink-0">{t.style}</p>
-              <div className="flex flex-1 gap-5 items-center">
-                <FontAwesomeIcon
-                  icon={faRotateRight}
-                  className="text-gray-500 cursor-pointer"
-                  onClick={resetStyleDegree}
-                />
-                <Slider
-                  size="sm"
-                  step={0.01}
-                  value={config.styleDegree}
-                  maxValue={2}
-                  minValue={0.01}
-                  defaultValue={1}
-                  aria-label="风格强度"
-                  onChange={handleSlideStyleDegree}
-                  className="max-w-md"
-                  classNames={{
-                    base: 'max-w-md gap-3',
-                    track: 'border-s-primary-100',
-                    filler: 'bg-gradient-to-r from-primary-100 to-primary-500',
-                  }}
-                />
-                <p className="w-5">{config.styleDegree}</p>
+        <Accordion className="mt-3 rounded-medium px-3 bg-transparent" isCompact defaultExpandedKeys={'1'}>
+          <AccordionItem key="1" aria-label={t.voice} startContent={<p className="text-large">{t.voice}</p>}>
+            <div>
+              <div className="flex flex-wrap gap-2">
+                {voiceNames.map(item => {
+                  return (
+                    <Button
+                      key={item.value}
+                      color={item.value === config.voiceName ? 'primary' : 'default'}
+                      className="mt-2"
+                      onClick={() => handleSelectVoiceName(item.value)}
+                    >
+                      {item.label.split(' ').join(' - ')}
+                    </Button>
+                  )
+                })}
               </div>
             </div>
-            <div className="flex flex-wrap gap-2">
-              <Button
-                key="defaultStyle"
-                color={config.style === '' ? 'primary' : 'default'}
-                className="mt-2"
-                onClick={() => setConfig(prevConfig => ({ ...prevConfig, style: '' }))}
-              >
-                {t.default}
-              </Button>
-              {styles.map(item => {
-                return (
-                  <Button
-                    key={item}
-                    color={item === config.style ? 'primary' : 'default'}
-                    className="mt-2"
-                    onClick={() => setConfig(prevConfig => ({ ...prevConfig, style: item }))}
-                  >
-                    {t.styles[item]}
-                  </Button>
-                )
-              })}
+          </AccordionItem>
+        </Accordion>
+
+        {/* style */}
+
+        <Accordion className="mt-3 rounded-medium px-3 bg-transparent" isCompact defaultSelectedKeys={'1'}>
+          <AccordionItem key="1" aria-label={t.style} startContent={<p className="text-large">{t.style}</p>}>
+            <div>
+              <section className="flex items-center justify-between gap-20">
+                <div className="flex flex-1 gap-5 items-center justify-end">
+                  <FontAwesomeIcon
+                    icon={faRotateRight}
+                    className="text-gray-500 cursor-pointer h-[1em]"
+                    onClick={resetStyleDegree}
+                  />
+                  <Slider
+                    size="sm"
+                    step={0.01}
+                    value={config.styleDegree}
+                    maxValue={2}
+                    minValue={0.01}
+                    defaultValue={1}
+                    aria-label="风格强度"
+                    onChange={handleSlideStyleDegree}
+                    classNames={{
+                      track: 'border-s-primary-100',
+                      filler: 'bg-gradient-to-r from-primary-100 to-primary-500',
+                    }}
+                  />
+                  <p className="w-10">{config.styleDegree}</p>
+                </div>
+              </section>
+              <div className="flex flex-wrap gap-2">
+                <Button
+                  key="defaultStyle"
+                  color={config.style === '' ? 'primary' : 'default'}
+                  className="mt-2"
+                  onClick={() => setConfig(prevConfig => ({ ...prevConfig, style: '' }))}
+                >
+                  {t.default}
+                </Button>
+                {styles.map(item => {
+                  return (
+                    <Button
+                      key={item}
+                      color={item === config.style ? 'primary' : 'default'}
+                      className="mt-2"
+                      onClick={() => setConfig(prevConfig => ({ ...prevConfig, style: item }))}
+                    >
+                      {t.styles[item]}
+                    </Button>
+                  )
+                })}
+              </div>
             </div>
-          </div>
-        )}
+          </AccordionItem>
+        </Accordion>
 
         {/* role */}
-        {config.voiceName && (
-          <div className="pt-10">
-            <p>{t.role}</p>
-            <div className="flex flex-wrap gap-2">
-              <Button
-                key="defaultRole"
-                color={config.role === '' ? 'primary' : 'default'}
-                className="mt-2"
-                onClick={() => setConfig(prevConfig => ({ ...prevConfig, role: '' }))}
-              >
-                {t.default}
-              </Button>
-              {roles.map(item => {
-                return (
-                  <Button
-                    key={item}
-                    color={item === config.role ? 'primary' : 'default'}
-                    className="mt-2"
-                    onClick={() => setConfig(prevConfig => ({ ...prevConfig, role: item }))}
-                  >
-                    {t.roles[item]}
-                  </Button>
-                )
-              })}
+
+        <Accordion className="mt-3 rounded-medium px-3 bg-transparent" isCompact defaultSelectedKeys={'1'}>
+          <AccordionItem key="1" aria-label={t.role} startContent={<p className="text-large">{t.role}</p>}>
+            <div>
+              <div className="flex flex-wrap gap-2">
+                <Button
+                  key="defaultRole"
+                  color={config.role === '' ? 'primary' : 'default'}
+                  className="mt-2"
+                  onClick={() => setConfig(prevConfig => ({ ...prevConfig, role: '' }))}
+                >
+                  {t.default}
+                </Button>
+                {roles.map(item => {
+                  return (
+                    <Button
+                      key={item}
+                      color={item === config.role ? 'primary' : 'default'}
+                      className="mt-2"
+                      onClick={() => setConfig(prevConfig => ({ ...prevConfig, role: item }))}
+                    >
+                      {t.roles[item]}
+                    </Button>
+                  )
+                })}
+              </div>
             </div>
-          </div>
-        )}
+          </AccordionItem>
+        </Accordion>
+
+        {/* Advanced settings */}
+        <Accordion className="mt-3 rounded-medium px-3 bg-transparent" isCompact>
+          <AccordionItem
+            key="1"
+            aria-label={t.advancedSettings}
+            startContent={<p className="text-large">{t.advancedSettings}</p>}
+          >
+            {/* rate */}
+            <div>
+              <section className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <p className="shrink-0">{t.rate}</p>
+                  <FontAwesomeIcon icon={faRotateRight} className="text-gray-500 cursor-pointer" onClick={resetRate} />
+                </div>
+                <p>
+                  {config.rate >= 0 && '+'}
+                  {config.rate}%
+                </p>
+              </section>
+              <Slider
+                size="sm"
+                step={10}
+                value={config.rate}
+                maxValue={200}
+                minValue={-200}
+                aria-label="风格强度"
+                onChange={handleSlideRate}
+                className="flex-1"
+                classNames={{
+                  base: 'gap-3',
+                  track: 'border-s-primary-100',
+                  filler: 'bg-gradient-to-r from-primary-100 to-primary-500',
+                }}
+              />
+            </div>
+
+            {/* pitch */}
+            <div className="pt-5">
+              <section className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <p className="shrink-0">{t.pitch}</p>
+                  <FontAwesomeIcon icon={faRotateRight} className="text-gray-500 cursor-pointer" onClick={resetPitch} />
+                </div>
+                <p>{config.pitch}%</p>
+              </section>
+              <Slider
+                size="sm"
+                step={1}
+                value={config.pitch}
+                minValue={-100}
+                maxValue={100}
+                aria-label={t.pitch}
+                onChange={handleSlidePitch}
+                classNames={{
+                  track: 'border-s-primary-100',
+                  filler: 'bg-gradient-to-r from-primary-100 to-primary-500',
+                }}
+              />
+            </div>
+
+            {/* volume */}
+            <div className="pt-5 pb-3">
+              <section className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <p className="shrink-0">{t.volume}</p>
+                  <FontAwesomeIcon
+                    icon={faRotateRight}
+                    className="text-gray-500 cursor-pointer"
+                    onClick={resetVolume}
+                  />
+                </div>
+                <p>{config.volume}%</p>
+              </section>
+              <Slider
+                size="sm"
+                step={1}
+                value={config.volume}
+                minValue={0}
+                maxValue={200}
+                aria-label={t.volume}
+                onChange={handleSlideVolume}
+                classNames={{
+                  track: 'border-s-primary-100',
+                  filler: 'bg-gradient-to-r from-primary-100 to-primary-500',
+                }}
+              />
+            </div>
+          </AccordionItem>
+        </Accordion>
       </div>
     </div>
   )
