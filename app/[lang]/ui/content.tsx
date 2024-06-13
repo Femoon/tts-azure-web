@@ -9,7 +9,7 @@ import { Spinner } from '@nextui-org/spinner'
 import { base64AudioToBlobUrl, filterAndDeduplicateByGender, saveAs } from '../../lib/tools'
 import { ListItem } from '../../lib/types'
 import LanguageSelect from './components/language-select'
-import { cnText, enText } from '@/app/lib/constants'
+import { DEFAULT_TEXT } from '@/app/lib/constants'
 import { type getDictionary } from '@/get-dictionary'
 
 export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getDictionary>>; list: ListItem[] }) {
@@ -84,7 +84,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
       const browserLang = window.localStorage.getItem('browserLang') === 'cn' ? 'zh-CN' : 'en-US'
       const lang = window.localStorage.getItem('lang') || browserLang || 'zh-CN'
       setConfig(prevConfig => ({ ...prevConfig, lang }))
-      setInput(lang === 'zh-CN' ? cnText : enText)
+      setInput(lang === 'zh-CN' ? DEFAULT_TEXT.CN : DEFAULT_TEXT.EN)
     }
   }, [list])
 

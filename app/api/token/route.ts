@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server'
-import { azureTokenEndpoint } from '@/app/lib/constants'
+import { AZURE_TOKEN_ENDPOINT } from '@/app/lib/constants'
 
 let cachedToken: string | null = null
 let tokenExpiration: Date | null = null
 
 async function fetchToken() {
   try {
-    const res = await fetch(azureTokenEndpoint, {
+    const res = await fetch(AZURE_TOKEN_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ export async function POST() {
   try {
     if (!cachedToken || !tokenExpiration || tokenExpiration <= new Date()) {
       cachedToken = await fetchToken()
-      tokenExpiration = new Date(new Date().getTime() + 20 * 1000) // 假设 token 有效期为 20s
+      tokenExpiration = new Date(new Date().getTime() + 20 * 1000) // 20s
     }
     return NextResponse.json({ token: cachedToken })
   } catch (error) {

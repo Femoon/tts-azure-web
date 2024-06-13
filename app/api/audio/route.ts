@@ -1,10 +1,10 @@
 import { Buffer } from 'buffer'
 import { NextRequest, NextResponse } from 'next/server'
-import { azureCognitiveEndpoint } from '@/app/lib/constants'
+import { AZURE_COGNITIVE_ENDPOINT } from '@/app/lib/constants'
 
 async function fetchAudio(token: string, data: any): Promise<string> {
   try {
-    const response = await fetch(azureCognitiveEndpoint, {
+    const response = await fetch(AZURE_COGNITIVE_ENDPOINT, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -14,7 +14,6 @@ async function fetchAudio(token: string, data: any): Promise<string> {
       body: getXML(data),
     })
 
-    // 检查响应状态
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`)
     }

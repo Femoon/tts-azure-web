@@ -4,7 +4,7 @@ import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Selection } from
 import { usePathname, useRouter } from 'next/navigation'
 import Github from '../../icons/github.svg'
 import Language from '../../icons/language.svg'
-import { langs } from '../../lib/constants'
+import { GITHUB_URL, langs } from '../../lib/constants'
 import IconButton from './components/icon-button'
 import { ThemeToggle } from './components/theme-toggle'
 import { type getDictionary } from '@/get-dictionary'
@@ -49,7 +49,13 @@ export default function Nav({ t }: { t: Awaited<ReturnType<typeof getDictionary>
         TTS Web
       </div>
       <div className="flex items-center gap-1">
-        <IconButton icon={<Github />} className="hover:text-[#0ea5e9] transition-colors duration-300" />
+        <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+          <IconButton
+            icon={<Github />}
+            title="Github"
+            className="hover:text-[#0ea5e9] transition-colors duration-300"
+          />
+        </a>
 
         <Dropdown>
           <DropdownTrigger>
