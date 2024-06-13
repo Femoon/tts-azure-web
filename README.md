@@ -1,6 +1,6 @@
-# README
+# TTS Azure Web
 
-TTS-Azure-Web is an Azure Text-to-Speech (TTS) web application. It allows you to run it locally or deploy it with a single click using your Azure Key.
+TTS Azure Web is an Azure Text-to-Speech (TTS) web application. It allows you to run it locally or deploy it with a single click using your Azure Key.
 
 Key Features:
 
