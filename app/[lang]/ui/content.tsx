@@ -49,7 +49,14 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
 
   const voiceNames = useMemo(() => {
     const dataForVoiceName = selectedConfigs.filter(item => item.Gender === config.gender)
-    return dataForVoiceName.map(item => ({ label: item.LocalName, value: item.ShortName }))
+    return dataForVoiceName.map(item => {
+      return {
+        label: item.LocalName,
+        value: item.ShortName,
+        hasStyle: item.StyleList?.length,
+        hasRole: item.RolePlayList?.length,
+      }
+    })
   }, [config.gender, selectedConfigs])
 
   const { styles, roles } = useMemo(() => {
@@ -257,10 +264,26 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
                   <Button
                     key={item.value}
                     color={item.value === config.voiceName ? 'primary' : 'default'}
-                    className="mt-2"
+                    className="mt-1 gap-1 border-black"
                     onClick={() => handleSelectVoiceName(item.value)}
                   >
                     {item.label.split(' ').join(' - ')}
+                    <div className="flex">
+                      {item.hasStyle && (
+                        <div
+                          className={`border border-${item.value === config.voiceName ? 'white' : 'black'} rounded leading-4 px-1 scale-80`}
+                        >
+                          S
+                        </div>
+                      )}
+                      {item.hasRole && (
+                        <div
+                          className={`border border-${item.value === config.voiceName ? 'white' : 'black'} rounded leading-4 px-1 scale-80`}
+                        >
+                          R
+                        </div>
+                      )}
+                    </div>
                   </Button>
                 )
               })}
@@ -297,7 +320,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
               <Button
                 key="defaultStyle"
                 color={config.style === '' ? 'primary' : 'default'}
-                className="mt-2"
+                className="mt-1"
                 onClick={() => setConfig(prevConfig => ({ ...prevConfig, style: '' }))}
               >
                 {t.default}
@@ -307,7 +330,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
                   <Button
                     key={item}
                     color={item === config.style ? 'primary' : 'default'}
-                    className="mt-2"
+                    className="mt-1"
                     onClick={() => setConfig(prevConfig => ({ ...prevConfig, style: item }))}
                   >
                     {t.styles[item]}
@@ -323,7 +346,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
               <Button
                 key="defaultRole"
                 color={config.role === '' ? 'primary' : 'default'}
-                className="mt-2"
+                className="mt-1"
                 onClick={() => setConfig(prevConfig => ({ ...prevConfig, role: '' }))}
               >
                 {t.default}
@@ -333,7 +356,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
                   <Button
                     key={item}
                     color={item === config.role ? 'primary' : 'default'}
-                    className="mt-2"
+                    className="mt-1"
                     onClick={() => setConfig(prevConfig => ({ ...prevConfig, role: item }))}
                   >
                     {t.roles[item]}
