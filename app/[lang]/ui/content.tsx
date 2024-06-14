@@ -244,7 +244,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
         </div>
 
         {/* voice */}
-        <Accordion className="mt-3 rounded-medium px-3 bg-transparent" isCompact defaultExpandedKeys={'1'}>
+        <Accordion className="mt-3 px-0 rounded-medium bg-transparent" isCompact defaultExpandedKeys={'1'}>
           <AccordionItem key="1" aria-label={t.voice} startContent={<p className="text-large">{t.voice}</p>}>
             <div>
               <div className="flex flex-wrap gap-2">
@@ -266,8 +266,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
         </Accordion>
 
         {/* style */}
-
-        <Accordion className="mt-3 rounded-medium px-3 bg-transparent" isCompact defaultSelectedKeys={'1'}>
+        <Accordion className="mt-3 px-0 rounded-medium  bg-transparent" isCompact defaultSelectedKeys={'1'}>
           <AccordionItem key="1" aria-label={t.style} startContent={<p className="text-large">{t.style}</p>}>
             <div>
               <section className="flex items-center justify-between gap-20">
@@ -322,7 +321,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
 
         {/* role */}
 
-        <Accordion className="mt-3 rounded-medium px-3 bg-transparent" isCompact defaultSelectedKeys={'1'}>
+        <Accordion className="mt-3 px-0 rounded-medium bg-transparent" isCompact defaultSelectedKeys={'1'}>
           <AccordionItem key="1" aria-label={t.role} startContent={<p className="text-large">{t.role}</p>}>
             <div>
               <div className="flex flex-wrap gap-2">
@@ -352,7 +351,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
         </Accordion>
 
         {/* Advanced settings */}
-        <Accordion className="mt-3 rounded-medium px-3 bg-transparent" isCompact>
+        <Accordion className="mt-3 px-0 rounded-medium bg-transparent" isCompact>
           <AccordionItem
             key="1"
             aria-label={t.advancedSettings}
