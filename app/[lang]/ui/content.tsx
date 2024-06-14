@@ -1,6 +1,15 @@
 'use client'
 import { Key, useEffect, useMemo, useRef, useState } from 'react'
-import { faCircleDown, faCirclePause, faCirclePlay, faRotateRight } from '@fortawesome/free-solid-svg-icons'
+import {
+  faCircleDown,
+  faCirclePause,
+  faCirclePlay,
+  faRotateRight,
+  faMicrophone,
+  faFaceLaugh,
+  faUserGroup,
+  faSliders,
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Accordion, AccordionItem } from '@nextui-org/accordion'
 import { Button } from '@nextui-org/button'
@@ -257,7 +266,17 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
           defaultExpandedKeys={['1', '2', '3']}
         >
           {/* voice */}
-          <AccordionItem key="1" aria-label={t.voice} startContent={<p className="text-large">{t.voice}</p>}>
+          <AccordionItem
+            key="1"
+            aria-label={t.voice}
+            startContent={
+              <div className="flex items-center gap-3">
+                <FontAwesomeIcon icon={faMicrophone} className="text-gray-500 cursor-pointer h-[1em]" />
+
+                <p className="text-large">{t.voice}</p>
+              </div>
+            }
+          >
             <div className="flex flex-wrap gap-2 pb-3">
               {voiceNames.map(item => {
                 return (
@@ -291,7 +310,16 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
           </AccordionItem>
 
           {/* style */}
-          <AccordionItem key="2" aria-label={t.style} startContent={<p className="text-large">{t.style}</p>}>
+          <AccordionItem
+            key="2"
+            aria-label={t.style}
+            startContent={
+              <div className="flex items-center gap-3">
+                <FontAwesomeIcon icon={faFaceLaugh} className="text-gray-500 cursor-pointer h-[1em]" />
+                <p className="text-large">{t.style}</p>
+              </div>
+            }
+          >
             <section className="flex items-center justify-between gap-20">
               <div className="flex flex-1 gap-5 items-center justify-end">
                 <FontAwesomeIcon
@@ -341,7 +369,16 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
           </AccordionItem>
 
           {/* role */}
-          <AccordionItem key="3" aria-label={t.role} startContent={<p className="text-large">{t.role}</p>}>
+          <AccordionItem
+            key="3"
+            aria-label={t.role}
+            startContent={
+              <div className="flex gap-3 items-center">
+                <FontAwesomeIcon icon={faUserGroup} className="text-gray-500 cursor-pointer h-[1em]" />
+                <p className="text-large">{t.role}</p>
+              </div>
+            }
+          >
             <div className="flex flex-wrap gap-2 pb-3">
               <Button
                 key="defaultRole"
@@ -370,7 +407,12 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
           <AccordionItem
             key="4"
             aria-label={t.advancedSettings}
-            startContent={<p className="text-large">{t.advancedSettings}</p>}
+            startContent={
+              <div className="flex items-center gap-3">
+                <FontAwesomeIcon icon={faSliders} className="text-gray-500 cursor-pointer h-[1em]" />
+                <p className="text-large">{t.advancedSettings}</p>
+              </div>
+            }
           >
             {/* rate */}
             <div>
@@ -408,7 +450,10 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
                   <p className="shrink-0">{t.pitch}</p>
                   <FontAwesomeIcon icon={faRotateRight} className="text-gray-500 cursor-pointer" onClick={resetPitch} />
                 </div>
-                <p>{config.pitch}%</p>
+                <p>
+                  {config.pitch >= 0 && '+'}
+                  {config.pitch}%
+                </p>
               </section>
               <Slider
                 size="sm"
