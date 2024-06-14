@@ -243,117 +243,109 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
           )}
         </div>
 
-        {/* voice */}
-        <Accordion className="mt-3 px-0 rounded-medium bg-transparent" isCompact defaultExpandedKeys={'1'}>
+        <Accordion
+          className="mt-3 px-0 rounded-medium bg-transparent"
+          selectionMode="multiple"
+          isCompact
+          defaultExpandedKeys={['1', '2', '3']}
+        >
+          {/* voice */}
           <AccordionItem key="1" aria-label={t.voice} startContent={<p className="text-large">{t.voice}</p>}>
-            <div>
-              <div className="flex flex-wrap gap-2">
-                {voiceNames.map(item => {
-                  return (
-                    <Button
-                      key={item.value}
-                      color={item.value === config.voiceName ? 'primary' : 'default'}
-                      className="mt-2"
-                      onClick={() => handleSelectVoiceName(item.value)}
-                    >
-                      {item.label.split(' ').join(' - ')}
-                    </Button>
-                  )
-                })}
-              </div>
+            <div className="flex flex-wrap gap-2 pb-3">
+              {voiceNames.map(item => {
+                return (
+                  <Button
+                    key={item.value}
+                    color={item.value === config.voiceName ? 'primary' : 'default'}
+                    className="mt-2"
+                    onClick={() => handleSelectVoiceName(item.value)}
+                  >
+                    {item.label.split(' ').join(' - ')}
+                  </Button>
+                )
+              })}
             </div>
           </AccordionItem>
-        </Accordion>
 
-        {/* style */}
-        <Accordion className="mt-3 px-0 rounded-medium  bg-transparent" isCompact defaultSelectedKeys={'1'}>
-          <AccordionItem key="1" aria-label={t.style} startContent={<p className="text-large">{t.style}</p>}>
-            <div>
-              <section className="flex items-center justify-between gap-20">
-                <div className="flex flex-1 gap-5 items-center justify-end">
-                  <FontAwesomeIcon
-                    icon={faRotateRight}
-                    className="text-gray-500 cursor-pointer h-[1em]"
-                    onClick={resetStyleDegree}
-                  />
-                  <Slider
-                    size="sm"
-                    step={0.01}
-                    value={config.styleDegree}
-                    maxValue={2}
-                    minValue={0.01}
-                    defaultValue={1}
-                    aria-label="风格强度"
-                    onChange={handleSlideStyleDegree}
-                    classNames={{
-                      track: 'border-s-primary-100',
-                      filler: 'bg-gradient-to-r from-primary-100 to-primary-500',
-                    }}
-                  />
-                  <p className="w-10">{config.styleDegree}</p>
-                </div>
-              </section>
-              <div className="flex flex-wrap gap-2">
-                <Button
-                  key="defaultStyle"
-                  color={config.style === '' ? 'primary' : 'default'}
-                  className="mt-2"
-                  onClick={() => setConfig(prevConfig => ({ ...prevConfig, style: '' }))}
-                >
-                  {t.default}
-                </Button>
-                {styles.map(item => {
-                  return (
-                    <Button
-                      key={item}
-                      color={item === config.style ? 'primary' : 'default'}
-                      className="mt-2"
-                      onClick={() => setConfig(prevConfig => ({ ...prevConfig, style: item }))}
-                    >
-                      {t.styles[item]}
-                    </Button>
-                  )
-                })}
+          {/* style */}
+          <AccordionItem key="2" aria-label={t.style} startContent={<p className="text-large">{t.style}</p>}>
+            <section className="flex items-center justify-between gap-20">
+              <div className="flex flex-1 gap-5 items-center justify-end">
+                <FontAwesomeIcon
+                  icon={faRotateRight}
+                  className="text-gray-500 cursor-pointer h-[1em]"
+                  onClick={resetStyleDegree}
+                />
+                <Slider
+                  size="sm"
+                  step={0.01}
+                  value={config.styleDegree}
+                  maxValue={2}
+                  minValue={0.01}
+                  defaultValue={1}
+                  aria-label="风格强度"
+                  onChange={handleSlideStyleDegree}
+                  classNames={{
+                    track: 'border-s-primary-100',
+                    filler: 'bg-gradient-to-r from-primary-100 to-primary-500',
+                  }}
+                />
+                <p className="w-10">{config.styleDegree}</p>
               </div>
+            </section>
+            <div className="flex flex-wrap gap-2 pb-3">
+              <Button
+                key="defaultStyle"
+                color={config.style === '' ? 'primary' : 'default'}
+                className="mt-2"
+                onClick={() => setConfig(prevConfig => ({ ...prevConfig, style: '' }))}
+              >
+                {t.default}
+              </Button>
+              {styles.map(item => {
+                return (
+                  <Button
+                    key={item}
+                    color={item === config.style ? 'primary' : 'default'}
+                    className="mt-2"
+                    onClick={() => setConfig(prevConfig => ({ ...prevConfig, style: item }))}
+                  >
+                    {t.styles[item]}
+                  </Button>
+                )
+              })}
             </div>
           </AccordionItem>
-        </Accordion>
 
-        {/* role */}
-
-        <Accordion className="mt-3 px-0 rounded-medium bg-transparent" isCompact defaultSelectedKeys={'1'}>
-          <AccordionItem key="1" aria-label={t.role} startContent={<p className="text-large">{t.role}</p>}>
-            <div>
-              <div className="flex flex-wrap gap-2">
-                <Button
-                  key="defaultRole"
-                  color={config.role === '' ? 'primary' : 'default'}
-                  className="mt-2"
-                  onClick={() => setConfig(prevConfig => ({ ...prevConfig, role: '' }))}
-                >
-                  {t.default}
-                </Button>
-                {roles.map(item => {
-                  return (
-                    <Button
-                      key={item}
-                      color={item === config.role ? 'primary' : 'default'}
-                      className="mt-2"
-                      onClick={() => setConfig(prevConfig => ({ ...prevConfig, role: item }))}
-                    >
-                      {t.roles[item]}
-                    </Button>
-                  )
-                })}
-              </div>
+          {/* role */}
+          <AccordionItem key="3" aria-label={t.role} startContent={<p className="text-large">{t.role}</p>}>
+            <div className="flex flex-wrap gap-2 pb-3">
+              <Button
+                key="defaultRole"
+                color={config.role === '' ? 'primary' : 'default'}
+                className="mt-2"
+                onClick={() => setConfig(prevConfig => ({ ...prevConfig, role: '' }))}
+              >
+                {t.default}
+              </Button>
+              {roles.map(item => {
+                return (
+                  <Button
+                    key={item}
+                    color={item === config.role ? 'primary' : 'default'}
+                    className="mt-2"
+                    onClick={() => setConfig(prevConfig => ({ ...prevConfig, role: item }))}
+                  >
+                    {t.roles[item]}
+                  </Button>
+                )
+              })}
             </div>
           </AccordionItem>
-        </Accordion>
 
-        {/* Advanced settings */}
-        <Accordion className="mt-3 px-0 rounded-medium bg-transparent" isCompact>
+          {/* Advanced settings */}
           <AccordionItem
-            key="1"
+            key="4"
             aria-label={t.advancedSettings}
             startContent={<p className="text-large">{t.advancedSettings}</p>}
           >
