@@ -290,14 +290,14 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
                     <div className="flex">
                       {item.hasStyle && (
                         <div
-                          className={`border border-${item.value === config.voiceName ? 'white' : 'black'} rounded leading-4 px-1 scale-80`}
+                          className={`border border-${item.value === config.voiceName ? 'white' : 'black'} dark:border-white rounded leading-4 px-1 scale-80`}
                         >
                           S
                         </div>
                       )}
                       {item.hasRole && (
                         <div
-                          className={`border border-${item.value === config.voiceName ? 'white' : 'black'} rounded leading-4 px-1 scale-80`}
+                          className={`border border-${item.value === config.voiceName ? 'white' : 'black'} dark:border-white rounded leading-4 px-1 scale-80`}
                         >
                           R
                         </div>
