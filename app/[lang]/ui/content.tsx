@@ -271,7 +271,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
             aria-label={t.voice}
             startContent={
               <div className="flex items-center gap-3">
-                <FontAwesomeIcon icon={faMicrophone} className="text-gray-500 cursor-pointer h-[1em]" />
+                <FontAwesomeIcon icon={faMicrophone} className="text-gray-500 cursor-pointer w-[18px] h-[18px]" />
 
                 <p className="text-large">{t.voice}</p>
               </div>
@@ -315,7 +315,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
             aria-label={t.style}
             startContent={
               <div className="flex items-center gap-3">
-                <FontAwesomeIcon icon={faFaceLaugh} className="text-gray-500 cursor-pointer h-[1em]" />
+                <FontAwesomeIcon icon={faFaceLaugh} className="text-gray-500 cursor-pointer w-[18px] h-[18px]" />
                 <p className="text-large">{t.style}</p>
               </div>
             }
@@ -374,7 +374,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
             aria-label={t.role}
             startContent={
               <div className="flex gap-3 items-center">
-                <FontAwesomeIcon icon={faUserGroup} className="text-gray-500 cursor-pointer h-[1em]" />
+                <FontAwesomeIcon icon={faUserGroup} className="text-gray-500 cursor-pointer w-[18px] h-[18px]" />
                 <p className="text-large">{t.role}</p>
               </div>
             }
@@ -409,7 +409,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
             aria-label={t.advancedSettings}
             startContent={
               <div className="flex items-center gap-3">
-                <FontAwesomeIcon icon={faSliders} className="text-gray-500 cursor-pointer h-[1em]" />
+                <FontAwesomeIcon icon={faSliders} className="text-gray-500 cursor-pointer w-[18px] h-[18px]" />
                 <p className="text-large">{t.advancedSettings}</p>
               </div>
             }
