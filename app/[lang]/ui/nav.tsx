@@ -7,10 +7,9 @@ import Language from '../../icons/language.svg'
 import { GITHUB_URL, langs } from '../../lib/constants'
 import IconButton from './components/icon-button'
 import { ThemeToggle } from './components/theme-toggle'
-import { type getDictionary } from '@/get-dictionary'
 import { Locale } from '@/i18n-config'
 
-export default function Nav({ t }: { t: Awaited<ReturnType<typeof getDictionary>> }) {
+export default function Nav({ t }: { t: Locale }) {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set(['cn']))
 
   const router = useRouter()

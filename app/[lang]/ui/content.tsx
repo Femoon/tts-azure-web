@@ -16,19 +16,18 @@ import { Button } from '@nextui-org/button'
 import { Textarea } from '@nextui-org/input'
 import { Slider, SliderValue } from '@nextui-org/slider'
 import { Spinner } from '@nextui-org/spinner'
-import { base64AudioToBlobUrl, filterAndDeduplicateByGender, saveAs } from '../../lib/tools'
-import { ListItem } from '../../lib/types'
+import { base64AudioToBlobUrl, filterAndDeduplicateByGender, generateXML, saveAs } from '../../lib/tools'
+import { Config, ListItem, Tran } from '../../lib/types'
 import LanguageSelect from './components/language-select'
 import { DEFAULT_TEXT } from '@/app/lib/constants'
-import { type getDictionary } from '@/get-dictionary'
 
-export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getDictionary>>; list: ListItem[] }) {
+export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
   const [input, setInput] = useState<string>('')
   const [isLoading, setLoading] = useState<boolean>(false)
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const cacheConfigRef = useRef<string | null>(null)
-  const [config, setConfig] = useState({
+  const [config, setConfig] = useState<Config>({
     gender: 'Female',
     voiceName: '',
     lang: 'zh-CN',
@@ -139,8 +138,8 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
   const fetchAudio = async () => {
     const res = await fetch('/api/audio', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ input, config }),
+      headers: { 'Content-Type': 'application/ssml+xml' },
+      body: generateXML({ input, config }),
     })
     return res.json()
   }
@@ -206,7 +205,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
     setConfig(prevConfig => ({ ...prevConfig, pitch: 0 }))
   }
 
-  const getCacheMark = () => {
+  const getCacheMark: () => string = () => {
     return input + Object.values(config).join('')
   }
 

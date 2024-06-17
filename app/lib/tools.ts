@@ -1,5 +1,5 @@
 import { genders } from './constants'
-import { GenderResult, ListItem } from './types'
+import { Config, GenderResult, ListItem } from './types'
 
 export function saveAs(blob: Blob, name: string) {
   const a = document.createElement('a')
@@ -48,4 +48,26 @@ export function base64AudioToBlobUrl(base64Audio: string) {
 
   const blob = new Blob([bytes], { type: 'audio/mp3' })
   return URL.createObjectURL(blob)
+}
+
+export function generateXML(data: { input: string; config: Config }): string {
+  const { input, config } = data
+  const { lang, voiceName, style, styleDegree, role, volume, rate, pitch } = config
+  const styleProperty = style ? ` style="${style}"` : ''
+  const styleDegreeProperty = styleDegree ? ` styleDegree="${styleDegree}"` : ''
+  const roleProperty = role ? ` role="${role}"` : ''
+  const volumeProperty = ` volume="${volume}%"`
+  const rateProperty = ` rate="${rate}%"`
+  const pitchProperty = ` pitch="${pitch}%"`
+  const xml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="${lang}">
+    <voice name="${voiceName}">
+        <mstts:express-as${roleProperty}${styleProperty}${styleDegreeProperty}>
+            <prosody${volumeProperty}${rateProperty}${pitchProperty}>
+                ${input}
+            </prosody>
+        </mstts:express-as>
+    </voice>
+</speak>`
+  console.log(xml)
+  return xml
 }

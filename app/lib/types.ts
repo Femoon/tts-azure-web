@@ -1,5 +1,5 @@
 import { Key } from 'react'
-import { getDictionary } from '@/get-dictionary'
+import { getLocale } from '@/get-locale'
 
 export interface ListItem {
   Name: string
@@ -22,6 +22,19 @@ export interface ListItem {
 interface ExtendedPropertyMap {
   IsHighQuality48K: string
 }
+
+export interface Config {
+  gender: string
+  voiceName: string
+  lang: string
+  style: string
+  styleDegree: number
+  role: string
+  rate: number
+  volume: number
+  pitch: number
+}
+
 interface KeyValue {
   label: string
   value: string
@@ -33,8 +46,10 @@ export interface GenderResult extends KeyValue {
 
 export interface LangsItem extends KeyValue {}
 
+export type Tran = Awaited<ReturnType<typeof getLocale>>
+
 export interface LanguageSelectProps {
-  t: Awaited<ReturnType<typeof getDictionary>>
+  t: Tran
   langs: LangsItem[]
   selectedLang: string
   handleSelectLang: (value: Key | null) => void

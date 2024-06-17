@@ -1,8 +1,8 @@
+import { Tran } from '@/app/lib/types'
 import useTheme from '@/app/lib/use-theme'
-import { getDictionary } from '@/get-dictionary'
 import '../../../../styles/theme-button.css'
 
-export function ThemeToggle({ t }: { t: Awaited<ReturnType<typeof getDictionary>> }) {
+export function ThemeToggle({ t }: { t: Tran }) {
   const [theme, setTheme] = useTheme()
 
   const toggleTheme = (event: MouseEvent) => {

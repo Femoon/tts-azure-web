@@ -1,12 +1,12 @@
-import { fetchList } from '../lib/fetch-list'
+import { fetchList } from '../api/fetch-list'
 import { ListItem } from '../lib/types'
 import Content from './ui/content'
 import Nav from './ui/nav'
-import { getDictionary } from '@/get-dictionary'
+import { getLocale } from '@/get-locale'
 import type { Locale } from '@/i18n-config'
 
 export default async function Home({ params: { lang } }: { params: { lang: Locale } }) {
-  const t = await getDictionary(lang)
+  const t = await getLocale(lang)
   let list: ListItem[] = []
 
   try {
