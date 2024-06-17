@@ -407,6 +407,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
           <AccordionItem
             key="4"
             aria-label={t.advancedSettings}
+            classNames={{ content: 'overflow-x-hidden' }}
             startContent={
               <div className="flex items-center gap-3">
                 <FontAwesomeIcon icon={faSliders} className="text-gray-500 cursor-pointer w-[18px] h-[18px]" />
