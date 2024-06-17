@@ -53,7 +53,7 @@ function getXML(data: any) {
   const styleProperty = style ? ` style="${style}"` : ''
   const styleDegreeProperty = styleDegree ? ` styleDegree="${styleDegree}"` : ''
   const roleProperty = role ? ` role="${role}"` : ''
-  const volumeProperty = ` volume="${volume}"`
+  const volumeProperty = ` volume="${volume}%"`
   const rateProperty = ` rate="${rate}%"`
   const pitchProperty = ` pitch="${pitch}%"`
   const xml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="${lang}">

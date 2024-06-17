@@ -36,7 +36,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
     styleDegree: 1,
     role: '',
     rate: 0,
-    volume: 100,
+    volume: 0,
     pitch: 0,
   })
 
@@ -199,7 +199,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
   }
 
   const resetVolume = () => {
-    setConfig(prevConfig => ({ ...prevConfig, volume: 100 }))
+    setConfig(prevConfig => ({ ...prevConfig, volume: 0 }))
   }
 
   const resetPitch = () => {
@@ -429,7 +429,7 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
               </section>
               <Slider
                 size="sm"
-                step={10}
+                step={1}
                 value={config.rate}
                 maxValue={200}
                 minValue={-200}
@@ -482,14 +482,17 @@ export default function Content({ t, list }: { t: Awaited<ReturnType<typeof getD
                     onClick={resetVolume}
                   />
                 </div>
-                <p>{config.volume}%</p>
+                <p>
+                  {config.volume >= 0 && '+'}
+                  {config.volume}%
+                </p>
               </section>
               <Slider
                 size="sm"
                 step={1}
                 value={config.volume}
-                minValue={0}
-                maxValue={200}
+                minValue={-100}
+                maxValue={100}
                 aria-label={t.volume}
                 onChange={handleSlideVolume}
                 classNames={{
