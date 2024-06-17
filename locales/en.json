@@ -1,6 +1,7 @@
 {
   "select-language-btn": "Select language",
   "toggle-theme": "Toggles light & dark",
+  "download": "Download",
   "play": "Play",
   "pause": "Pause",
   "input-text": "Please enter text",
@@ -10,7 +11,7 @@
   "female": "Woman",
   "neuter": "Neuter",
   "rate": "Rate",
-  "advancedSettings":"Advanced Settings",
+  "advancedSettings": "Advanced Settings",
   "volume": "Volume",
   "pitch": "Pitch",
   "style": "Style",

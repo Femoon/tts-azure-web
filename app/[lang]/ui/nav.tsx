@@ -45,7 +45,7 @@ export default function Nav({ t }: { t: Locale }) {
   return (
     <div className="w-full px-6 h-16 flex sticky top-0 items-center justify-between z-[100] border-b border-light-border dark:border-dark-border bg-nav-light dark:bg-nav-dark">
       <div className="cursor-pointer select-none" onClick={handleClickTitle}>
-        TTS Web
+        Azure TTS Web
       </div>
       <div className="flex items-center gap-1">
         <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">

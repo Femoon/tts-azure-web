@@ -16,7 +16,13 @@ import { Button } from '@nextui-org/button'
 import { Textarea } from '@nextui-org/input'
 import { Slider, SliderValue } from '@nextui-org/slider'
 import { Spinner } from '@nextui-org/spinner'
-import { base64AudioToBlobUrl, filterAndDeduplicateByGender, generateXML, saveAs } from '../../lib/tools'
+import {
+  base64AudioToBlobUrl,
+  filterAndDeduplicateByGender,
+  generateXML,
+  saveAs,
+  sortWithMultilingual,
+} from '../../lib/tools'
 import { Config, ListItem, Tran } from '../../lib/types'
 import LanguageSelect from './components/language-select'
 import { DEFAULT_TEXT } from '@/app/lib/constants'
@@ -57,15 +63,27 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
 
   const voiceNames = useMemo(() => {
     const dataForVoiceName = selectedConfigs.filter(item => item.Gender === config.gender)
-    return dataForVoiceName.map(item => {
+    const _voiceNames = dataForVoiceName.map(item => {
       return {
         label: item.LocalName,
         value: item.ShortName,
-        hasStyle: item.StyleList?.length,
-        hasRole: item.RolePlayList?.length,
+        hasStyle: !!item.StyleList?.length,
+        hasRole: !!item.RolePlayList?.length,
       }
     })
-  }, [config.gender, selectedConfigs])
+
+    sortWithMultilingual(_voiceNames)
+
+    if (config.lang === 'zh-CN') {
+      _voiceNames.sort((a, b) => {
+        if (a.value.includes('XiaoxiaoMultilingualNeural')) return -1
+        if (b.value.includes('XiaoxiaoMultilingualNeural')) return 1
+        return 0
+      })
+    }
+
+    return _voiceNames
+  }, [config.gender, config.lang, selectedConfigs])
 
   const { styles, roles } = useMemo(() => {
     const data = selectedConfigs.find(item => item.ShortName === config.voiceName)
@@ -224,19 +242,23 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
         />
         <p className="text-right pt-2">{input.length}/7000</p>
         <div className="flex justify-between items-center pt-6">
-          <FontAwesomeIcon
-            icon={faCircleDown}
-            className="w-8 h-8 text-blue-600 cursor-pointer"
-            onClick={handleDownload}
-          />
+          <div title={t.download}>
+            <FontAwesomeIcon
+              icon={faCircleDown}
+              className="w-8 h-8 text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
+              onClick={handleDownload}
+            />
+          </div>
           {isLoading ? (
             <Spinner className="w-8 h-8" />
           ) : (
-            <FontAwesomeIcon
-              icon={isPlaying ? faCirclePause : faCirclePlay}
-              className={`w-8 h-8 text-blue-${isLoading ? '600/50' : '600'} cursor-pointer`}
-              onClick={isPlaying ? pause : play}
-            />
+            <div title={isPlaying ? t.pause : t.play}>
+              <FontAwesomeIcon
+                icon={isPlaying ? faCirclePause : faCirclePlay}
+                className={`w-8 h-8 text-blue-${isLoading ? '600/50' : '600'} hover:text-blue-500 transition-colors cursor-pointer`}
+                onClick={isPlaying ? pause : play}
+              />
+            </div>
           )}
         </div>
       </div>

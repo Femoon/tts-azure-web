@@ -49,6 +49,26 @@ export function base64AudioToBlobUrl(base64Audio: string) {
   const blob = new Blob([bytes], { type: 'audio/mp3' })
   return URL.createObjectURL(blob)
 }
+interface VoiceName {
+  label: string
+  value: string
+  hasStyle: boolean
+  hasRole: boolean
+}
+export function sortWithMultilingual(voiceNames: VoiceName[]): VoiceName[] {
+  return voiceNames.sort((a: VoiceName, b: VoiceName) => {
+    const aContainsMultilingual = a.value.toLowerCase().includes('multilingual')
+    const bContainsMultilingual = b.value.toLowerCase().includes('multilingual')
+
+    if (aContainsMultilingual && !bContainsMultilingual) {
+      return -1
+    }
+    if (!aContainsMultilingual && bContainsMultilingual) {
+      return 1
+    }
+    return 0
+  })
+}
 
 export function generateXML(data: { input: string; config: Config }): string {
   const { input, config } = data
