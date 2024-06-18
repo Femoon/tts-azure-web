@@ -2,12 +2,12 @@
 
 [English](./README.md) / 简体中文
 
-TTS Azure Web 是一个 Azure 文本转语音（TTS）网络应用。可以在本地运行或使用你的 Azure 密钥一键部署。
+TTS Azure Web 是一个 Azure 文本转语音（TTS）网络应用。可以在本地运行或使用你的 Azure Key 一键部署。
 
 主要特性：
 
 - 本地和云端部署：可以轻松地在本地机器上运行应用程序或将其部署到云端。
-- 一键设置：使用你的 Azure 密钥简化部署过程。
+- 一键设置：使用你的 Azure Key 简化部署过程。
 - Azure 集成：利用 Azure 强大的 TTS 服务，实现高质量的语音合成。
 
 该应用程序适合那些希望在体验 Azure TTS 全功能的同时最小化设置工作的用户。
@@ -18,10 +18,10 @@ TTS Azure Web 是一个 Azure 文本转语音（TTS）网络应用。可以在�
 
 获取你的 API 密钥
 
-- 访问 [Microsoft Azure 文本转语音](https://azure.microsoft.com/zh-cn/products/ai-services/text-to-speech) 并点击“试用文本转语音”
+- 访问 [Microsoft Azure 文本转语音](https://azure.microsoft.com/zh-cn/products/ai-services/text-to-speech) 并点击“免费试用文本转语音”
 - 访问 [Azure AI services](https://portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/SpeechServices)
 - 在“语音服务”块中，点击“创建”
-- 创建成功后，在语音服务旁边将列出一个区域和两个订阅密钥。你只需一个密钥及其对应的区域。
+- 创建成功后，在语音服务旁边将列出一个区域和两个订阅 Key 。你只需一个 Key 及其对应的区域。
 
 ## 在 Vercel 上一键部署
 
@@ -29,16 +29,16 @@ TTS Azure Web 是一个 Azure 文本转语音（TTS）网络应用。可以在�
 
 ## 开发
 
-在开始开发之前，必须在项目根目录创建一个新的 `.env.local` 文件，并将你的 Azure 密钥和区域放入其中：
+在开始开发之前，必须在项目根目录创建一个新的 `.env.local` 文件，并将你的 Azure Key 和地区放入其中：
 
 ```bash
-# 您的 Azure 密钥
+# 您的 Azure Key
 SPEECH_KEY=xxxxxxx
-# 您的 Azure TTS 区域
+# 您的 Azure TTS 地区
 SPEECH_REGION=southeastasia
 ```
 
-运行开发服务器：
+本地运行开发服务器：
 
 ```bash
 # 安装依赖
