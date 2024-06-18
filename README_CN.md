@@ -19,10 +19,9 @@ TTS Azure Web 是一个 Azure 文本转语音（TTS）网络应用。可以在�
 获取你的 API 密钥
 
 - 访问 [Microsoft Azure 文本转语音](https://azure.microsoft.com/zh-cn/products/ai-services/text-to-speech) 并点击“试用文本转语音”
-- 登录
 - 访问 [Azure AI services](https://portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/SpeechServices)
 - 在“语音服务”块中，点击“创建”
-- 在语音服务旁边将列出一个区域和两个订阅密钥。你只需一个密钥及其对应的区域。
+- 创建成功后，在语音服务旁边将列出一个区域和两个订阅密钥。你只需一个密钥及其对应的区域。
 
 ## 在 Vercel 上一键部署
 
