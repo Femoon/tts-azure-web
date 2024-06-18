@@ -18,9 +18,8 @@ Live demo: https://tts.femoon.top
 
 Get your API Key
 
-- Go to [Microsoft Azure > Text to Speech](https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech/) and click "Try Text to Speech"
-- Login
-- Go to [Your APIS](https://azure.microsoft.com/en-us/try/cognitive-services/my-apis/)
+- Go to [Microsoft Azure Text to Speech](https://azure.microsoft.com/en-us/products/ai-services/text-to-speech/) and click "Try Text to Speech Free"
+- Go to [Azure AI services](https://portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/SpeechServices)
 - In the "Speech services" block, click "Add"
 - A region and two subscription keys will be listed beside Speech Services. You only need one key and its corresponding region.
 
