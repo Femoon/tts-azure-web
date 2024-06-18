@@ -24,6 +24,7 @@ import {
   sortWithMultilingual,
 } from '../../lib/tools'
 import { Config, ListItem, Tran } from '../../lib/types'
+import ConfigSlider from './components/config-slider'
 import LanguageSelect from './components/language-select'
 import { DEFAULT_TEXT } from '@/app/lib/constants'
 
@@ -230,6 +231,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
   return (
     <div className="grow overflow-y-auto flex md:justify-center gap-10 py-5 px-6 sm:px-10 md:px-10 lg:px-20 xl:px-40 2xl:px-50 flex-col md:flex-row">
       <div className="md:flex-1">
+        {/* textarea */}
         <Textarea
           size="lg"
           disableAutosize
@@ -241,6 +243,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
           onChange={e => setInput(e.target.value)}
         />
         <p className="text-right pt-2">{input.length}/7000</p>
+        {/* icons */}
         <div className="flex justify-between items-center pt-6">
           <div title={t.download}>
             <FontAwesomeIcon
@@ -262,7 +265,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
           )}
         </div>
       </div>
-
+      {/* select language */}
       <div className="md:flex-1 flex flex-col">
         <LanguageSelect t={t} langs={langs} selectedLang={config.lang} handleSelectLang={handleSelectLang} />
         <div className="pt-4 flex gap-2">
@@ -437,91 +440,32 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
             }
           >
             {/* rate */}
-            <div>
-              <section className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <p className="shrink-0">{t.rate}</p>
-                  <FontAwesomeIcon icon={faRotateRight} className="text-gray-500 cursor-pointer" onClick={resetRate} />
-                </div>
-                <p>
-                  {config.rate >= 0 && '+'}
-                  {config.rate}%
-                </p>
-              </section>
-              <Slider
-                size="sm"
-                step={1}
-                value={config.rate}
-                maxValue={200}
-                minValue={-200}
-                aria-label="风格强度"
-                onChange={handleSlideRate}
-                className="flex-1"
-                classNames={{
-                  base: 'gap-3',
-                  track: 'border-s-primary-100',
-                  filler: 'bg-gradient-to-r from-primary-100 to-primary-500',
-                }}
-              />
-            </div>
-
+            <ConfigSlider
+              label={t.rate}
+              value={config.rate}
+              minValue={-200}
+              maxValue={200}
+              onChange={handleSlideRate}
+              reset={resetRate}
+            />
             {/* pitch */}
-            <div className="pt-5">
-              <section className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <p className="shrink-0">{t.pitch}</p>
-                  <FontAwesomeIcon icon={faRotateRight} className="text-gray-500 cursor-pointer" onClick={resetPitch} />
-                </div>
-                <p>
-                  {config.pitch >= 0 && '+'}
-                  {config.pitch}%
-                </p>
-              </section>
-              <Slider
-                size="sm"
-                step={1}
-                value={config.pitch}
-                minValue={-100}
-                maxValue={100}
-                aria-label={t.pitch}
-                onChange={handleSlidePitch}
-                classNames={{
-                  track: 'border-s-primary-100',
-                  filler: 'bg-gradient-to-r from-primary-100 to-primary-500',
-                }}
-              />
-            </div>
-
+            <ConfigSlider
+              label={t.pitch}
+              value={config.pitch}
+              minValue={-100}
+              maxValue={100}
+              onChange={handleSlidePitch}
+              reset={resetPitch}
+            />
             {/* volume */}
-            <div className="pt-5 pb-3">
-              <section className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <p className="shrink-0">{t.volume}</p>
-                  <FontAwesomeIcon
-                    icon={faRotateRight}
-                    className="text-gray-500 cursor-pointer"
-                    onClick={resetVolume}
-                  />
-                </div>
-                <p>
-                  {config.volume >= 0 && '+'}
-                  {config.volume}%
-                </p>
-              </section>
-              <Slider
-                size="sm"
-                step={1}
-                value={config.volume}
-                minValue={-100}
-                maxValue={100}
-                aria-label={t.volume}
-                onChange={handleSlideVolume}
-                classNames={{
-                  track: 'border-s-primary-100',
-                  filler: 'bg-gradient-to-r from-primary-100 to-primary-500',
-                }}
-              />
-            </div>
+            <ConfigSlider
+              label={t.volume}
+              value={config.volume}
+              minValue={-100}
+              maxValue={100}
+              onChange={handleSlideVolume}
+              reset={resetVolume}
+            />
           </AccordionItem>
         </Accordion>
       </div>
