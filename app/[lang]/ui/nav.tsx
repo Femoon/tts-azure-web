@@ -7,7 +7,7 @@ import Language from '../../icons/language.svg'
 import { GITHUB_URL, langs } from '../../lib/constants'
 import IconButton from './components/icon-button'
 import { ThemeToggle } from './components/theme-toggle'
-import { Locale } from '@/i18n-config'
+import { Locale } from '@/app/lib/i18n/i18n-config'
 
 export default function Nav({ t }: { t: Locale }) {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set(['cn']))

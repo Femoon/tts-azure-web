@@ -1,5 +1,5 @@
 import { Key } from 'react'
-import { getLocale } from '@/get-locale'
+import { getLocale } from '@/app/lib/i18n/get-locale'
 
 export interface ListItem {
   Name: string
