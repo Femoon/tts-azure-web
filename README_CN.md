@@ -12,7 +12,7 @@ TTS Azure Web 是一个 Azure 文本转语音（TTS）网络应用。可以在�
 
 该应用程序适合那些希望在体验 Azure TTS 全功能的同时最小化设置工作的用户。
 
-在线演示： https://tts.femoon.top
+在线演示： [https://tts.femoon.top](https://tts.femoon.top/cn)
 
 ## 入门指南
 
