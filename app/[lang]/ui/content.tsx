@@ -139,7 +139,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
       document.cookie = `user-language=${lang}; path=/`
 
       setConfig(prevConfig => ({ ...prevConfig, lang }))
-      setInput(lang === 'zh-CN' ? DEFAULT_TEXT.CN : DEFAULT_TEXT.EN)
+      setInput(lang.startsWith('zh') ? DEFAULT_TEXT.CN : DEFAULT_TEXT.EN)
     }
   }, [list])
 
