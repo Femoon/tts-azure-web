@@ -88,6 +88,6 @@ export function generateXML(data: { input: string; config: Config }): string {
         </mstts:express-as>
     </voice>
 </speak>`
-  console.log(xml)
+  // console.log(xml)
   return xml
 }

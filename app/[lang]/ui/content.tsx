@@ -135,6 +135,9 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
     if (typeof window !== undefined) {
       const browserLang = window.localStorage.getItem('browserLang') === 'cn' ? 'zh-CN' : 'en-US'
       const lang = window.localStorage.getItem('lang') || browserLang || 'zh-CN'
+      // Set the user's language to the cookie
+      document.cookie = `user-language=${lang}; path=/`
+
       setConfig(prevConfig => ({ ...prevConfig, lang }))
       setInput(lang === 'zh-CN' ? DEFAULT_TEXT.CN : DEFAULT_TEXT.EN)
     }

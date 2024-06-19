@@ -20,6 +20,12 @@ function getLocale(request: NextRequest): string | undefined {
   return locale
 }
 
+function getCookie(name: string, cookies: string): string | undefined {
+  const value = `; ${cookies}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop()?.split(';').shift()
+}
+
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 
@@ -30,7 +36,10 @@ export function middleware(request: NextRequest) {
   )
 
   if (pathnameIsMissingLocale) {
-    const locale = getLocale(request)
+    const cookies = request.headers.get('cookie') || ''
+    const cookieLang = getCookie('user-language', cookies)
+    const cookieLocale = cookieLang && (cookieLang === 'zh-CN' ? 'cn' : 'en')
+    const locale = cookieLocale || getLocale(request)
     return NextResponse.redirect(new URL(`/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url))
   }
 }
