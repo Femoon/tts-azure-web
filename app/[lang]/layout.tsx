@@ -11,8 +11,8 @@ export async function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-  title: 'Text To Speech(TTS) Web',
-  description: 'Free TTS Web',
+  title: 'Azure Text To Speech(TTS)',
+  description: 'Free Azure Text To Speech(TTS)',
 }
 
 export default function RootLayout({ children, params }: { children: React.ReactNode; params: { lang: Locale } }) {
