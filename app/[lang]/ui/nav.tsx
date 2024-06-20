@@ -8,8 +8,9 @@ import { GITHUB_URL, langs } from '../../lib/constants'
 import IconButton from './components/icon-button'
 import { ThemeToggle } from './components/theme-toggle'
 import { Locale } from '@/app/lib/i18n/i18n-config'
+import { Tran } from '@/app/lib/types'
 
-export default function Nav({ t }: { t: Locale }) {
+export default function Nav({ t }: { t: Tran }) {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set(['cn']))
 
   const router = useRouter()
@@ -58,7 +59,11 @@ export default function Nav({ t }: { t: Locale }) {
 
         <Dropdown>
           <DropdownTrigger>
-            <IconButton icon={<Language />} className="hover:text-[#0ea5e9] transition-colors duration-300" />
+            <IconButton
+              icon={<Language />}
+              title={t['select-language-btn']}
+              className="hover:text-[#0ea5e9] transition-colors duration-300"
+            />
           </DropdownTrigger>
           <DropdownMenu
             aria-label="select language"

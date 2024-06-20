@@ -16,8 +16,9 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children, params }: { children: React.ReactNode; params: { lang: Locale } }) {
+  const lang = params.lang === 'cn' ? 'zh-CN' : 'en'
   return (
-    <html lang={params.lang} data-overlayscrollbars-initialize>
+    <html lang={lang} data-overlayscrollbars-initialize>
       <body data-overlayscrollbars-initialize>
         <Analytics />
         <SpeedInsights />
