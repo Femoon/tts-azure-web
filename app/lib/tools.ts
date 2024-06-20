@@ -1,5 +1,4 @@
-import { genders } from './constants'
-import { Config, GenderResult, ListItem } from './types'
+import { Config, GenderItem, ListItem } from './types'
 
 export function saveAs(blob: Blob, name: string) {
   const a = document.createElement('a')
@@ -12,30 +11,15 @@ export function saveAs(blob: Blob, name: string) {
   window.URL.revokeObjectURL(url)
 }
 
-export function filterAndDeduplicateByGender(data: ListItem[]): GenderResult[] {
-  const genderMap: { [key: string]: GenderResult } = genders.reduce<{ [key: string]: GenderResult }>((acc, gender) => {
-    acc[gender.value] = {
-      ...gender,
-      show: false,
-    }
-    return acc
-  }, {})
+export function getGenders(data: ListItem[]): GenderItem[] {
+  const allGenders = data.map(item => item.Gender)
+  const genderList = [...new Set(allGenders)]
+  const genders = genderList.map(item => ({
+    label: item.toLowerCase(),
+    value: item,
+  }))
 
-  data.forEach((item: ListItem) => {
-    const genderValue = item.Gender.charAt(0).toUpperCase() + item.Gender.slice(1).toLowerCase()
-    if (genderMap[genderValue]) {
-      genderMap[genderValue].show = true
-    }
-  })
-
-  // Ensure all genders are reshowed, even if not show in the data
-  const finalResult: GenderResult[] = Object.values(genderMap).map(gender => {
-    if (!gender.show) {
-      return { ...gender, show: false }
-    }
-    return gender
-  })
-  return finalResult
+  return genders
 }
 
 export function base64AudioToBlobUrl(base64Audio: string) {
@@ -55,6 +39,7 @@ interface VoiceName {
   hasStyle: boolean
   hasRole: boolean
 }
+
 export function sortWithMultilingual(voiceNames: VoiceName[]): VoiceName[] {
   return voiceNames.sort((a: VoiceName, b: VoiceName) => {
     const aContainsMultilingual = a.value.toLowerCase().includes('multilingual')
@@ -66,6 +51,14 @@ export function sortWithMultilingual(voiceNames: VoiceName[]): VoiceName[] {
     if (!aContainsMultilingual && bContainsMultilingual) {
       return 1
     }
+    return 0
+  })
+}
+
+export function sortWithSimplifiedMandarin(voiceNames: VoiceName[]): VoiceName[] {
+  return voiceNames.sort((a, b) => {
+    if (a.value.includes('XiaoxiaoMultilingualNeural')) return -1
+    if (b.value.includes('XiaoxiaoMultilingualNeural')) return 1
     return 0
   })
 }

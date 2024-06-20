@@ -21,18 +21,3 @@ export const langs = [
     value: 'en',
   },
 ]
-
-export const genders = [
-  {
-    label: 'female',
-    value: 'Female',
-  },
-  {
-    label: 'male',
-    value: 'Male',
-  },
-  {
-    label: 'neuter',
-    value: 'Neuter',
-  },
-]

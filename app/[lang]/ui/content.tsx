@@ -18,10 +18,11 @@ import { Slider, SliderValue } from '@nextui-org/slider'
 import { Spinner } from '@nextui-org/spinner'
 import {
   base64AudioToBlobUrl,
-  filterAndDeduplicateByGender,
   generateXML,
+  getGenders,
   saveAs,
   sortWithMultilingual,
+  sortWithSimplifiedMandarin,
 } from '../../lib/tools'
 import { Config, ListItem, Tran } from '../../lib/types'
 import ConfigSlider from './components/config-slider'
@@ -59,7 +60,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
   }, [list, config.lang])
 
   const genders = useMemo(() => {
-    return filterAndDeduplicateByGender(selectedConfigs)
+    return getGenders(selectedConfigs)
   }, [selectedConfigs])
 
   const voiceNames = useMemo(() => {
@@ -76,11 +77,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
     sortWithMultilingual(_voiceNames)
 
     if (config.lang === 'zh-CN') {
-      _voiceNames.sort((a, b) => {
-        if (a.value.includes('XiaoxiaoMultilingualNeural')) return -1
-        if (b.value.includes('XiaoxiaoMultilingualNeural')) return 1
-        return 0
-      })
+      sortWithSimplifiedMandarin(_voiceNames)
     }
 
     return _voiceNames
@@ -142,6 +139,10 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
       setInput(lang.startsWith('zh') ? DEFAULT_TEXT.CN : DEFAULT_TEXT.EN)
     }
   }, [list])
+
+  useEffect(() => {
+    setConfig(prevConfig => ({ ...prevConfig, gender: genders[0].value }))
+  }, [config.lang, genders])
 
   // set default voice name when voiceNames changes
   useEffect(() => {
@@ -272,18 +273,15 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
       <div className="md:flex-1 flex flex-col">
         <LanguageSelect t={t} langs={langs} selectedLang={config.lang} handleSelectLang={handleSelectLang} />
         <div className="pt-4 flex gap-2">
-          {genders.map(
-            item =>
-              item.show && (
-                <Button
-                  color={config.gender === item.value ? 'primary' : 'default'}
-                  onClick={e => handleSelectGender(e, item.value)}
-                  key={item.value}
-                >
-                  {t[item.label]}
-                </Button>
-              ),
-          )}
+          {genders.map(item => (
+            <Button
+              color={config.gender === item.value ? 'primary' : 'default'}
+              onClick={e => handleSelectGender(e, item.value)}
+              key={item.value}
+            >
+              {t[item.label]}
+            </Button>
+          ))}
         </div>
 
         <Accordion

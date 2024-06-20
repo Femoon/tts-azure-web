@@ -40,9 +40,7 @@ interface KeyValue {
   value: string
 }
 
-export interface GenderResult extends KeyValue {
-  show: boolean
-}
+export interface GenderItem extends KeyValue {}
 
 export interface LangsItem extends KeyValue {}
 
