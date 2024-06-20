@@ -2,29 +2,18 @@ import { Buffer } from 'buffer'
 import { NextRequest, NextResponse } from 'next/server'
 import { AZURE_COGNITIVE_ENDPOINT } from '@/app/lib/constants'
 
-async function fetchAudio(token: string, xml: string): Promise<string> {
-  try {
-    const response = await fetch(AZURE_COGNITIVE_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/ssml+xml',
-        'X-MICROSOFT-OutputFormat': 'audio-16khz-32kbitrate-mono-mp3',
-      },
-      body: xml,
-    })
+async function fetchAudio(token: string, xml: string): Promise<any> {
+  const res = await fetch(AZURE_COGNITIVE_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/ssml+xml',
+      'X-MICROSOFT-OutputFormat': 'audio-16khz-32kbitrate-mono-mp3',
+    },
+    body: xml,
+  })
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`)
-    }
-
-    const arrayBuffer = await response.arrayBuffer()
-    const base64String = Buffer.from(arrayBuffer).toString('base64')
-    return base64String
-  } catch (error) {
-    console.error('Error fetching audio:', error)
-    throw error
-  }
+  return res
 }
 
 export async function POST(req: NextRequest) {
@@ -33,16 +22,23 @@ export async function POST(req: NextRequest) {
     const tokenResponse = await fetch(`${req.nextUrl.origin}/api/token`, { method: 'POST' })
 
     if (!tokenResponse.ok) {
-      throw new Error(`Failed to fetch token: ${tokenResponse.statusText}`)
+      return NextResponse.json({ error: tokenResponse.statusText }, { status: tokenResponse.status })
     }
     const { token } = await tokenResponse.json()
     const data = await req.text()
 
     // use token to request
-    const base64Audio = await fetchAudio(token, data)
+    const audioResponse = await fetchAudio(token, data)
+
+    if (!audioResponse.ok) {
+      return NextResponse.json({ error: audioResponse.statusText }, { status: audioResponse.status })
+    }
+
+    const arrayBuffer = await audioResponse.arrayBuffer()
+    const base64Audio = Buffer.from(arrayBuffer).toString('base64')
     return NextResponse.json({ base64Audio })
   } catch (error) {
-    console.error('Error in POST handler:', error)
+    console.error('Error in audio POST handler:', error)
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
   }
 }

@@ -16,6 +16,7 @@ import { Button } from '@nextui-org/button'
 import { Textarea } from '@nextui-org/input'
 import { Slider, SliderValue } from '@nextui-org/slider'
 import { Spinner } from '@nextui-org/spinner'
+import { Toaster, toast } from 'sonner'
 import {
   base64AudioToBlobUrl,
   generateXML,
@@ -164,6 +165,9 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
       headers: { 'Content-Type': 'application/ssml+xml' },
       body: generateXML({ input, config }),
     })
+    if (!res.ok) {
+      toast.error(res.text())
+    }
     return res.json()
   }
 
@@ -235,6 +239,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
   return (
     <div className="grow overflow-y-auto flex md:justify-center gap-10 py-5 px-6 sm:px-10 md:px-10 lg:px-20 xl:px-40 2xl:px-50 flex-col md:flex-row">
       <div className="md:flex-1">
+        <Toaster position="top-center" />
         {/* textarea */}
         <Textarea
           size="lg"
