@@ -9,7 +9,7 @@
   "voice": "Voice",
   "male": "Man",
   "female": "Woman",
-  "neuter": "Neuter",
+  "neutral": "Neutral",
   "rate": "Rate",
   "advancedSettings": "Advanced Settings",
   "volume": "Volume",
