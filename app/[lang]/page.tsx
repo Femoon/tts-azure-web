@@ -10,7 +10,12 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
   let list: ListItem[] = []
 
   try {
-    list = await fetchList()
+    const res = await fetchList()
+    if (res.ok) {
+      list = await res.json()
+    } else {
+      console.error(`Failed to fetch list: ${res.status} ${res.statusText}`)
+    }
   } catch (err) {
     console.error('Failed to fetch list:', err)
   }

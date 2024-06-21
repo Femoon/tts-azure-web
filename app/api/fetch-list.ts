@@ -9,12 +9,6 @@ export async function fetchList() {
       revalidate: 60 * 60 * 24, // cache 24 hours
     },
   })
-  const contentType = res.headers.get('content-type')
-  if (contentType && contentType.includes('application/json')) {
-    const data = await res.json()
-    return data
-  } else {
-    const text = await res.text()
-    throw new Error(`Unexpected content type: ${contentType}. Response: ${text}`)
-  }
+
+  return res
 }

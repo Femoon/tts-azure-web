@@ -142,6 +142,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
   }, [list])
 
   useEffect(() => {
+    if (!genders.length) return
     setConfig(prevConfig => ({ ...prevConfig, gender: genders[0].value }))
   }, [config.lang, genders])
 
