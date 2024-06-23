@@ -9,11 +9,13 @@ import {
   faFaceLaugh,
   faUserGroup,
   faSliders,
+  faFileLines,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Accordion, AccordionItem } from '@nextui-org/accordion'
 import { Button } from '@nextui-org/button'
 import { Textarea } from '@nextui-org/input'
+import { Popover, PopoverTrigger, PopoverContent } from '@nextui-org/popover'
 import { Slider, SliderValue } from '@nextui-org/slider'
 import { Spinner } from '@nextui-org/spinner'
 import { Toaster, toast } from 'sonner'
@@ -32,6 +34,7 @@ import { DEFAULT_TEXT } from '@/app/lib/constants'
 
 export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
   const [input, setInput] = useState<string>('')
+  const [isPopoverOpen, setIsPopoverOpen] = useState<boolean>(false)
   const [isLoading, setLoading] = useState<boolean>(false)
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -255,23 +258,61 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
         <p className="text-right pt-2">{input.length}/7000</p>
         {/* icons */}
         <div className="flex justify-between items-center pt-6">
-          <div title={t.download}>
+          <div className="flex gap-3">
+            {/* download */}
             <FontAwesomeIcon
+              title={t.download}
+              titleId="faCircleDown"
               icon={faCircleDown}
               className="w-8 h-8 text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
               onClick={handleDownload}
             />
+            {/* import */}
+            <Popover placement="right" isOpen={isPopoverOpen} onOpenChange={open => setIsPopoverOpen(open)}>
+              <PopoverTrigger>
+                <FontAwesomeIcon
+                  title={t.import}
+                  titleId="faFileArrowUp"
+                  icon={faFileLines}
+                  className="w-8 h-8 text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
+                />
+              </PopoverTrigger>
+              <PopoverContent>
+                <ul className="px-1 py-2">
+                  <li
+                    className="hover:bg-[#d4d4d8] dark:hover:bg-[#3f3f46] transition-colors cursor-pointer rounded-md p-2"
+                    onClick={() => {
+                      setInput(DEFAULT_TEXT.CN)
+                      setIsPopoverOpen(false)
+                    }}
+                  >
+                    {t['chinese-example-text']}
+                  </li>
+                  <li
+                    className="hover:bg-[#d4d4d8] dark:hover:bg-[#3f3f46] transition-colors cursor-pointer rounded-md p-2"
+                    onClick={() => {
+                      setInput(DEFAULT_TEXT.EN)
+                      setIsPopoverOpen(false)
+                    }}
+                  >
+                    {t['english-example-text']}
+                  </li>
+                </ul>
+              </PopoverContent>
+            </Popover>
           </div>
+
+          {/* play */}
           {isLoading ? (
             <Spinner className="w-8 h-8" />
           ) : (
-            <div title={isPlaying ? t.pause : t.play}>
-              <FontAwesomeIcon
-                icon={isPlaying ? faCirclePause : faCirclePlay}
-                className={`w-8 h-8 text-blue-${isLoading ? '600/50' : '600'} hover:text-blue-500 transition-colors cursor-pointer`}
-                onClick={isPlaying ? pause : play}
-              />
-            </div>
+            <FontAwesomeIcon
+              title={isPlaying ? t.pause : t.play}
+              titleId={isPlaying ? 'faCirclePause' : 'faCirclePlay'}
+              icon={isPlaying ? faCirclePause : faCirclePlay}
+              className={`w-8 h-8 text-blue-${isLoading ? '600/50' : '600'} hover:text-blue-500 transition-colors cursor-pointer`}
+              onClick={isPlaying ? pause : play}
+            />
           )}
         </div>
       </div>
