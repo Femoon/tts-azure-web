@@ -253,7 +253,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
           size="lg"
           disableAutosize
           classNames={{
-            input: 'resize-y min-h-[120px]',
+            input: 'resize-y min-h-[120px] md:min-h-[170px]',
           }}
           placeholder={t['input-text']}
           value={input}
@@ -261,7 +261,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
         />
         <p className="text-right pt-2">{input.length}/7000</p>
         {/* icons */}
-        <div className="flex justify-between items-center pt-6">
+        <div className="flex justify-between items-center pt-3">
           <div className="flex gap-3">
             {/* download */}
             <FontAwesomeIcon
