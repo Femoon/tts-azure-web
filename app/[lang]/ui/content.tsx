@@ -215,10 +215,14 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
   }
 
   const handleDownload = async () => {
-    if (!audioRef.current || !audioRef.current.src) return
+    if (!audioRef.current || !audioRef.current.src) {
+      toast.warning(t['download-fail'])
+      return
+    }
     const response = await fetch(audioRef.current.src)
     const blob = await response.blob()
-    saveAs(blob, new Date().toISOString().replace('T', ' ').replace(':', '_').split('.')[0] + '.mp3')
+    saveAs(blob, 'Azure-' + new Date().toISOString().replace('T', ' ').replace(':', '_').split('.')[0] + '.mp3')
+    toast.success(t['download-success'])
   }
   const resetStyleDegree = () => {
     setConfig(prevConfig => ({ ...prevConfig, styleDegree: 1 }))
@@ -284,6 +288,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                     onClick={() => {
                       setInput(DEFAULT_TEXT.CN)
                       setIsPopoverOpen(false)
+                      toast.success(t['chinese-example-text-success'])
                     }}
                   >
                     {t['chinese-example-text']}
@@ -293,6 +298,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                     onClick={() => {
                       setInput(DEFAULT_TEXT.EN)
                       setIsPopoverOpen(false)
+                      toast.success(t['english-example-text-success'])
                     }}
                   >
                     {t['english-example-text']}
