@@ -19,8 +19,8 @@ const config: Config = {
         'nav-dark': 'rgb(28, 33, 40)',
       },
       borderColor: {
-        'light-border': '#fff',
-        'dark-border': 'rgb(68, 76, 86)',
+        'nav-light': '#fff',
+        'nav-dark': 'rgb(68, 76, 86)',
       },
     },
   },
