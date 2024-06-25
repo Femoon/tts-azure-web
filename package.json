@@ -1,7 +1,22 @@
 {
-  "name": "tts-web",
-  "version": "0.1.0",
-  "private": true,
+  "name": "tts-azure-web",
+  "version": "1.0.4",
+  "homepage": "https://github.com/Femoon/tts-azure-web.git",
+  "description": "TTS Azure Web is an Azure Text-to-Speech (TTS) web application. It allows you to run it locally or deploy it with a single click using your Azure Key.",
+  "license": "MIT",
+  "author": "Femoon",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Femoon/tts-azure-web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Femoon/tts-azure-web/issues"
+  },
+  "keywords": [
+    "TTS",
+    "Text to speech",
+    "Microsoft Azure"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
