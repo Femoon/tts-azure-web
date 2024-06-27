@@ -1,8 +1,8 @@
 'use client'
 import { useEffect } from 'react'
 import { OverlayScrollbars } from 'overlayscrollbars'
+import useTheme from '../lib/hooks/use-theme'
 import 'overlayscrollbars/overlayscrollbars.css'
-import useTheme from '../lib/use-theme'
 
 export function OverlayScrollbar() {
   const [theme] = useTheme()

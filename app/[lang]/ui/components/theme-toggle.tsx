@@ -1,6 +1,6 @@
+import useTheme from '@/app/lib/hooks/use-theme'
 import { Tran } from '@/app/lib/types'
-import useTheme from '@/app/lib/use-theme'
-import '../../../../styles/theme-button.css'
+import '@/styles/theme-button.css'
 
 export function ThemeToggle({ t }: { t: Tran }) {
   const [theme, setTheme] = useTheme()
@@ -45,7 +45,7 @@ export function ThemeToggle({ t }: { t: Tran }) {
       className="theme-toggle"
       id="theme-toggle"
       title={t['toggle-theme']}
-      aria-label={theme}
+      aria-label={t['toggle-theme']}
       aria-live="polite"
       onClick={e => toggleTheme(e.nativeEvent)}
     >
