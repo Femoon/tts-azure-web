@@ -257,9 +257,10 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
           }}
           placeholder={t['input-text']}
           value={input}
+          maxLength={2000}
           onChange={e => setInput(e.target.value)}
         />
-        <p className="text-right pt-2">{input.length}/7000</p>
+        <p className="text-right pt-2">{input.length}/2000</p>
         {/* icons */}
         <div className="flex justify-between items-center pt-3">
           <div className="flex gap-3">

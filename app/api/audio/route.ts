@@ -1,5 +1,6 @@
 import { Buffer } from 'buffer'
 import { NextRequest, NextResponse } from 'next/server'
+import { fetchToken } from '../fetch-token'
 import { AZURE_COGNITIVE_ENDPOINT } from '@/app/lib/constants'
 
 async function fetchAudio(token: string, xml: string): Promise<any> {
@@ -19,19 +20,18 @@ async function fetchAudio(token: string, xml: string): Promise<any> {
 export async function POST(req: NextRequest) {
   try {
     // fetch token
-    const tokenResponse = await fetch(`${req.nextUrl.origin}/api/token`, { method: 'POST' })
+    const token = await fetchToken()
 
-    if (!tokenResponse.ok) {
-      return NextResponse.json({ error: tokenResponse.statusText }, { status: tokenResponse.status })
-    }
-    const { token } = await tokenResponse.json()
     const data = await req.text()
 
     // use token to request
     const audioResponse = await fetchAudio(token, data)
 
     if (!audioResponse.ok) {
-      return NextResponse.json({ error: audioResponse.statusText }, { status: audioResponse.status })
+      return NextResponse.json(
+        { error: 'Error fetching audio. Error code: ' + audioResponse.status },
+        { status: audioResponse.status },
+      )
     }
 
     const arrayBuffer = await audioResponse.arrayBuffer()
