@@ -170,7 +170,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
       body: generateXML({ input, config }),
     })
     if (!res.ok) {
-      toast.error(res.text())
+      toast.error('Error fetching audio. Error code: ' + res.status)
     }
     return res.json()
   }
