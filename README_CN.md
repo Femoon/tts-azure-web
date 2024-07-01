@@ -10,18 +10,21 @@ TTS Azure Web 是一个 Azure 文本转语音（TTS）网络应用。可以在�
 - 一键设置：使用你的 Azure Key 简化部署过程。
 - Azure 集成：利用 Azure 强大的 TTS 服务，实现高质量的语音合成。
 
-该应用程序适合那些希望在体验 Azure TTS 全功能的同时最小化设置工作的用户。
+该项目适合那些希望在体验 Azure TTS 全功能的同时最小化设置工作的用户。
 
-在线演示： [https://tts.femoon.top](https://tts.femoon.top/cn)
+在线演示： [https://tts.femoon.top/cn](https://tts.femoon.top/cn)
 
 ## 入门指南
 
 获取你的 API 密钥
 
+- 需要一张 VISA 卡
 - 访问 [Microsoft Azure 文本转语音](https://azure.microsoft.com/zh-cn/products/ai-services/text-to-speech) 并点击“免费试用文本转语音”
 - 访问 [Azure AI services](https://portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/SpeechServices)
 - 在“语音服务”块中，点击“创建”
-- 创建成功后，在语音服务旁边将列出一个区域和两个订阅 Key 。你只需一个 Key 及其对应的区域。
+- 创建成功后，在语音服务旁边将列出一个区域和两个订阅 Key 。你只需一个 Key 及其对应的区域
+
+具体可以参考 [Bob](https://github.com/ripperhe/Bob) 官方申请 Azure TTS 的[图文教程]( https://bobtranslate.com/service/tts/microsoft.html)，流程只需要到**获取完密钥**就可以了。
 
 ## 在 Vercel 上一键部署
 
