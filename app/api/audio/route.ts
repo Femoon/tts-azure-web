@@ -17,6 +17,8 @@ async function fetchAudio(token: string, xml: string): Promise<any> {
   return res
 }
 
+export const maxDuration = 20
+
 export async function POST(req: NextRequest) {
   try {
     // fetch token
