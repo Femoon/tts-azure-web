@@ -35,9 +35,9 @@ TTS Azure Web 是一个 Azure 文本转语音（TTS）网络应用。可以在�
 在开始开发之前，必须在项目根目录创建一个新的 `.env.local` 文件，并将你的 Azure Key 和地区放入其中：
 
 ```bash
-# 您的 Azure Key
+# 你的 Azure Key
 SPEECH_KEY=xxxxxxx
-# 您的 Azure TTS 地区
+# 你的 Azure TTS 地区
 SPEECH_REGION=southeastasia
 ```
 

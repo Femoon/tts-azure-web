@@ -4,7 +4,7 @@ import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Selection } from
 import { usePathname, useRouter } from 'next/navigation'
 import Github from '../../icons/github.svg'
 import Language from '../../icons/language.svg'
-import { GITHUB_URL, langs } from '../../lib/constants'
+import { GITHUB_URL, LANGS } from '../../lib/constants'
 import IconButton from './components/icon-button'
 import { ThemeToggle } from './components/theme-toggle'
 import { Locale } from '@/app/lib/i18n/i18n-config'
@@ -72,7 +72,7 @@ export default function Nav({ t }: { t: Tran }) {
             selectedKeys={selectedKeys}
             onSelectionChange={key => handleSelectionChange(key)}
           >
-            {langs.map(item => {
+            {LANGS.map(item => {
               return (
                 <DropdownItem key={item.value} value={item.value}>
                   {item.label}

@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { fetchToken } from '../fetch-token'
 import { AZURE_COGNITIVE_ENDPOINT } from '@/app/lib/constants'
 
-async function fetchAudio(token: string, xml: string): Promise<any> {
+async function fetchAudio(token: string, SSML: string): Promise<any> {
   const res = await fetch(AZURE_COGNITIVE_ENDPOINT, {
     method: 'POST',
     headers: {
@@ -11,7 +11,7 @@ async function fetchAudio(token: string, xml: string): Promise<any> {
       'Content-Type': 'application/ssml+xml',
       'X-MICROSOFT-OutputFormat': 'audio-16khz-32kbitrate-mono-mp3',
     },
-    body: xml,
+    body: SSML,
   })
 
   return res

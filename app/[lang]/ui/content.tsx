@@ -21,7 +21,7 @@ import { Spinner } from '@nextui-org/spinner'
 import { Toaster, toast } from 'sonner'
 import {
   base64AudioToBlobUrl,
-  generateXML,
+  generateSSML,
   getGenders,
   saveAs,
   sortWithMultilingual,
@@ -167,7 +167,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
     const res = await fetch('/api/audio', {
       method: 'POST',
       headers: { 'Content-Type': 'application/ssml+xml' },
-      body: generateXML({ input, config }),
+      body: generateSSML({ input, config }),
     })
     if (!res.ok) {
       toast.error('Error fetching audio. Error code: ' + res.status)

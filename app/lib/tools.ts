@@ -33,6 +33,7 @@ export function base64AudioToBlobUrl(base64Audio: string) {
   const blob = new Blob([bytes], { type: 'audio/mp3' })
   return URL.createObjectURL(blob)
 }
+
 interface VoiceName {
   label: string
   value: string
@@ -63,7 +64,7 @@ export function sortWithSimplifiedMandarin(voiceNames: VoiceName[]): VoiceName[]
   })
 }
 
-export function generateXML(data: { input: string; config: Config }): string {
+export function generateSSML(data: { input: string; config: Config }): string {
   const { input, config } = data
   const { lang, voiceName, style, styleDegree, role, volume, rate, pitch } = config
   const styleProperty = style ? ` style="${style}"` : ''
@@ -72,7 +73,7 @@ export function generateXML(data: { input: string; config: Config }): string {
   const volumeProperty = ` volume="${volume}%"`
   const rateProperty = ` rate="${rate}%"`
   const pitchProperty = ` pitch="${pitch}%"`
-  const xml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="${lang}">
+  const SSML = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="${lang}">
     <voice name="${voiceName}">
         <mstts:express-as${roleProperty}${styleProperty}${styleDegreeProperty}>
             <prosody${volumeProperty}${rateProperty}${pitchProperty}>
@@ -81,6 +82,6 @@ export function generateXML(data: { input: string; config: Config }): string {
         </mstts:express-as>
     </voice>
 </speak>`
-  // console.log(xml)
-  return xml
+  // console.log(SSML)
+  return SSML
 }
