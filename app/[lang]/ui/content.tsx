@@ -10,12 +10,12 @@ import {
   faUserGroup,
   faSliders,
   faFileLines,
+  faStopwatch,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Accordion, AccordionItem } from '@nextui-org/accordion'
 import { Button } from '@nextui-org/button'
 import { Textarea } from '@nextui-org/input'
-import { Popover, PopoverTrigger, PopoverContent } from '@nextui-org/popover'
 import { Slider, SliderValue } from '@nextui-org/slider'
 import { Spinner } from '@nextui-org/spinner'
 import { Toaster, toast } from 'sonner'
@@ -29,16 +29,19 @@ import {
 } from '../../lib/tools'
 import { Config, ListItem, Tran } from '../../lib/types'
 import ConfigSlider from './components/config-slider'
+import { ImportTextButton } from './components/import-text-button'
 import LanguageSelect from './components/language-select'
+import { StopTimeButton } from './components/stop-time-button'
 import { DEFAULT_TEXT } from '@/app/lib/constants'
 
 export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
   const [input, setInput] = useState<string>('')
-  const [isPopoverOpen, setIsPopoverOpen] = useState<boolean>(false)
+  // const [isPopoverOpen, setIsPopoverOpen] = useState<boolean>(false)
   const [isLoading, setLoading] = useState<boolean>(false)
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const cacheConfigRef = useRef<string | null>(null)
+  const inputRef = useRef<HTMLTextAreaElement | null>(null)
   const [config, setConfig] = useState<Config>({
     gender: 'Female',
     voiceName: '',
@@ -224,6 +227,21 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
     saveAs(blob, 'Azure-' + new Date().toISOString().replace('T', ' ').replace(':', '_').split('.')[0] + '.mp3')
     toast.success(t['download-success'])
   }
+
+  const insertTextAtCursor = (text: string) => {
+    const input = inputRef.current
+    if (!input) return
+    const start = input.selectionStart
+    const end = input.selectionEnd
+    const newValue = input.value.substring(0, start) + text + input.value.substring(end)
+    setInput(newValue)
+
+    // 更新光标位置
+    setTimeout(() => {
+      input.setSelectionRange(start + text.length, start + text.length)
+    }, 0)
+  }
+
   const resetStyleDegree = () => {
     setConfig(prevConfig => ({ ...prevConfig, styleDegree: 1 }))
   }
@@ -255,6 +273,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
           classNames={{
             input: 'resize-y min-h-[120px] md:min-h-[170px]',
           }}
+          ref={inputRef}
           placeholder={t['input-text']}
           value={input}
           maxLength={2000}
@@ -273,40 +292,31 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
               onClick={handleDownload}
             />
             {/* import */}
-            <Popover placement="right" isOpen={isPopoverOpen} onOpenChange={open => setIsPopoverOpen(open)}>
-              <PopoverTrigger>
+            <ImportTextButton
+              buttonIcon={
                 <FontAwesomeIcon
                   title={t.import}
                   titleId="faFileArrowUp"
                   icon={faFileLines}
                   className="w-8 h-8 text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
                 />
-              </PopoverTrigger>
-              <PopoverContent>
-                <ul className="px-1 py-2">
-                  <li
-                    className="hover:bg-[#d4d4d8] dark:hover:bg-[#3f3f46] transition-colors cursor-pointer rounded-md p-2"
-                    onClick={() => {
-                      setInput(DEFAULT_TEXT.CN)
-                      setIsPopoverOpen(false)
-                      toast.success(t['chinese-example-text-success'])
-                    }}
-                  >
-                    {t['chinese-example-text']}
-                  </li>
-                  <li
-                    className="hover:bg-[#d4d4d8] dark:hover:bg-[#3f3f46] transition-colors cursor-pointer rounded-md p-2"
-                    onClick={() => {
-                      setInput(DEFAULT_TEXT.EN)
-                      setIsPopoverOpen(false)
-                      toast.success(t['english-example-text-success'])
-                    }}
-                  >
-                    {t['english-example-text']}
-                  </li>
-                </ul>
-              </PopoverContent>
-            </Popover>
+              }
+              t={t}
+              setInput={setInput}
+            />
+            <StopTimeButton
+              buttonIcon={
+                <FontAwesomeIcon
+                  title={t['insert-pause']}
+                  titleId="faStopwatch"
+                  icon={faStopwatch}
+                  className="w-8 h-8 text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
+                />
+              }
+              t={t}
+              insertTextAtCursor={insertTextAtCursor}
+            />
+            {/* stop time */}
           </div>
 
           {/* play */}

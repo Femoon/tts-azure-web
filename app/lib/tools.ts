@@ -73,11 +73,12 @@ export function generateSSML(data: { input: string; config: Config }): string {
   const volumeProperty = ` volume="${volume}%"`
   const rateProperty = ` rate="${rate}%"`
   const pitchProperty = ` pitch="${pitch}%"`
+  const inputWithStop = input.replace(/{{⏱️=(\d+)}}/g, '<break time="$1ms"/>')
   const SSML = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="${lang}">
     <voice name="${voiceName}">
         <mstts:express-as${roleProperty}${styleProperty}${styleDegreeProperty}>
             <prosody${volumeProperty}${rateProperty}${pitchProperty}>
-                ${input}
+                ${inputWithStop}
             </prosody>
         </mstts:express-as>
     </voice>
