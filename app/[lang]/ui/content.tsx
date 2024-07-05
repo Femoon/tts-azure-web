@@ -352,7 +352,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
           className="mt-3 px-0 rounded-medium bg-transparent"
           selectionMode="multiple"
           isCompact
-          defaultExpandedKeys={['1', '2', '3']}
+          defaultExpandedKeys={['1', '2', '3', '4']}
         >
           {/* voice */}
           <AccordionItem
