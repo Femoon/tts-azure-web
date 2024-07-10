@@ -1,5 +1,7 @@
 import { AZURE_LIST_ENDPOINT } from '@/app/lib/constants'
 
+import 'server-only'
+
 export async function fetchList() {
   const res = await fetch(AZURE_LIST_ENDPOINT, {
     headers: {

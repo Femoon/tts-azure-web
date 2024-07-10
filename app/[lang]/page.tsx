@@ -1,4 +1,4 @@
-import { fetchList } from '../api/fetch-list'
+import { fetchList } from '../api/list/fetch-list'
 import { ListItem } from '../lib/types'
 import Content from './ui/content'
 import Nav from './ui/nav'

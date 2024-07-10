@@ -29,7 +29,7 @@ function getCookie(name: string, cookies: string): string | undefined {
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 
-  if (['/manifest.json', '/favicon.ico', '/language-switch.svg'].includes(pathname)) return
+  if (['/manifest.json', '/favicon.ico'].includes(pathname)) return
 
   const pathnameIsMissingLocale = i18n.locales.every(
     locale => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,

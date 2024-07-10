@@ -1,6 +1,6 @@
 import { Buffer } from 'buffer'
 import { NextRequest, NextResponse } from 'next/server'
-import { fetchToken } from '../fetch-token'
+import { fetchToken } from '../token/fetch-token'
 import { AZURE_COGNITIVE_ENDPOINT } from '@/app/lib/constants'
 
 async function fetchAudio(token: string, SSML: string): Promise<any> {
@@ -21,12 +21,10 @@ export const maxDuration = 20
 
 export async function POST(req: NextRequest) {
   try {
-    // fetch token
     const token = await fetchToken()
 
     const data = await req.text()
 
-    // use token to request
     const audioResponse = await fetchAudio(token, data)
 
     if (!audioResponse.ok) {

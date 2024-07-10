@@ -1,5 +1,7 @@
 import { AZURE_TOKEN_ENDPOINT } from '@/app/lib/constants'
 
+import 'server-only'
+
 let cachedToken: string | null = null
 let tokenExpiration: Date | null = null
 
