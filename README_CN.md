@@ -51,3 +51,16 @@ pnpm run dev
 ```
 
 使用浏览器打开 [http://localhost:3000](http://localhost:3000/) 查看结果。
+
+## Git 提交规范参考
+
+- `feat` 增加新的业务功能
+- `fix` 修复业务问题/BUG
+- `perf` 优化性能
+- `style` 更改代码风格, 不影响运行结果
+- `refactor` 重构代码
+- `revert` 撤销更改
+- `test` 测试相关, 不涉及业务代码的更改
+- `docs` 文档和注释相关
+- `chore` 更新依赖/修改脚手架配置等琐事
+- `ci` 持续集成相关

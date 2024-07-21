@@ -48,3 +48,16 @@ pnpm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000/) with your browser to see the result.
+
+## Git commit specification reference
+
+- `feat` add new functions
+- `fix` Fix issues/bugs
+- `perf` Optimize performance
+- `style` Change the code style without affecting the running result
+- `refactor` Re-factor code
+- `revert` Undo changes
+- `test` Test related, does not involve changes to business code
+- `docs` Documentation and Annotation
+- `chore` Updating dependencies/modifying scaffolding configuration, etc.
+- `ci` CI/CD
