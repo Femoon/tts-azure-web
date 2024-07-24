@@ -35,13 +35,29 @@ export function middleware(request: NextRequest) {
     locale => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
   )
 
+  const setSecurityHeaders = (response: NextResponse) => {
+    response.headers.set('X-Frame-Options', 'DENY')
+    response.headers.set('Content-Security-Policy', "frame-ancestors 'none';")
+    return response
+  }
+
   if (pathnameIsMissingLocale) {
     const cookies = request.headers.get('cookie') || ''
     const cookieLang = getCookie('user-language', cookies)
     const cookieLocale = cookieLang && (cookieLang.startsWith('zh') ? 'cn' : 'en')
     const locale = cookieLocale || getLocale(request)
-    return NextResponse.redirect(new URL(`/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url))
+    const redirectUrl = new URL(`/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url)
+
+    const response = NextResponse.redirect(redirectUrl)
+    setSecurityHeaders(response)
+
+    return response
   }
+
+  const response = NextResponse.next()
+  setSecurityHeaders(response)
+
+  return response
 }
 
 export const config = {
