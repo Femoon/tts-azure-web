@@ -19,12 +19,20 @@ async function fetchAudio(token: string, SSML: string): Promise<any> {
 
 export const maxDuration = 20
 
+const maxBodyLength = 2000
+
 export async function POST(req: NextRequest) {
   try {
-    const token = await fetchToken()
-
     const data = await req.text()
 
+    if (data.length > maxBodyLength) {
+      return NextResponse.json(
+        { error: 'Request body too large. Maximum allowed size is ' + maxBodyLength + ' characters.' },
+        { status: 413 },
+      )
+    }
+
+    const token = await fetchToken()
     const audioResponse = await fetchAudio(token, data)
 
     if (!audioResponse.ok) {
