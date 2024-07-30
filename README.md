@@ -2,13 +2,14 @@
 
 English / [简体中文](./README_CN.md)
 
-TTS Azure Web is an Azure Text-to-Speech (TTS) web application. It allows you to run it locally or deploy it with a single click using your Azure Key.
+TTS Azure Web is an Azure Text-to-Speech (TTS) web application. Fine-tune the output speech results using Speech Synthesis Markup Language (SSML). It allows you to run it locally or deploy it with a single click using your Azure Key.
 
 Key Features:
 
-- Local and Cloud Deployment: Easily run the application on your local machine or deploy it to the cloud.
-- One-Click Setup: Simplified deployment process using your Azure Key.
-- Azure Integration: Leverages Azure's powerful TTS services for high-quality speech synthesis.
+- Supports selection of voice, language, style, and character.
+- Supports adjustments of speech speed, intonation, and volume.
+- Supports audio output download.
+- One-click deployment for both local and cloud environments
 
 This application is ideal for those looking to minimize setup while experiencing the full capabilities of Azure TTS.
 
@@ -32,10 +33,10 @@ Get your API Key
 Before starting development, you must create a new `.env.local` file at project root, and place your azure key and region into it:
 
 ```bash
- # your azure key
-SPEECH_KEY=xxxxxxx
+# your azure key
+SPEECH_KEY=your_azure_key
 # your azure tts region
-SPEECH_REGION=southeastasia
+SPEECH_REGION=your_azure_region
 ```
 
 Run the development server:

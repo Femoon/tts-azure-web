@@ -2,13 +2,14 @@
 
 [English](./README.md) / 简体中文
 
-TTS Azure Web 是一个 Azure 文本转语音（TTS）网络应用。可以在本地运行或使用你的 Azure Key 一键部署。
+TTS Azure Web 是一个 Azure 文本转语音（TTS）网页应用。通过语音合成标记语言 (SSML) 对输出语音结果微调，可以在本地运行或使用你的 Azure Key 一键部署。
 
 主要特性：
 
-- 本地和云端部署：可以轻松地在本地机器上运行应用程序或将其部署到云端。
-- 一键设置：使用你的 Azure Key 简化部署过程。
-- Azure 集成：利用 Azure 强大的 TTS 服务，实现高质量的语音合成。
+- 支持选择语音、语言、风格和角色
+- 支持语速、语调、音量的调节
+- 支持输出音频下载
+- 本地和云端一键部署。
 
 该项目适合那些希望在体验 Azure TTS 全功能的同时最小化设置工作的用户。
 
@@ -32,13 +33,13 @@ TTS Azure Web 是一个 Azure 文本转语音（TTS）网络应用。可以在�
 
 ## 开发
 
-在开始开发之前，必须在项目根目录创建一个新的 `.env.local` 文件，并将你的 Azure Key 和地区放入其中：
+在开始开发之前，必须在项目根目录创建一个新的 `.env.local` 文件，并输入你的 Azure Key 和对应的地区：
 
 ```bash
 # 你的 Azure Key
-SPEECH_KEY=xxxxxxx
+SPEECH_KEY=your_azure_key
 # 你的 Azure TTS 地区
-SPEECH_REGION=southeastasia
+SPEECH_REGION=your_azure_region
 ```
 
 本地运行开发服务器：
