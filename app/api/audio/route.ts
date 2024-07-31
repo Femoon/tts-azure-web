@@ -1,7 +1,8 @@
 import { Buffer } from 'buffer'
 import { NextRequest, NextResponse } from 'next/server'
 import { fetchToken } from '../token/fetch-token'
-import { AZURE_COGNITIVE_ENDPOINT } from '@/app/lib/constants'
+import { AZURE_COGNITIVE_ENDPOINT, MAX_INPUT_LENGTH } from '@/app/lib/constants'
+import { generateSSML } from '@/app/lib/tools'
 
 async function fetchAudio(token: string, SSML: string): Promise<any> {
   const res = await fetch(AZURE_COGNITIVE_ENDPOINT, {
@@ -19,21 +20,18 @@ async function fetchAudio(token: string, SSML: string): Promise<any> {
 
 export const maxDuration = 20
 
-const maxBodyLength = 2000
-
 export async function POST(req: NextRequest) {
   try {
-    const data = await req.text()
-
-    if (data.length > maxBodyLength) {
+    const payload = await req.json()
+    if (payload.input.length > MAX_INPUT_LENGTH) {
       return NextResponse.json(
-        { error: 'Request body too large. Maximum allowed size is ' + maxBodyLength + ' characters.' },
+        { error: 'Request body too large. Maximum allowed size is ' + MAX_INPUT_LENGTH + ' characters.' },
         { status: 413 },
       )
     }
 
     const token = await fetchToken()
-    const audioResponse = await fetchAudio(token, data)
+    const audioResponse = await fetchAudio(token, generateSSML({ input: payload.input, config: payload.config }))
 
     if (!audioResponse.ok) {
       return NextResponse.json(

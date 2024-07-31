@@ -35,8 +35,10 @@ Before starting development, you must create a new `.env.local` file at project 
 ```bash
 # your azure key
 SPEECH_KEY=your_azure_key
-# your azure tts region
+# your azure region
 SPEECH_REGION=your_azure_region
+# Maximum input length limit (optional)
+NEXT_PUBLIC_MAX_INPUT_LENGTH=4000
 ```
 
 Run the development server:

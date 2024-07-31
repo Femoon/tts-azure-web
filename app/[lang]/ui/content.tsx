@@ -21,7 +21,6 @@ import { Spinner } from '@nextui-org/spinner'
 import { Toaster, toast } from 'sonner'
 import {
   base64AudioToBlobUrl,
-  generateSSML,
   getGenders,
   saveAs,
   sortWithMultilingual,
@@ -32,11 +31,10 @@ import ConfigSlider from './components/config-slider'
 import { ImportTextButton } from './components/import-text-button'
 import LanguageSelect from './components/language-select'
 import { StopTimeButton } from './components/stop-time-button'
-import { DEFAULT_TEXT } from '@/app/lib/constants'
+import { DEFAULT_TEXT, MAX_INPUT_LENGTH } from '@/app/lib/constants'
 
 export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
   const [input, setInput] = useState<string>('')
-  // const [isPopoverOpen, setIsPopoverOpen] = useState<boolean>(false)
   const [isLoading, setLoading] = useState<boolean>(false)
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -169,8 +167,8 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
   const fetchAudio = async () => {
     const res = await fetch('/api/audio', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/ssml+xml' },
-      body: generateSSML({ input, config }),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ input, config }),
     })
     if (!res.ok) {
       toast.error('Error fetching audio. Error code: ' + res.status)
@@ -275,10 +273,12 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
           ref={inputRef}
           placeholder={t['input-text']}
           value={input}
-          maxLength={2000}
+          maxLength={MAX_INPUT_LENGTH}
           onChange={e => setInput(e.target.value)}
         />
-        <p className="text-right pt-2">{input.length}/2000</p>
+        <p className="text-right pt-2">
+          {input.length}/{MAX_INPUT_LENGTH}
+        </p>
         {/* icons */}
         <div className="flex justify-between items-center pt-3">
           <div className="flex gap-3">
