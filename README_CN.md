@@ -36,11 +36,11 @@ TTS Azure Web 是一个 Azure 文本转语音（TTS）网页应用。通过语�
 在开始开发之前，必须在项目根目录创建一个新的 `.env.local` 文件，并输入你的 Azure Key 和对应的地区：
 
 ```bash
-# 你的 Azure Key
+# 你的 Azure Key (必填)
 SPEECH_KEY=your_azure_key
-# 你的 Azure 地区
+# 你的 Azure 地区 (必填)
 SPEECH_REGION=your_azure_region
-# 输入框最大长度限制 (选填)
+# 输入框最大长度限制 (可选)
 NEXT_PUBLIC_MAX_INPUT_LENGTH=4000
 ```
 

@@ -33,9 +33,9 @@ Get your API Key
 Before starting development, you must create a new `.env.local` file at project root, and place your azure key and region into it:
 
 ```bash
-# your azure key
+# your azure key (required)
 SPEECH_KEY=your_azure_key
-# your azure region
+# your azure region (required)
 SPEECH_REGION=your_azure_region
 # Maximum input length limit (optional)
 NEXT_PUBLIC_MAX_INPUT_LENGTH=4000
