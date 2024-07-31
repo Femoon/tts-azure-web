@@ -236,7 +236,6 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
     const newValue = input.value.substring(0, start) + text + input.value.substring(end)
     setInput(newValue)
 
-    // 更新光标位置
     setTimeout(() => {
       input.setSelectionRange(start + text.length, start + text.length)
     }, 0)
@@ -450,7 +449,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                     className="mt-1"
                     onClick={() => setConfig(prevConfig => ({ ...prevConfig, style: item }))}
                   >
-                    {t.styles[item]}
+                    {t.styles[item] || item}
                   </Button>
                 )
               })}
@@ -485,7 +484,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                     className="mt-1"
                     onClick={() => setConfig(prevConfig => ({ ...prevConfig, role: item }))}
                   >
-                    {t.roles[item]}
+                    {t.roles[item] || item}
                   </Button>
                 )
               })}
