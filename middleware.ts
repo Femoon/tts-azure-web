@@ -28,8 +28,15 @@ function getCookie(name: string, cookies: string): string | undefined {
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
-
-  if (['/manifest.json', '/favicon.ico'].includes(pathname)) return
+  const excludedPaths = [
+    '/manifest.json',
+    '/favicon.ico',
+    '/site.webmanifest',
+    '/apple-touch-icon.png',
+    '/android-chrome-192x192.png',
+    '/android-chrome-512x512.png',
+  ]
+  if (excludedPaths.includes(pathname)) return
 
   const pathnameIsMissingLocale = i18n.locales.every(
     locale => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
