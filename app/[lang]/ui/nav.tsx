@@ -1,9 +1,11 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Selection } from '@nextui-org/react'
+import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
 import Github from '../../icons/github.svg'
 import Language from '../../icons/language.svg'
+import Logo from '../../icons/logo.png'
 import { GITHUB_URL, LANGS } from '../../lib/constants'
 import IconButton from './components/icon-button'
 import { ThemeToggle } from './components/theme-toggle'
@@ -45,8 +47,9 @@ export default function Nav({ t }: { t: Tran }) {
 
   return (
     <div className="w-full px-6 h-16 flex sticky top-0 items-center justify-between z-[100] border-b border-nav-light dark:border-nav-dark bg-nav-light dark:bg-nav-dark">
-      <div className="cursor-pointer select-none" onClick={handleClickTitle}>
-        Azure TTS Web
+      <div className="flex items-center gap-3 cursor-pointer select-none" onClick={handleClickTitle}>
+        <Image src={Logo} alt="" width={24} height={24} />
+        <p className="text-lg">Azure TTS Web</p>
       </div>
       <div className="flex items-center gap-1">
         <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
