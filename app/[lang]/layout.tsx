@@ -26,7 +26,12 @@ export default function RootLayout({ children, params }: { children: React.React
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="msapplication-TileColor" content="#603cba" />
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#1d2127" media="(prefers-color-scheme: dark)" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        {/* Apple */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-title" content="Azure TTS"></meta>
       </head>
       <body data-overlayscrollbars-initialize>
         <Analytics />
