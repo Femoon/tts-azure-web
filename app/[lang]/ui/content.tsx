@@ -408,7 +408,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
               </div>
             }
           >
-            <section className="flex items-center justify-between gap-20">
+            <section className="flex items-center justify-between gap-20 mb-2">
               <div className="flex flex-1 gap-5 items-center justify-end">
                 <FontAwesomeIcon
                   icon={faRotateRight}
@@ -422,7 +422,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                   maxValue={2}
                   minValue={0.01}
                   defaultValue={1}
-                  aria-label="风格强度"
+                  aria-label={t.styleIntensity}
                   onChange={handleSlideStyleDegree}
                   classNames={{
                     track: 'border-s-primary-100',

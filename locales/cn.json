@@ -23,6 +23,7 @@
   "pitch": "语调",
   "style": "风格",
   "role": "角色",
+  "styleIntensity": "风格强度",
   "default": "默认",
   "styles": {
     "affectionate": "亲切",
