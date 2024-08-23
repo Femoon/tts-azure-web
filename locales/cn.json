@@ -49,8 +49,8 @@
     "depressed": "沮丧",
     "embarrassed": "尴尬",
     "envious": "嫉妒",
-    "narration-relaxed": "叙事 - 轻松",
-    "narration-professional": "叙述 - 专业",
+    "narration-relaxed": "旁白 - 轻松",
+    "narration-professional": "旁白 - 专业",
     "newscast-casual": "新闻播报 - 休闲",
     "newscast-formal": "新闻播报 - 正式",
     "empathetic": "有同情心",
@@ -60,9 +60,10 @@
     "terrified": "恐惧",
     "unfriendly": "不友好",
     "whispering": "低声说话",
-    "sports-commentary": "体育评论",
-    "sports-commentary-excited": "体育评论 - 兴奋",
-    "documentary-narration": "纪录片 - 解说",
+    "story":"叙事",
+    "sports-commentary": "体育解说",
+    "sports-commentary-excited": "体育解说 - 兴奋",
+    "documentary-narration": "纪录片 - 旁白",
     "livecommercial": "现场广告",
     "advertisement-upbeat": "广告 - 欢快"
   },
@@ -75,6 +76,6 @@
     "SeniorMale": "老年男性",
     "YoungAdultFemale": "年轻女性",
     "YoungAdultMale": "年轻男性",
-    "Narrator": "叙事"
+    "Narrator": "旁白者"
   }
 }
