@@ -16,7 +16,7 @@ export function getGenders(data: ListItem[]): GenderItem[] {
   const genderList = [...new Set(allGenders)]
   const genders = genderList.map(item => ({
     label: item.toLowerCase(),
-    value: item,
+    value: item.toLowerCase(),
   }))
 
   return genders
@@ -41,8 +41,18 @@ interface VoiceName {
   hasRole: boolean
 }
 
-export function sortWithMultilingual(voiceNames: VoiceName[]): VoiceName[] {
-  return voiceNames.sort((a: VoiceName, b: VoiceName) => {
+export function processVoiceName(voiceNames: VoiceName[], gender: string, lang: string) {
+  sortWithMultilingual(voiceNames)
+  if (lang === 'zh-CN') {
+    sortWithSimplifiedMandarin(voiceNames)
+    if (gender === 'male') {
+      supplementaryTranslate(voiceNames)
+    }
+  }
+}
+
+function sortWithMultilingual(voiceNames: VoiceName[]) {
+  voiceNames.sort((a: VoiceName, b: VoiceName) => {
     const aContainsMultilingual = a.value.toLowerCase().includes('multilingual')
     const bContainsMultilingual = b.value.toLowerCase().includes('multilingual')
 
@@ -56,11 +66,22 @@ export function sortWithMultilingual(voiceNames: VoiceName[]): VoiceName[] {
   })
 }
 
-export function sortWithSimplifiedMandarin(voiceNames: VoiceName[]): VoiceName[] {
-  return voiceNames.sort((a, b) => {
+function sortWithSimplifiedMandarin(voiceNames: VoiceName[]) {
+  voiceNames.sort((a, b) => {
     if (a.value.includes('XiaoxiaoMultilingualNeural')) return -1
     if (b.value.includes('XiaoxiaoMultilingualNeural')) return 1
     return 0
+  })
+}
+
+function supplementaryTranslate(voiceNames: VoiceName[]) {
+  voiceNames.forEach(item => {
+    if (item.label === 'Yunxiao Multilingual') {
+      item.label = '云霄 多语言'
+    }
+    if (item.label === 'Yunfan Multilingual') {
+      item.label = '云帆 多语言'
+    }
   })
 }
 

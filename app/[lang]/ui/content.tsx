@@ -19,13 +19,7 @@ import { Textarea } from '@nextui-org/input'
 import { Slider, SliderValue } from '@nextui-org/slider'
 import { Spinner } from '@nextui-org/spinner'
 import { Toaster, toast } from 'sonner'
-import {
-  base64AudioToBlobUrl,
-  getGenders,
-  saveAs,
-  sortWithMultilingual,
-  sortWithSimplifiedMandarin,
-} from '../../lib/tools'
+import { base64AudioToBlobUrl, getGenders, processVoiceName, saveAs } from '../../lib/tools'
 import { Config, ListItem, Tran } from '../../lib/types'
 import ConfigSlider from './components/config-slider'
 import { ImportTextButton } from './components/import-text-button'
@@ -41,7 +35,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
   const cacheConfigRef = useRef<string | null>(null)
   const inputRef = useRef<HTMLTextAreaElement | null>(null)
   const [config, setConfig] = useState<Config>({
-    gender: 'Female',
+    gender: 'female',
     voiceName: '',
     lang: 'zh-CN',
     style: '',
@@ -69,7 +63,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
   }, [selectedConfigs])
 
   const voiceNames = useMemo(() => {
-    const dataForVoiceName = selectedConfigs.filter(item => item.Gender === config.gender)
+    const dataForVoiceName = selectedConfigs.filter(item => item.Gender.toLowerCase() === config.gender)
     const _voiceNames = dataForVoiceName.map(item => {
       return {
         label: item.LocalName,
@@ -79,11 +73,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
       }
     })
 
-    sortWithMultilingual(_voiceNames)
-
-    if (config.lang === 'zh-CN') {
-      sortWithSimplifiedMandarin(_voiceNames)
-    }
+    processVoiceName(_voiceNames, config.gender, config.lang)
 
     return _voiceNames
   }, [config.gender, config.lang, selectedConfigs])
