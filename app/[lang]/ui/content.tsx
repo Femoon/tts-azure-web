@@ -216,17 +216,32 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
     toast.success(t['download-success'])
   }
 
-  const insertTextAtCursor = (text: string) => {
-    const input = inputRef.current
-    if (!input) return
-    const start = input.selectionStart
-    const end = input.selectionEnd
-    const newValue = input.value.substring(0, start) + text + input.value.substring(end)
-    setInput(newValue)
+  const handleInsertPause = async (text: string) => {
+    try {
+      await insertTextAtCursor(text)
+      toast.success(t['insert-pause-success'])
+    } catch (error) {
+      toast.success(t['insert-pause-fail'])
+    }
+  }
 
-    setTimeout(() => {
-      input.setSelectionRange(start + text.length, start + text.length)
-    }, 0)
+  const insertTextAtCursor = (text: string): Promise<void> => {
+    return new Promise((resolve, reject) => {
+      const input = inputRef.current
+      if (!input) {
+        reject(new Error('Input element not found'))
+        return
+      }
+      const start = input.selectionStart
+      const end = input.selectionEnd
+      const newValue = input.value.substring(0, start) + text + input.value.substring(end)
+      setInput(newValue)
+
+      setTimeout(() => {
+        input.setSelectionRange(start + text.length, start + text.length)
+        resolve()
+      }, 0)
+    })
   }
 
   const resetStyleDegree = () => {
@@ -303,7 +318,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                 />
               }
               t={t}
-              insertTextAtCursor={insertTextAtCursor}
+              insertTextAtCursor={handleInsertPause}
             />
             {/* stop time */}
           </div>
