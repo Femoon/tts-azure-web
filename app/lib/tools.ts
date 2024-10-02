@@ -85,9 +85,9 @@ function supplementaryTranslate(voiceNames: VoiceName[]) {
   })
 }
 
-export function generateSSML(data: { input: string; config: Config }): string {
+export function generateSSML(data: { input: string; config: Config }, compression: boolean = true): string {
   const { input, config } = data
-  const { lang, voiceName, style, styleDegree, role, volume, rate, pitch } = config
+  const { lang, voiceName, style, styleDegree, role, volume, rate, pitch, gender } = config
   const styleProperty = style ? ` style="${style}"` : ''
   const styleDegreeProperty = styleDegree ? ` styleDegree="${styleDegree}"` : ''
   const roleProperty = role ? ` role="${role}"` : ''
@@ -95,15 +95,70 @@ export function generateSSML(data: { input: string; config: Config }): string {
   const rateProperty = ` rate="${rate}%"`
   const pitchProperty = ` pitch="${pitch}%"`
   const inputWithStop = input.replace(/{{⏱️=(\d+)}}/g, '<break time="$1ms"/>')
-  let SSML = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="${lang}">
+  const genderAttribute = compression ? '' : ` data-gender="${gender}"`
+  let SSML = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="${lang}"${genderAttribute}>
     <voice name="${voiceName}">
         <mstts:express-as${roleProperty}${styleProperty}${styleDegreeProperty}>
             <prosody${volumeProperty}${rateProperty}${pitchProperty}>${inputWithStop}</prosody>
         </mstts:express-as>
     </voice>
 </speak>`
-  // console.log(SSML)
-  SSML = SSML.replace(/\>\s+\</g, '><')
+
+  if (compression) {
+    SSML = SSML.replace(/\>\s+\</g, '><')
+  }
 
   return SSML
+}
+
+export function parseSSML(ssml: string): { config: Partial<Config>; input: string } {
+  const parser = new DOMParser()
+  const xmlDoc = parser.parseFromString(ssml, 'text/xml')
+
+  const config: Partial<Config> = {}
+
+  // Extract language and gender
+  const speakElement = xmlDoc.getElementsByTagName('speak')[0]
+  config.lang = speakElement.getAttribute('xml:lang') || ''
+  config.gender = speakElement.getAttribute('data-gender') || ''
+
+  // Extract voice name
+  const voiceElement = xmlDoc.getElementsByTagName('voice')[0]
+  config.voiceName = voiceElement.getAttribute('name') || ''
+
+  // Extract express-as attributes
+  const expressAsElement = xmlDoc.getElementsByTagName('mstts:express-as')[0]
+  if (expressAsElement) {
+    config.role = expressAsElement.getAttribute('role') || ''
+    config.style = expressAsElement.getAttribute('style') || ''
+    config.styleDegree = parseFloat(expressAsElement.getAttribute('styleDegree') || '1')
+  }
+
+  // Extract prosody attributes
+  const prosodyElement = xmlDoc.getElementsByTagName('prosody')[0]
+  if (prosodyElement) {
+    config.volume = parseInt(prosodyElement.getAttribute('volume') || '0')
+    config.rate = parseInt(prosodyElement.getAttribute('rate') || '0')
+    config.pitch = parseInt(prosodyElement.getAttribute('pitch') || '0')
+  }
+
+  // Extract input text and handle break tags
+  const prosodyContent = prosodyElement?.innerHTML || ''
+  const input = prosodyContent
+    .replace(/<break(?:\s+xmlns="[^"]*")?\s+time="(\d+)ms"(?:\s*\/)?\s*>/g, '{{⏱️=$1}}')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+
+  return { config, input }
+}
+
+export function getFormatDate(date: Date): string {
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  const hours = String(date.getHours()).padStart(2, '0')
+  const minutes = String(date.getMinutes()).padStart(2, '0')
+  const seconds = String(date.getSeconds()).padStart(2, '0')
+
+  return `${year}-${month}-${day}_${hours}-${minutes}-${seconds}`
 }

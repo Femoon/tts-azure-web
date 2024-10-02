@@ -1,5 +1,5 @@
 'use client'
-import { Key, useEffect, useMemo, useRef, useState } from 'react'
+import { Key, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
   faCircleDown,
   faCirclePause,
@@ -11,6 +11,7 @@ import {
   faSliders,
   faFileLines,
   faStopwatch,
+  faFileCode,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Accordion, AccordionItem } from '@nextui-org/accordion'
@@ -19,9 +20,18 @@ import { Textarea } from '@nextui-org/input'
 import { Slider, SliderValue } from '@nextui-org/slider'
 import { Spinner } from '@nextui-org/spinner'
 import { Toaster, toast } from 'sonner'
-import { base64AudioToBlobUrl, getGenders, processVoiceName, saveAs } from '../../lib/tools'
+import {
+  base64AudioToBlobUrl,
+  generateSSML,
+  getFormatDate,
+  getGenders,
+  parseSSML,
+  processVoiceName,
+  saveAs,
+} from '../../lib/tools'
 import { Config, ListItem, Tran } from '../../lib/types'
 import ConfigSlider from './components/config-slider'
+import { ExportImportSettingsButton } from './components/export-import-setting-button'
 import { ImportTextButton } from './components/import-text-button'
 import LanguageSelect from './components/language-select'
 import { StopTimeButton } from './components/stop-time-button'
@@ -84,6 +94,12 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
     return { styles: StyleList, roles: RolePlayList }
   }, [config.voiceName, selectedConfigs])
 
+  useEffect(() => {
+    if (voiceNames.length && (!config.voiceName || !voiceNames.some(v => v.value === config.voiceName))) {
+      handleSelectVoiceName(voiceNames[0].value)
+    }
+  }, [config.gender, voiceNames, config.voiceName])
+
   const handleSelectGender = (e: React.MouseEvent<HTMLButtonElement>, gender: string) => {
     setConfig(prevConfig => ({ ...prevConfig, gender }))
   }
@@ -136,23 +152,15 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
   }, [list])
 
   useEffect(() => {
-    if (!genders.length) return
+    if (!genders.length || config.gender) return
     setConfig(prevConfig => ({ ...prevConfig, gender: genders[0].value }))
-  }, [config.lang, genders])
+  }, [config.lang, genders, config.gender])
 
-  // set default voice name when voiceNames changes
   useEffect(() => {
     if (voiceNames.length && !config.voiceName) {
       handleSelectVoiceName(voiceNames[0].value)
     }
   }, [voiceNames, config.voiceName])
-
-  // set voiceName when gender changes
-  useEffect(() => {
-    if (voiceNames.length) {
-      setConfig(prevConfig => ({ ...prevConfig, voiceName: voiceNames[0].value }))
-    }
-  }, [voiceNames, config.gender])
 
   const fetchAudio = async () => {
     const res = await fetch('/api/audio', {
@@ -212,7 +220,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
     }
     const response = await fetch(audioRef.current.src)
     const blob = await response.blob()
-    saveAs(blob, 'Azure-' + new Date().toISOString().replace('T', ' ').replace(':', '_').split('.')[0] + '.mp3')
+    saveAs(blob, `Azure-TTS-${getFormatDate(new Date())}.mp3`)
     toast.success(t['download-success'])
   }
 
@@ -244,6 +252,10 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
     })
   }
 
+  const getExportData = () => {
+    return generateSSML({ input, config }, false)
+  }
+
   const resetStyleDegree = () => {
     setConfig(prevConfig => ({ ...prevConfig, styleDegree: 1 }))
   }
@@ -263,6 +275,20 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
   const getCacheMark: () => string = () => {
     return input + Object.values(config).join('')
   }
+
+  const importSSMLSettings = useCallback(
+    (ssml: string) => {
+      try {
+        const { config: importedConfig, input: importedInput } = parseSSML(ssml)
+        setConfig(prevConfig => ({ ...prevConfig, ...importedConfig }))
+        setInput(importedInput || '')
+      } catch (error) {
+        console.error('Error parsing SSML:', error)
+        toast.error(t['import-ssml-settings-error'])
+      }
+    },
+    [t],
+  )
 
   return (
     <div className="grow overflow-y-auto flex md:justify-center gap-10 py-5 px-6 sm:px-10 md:px-10 lg:px-20 xl:px-40 2xl:px-50 flex-col md:flex-row">
@@ -308,6 +334,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
               t={t}
               setInput={setInput}
             />
+            {/* stop time */}
             <StopTimeButton
               buttonIcon={
                 <FontAwesomeIcon
@@ -320,7 +347,20 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
               t={t}
               insertTextAtCursor={handleInsertPause}
             />
-            {/* stop time */}
+            {/* export import settings */}
+            <ExportImportSettingsButton
+              buttonIcon={
+                <FontAwesomeIcon
+                  title={t['export-import-settings']}
+                  titleId="faFileCode"
+                  icon={faFileCode}
+                  className="w-8 h-8 text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
+                />
+              }
+              t={t}
+              getExportData={getExportData}
+              importSSMLSettings={importSSMLSettings}
+            />
           </div>
 
           {/* play */}
