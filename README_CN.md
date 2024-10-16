@@ -10,6 +10,7 @@ TTS Azure Web 是一个 Azure 文本转语音（TTS）网页应用。通过语�
 - 支持语速、语调、音量的调节
 - 支持输出音频下载
 - 本地和云端一键部署。
+- 支持导入/导出 SSML 配置
 
 该项目适合那些希望在体验 Azure TTS 全功能的同时最小化设置工作的用户。
 
@@ -25,11 +26,24 @@ TTS Azure Web 是一个 Azure 文本转语音（TTS）网页应用。通过语�
 - 在“语音服务”块中，点击“创建”
 - 创建成功后，在语音服务旁边将列出一个区域和两个订阅 Key 。你只需一个 Key 及其对应的区域
 
-具体可以参考 [Bob](https://github.com/ripperhe/Bob) 官方申请 Azure TTS 的[图文教程]( https://bobtranslate.com/service/tts/microsoft.html)，流程只需要到**获取完密钥**就可以了。
+具体可以参考 [Bob](https://github.com/ripperhe/Bob) 官方申请 Azure TTS 的[图文教程](https://bobtranslate.com/service/tts/microsoft.html)，流程只需要到**获取完密钥**就可以了。
 
 ## 在 Vercel 上一键部署
 
 [![使用 Vercel 部署](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FFemoon%2Ftts-azure-web&env=SPEECH_KEY&env=SPEECH_REGION&project-name=tts-azure-web&repository-name=tts-azure-web)
+
+## 在本地一键部署
+
+```bash
+# 安装 pnpm
+npm i -g pnpm
+# 安装依赖
+pnpm i
+# 构建生产环境
+pnpm build
+# 运行生产环境服务
+pnpm start
+```
 
 ## 开发
 
@@ -47,6 +61,8 @@ NEXT_PUBLIC_MAX_INPUT_LENGTH=4000
 本地运行开发服务器：
 
 ```bash
+# 安装 pnpm
+npm i -g pnpm
 # 安装依赖
 pnpm i
 # 运行服务器
