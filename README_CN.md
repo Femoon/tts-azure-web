@@ -35,14 +35,14 @@ TTS Azure Web 是一个 Azure 文本转语音（TTS）网页应用。通过语�
 ## 在本地一键部署
 
 ```bash
-# 安装 pnpm
-npm i -g pnpm
+# 安装 yarn
+npm i -g yarn
 # 安装依赖
-pnpm i
+yarn
 # 构建生产环境
-pnpm build
+yarn build
 # 运行生产环境服务
-pnpm start
+yarn start
 ```
 
 ## 开发
@@ -61,12 +61,12 @@ NEXT_PUBLIC_MAX_INPUT_LENGTH=4000
 本地运行开发服务器：
 
 ```bash
-# 安装 pnpm
-npm i -g pnpm
+# 安装 yarn
+npm i -g yarn
 # 安装依赖
-pnpm i
+yarn
 # 运行服务器
-pnpm run dev
+yarn dev
 ```
 
 使用浏览器打开 [http://localhost:3000](http://localhost:3000/) 查看结果。

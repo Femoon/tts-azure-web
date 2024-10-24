@@ -32,14 +32,14 @@ Get your API Key
 ## Deploy locally
 
 ```bash
-# install pnpm
-npm i -g pnpm
+# install yarn
+npm i -g yarn
 # install dependencies
-pnpm i
+yarn
 # building the production environment
-pnpm build
+yarn build
 # run production environment serve
-pnpm start
+yarn start
 ```
 
 ## Development
@@ -58,12 +58,12 @@ NEXT_PUBLIC_MAX_INPUT_LENGTH=4000
 Run the development server:
 
 ```bash
-# install pnpm
-npm i -g pnpm
+# install yarn
+npm i -g yarn
 # install dependencies
-pnpm i
+yarn
 # run serve
-pnpm run dev
+yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000/) with your browser to see the result.
