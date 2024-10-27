@@ -46,7 +46,10 @@ export function processVoiceName(voiceNames: VoiceName[], gender: string, lang: 
   if (lang === 'zh-CN') {
     sortWithSimplifiedMandarin(voiceNames)
     if (gender === 'male') {
-      supplementaryTranslate(voiceNames)
+      supplementaryTranslateForMale(voiceNames)
+    }
+    if (gender === 'female') {
+      supplementaryTranslateForFemale(voiceNames)
     }
   }
 }
@@ -74,13 +77,21 @@ function sortWithSimplifiedMandarin(voiceNames: VoiceName[]) {
   })
 }
 
-function supplementaryTranslate(voiceNames: VoiceName[]) {
+function supplementaryTranslateForMale(voiceNames: VoiceName[]) {
   voiceNames.forEach(item => {
     if (item.label === 'Yunxiao Multilingual') {
       item.label = '云霄 多语言'
     }
     if (item.label === 'Yunfan Multilingual') {
       item.label = '云帆 多语言'
+    }
+  })
+}
+
+function supplementaryTranslateForFemale(voiceNames: VoiceName[]) {
+  voiceNames.forEach(item => {
+    if (item.label === 'Xiaochen Dragon HD Latest') {
+      item.label = '晓辰 Dragon HD'
     }
   })
 }
