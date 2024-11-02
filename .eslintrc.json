@@ -11,7 +11,7 @@
     "@typescript-eslint/ban-ts-comment": "off", // 允许使用@ts-ignore
     "@typescript-eslint/no-non-null-assertion": "off", // 允许使用非空断言
     "@typescript-eslint/no-var-requires": "off", // 允许使用CommonJS的写法
-    "@typescript-eslint/no-unused-vars": "warn", // 允许未使用的变量
+    "@typescript-eslint/no-unused-vars": "off", // 允许未使用的变量
     "no-debugger": "warn",
     "import/order": [
       "error",

@@ -84,5 +84,7 @@
     "YoungAdultFemale": "YoungAdultFemale",
     "YoungAdultMale": "YoungAdultMale",
     "Narrator": "Narrator"
-  }
+  },
+  "announcement": "Announcement",
+  "announcement-content": "The demo site is under technical maintenance until November 12, 2024. Service will be suspended during this period. We apologize for any inconvenience. Subtitle feature coming soon."
 }
