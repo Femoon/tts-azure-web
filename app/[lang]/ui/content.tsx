@@ -1,5 +1,5 @@
 'use client'
-import { Key, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { Key, useCallback, useEffect, useMemo, useRef } from 'react'
 import {
   faCircleDown,
   faCirclePause,
@@ -22,6 +22,7 @@ import { Spinner } from '@nextui-org/spinner'
 import { Toaster, toast } from 'sonner'
 
 import { DEFAULT_TEXT, MAX_INPUT_LENGTH } from '@/app/lib/constants'
+import { useTTSStore } from '@/app/lib/stores'
 
 import {
   base64AudioToBlobUrl,
@@ -32,7 +33,7 @@ import {
   processVoiceName,
   saveAs,
 } from '../../lib/tools'
-import { Config, ListItem, Tran } from '../../lib/types'
+import { ListItem, Tran } from '../../lib/types'
 
 import ConfigSlider from './components/config-slider'
 import { ExportImportSettingsButton } from './components/export-import-setting-button'
@@ -41,23 +42,30 @@ import LanguageSelect from './components/language-select'
 import { StopTimeButton } from './components/stop-time-button'
 
 export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
-  const [input, setInput] = useState<string>('')
-  const [isLoading, setLoading] = useState<boolean>(false)
-  const [isPlaying, setIsPlaying] = useState<boolean>(false)
+  // Zustand store
+  const {
+    config,
+    input,
+    isLoading,
+    isPlaying,
+    setConfig,
+    updateConfigField,
+    setInput,
+    setIsLoading,
+    setIsPlaying,
+    setVoiceList,
+  } = useTTSStore()
+
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const cacheConfigRef = useRef<string | null>(null)
   const inputRef = useRef<HTMLTextAreaElement | null>(null)
-  const [config, setConfig] = useState<Config>({
-    gender: 'female',
-    voiceName: '',
-    lang: 'zh-CN',
-    style: '',
-    styleDegree: 1,
-    role: '',
-    rate: 0,
-    volume: 0,
-    pitch: 0,
-  })
+
+  // 初始化时设置语音列表
+  useEffect(() => {
+    if (list.length > 0) {
+      setVoiceList(list)
+    }
+  }, [list, setVoiceList])
 
   const langs = useMemo(() => {
     const map = new Map()
@@ -101,45 +109,46 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
     if (voiceNames.length && (!config.voiceName || !voiceNames.some(v => v.value === config.voiceName))) {
       handleSelectVoiceName(voiceNames[0].value)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [config.gender, voiceNames, config.voiceName])
 
   const handleSelectGender = (e: React.MouseEvent<HTMLButtonElement>, gender: string) => {
-    setConfig(prevConfig => ({ ...prevConfig, gender }))
+    updateConfigField('gender', gender)
   }
 
   const handleSelectLang = (value: Key | null) => {
     if (!value) return
     const lang = value.toString()
-    setConfig(prevConfig => ({ ...prevConfig, lang }))
+    updateConfigField('lang', lang)
     window.localStorage.setItem('lang', lang)
   }
 
   const handleSlideStyleDegree = (value: SliderValue) => {
     if (typeof value === 'number') {
-      setConfig(prevConfig => ({ ...prevConfig, styleDegree: value }))
+      updateConfigField('styleDegree', value)
     }
   }
 
   const handleSlideRate = (value: SliderValue) => {
     if (typeof value === 'number') {
-      setConfig(prevConfig => ({ ...prevConfig, rate: value }))
+      updateConfigField('rate', value)
     }
   }
 
   const handleSlideVolume = (value: SliderValue) => {
     if (typeof value === 'number') {
-      setConfig(prevConfig => ({ ...prevConfig, volume: value }))
+      updateConfigField('volume', value)
     }
   }
 
   const handleSlidePitch = (value: SliderValue) => {
     if (typeof value === 'number') {
-      setConfig(prevConfig => ({ ...prevConfig, pitch: value }))
+      updateConfigField('pitch', value)
     }
   }
 
   const handleSelectVoiceName = (voiceName: string) => {
-    setConfig(prevConfig => ({ ...prevConfig, voiceName, style: '', role: '' }))
+    setConfig({ voiceName, style: '', role: '' })
   }
 
   useEffect(() => {
@@ -149,20 +158,23 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
       // Set the user's language to the cookie
       document.cookie = `user-language=${lang}; path=/`
 
-      setConfig(prevConfig => ({ ...prevConfig, lang }))
+      updateConfigField('lang', lang)
       setInput(lang.startsWith('zh') ? DEFAULT_TEXT.CN : DEFAULT_TEXT.EN)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [list])
 
   useEffect(() => {
     if (!genders.length || config.gender) return
-    setConfig(prevConfig => ({ ...prevConfig, gender: genders[0].value }))
+    updateConfigField('gender', genders[0].value)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [config.lang, genders, config.gender])
 
   useEffect(() => {
     if (voiceNames.length && !config.voiceName) {
       handleSelectVoiceName(voiceNames[0].value)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [voiceNames, config.voiceName])
 
   const fetchAudio = async () => {
@@ -186,7 +198,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
       return
     }
     audioRef.current = null
-    setLoading(true)
+    setIsLoading(true)
 
     try {
       const { base64Audio } = await fetchAudio()
@@ -204,7 +216,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
     } catch (err) {
       console.error('Error fetching audio:', err)
     } finally {
-      setLoading(false)
+      setIsLoading(false)
     }
   }
 
@@ -260,19 +272,19 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
   }
 
   const resetStyleDegree = () => {
-    setConfig(prevConfig => ({ ...prevConfig, styleDegree: 1 }))
+    updateConfigField('styleDegree', 1)
   }
 
   const resetRate = () => {
-    setConfig(prevConfig => ({ ...prevConfig, rate: 0 }))
+    updateConfigField('rate', 0)
   }
 
   const resetVolume = () => {
-    setConfig(prevConfig => ({ ...prevConfig, volume: 0 }))
+    updateConfigField('volume', 0)
   }
 
   const resetPitch = () => {
-    setConfig(prevConfig => ({ ...prevConfig, pitch: 0 }))
+    updateConfigField('pitch', 0)
   }
 
   const getCacheMark: () => string = () => {
@@ -283,13 +295,14 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
     (ssml: string) => {
       try {
         const { config: importedConfig, input: importedInput } = parseSSML(ssml)
-        setConfig(prevConfig => ({ ...prevConfig, ...importedConfig }))
+        setConfig(importedConfig)
         setInput(importedInput || '')
       } catch (error) {
         console.error('Error parsing SSML:', error)
         toast.error(t['import-ssml-settings-error'])
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [t],
   )
 
@@ -485,7 +498,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                 key="defaultStyle"
                 color={config.style === '' ? 'primary' : 'default'}
                 className="mt-1"
-                onClick={() => setConfig(prevConfig => ({ ...prevConfig, style: '' }))}
+                onClick={() => updateConfigField('style', '')}
               >
                 {t.default}
               </Button>
@@ -495,7 +508,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                     key={item}
                     color={item === config.style ? 'primary' : 'default'}
                     className="mt-1"
-                    onClick={() => setConfig(prevConfig => ({ ...prevConfig, style: item }))}
+                    onClick={() => updateConfigField('style', item)}
                   >
                     {(t.styles as any)[item] || item}
                   </Button>
@@ -520,7 +533,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                 key="defaultRole"
                 color={config.role === '' ? 'primary' : 'default'}
                 className="mt-1"
-                onClick={() => setConfig(prevConfig => ({ ...prevConfig, role: '' }))}
+                onClick={() => updateConfigField('role', '')}
               >
                 {t.default}
               </Button>
@@ -530,7 +543,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                     key={item}
                     color={item === config.role ? 'primary' : 'default'}
                     className="mt-1"
-                    onClick={() => setConfig(prevConfig => ({ ...prevConfig, role: item }))}
+                    onClick={() => updateConfigField('role', item)}
                   >
                     {(t.roles as any)[item] || item}
                   </Button>
