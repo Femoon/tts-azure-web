@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, ReactElement } from 'react'
 import { Popover, PopoverTrigger, PopoverContent } from '@nextui-org/popover'
+
 import { TIMES } from '@/app/lib/constants'
 import { Tran } from '@/app/lib/types'
 
@@ -10,7 +11,7 @@ export const StopTimeButton = ({
 }: {
   t: Tran
   insertTextAtCursor: (text: string) => void
-  buttonIcon: JSX.Element
+  buttonIcon: ReactElement
 }) => {
   const [isPopoverOpen, setIsPopoverOpen] = useState<boolean>(false)
   return (

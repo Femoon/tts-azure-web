@@ -1,7 +1,8 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, ReactElement } from 'react'
 import { Button } from '@nextui-org/button'
 import { Popover, PopoverTrigger, PopoverContent } from '@nextui-org/popover'
 import { toast } from 'sonner'
+
 import { getFormatDate, saveAs } from '@/app/lib/tools'
 import { Tran } from '@/app/lib/types'
 
@@ -14,7 +15,7 @@ export const ExportImportSettingsButton = ({
   t: Tran
   getExportData: () => string
   importSSMLSettings: (ssml: string) => void
-  buttonIcon: JSX.Element
+  buttonIcon: ReactElement
 }) => {
   const [isPopoverOpen, setIsPopoverOpen] = useState<boolean>(false)
 

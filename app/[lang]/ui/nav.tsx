@@ -3,14 +3,17 @@ import { useEffect, useState } from 'react'
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Selection } from '@nextui-org/react'
 import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
+
+import { Locale } from '@/app/lib/i18n/i18n-config'
+import { Tran } from '@/app/lib/types'
+
 import Github from '../../icons/github.svg'
 import Language from '../../icons/language.svg'
 import Logo from '../../icons/logo.png'
 import { GITHUB_URL, LANGS } from '../../lib/constants'
+
 import IconButton from './components/icon-button'
 import { ThemeToggle } from './components/theme-toggle'
-import { Locale } from '@/app/lib/i18n/i18n-config'
-import { Tran } from '@/app/lib/types'
 
 export default function Nav({ t }: { t: Tran }) {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set(['cn']))

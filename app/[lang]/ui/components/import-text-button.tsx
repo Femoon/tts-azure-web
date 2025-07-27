@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, ReactElement } from 'react'
 import { Popover, PopoverTrigger, PopoverContent } from '@nextui-org/popover'
 import { toast } from 'sonner'
+
 import { DEFAULT_TEXT } from '@/app/lib/constants'
 import { Tran } from '@/app/lib/types'
 
@@ -11,7 +12,7 @@ export const ImportTextButton = ({
 }: {
   t: Tran
   setInput: (text: string) => void
-  buttonIcon: JSX.Element
+  buttonIcon: ReactElement
 }) => {
   const [isPopoverOpen, setIsPopoverOpen] = useState<boolean>(false)
   const defaultTextKeys = Object.keys(DEFAULT_TEXT) as Array<keyof typeof DEFAULT_TEXT>

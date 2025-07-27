@@ -7,6 +7,7 @@ export async function fetchList() {
     headers: {
       'Ocp-Apim-Subscription-Key': process.env.SPEECH_KEY!,
     },
+    cache: 'force-cache',
     next: {
       revalidate: 60 * 60 * 24, // cache 24 hours
     },

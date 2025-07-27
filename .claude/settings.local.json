@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx @next/codemod@canary upgrade:*)",
+      "Bash(yarn add:*)",
+      "Bash(yarn dev)",
+      "Bash(yarn build)",
+      "Bash(yarn lint)",
+      "Bash(yarn lint:*)"
+    ],
+    "deny": []
+  }
+}

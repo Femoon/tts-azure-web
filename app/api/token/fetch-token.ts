@@ -13,6 +13,7 @@ export async function fetchToken(): Promise<string> {
         'Content-Type': 'application/json',
         'Ocp-Apim-Subscription-Key': process.env.SPEECH_KEY!,
       },
+      cache: 'no-store',
     })
 
     if (!res.ok) {

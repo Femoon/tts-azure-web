@@ -1,11 +1,11 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, ReactElement } from 'react'
 import { useButton } from '@nextui-org/button'
 
 const IconButton = forwardRef<
   HTMLButtonElement,
   {
     onClick?: () => void
-    icon?: JSX.Element
+    icon?: ReactElement
     className?: string
     title?: string
   }
@@ -25,7 +25,7 @@ const IconButton = forwardRef<
     >
       {props.icon && (
         <div className="w-5 h-5 m-3 flex justify-center items-center">
-          {React.cloneElement(props.icon, { className: 'w-full h-full' })}
+          {React.cloneElement(props.icon, { className: 'w-full h-full' } as any)}
         </div>
       )}
     </button>

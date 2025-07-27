@@ -20,6 +20,9 @@ import { Textarea } from '@nextui-org/input'
 import { Slider, SliderValue } from '@nextui-org/slider'
 import { Spinner } from '@nextui-org/spinner'
 import { Toaster, toast } from 'sonner'
+
+import { DEFAULT_TEXT, MAX_INPUT_LENGTH } from '@/app/lib/constants'
+
 import {
   base64AudioToBlobUrl,
   generateSSML,
@@ -30,12 +33,12 @@ import {
   saveAs,
 } from '../../lib/tools'
 import { Config, ListItem, Tran } from '../../lib/types'
+
 import ConfigSlider from './components/config-slider'
 import { ExportImportSettingsButton } from './components/export-import-setting-button'
 import { ImportTextButton } from './components/import-text-button'
 import LanguageSelect from './components/language-select'
 import { StopTimeButton } from './components/stop-time-button'
-import { DEFAULT_TEXT, MAX_INPUT_LENGTH } from '@/app/lib/constants'
 
 export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
   const [input, setInput] = useState<string>('')
@@ -228,7 +231,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
     try {
       await insertTextAtCursor(text)
       toast.success(t['insert-pause-success'])
-    } catch (error) {
+    } catch {
       toast.success(t['insert-pause-fail'])
     }
   }
@@ -494,7 +497,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                     className="mt-1"
                     onClick={() => setConfig(prevConfig => ({ ...prevConfig, style: item }))}
                   >
-                    {t.styles[item] || item}
+                    {(t.styles as any)[item] || item}
                   </Button>
                 )
               })}
@@ -529,7 +532,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                     className="mt-1"
                     onClick={() => setConfig(prevConfig => ({ ...prevConfig, role: item }))}
                   >
-                    {t.roles[item] || item}
+                    {(t.roles as any)[item] || item}
                   </Button>
                 )
               })}

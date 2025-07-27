@@ -9,7 +9,7 @@ export function ThemeToggle({ t }: { t: Tran }) {
     const newTheme = theme === 'light' ? 'dark' : 'light'
 
     // document.startViewTransition fallback
-    if (!(document as any).startViewTransition) {
+    if (!('startViewTransition' in document)) {
       setTheme(newTheme)
       return
     }
@@ -18,7 +18,13 @@ export function ThemeToggle({ t }: { t: Tran }) {
     const y = event.clientY
     const endRadius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y))
 
-    const transition = (document as any).startViewTransition(() => {
+    const transition = (
+      document as Document & {
+        startViewTransition?: (callback: () => void) => {
+          ready: Promise<void>
+        }
+      }
+    ).startViewTransition!(() => {
       setTheme(newTheme)
     })
 
