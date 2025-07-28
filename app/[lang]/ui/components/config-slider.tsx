@@ -1,6 +1,6 @@
 import { faRotateRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Slider, SliderValue } from '@nextui-org/slider'
+import { Slider, SliderValue } from '@heroui/slider'
 const ConfigSlider = ({
   label,
   value,
@@ -38,10 +38,7 @@ const ConfigSlider = ({
       maxValue={maxValue}
       aria-label={label}
       onChange={onChange}
-      classNames={{
-        track: 'border-s-primary-100',
-        filler: 'bg-gradient-to-r from-primary-100 to-primary-500',
-      }}
+      classNames={{ track: 'border-s-primary-100' }}
     />
   </div>
 )

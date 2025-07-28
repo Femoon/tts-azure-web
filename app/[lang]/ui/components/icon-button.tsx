@@ -1,5 +1,5 @@
 import React, { forwardRef, ReactElement } from 'react'
-import { useButton } from '@nextui-org/button'
+import { useButton } from '@heroui/button'
 
 const IconButton = forwardRef<
   HTMLButtonElement,
@@ -24,8 +24,8 @@ const IconButton = forwardRef<
       aria-live="polite"
     >
       {props.icon && (
-        <div className="w-5 h-5 m-3 flex justify-center items-center">
-          {React.cloneElement(props.icon, { className: 'w-full h-full' } as any)}
+        <div className="m-3 flex justify-center items-center" style={{ width: '1.25rem', height: '1.25rem' }}>
+          {React.cloneElement(props.icon, { style: { width: '100%', height: '100%' } } as any)}
         </div>
       )}
     </button>

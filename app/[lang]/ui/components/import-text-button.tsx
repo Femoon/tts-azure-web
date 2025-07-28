@@ -1,5 +1,5 @@
 import { useState, ReactElement } from 'react'
-import { Popover, PopoverTrigger, PopoverContent } from '@nextui-org/popover'
+import { Popover, PopoverTrigger, PopoverContent } from '@heroui/popover'
 import { toast } from 'sonner'
 
 import { DEFAULT_TEXT } from '@/app/lib/constants'

@@ -14,11 +14,11 @@ import {
   faFileCode,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Accordion, AccordionItem } from '@nextui-org/accordion'
-import { Button } from '@nextui-org/button'
-import { Textarea } from '@nextui-org/input'
-import { Slider, SliderValue } from '@nextui-org/slider'
-import { Spinner } from '@nextui-org/spinner'
+import { Accordion, AccordionItem } from '@heroui/accordion'
+import { Button } from '@heroui/button'
+import { Textarea } from '@heroui/input'
+import { Slider, SliderValue } from '@heroui/slider'
+import { Spinner } from '@heroui/spinner'
 import { Toaster, toast } from 'sonner'
 
 import { DEFAULT_TEXT, MAX_INPUT_LENGTH } from '@/app/lib/constants'
@@ -112,7 +112,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [config.gender, voiceNames, config.voiceName])
 
-  const handleSelectGender = (e: React.MouseEvent<HTMLButtonElement>, gender: string) => {
+  const handleSelectGender = (e: React.MouseEvent<HTMLButtonElement> | any, gender: string) => {
     updateConfigField('gender', gender)
   }
 
@@ -314,9 +314,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
         <Textarea
           size="lg"
           disableAutosize
-          classNames={{
-            input: 'resize-y min-h-[120px] md:min-h-[170px]',
-          }}
+          classNames={{ input: 'resize-y min-h-[120px] md:min-h-[170px]' }}
           ref={inputRef}
           placeholder={t['input-text']}
           value={input}
@@ -334,7 +332,8 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
               title={t.download}
               titleId="faCircleDown"
               icon={faCircleDown}
-              className="w-8 h-8 text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
+              className="text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
+              style={{ width: '2rem', height: '2rem' }}
               onClick={handleDownload}
             />
             {/* import */}
@@ -344,7 +343,8 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                   title={t.import}
                   titleId="faFileArrowUp"
                   icon={faFileLines}
-                  className="w-8 h-8 text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
+                  className="text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
+                  style={{ width: '2rem', height: '2rem' }}
                 />
               }
               t={t}
@@ -357,7 +357,8 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                   title={t['insert-pause']}
                   titleId="faStopwatch"
                   icon={faStopwatch}
-                  className="w-8 h-8 text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
+                  className="text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
+                  style={{ width: '2rem', height: '2rem' }}
                 />
               }
               t={t}
@@ -370,7 +371,8 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                   title={t['export-import-settings']}
                   titleId="faFileCode"
                   icon={faFileCode}
-                  className="w-8 h-8 text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
+                  className="text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
+                  style={{ width: '2rem', height: '2rem' }}
                 />
               }
               t={t}
@@ -381,13 +383,14 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
 
           {/* play */}
           {isLoading ? (
-            <Spinner className="w-8 h-8" />
+            <Spinner style={{ width: '2rem', height: '2rem' }} />
           ) : (
             <FontAwesomeIcon
               title={isPlaying ? t.pause : t.play}
               titleId={isPlaying ? 'faCirclePause' : 'faCirclePlay'}
               icon={isPlaying ? faCirclePause : faCirclePlay}
-              className={`w-8 h-8 text-blue-${isLoading ? '600/50' : '600'} hover:text-blue-500 transition-colors cursor-pointer`}
+              className={`text-blue-${isLoading ? '600/50' : '600'} hover:text-blue-500 transition-colors cursor-pointer`}
+              style={{ width: '2rem', height: '2rem' }}
               onClick={isPlaying ? pause : play}
             />
           )}
@@ -420,7 +423,11 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
             aria-label={t.voice}
             startContent={
               <div className="flex items-center gap-3">
-                <FontAwesomeIcon icon={faMicrophone} className="text-gray-500 cursor-pointer w-[18px] h-[18px]" />
+                <FontAwesomeIcon
+                  icon={faMicrophone}
+                  className="text-gray-500 cursor-pointer"
+                  style={{ width: '18px', height: '18px' }}
+                />
 
                 <p className="text-large">{t.voice}</p>
               </div>
@@ -464,7 +471,11 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
             aria-label={t.style}
             startContent={
               <div className="flex items-center gap-3">
-                <FontAwesomeIcon icon={faFaceLaugh} className="text-gray-500 cursor-pointer w-[18px] h-[18px]" />
+                <FontAwesomeIcon
+                  icon={faFaceLaugh}
+                  className="text-gray-500 cursor-pointer"
+                  style={{ width: '18px', height: '18px' }}
+                />
                 <p className="text-large">{t.style}</p>
               </div>
             }
@@ -485,10 +496,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                   defaultValue={1}
                   aria-label={t.styleIntensity}
                   onChange={handleSlideStyleDegree}
-                  classNames={{
-                    track: 'border-s-primary-100',
-                    filler: 'bg-gradient-to-r from-primary-100 to-primary-500',
-                  }}
+                  classNames={{ track: 'border-s-primary-100' }}
                 />
                 <p className="w-10">{config.styleDegree}</p>
               </div>
@@ -523,7 +531,11 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
             aria-label={t.role}
             startContent={
               <div className="flex gap-3 items-center">
-                <FontAwesomeIcon icon={faUserGroup} className="text-gray-500 cursor-pointer w-[18px] h-[18px]" />
+                <FontAwesomeIcon
+                  icon={faUserGroup}
+                  className="text-gray-500 cursor-pointer"
+                  style={{ width: '18px', height: '18px' }}
+                />
                 <p className="text-large">{t.role}</p>
               </div>
             }
@@ -559,7 +571,11 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
             classNames={{ content: 'overflow-x-hidden' }}
             startContent={
               <div className="flex items-center gap-3">
-                <FontAwesomeIcon icon={faSliders} className="text-gray-500 cursor-pointer w-[18px] h-[18px]" />
+                <FontAwesomeIcon
+                  icon={faSliders}
+                  className="text-gray-500 cursor-pointer"
+                  style={{ width: '18px', height: '18px' }}
+                />
                 <p className="text-large">{t.advancedSettings}</p>
               </div>
             }

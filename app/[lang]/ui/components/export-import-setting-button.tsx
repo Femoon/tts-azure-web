@@ -1,6 +1,6 @@
 import { useState, useCallback, ReactElement } from 'react'
-import { Button } from '@nextui-org/button'
-import { Popover, PopoverTrigger, PopoverContent } from '@nextui-org/popover'
+import { Button } from '@heroui/button'
+import { Popover, PopoverTrigger, PopoverContent } from '@heroui/popover'
 import { toast } from 'sonner'
 
 import { getFormatDate, saveAs } from '@/app/lib/tools'

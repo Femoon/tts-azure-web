@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Selection } from '@nextui-org/react'
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Selection } from '@heroui/react'
 import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
 

@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete'
+import { Autocomplete, AutocompleteItem } from '@heroui/autocomplete'
 
 import { LanguageSelectProps } from '../../../lib/types'
 
@@ -12,9 +12,7 @@ const LanguageSelect = ({ t, langs, selectedLang, handleSelectLang }: LanguageSe
       onSelectionChange={handleSelectLang}
     >
       {langs!.map(item => (
-        <AutocompleteItem key={item.value} value={item.value}>
-          {item.label}
-        </AutocompleteItem>
+        <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>
       ))}
     </Autocomplete>
   )
