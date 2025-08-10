@@ -112,7 +112,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [config.gender, voiceNames, config.voiceName])
 
-  const handleSelectGender = (e: React.MouseEvent<HTMLButtonElement> | any, gender: string) => {
+  const handleSelectGender = (gender: string) => {
     updateConfigField('gender', gender)
   }
 
@@ -403,7 +403,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
           {genders.map(item => (
             <Button
               color={config.gender === item.value ? 'primary' : 'default'}
-              onClick={e => handleSelectGender(e, item.value)}
+              onPress={() => handleSelectGender(item.value)}
               key={item.value}
             >
               {t[item.label]}
@@ -440,7 +440,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                     key={item.value}
                     color={item.value === config.voiceName ? 'primary' : 'default'}
                     className="mt-1 gap-1 border-black"
-                    onClick={() => handleSelectVoiceName(item.value)}
+                    onPress={() => handleSelectVoiceName(item.value)}
                   >
                     {item.label.split(' ').join(' - ')}
                     <div className="flex">
@@ -506,7 +506,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                 key="defaultStyle"
                 color={config.style === '' ? 'primary' : 'default'}
                 className="mt-1"
-                onClick={() => updateConfigField('style', '')}
+                onPress={() => updateConfigField('style', '')}
               >
                 {t.default}
               </Button>
@@ -516,7 +516,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                     key={item}
                     color={item === config.style ? 'primary' : 'default'}
                     className="mt-1"
-                    onClick={() => updateConfigField('style', item)}
+                    onPress={() => updateConfigField('style', item)}
                   >
                     {(t.styles as any)[item] || item}
                   </Button>
@@ -545,7 +545,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                 key="defaultRole"
                 color={config.role === '' ? 'primary' : 'default'}
                 className="mt-1"
-                onClick={() => updateConfigField('role', '')}
+                onPress={() => updateConfigField('role', '')}
               >
                 {t.default}
               </Button>
@@ -555,7 +555,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
                     key={item}
                     color={item === config.role ? 'primary' : 'default'}
                     className="mt-1"
-                    onClick={() => updateConfigField('role', item)}
+                    onPress={() => updateConfigField('role', item)}
                   >
                     {(t.roles as any)[item] || item}
                   </Button>
