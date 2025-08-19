@@ -1,7 +1,10 @@
 import { useState, useCallback, ReactElement } from 'react'
 import { Button } from '@heroui/button'
 import { Popover, PopoverTrigger, PopoverContent } from '@heroui/popover'
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from '@heroui/react'
 import { toast } from 'sonner'
+import { faDownload, faUpload, faEye } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { getFormatDate, saveAs } from '@/app/lib/tools'
 import { Tran } from '@/app/lib/types'
@@ -18,6 +21,7 @@ export const ExportImportSettingsButton = ({
   buttonIcon: ReactElement
 }) => {
   const [isPopoverOpen, setIsPopoverOpen] = useState<boolean>(false)
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   const handleExport = () => {
     const data = getExportData()
@@ -59,20 +63,65 @@ export const ExportImportSettingsButton = ({
     setIsPopoverOpen(false)
   }, [importSSMLSettings, t])
 
+  const handlePreview = () => {
+    setIsModalOpen(true)
+    setIsPopoverOpen(false)
+  }
+
   return (
-    <Popover placement="right" isOpen={isPopoverOpen} onOpenChange={open => setIsPopoverOpen(open)}>
-      <PopoverTrigger>{buttonIcon}</PopoverTrigger>
-      <PopoverContent>
-        <div className="px-3 pt-2 text-left font-bold w-full select-none">{t['export-import-settings']}</div>
-        <div className="px-1 py-2 w-full flex flex-col gap-2">
-          <Button color="primary" onClick={handleExport} className="w-full">
-            {t['export-ssml-settings']}
-          </Button>
-          <Button color="secondary" onClick={handleImport} className="w-full">
-            {t['import-ssml-settings']}
-          </Button>
-        </div>
-      </PopoverContent>
-    </Popover>
+    <>
+      <Popover placement="right" isOpen={isPopoverOpen} onOpenChange={open => setIsPopoverOpen(open)}>
+        <PopoverTrigger>{buttonIcon}</PopoverTrigger>
+        <PopoverContent>
+          <div className="px-3 pt-2 text-left font-bold w-full select-none">{t['export-import-settings']}</div>
+          <div className="px-1 py-2 w-full flex flex-col gap-2">
+            <Button
+              color="primary"
+              onClick={handleExport}
+              className="w-full"
+              startContent={<FontAwesomeIcon icon={faDownload} className="w-4 h-4" />}
+            >
+              {t['export-ssml-settings']}
+            </Button>
+            <Button
+              color="secondary"
+              onClick={handleImport}
+              className="w-full"
+              startContent={<FontAwesomeIcon icon={faUpload} className="w-4 h-4" />}
+            >
+              {t['import-ssml-settings']}
+            </Button>
+            <Button
+              color="default"
+              onClick={handlePreview}
+              className="w-full"
+              startContent={<FontAwesomeIcon icon={faEye} className="w-4 h-4" />}
+            >
+              {t['preview-ssml-parameters']}
+            </Button>
+          </div>
+        </PopoverContent>
+      </Popover>
+
+      <Modal isOpen={isModalOpen} onOpenChange={setIsModalOpen} size="2xl" scrollBehavior="inside">
+        <ModalContent>
+          {onClose => (
+            <>
+              <ModalHeader className="flex flex-col gap-1">{t['ssml-preview-modal-title']}</ModalHeader>
+              <ModalBody>
+                <pre className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 text-sm overflow-x-auto whitespace-pre-wrap break-words">
+                  <code>{getExportData()}</code>
+                </pre>
+              </ModalBody>
+              <ModalFooter>
+                <Button color="primary" onPress={onClose}>
+                  {t.close}
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
+    </>
   )
 }
