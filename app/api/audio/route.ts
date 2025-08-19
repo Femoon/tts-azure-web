@@ -35,7 +35,18 @@ export async function POST(req: NextRequest) {
     }
 
     const token = await fetchToken()
-    const audioResponse = await fetchAudio(token, generateSSML({ input: payload.input, config: payload.config }))
+
+    // determine how to handle SSML based on mode
+    let ssml: string
+    if (payload.isSSMLMode) {
+      // SSML mode: use input as SSML content
+      ssml = payload.input
+    } else {
+      // normal mode: use config to generate SSML
+      ssml = generateSSML({ input: payload.input, config: payload.config })
+    }
+
+    const audioResponse = await fetchAudio(token, ssml)
 
     if (!audioResponse.ok) {
       return NextResponse.json(

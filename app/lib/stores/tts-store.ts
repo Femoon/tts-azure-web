@@ -3,16 +3,30 @@ import { persist } from 'zustand/middleware'
 
 import { Config, ListItem } from '@/app/lib/types'
 
+interface ModeCache {
+  config: Config
+  input: string
+}
+
+interface SSMLModeCache {
+  input: string
+}
+
 interface TTSState {
-  // TTS 配置
+  // TTS config
   config: Config
   input: string
 
-  // UI 状态
+  // UI state
   isLoading: boolean
   isPlaying: boolean
+  isSSMLMode: boolean
 
-  // 数据
+  // mode cache
+  normalModeCache: ModeCache | null
+  ssmlModeCache: SSMLModeCache | null
+
+  // data
   voiceList: ListItem[]
 
   // Actions
@@ -21,9 +35,10 @@ interface TTSState {
   setInput: (input: string) => void
   setIsLoading: (loading: boolean) => void
   setIsPlaying: (playing: boolean) => void
+  toggleSSMLMode: () => void
   setVoiceList: (list: ListItem[]) => void
 
-  // 重置配置
+  // reset config
   resetConfig: () => void
 }
 
@@ -42,11 +57,14 @@ const defaultConfig: Config = {
 export const useTTSStore = create<TTSState>()(
   persist(
     set => ({
-      // 初始状态
+      // initial state
       config: defaultConfig,
       input: '',
       isLoading: false,
       isPlaying: false,
+      isSSMLMode: false,
+      normalModeCache: null,
+      ssmlModeCache: null,
       voiceList: [],
 
       // Actions
@@ -66,6 +84,34 @@ export const useTTSStore = create<TTSState>()(
 
       setIsPlaying: isPlaying => set({ isPlaying }),
 
+      toggleSSMLMode: () =>
+        set(state => {
+          if (state.isSSMLMode) {
+            const ssmlModeCache: SSMLModeCache = { input: state.input }
+
+            const normalCache = state.normalModeCache
+            return {
+              isSSMLMode: false,
+              ssmlModeCache,
+              config: normalCache?.config || defaultConfig,
+              input: normalCache?.input || '',
+            }
+          } else {
+            const normalModeCache: ModeCache = {
+              config: state.config,
+              input: state.input,
+            }
+
+            const ssmlCache = state.ssmlModeCache
+            return {
+              isSSMLMode: true,
+              normalModeCache,
+              config: defaultConfig,
+              input: ssmlCache?.input || '',
+            }
+          }
+        }),
+
       setVoiceList: voiceList => set({ voiceList }),
 
       resetConfig: () => set({ config: defaultConfig }),
@@ -74,7 +120,10 @@ export const useTTSStore = create<TTSState>()(
       name: 'tts-storage', // localStorage key
       partialize: state => ({
         config: state.config,
-        input: state.input, // 持久化输入内容
+        input: state.input,
+        normalModeCache: state.normalModeCache,
+        ssmlModeCache: state.ssmlModeCache,
+        // note: isSSMLMode is not persisted, it will be reset to false every time the page is reloaded
       }),
     },
   ),

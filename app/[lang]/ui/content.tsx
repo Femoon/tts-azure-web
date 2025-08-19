@@ -12,6 +12,7 @@ import {
   faFileLines,
   faStopwatch,
   faFileCode,
+  faFileImport,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Accordion, AccordionItem } from '@heroui/accordion'
@@ -37,6 +38,7 @@ import { ListItem, Tran } from '../../lib/types'
 
 import ConfigSlider from './components/config-slider'
 import { ExportImportSettingsButton } from './components/export-import-setting-button'
+import { ImportFromNormalButton } from './components/import-from-normal-button'
 import { ImportTextButton } from './components/import-text-button'
 import LanguageSelect from './components/language-select'
 import { StopTimeButton } from './components/stop-time-button'
@@ -48,6 +50,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
     input,
     isLoading,
     isPlaying,
+    isSSMLMode,
     setConfig,
     updateConfigField,
     setInput,
@@ -181,7 +184,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
     const res = await fetch('/api/audio', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ input, config }),
+      body: JSON.stringify({ input, config, isSSMLMode }),
     })
     if (!res.ok) {
       toast.error('Error fetching audio. Error code: ' + res.status)
@@ -316,7 +319,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
           disableAutosize
           classNames={{ input: 'resize-y min-h-[120px] md:min-h-[170px]' }}
           ref={inputRef}
-          placeholder={t['input-text']}
+          placeholder={isSSMLMode ? t['input-ssml'] : t['input-text']}
           value={input}
           maxLength={MAX_INPUT_LENGTH}
           onChange={e => setInput(e.target.value)}
@@ -336,49 +339,69 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
               style={{ width: '2rem', height: '2rem' }}
               onClick={handleDownload}
             />
-            {/* import */}
-            <ImportTextButton
-              buttonIcon={
-                <FontAwesomeIcon
-                  title={t.import}
-                  titleId="faFileArrowUp"
-                  icon={faFileLines}
-                  className="text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
-                  style={{ width: '2rem', height: '2rem' }}
+            {/* show import from normal button in SSML mode */}
+            {isSSMLMode && (
+              <ImportFromNormalButton
+                buttonIcon={
+                  <FontAwesomeIcon
+                    title={t['import-from-normal']}
+                    titleId="faFileImport"
+                    icon={faFileImport}
+                    className="text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
+                    style={{ width: '2rem', height: '2rem' }}
+                  />
+                }
+                t={t}
+              />
+            )}
+            {/* show other buttons in normal mode - SSML mode */}
+            {!isSSMLMode && (
+              <>
+                {/* import */}
+                <ImportTextButton
+                  buttonIcon={
+                    <FontAwesomeIcon
+                      title={t.import}
+                      titleId="faFileArrowUp"
+                      icon={faFileLines}
+                      className="text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
+                      style={{ width: '2rem', height: '2rem' }}
+                    />
+                  }
+                  t={t}
+                  setInput={setInput}
                 />
-              }
-              t={t}
-              setInput={setInput}
-            />
-            {/* stop time */}
-            <StopTimeButton
-              buttonIcon={
-                <FontAwesomeIcon
-                  title={t['insert-pause']}
-                  titleId="faStopwatch"
-                  icon={faStopwatch}
-                  className="text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
-                  style={{ width: '2rem', height: '2rem' }}
+                {/* stop time */}
+                <StopTimeButton
+                  buttonIcon={
+                    <FontAwesomeIcon
+                      title={t['insert-pause']}
+                      titleId="faStopwatch"
+                      icon={faStopwatch}
+                      className="text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
+                      style={{ width: '2rem', height: '2rem' }}
+                    />
+                  }
+                  t={t}
+                  insertTextAtCursor={handleInsertPause}
                 />
-              }
-              t={t}
-              insertTextAtCursor={handleInsertPause}
-            />
-            {/* export import settings */}
-            <ExportImportSettingsButton
-              buttonIcon={
-                <FontAwesomeIcon
-                  title={t['export-import-settings']}
-                  titleId="faFileCode"
-                  icon={faFileCode}
-                  className="text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
-                  style={{ width: '2rem', height: '2rem' }}
+                {/* export import settings */}
+                <ExportImportSettingsButton
+                  buttonIcon={
+                    <FontAwesomeIcon
+                      title={t['export-import-settings']}
+                      titleId="faFileCode"
+                      icon={faFileCode}
+                      className="text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
+                      style={{ width: '2rem', height: '2rem' }}
+                    />
+                  }
+                  t={t}
+                  getExportData={getExportData}
+                  importSSMLSettings={importSSMLSettings}
                 />
-              }
-              t={t}
-              getExportData={getExportData}
-              importSSMLSettings={importSSMLSettings}
-            />
+              </>
+            )}
           </div>
 
           {/* play */}
@@ -396,220 +419,222 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
           )}
         </div>
       </div>
-      {/* select language */}
-      <div className="md:flex-1 flex flex-col">
-        <LanguageSelect t={t} langs={langs} selectedLang={config.lang} handleSelectLang={handleSelectLang} />
-        <div className="pt-4 flex gap-2">
-          {genders.map(item => (
-            <Button
-              color={config.gender === item.value ? 'primary' : 'default'}
-              onPress={() => handleSelectGender(item.value)}
-              key={item.value}
+      {/* select language - 只在普通模式显示 */}
+      {!isSSMLMode && (
+        <div className="md:flex-1 flex flex-col">
+          <LanguageSelect t={t} langs={langs} selectedLang={config.lang} handleSelectLang={handleSelectLang} />
+          <div className="pt-4 flex gap-2">
+            {genders.map(item => (
+              <Button
+                color={config.gender === item.value ? 'primary' : 'default'}
+                onPress={() => handleSelectGender(item.value)}
+                key={item.value}
+              >
+                {t[item.label]}
+              </Button>
+            ))}
+          </div>
+
+          <Accordion
+            className="mt-3 px-0 rounded-medium bg-transparent"
+            selectionMode="multiple"
+            isCompact
+            defaultExpandedKeys={['1', '2', '3', '4']}
+          >
+            {/* voice */}
+            <AccordionItem
+              key="1"
+              aria-label={t.voice}
+              startContent={
+                <div className="flex items-center gap-3">
+                  <FontAwesomeIcon
+                    icon={faMicrophone}
+                    className="text-gray-500 cursor-pointer"
+                    style={{ width: '18px', height: '18px' }}
+                  />
+
+                  <p className="text-large">{t.voice}</p>
+                </div>
+              }
             >
-              {t[item.label]}
-            </Button>
-          ))}
+              <div className="flex flex-wrap gap-2 pb-3">
+                {voiceNames.map(item => {
+                  return (
+                    <Button
+                      key={item.value}
+                      color={item.value === config.voiceName ? 'primary' : 'default'}
+                      className="mt-1 gap-1 border-black"
+                      onPress={() => handleSelectVoiceName(item.value)}
+                    >
+                      {item.label.split(' ').join(' - ')}
+                      <div className="flex">
+                        {item.hasStyle && (
+                          <div
+                            className={`border border-${item.value === config.voiceName ? 'white' : 'black'} dark:border-white rounded leading-4 px-1 scale-80`}
+                          >
+                            S
+                          </div>
+                        )}
+                        {item.hasRole && (
+                          <div
+                            className={`border border-${item.value === config.voiceName ? 'white' : 'black'} dark:border-white rounded leading-4 px-1 scale-80`}
+                          >
+                            R
+                          </div>
+                        )}
+                      </div>
+                    </Button>
+                  )
+                })}
+              </div>
+            </AccordionItem>
+
+            {/* style */}
+            <AccordionItem
+              key="2"
+              aria-label={t.style}
+              startContent={
+                <div className="flex items-center gap-3">
+                  <FontAwesomeIcon
+                    icon={faFaceLaugh}
+                    className="text-gray-500 cursor-pointer"
+                    style={{ width: '18px', height: '18px' }}
+                  />
+                  <p className="text-large">{t.style}</p>
+                </div>
+              }
+            >
+              <section className="flex items-center justify-between gap-20 mb-2">
+                <div className="flex flex-1 gap-5 items-center justify-end">
+                  <FontAwesomeIcon
+                    icon={faRotateRight}
+                    className="text-gray-500 cursor-pointer h-[1em]"
+                    onClick={resetStyleDegree}
+                  />
+                  <Slider
+                    size="sm"
+                    step={0.01}
+                    value={config.styleDegree}
+                    maxValue={2}
+                    minValue={0.01}
+                    defaultValue={1}
+                    aria-label={t.styleIntensity}
+                    onChange={handleSlideStyleDegree}
+                    classNames={{ track: 'border-s-primary-100' }}
+                  />
+                  <p className="w-10">{config.styleDegree}</p>
+                </div>
+              </section>
+              <div className="flex flex-wrap gap-2 pb-3">
+                <Button
+                  key="defaultStyle"
+                  color={config.style === '' ? 'primary' : 'default'}
+                  className="mt-1"
+                  onPress={() => updateConfigField('style', '')}
+                >
+                  {t.default}
+                </Button>
+                {styles.map(item => {
+                  return (
+                    <Button
+                      key={item}
+                      color={item === config.style ? 'primary' : 'default'}
+                      className="mt-1"
+                      onPress={() => updateConfigField('style', item)}
+                    >
+                      {(t.styles as any)[item] || item}
+                    </Button>
+                  )
+                })}
+              </div>
+            </AccordionItem>
+
+            {/* role */}
+            <AccordionItem
+              key="3"
+              aria-label={t.role}
+              startContent={
+                <div className="flex gap-3 items-center">
+                  <FontAwesomeIcon
+                    icon={faUserGroup}
+                    className="text-gray-500 cursor-pointer"
+                    style={{ width: '18px', height: '18px' }}
+                  />
+                  <p className="text-large">{t.role}</p>
+                </div>
+              }
+            >
+              <div className="flex flex-wrap gap-2 pb-3">
+                <Button
+                  key="defaultRole"
+                  color={config.role === '' ? 'primary' : 'default'}
+                  className="mt-1"
+                  onPress={() => updateConfigField('role', '')}
+                >
+                  {t.default}
+                </Button>
+                {roles.map(item => {
+                  return (
+                    <Button
+                      key={item}
+                      color={item === config.role ? 'primary' : 'default'}
+                      className="mt-1"
+                      onPress={() => updateConfigField('role', item)}
+                    >
+                      {(t.roles as any)[item] || item}
+                    </Button>
+                  )
+                })}
+              </div>
+            </AccordionItem>
+
+            {/* Advanced settings */}
+            <AccordionItem
+              key="4"
+              aria-label={t.advancedSettings}
+              classNames={{ content: 'overflow-x-hidden' }}
+              startContent={
+                <div className="flex items-center gap-3">
+                  <FontAwesomeIcon
+                    icon={faSliders}
+                    className="text-gray-500 cursor-pointer"
+                    style={{ width: '18px', height: '18px' }}
+                  />
+                  <p className="text-large">{t.advancedSettings}</p>
+                </div>
+              }
+            >
+              {/* rate */}
+              <ConfigSlider
+                label={t.rate}
+                value={config.rate}
+                minValue={-200}
+                maxValue={200}
+                onChange={handleSlideRate}
+                reset={resetRate}
+              />
+              {/* pitch */}
+              <ConfigSlider
+                label={t.pitch}
+                value={config.pitch}
+                minValue={-100}
+                maxValue={100}
+                onChange={handleSlidePitch}
+                reset={resetPitch}
+              />
+              {/* volume */}
+              <ConfigSlider
+                label={t.volume}
+                value={config.volume}
+                minValue={-100}
+                maxValue={100}
+                onChange={handleSlideVolume}
+                reset={resetVolume}
+              />
+            </AccordionItem>
+          </Accordion>
         </div>
-
-        <Accordion
-          className="mt-3 px-0 rounded-medium bg-transparent"
-          selectionMode="multiple"
-          isCompact
-          defaultExpandedKeys={['1', '2', '3', '4']}
-        >
-          {/* voice */}
-          <AccordionItem
-            key="1"
-            aria-label={t.voice}
-            startContent={
-              <div className="flex items-center gap-3">
-                <FontAwesomeIcon
-                  icon={faMicrophone}
-                  className="text-gray-500 cursor-pointer"
-                  style={{ width: '18px', height: '18px' }}
-                />
-
-                <p className="text-large">{t.voice}</p>
-              </div>
-            }
-          >
-            <div className="flex flex-wrap gap-2 pb-3">
-              {voiceNames.map(item => {
-                return (
-                  <Button
-                    key={item.value}
-                    color={item.value === config.voiceName ? 'primary' : 'default'}
-                    className="mt-1 gap-1 border-black"
-                    onPress={() => handleSelectVoiceName(item.value)}
-                  >
-                    {item.label.split(' ').join(' - ')}
-                    <div className="flex">
-                      {item.hasStyle && (
-                        <div
-                          className={`border border-${item.value === config.voiceName ? 'white' : 'black'} dark:border-white rounded leading-4 px-1 scale-80`}
-                        >
-                          S
-                        </div>
-                      )}
-                      {item.hasRole && (
-                        <div
-                          className={`border border-${item.value === config.voiceName ? 'white' : 'black'} dark:border-white rounded leading-4 px-1 scale-80`}
-                        >
-                          R
-                        </div>
-                      )}
-                    </div>
-                  </Button>
-                )
-              })}
-            </div>
-          </AccordionItem>
-
-          {/* style */}
-          <AccordionItem
-            key="2"
-            aria-label={t.style}
-            startContent={
-              <div className="flex items-center gap-3">
-                <FontAwesomeIcon
-                  icon={faFaceLaugh}
-                  className="text-gray-500 cursor-pointer"
-                  style={{ width: '18px', height: '18px' }}
-                />
-                <p className="text-large">{t.style}</p>
-              </div>
-            }
-          >
-            <section className="flex items-center justify-between gap-20 mb-2">
-              <div className="flex flex-1 gap-5 items-center justify-end">
-                <FontAwesomeIcon
-                  icon={faRotateRight}
-                  className="text-gray-500 cursor-pointer h-[1em]"
-                  onClick={resetStyleDegree}
-                />
-                <Slider
-                  size="sm"
-                  step={0.01}
-                  value={config.styleDegree}
-                  maxValue={2}
-                  minValue={0.01}
-                  defaultValue={1}
-                  aria-label={t.styleIntensity}
-                  onChange={handleSlideStyleDegree}
-                  classNames={{ track: 'border-s-primary-100' }}
-                />
-                <p className="w-10">{config.styleDegree}</p>
-              </div>
-            </section>
-            <div className="flex flex-wrap gap-2 pb-3">
-              <Button
-                key="defaultStyle"
-                color={config.style === '' ? 'primary' : 'default'}
-                className="mt-1"
-                onPress={() => updateConfigField('style', '')}
-              >
-                {t.default}
-              </Button>
-              {styles.map(item => {
-                return (
-                  <Button
-                    key={item}
-                    color={item === config.style ? 'primary' : 'default'}
-                    className="mt-1"
-                    onPress={() => updateConfigField('style', item)}
-                  >
-                    {(t.styles as any)[item] || item}
-                  </Button>
-                )
-              })}
-            </div>
-          </AccordionItem>
-
-          {/* role */}
-          <AccordionItem
-            key="3"
-            aria-label={t.role}
-            startContent={
-              <div className="flex gap-3 items-center">
-                <FontAwesomeIcon
-                  icon={faUserGroup}
-                  className="text-gray-500 cursor-pointer"
-                  style={{ width: '18px', height: '18px' }}
-                />
-                <p className="text-large">{t.role}</p>
-              </div>
-            }
-          >
-            <div className="flex flex-wrap gap-2 pb-3">
-              <Button
-                key="defaultRole"
-                color={config.role === '' ? 'primary' : 'default'}
-                className="mt-1"
-                onPress={() => updateConfigField('role', '')}
-              >
-                {t.default}
-              </Button>
-              {roles.map(item => {
-                return (
-                  <Button
-                    key={item}
-                    color={item === config.role ? 'primary' : 'default'}
-                    className="mt-1"
-                    onPress={() => updateConfigField('role', item)}
-                  >
-                    {(t.roles as any)[item] || item}
-                  </Button>
-                )
-              })}
-            </div>
-          </AccordionItem>
-
-          {/* Advanced settings */}
-          <AccordionItem
-            key="4"
-            aria-label={t.advancedSettings}
-            classNames={{ content: 'overflow-x-hidden' }}
-            startContent={
-              <div className="flex items-center gap-3">
-                <FontAwesomeIcon
-                  icon={faSliders}
-                  className="text-gray-500 cursor-pointer"
-                  style={{ width: '18px', height: '18px' }}
-                />
-                <p className="text-large">{t.advancedSettings}</p>
-              </div>
-            }
-          >
-            {/* rate */}
-            <ConfigSlider
-              label={t.rate}
-              value={config.rate}
-              minValue={-200}
-              maxValue={200}
-              onChange={handleSlideRate}
-              reset={resetRate}
-            />
-            {/* pitch */}
-            <ConfigSlider
-              label={t.pitch}
-              value={config.pitch}
-              minValue={-100}
-              maxValue={100}
-              onChange={handleSlidePitch}
-              reset={resetPitch}
-            />
-            {/* volume */}
-            <ConfigSlider
-              label={t.volume}
-              value={config.volume}
-              minValue={-100}
-              maxValue={100}
-              onChange={handleSlideVolume}
-              reset={resetVolume}
-            />
-          </AccordionItem>
-        </Accordion>
-      </div>
+      )}
     </div>
   )
 }

@@ -16,12 +16,19 @@
   "export-ssml-settings": "导出 SSML 参数",
   "import-ssml-settings-success": "导入 SSML 参数成功",
   "export-ssml-settings-success": "导出 SSML 参数成功",
+  "import-from-normal": "从普通模式导入",
+  "import-from-normal-confirm": "这将用从普通模式生成的内容替换当前的SSML。是否继续？",
+  "import-from-normal-success": "从普通模式导入成功",
+  "import-from-normal-no-content": "普通模式中没有可用内容",
+  "confirm": "确认",
+  "cancel": "取消",
   "preview-ssml-parameters": "预览 SSML 参数",
   "ssml-preview-modal-title": "SSML 参数预览",
   "close": "关闭",
   "play": "播放",
   "pause": "暂停",
   "input-text": "请输入文本",
+  "input-ssml": "请输入SSML代码",
   "select-language": "请选择语言",
   "voice": "语音",
   "male": "男性",
@@ -87,5 +94,10 @@
     "YoungAdultFemale": "年轻女性",
     "YoungAdultMale": "年轻男性",
     "Narrator": "旁白者"
-  }
+  },
+  "ssml-mode": "SSML模式",
+  "ssml-mode-confirm-title": "切换到SSML模式",
+  "ssml-mode-confirm-message": "切换到SSML模式会清除当前的语音配置，您确定要继续吗？",
+  "normal-mode-confirm-title": "切换到普通模式",
+  "normal-mode-confirm-message": "切换到普通模式会清除当前的SSML输入，您确定要继续吗？"
 }

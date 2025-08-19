@@ -16,12 +16,19 @@
   "export-ssml-settings": "Export SSML settings",
   "import-ssml-settings-success": "Import SSML settings successfully",
   "export-ssml-settings-success": "Export SSML settings successfully",
+  "import-from-normal": "Import from Normal Mode",
+  "import-from-normal-confirm": "This will replace the current SSML with content generated from Normal Mode. Continue?",
+  "import-from-normal-success": "Successfully imported from Normal Mode",
+  "import-from-normal-no-content": "No content available in Normal Mode",
+  "confirm": "Confirm",
+  "cancel": "Cancel",
   "preview-ssml-parameters": "Preview SSML parameters",
   "ssml-preview-modal-title": "SSML Parameters Preview",
   "close": "Close",
   "play": "Play",
   "pause": "Pause",
   "input-text": "Please enter text",
+  "input-ssml": "Please enter SSML code",
   "select-language": "Please select language",
   "voice": "Voice",
   "male": "Man",
@@ -87,5 +94,10 @@
     "YoungAdultFemale": "YoungAdultFemale",
     "YoungAdultMale": "YoungAdultMale",
     "Narrator": "Narrator"
-  }
+  },
+  "ssml-mode": "SSML Mode",
+  "ssml-mode-confirm-title": "Switch to SSML Mode",
+  "ssml-mode-confirm-message": "Switching to SSML mode will clear current voice settings. Are you sure you want to continue?",
+  "normal-mode-confirm-title": "Switch to Normal Mode",
+  "normal-mode-confirm-message": "Switching to normal mode will clear current SSML input. Are you sure you want to continue?"
 }
