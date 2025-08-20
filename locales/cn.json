@@ -97,7 +97,7 @@
   },
   "ssml-mode": "SSML模式",
   "ssml-mode-confirm-title": "切换到SSML模式",
-  "ssml-mode-confirm-message": "切换到SSML模式会清除当前的语音配置，您确定要继续吗？",
+  "ssml-mode-confirm-message": "当前语音配置将被保存，切换回来时可恢复。继续切换到SSML模式吗？",
   "normal-mode-confirm-title": "切换到普通模式",
-  "normal-mode-confirm-message": "切换到普通模式会清除当前的SSML输入，您确定要继续吗？"
+  "normal-mode-confirm-message": "当前SSML输入将被保存，切换回来时可恢复。继续切换到普通模式吗？"
 }

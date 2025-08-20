@@ -126,7 +126,11 @@ export default function Nav({ t }: { t: Tran }) {
         <ThemeToggle t={t} />
       </div>
 
-      <Modal isOpen={isModalOpen} onOpenChange={setIsModalOpen}>
+      <Modal
+        isOpen={isModalOpen}
+        onOpenChange={setIsModalOpen}
+        classNames={{ wrapper: 'z-[999]', backdrop: 'z-[999]' }}
+      >
         <ModalContent>
           {onClose => (
             <>

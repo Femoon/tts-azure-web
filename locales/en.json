@@ -97,7 +97,7 @@
   },
   "ssml-mode": "SSML Mode",
   "ssml-mode-confirm-title": "Switch to SSML Mode",
-  "ssml-mode-confirm-message": "Switching to SSML mode will clear current voice settings. Are you sure you want to continue?",
+  "ssml-mode-confirm-message": "Your current voice settings will be saved and can be restored when you switch back. Continue to SSML mode?",
   "normal-mode-confirm-title": "Switch to Normal Mode",
-  "normal-mode-confirm-message": "Switching to normal mode will clear current SSML input. Are you sure you want to continue?"
+  "normal-mode-confirm-message": "Your current SSML input will be saved and can be restored when you switch back. Continue to Normal mode?"
 }
