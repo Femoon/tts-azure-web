@@ -31,7 +31,7 @@
     "@fortawesome/free-regular-svg-icons": "^7.0.0",
     "@fortawesome/free-solid-svg-icons": "^7.0.0",
     "@fortawesome/react-fontawesome": "^0.2.3",
-    "@heroui/react": "^2.8.1",
+    "@heroui/react": "^2.8.2",
     "@svgr/webpack": "^8.1.0",
     "@types/negotiator": "^0.6.3",
     "@vercel/analytics": "^1.2.2",
