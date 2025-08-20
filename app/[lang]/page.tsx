@@ -2,7 +2,7 @@ import { getLocale } from '@/app/lib/i18n/get-locale'
 import type { Locale } from '@/app/lib/i18n/i18n-config'
 
 import { fetchList } from '../api/list/fetch-list'
-import { ListItem } from '../lib/types'
+import { ProcessedVoiceData } from '../lib/types'
 
 import Content from './ui/content'
 import Nav from './ui/nav'
@@ -10,23 +10,23 @@ import Nav from './ui/nav'
 export default async function Home({ params }: { params: Promise<{ lang: Locale }> }) {
   const { lang } = await params
   const t = await getLocale(lang)
-  let list: ListItem[] = []
+  let processedData: ProcessedVoiceData = {
+    languages: [],
+    gendersByLang: {},
+    voicesByLangGender: {},
+    stylesAndRoles: {},
+  }
 
   try {
-    const res = await fetchList()
-    if (res.ok) {
-      list = await res.json()
-    } else {
-      console.error(`Failed to fetch list: ${res.status} ${res.statusText}`)
-    }
+    processedData = await fetchList()
   } catch (err) {
-    console.error('Failed to fetch list:', err)
+    console.error('Failed to fetch voice data:', err)
   }
 
   return (
     <main className="flex w-full min-h-screen flex-col">
       <Nav t={t} />
-      <Content t={t} list={list} />
+      <Content t={t} processedData={processedData} />
     </main>
   )
 }

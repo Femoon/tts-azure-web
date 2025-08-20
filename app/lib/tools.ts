@@ -1,4 +1,4 @@
-import { Config, GenderItem, ListItem } from './types'
+import { Config, GenderItem, ListItem, VoiceName } from './types'
 
 export function saveAs(blob: Blob, name: string) {
   const a = document.createElement('a')
@@ -32,13 +32,6 @@ export function base64AudioToBlobUrl(base64Audio: string) {
 
   const blob = new Blob([bytes], { type: 'audio/mp3' })
   return URL.createObjectURL(blob)
-}
-
-interface VoiceName {
-  label: string
-  value: string
-  hasStyle: boolean
-  hasRole: boolean
 }
 
 export function processVoiceName(voiceNames: VoiceName[], gender: string, lang: string) {

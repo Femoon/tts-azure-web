@@ -1,5 +1,5 @@
 'use client'
-import { Key, useCallback, useEffect, useMemo, useRef } from 'react'
+import { Key, useCallback, useEffect, useRef } from 'react'
 import {
   faCircleDown,
   faCirclePause,
@@ -25,16 +25,8 @@ import { Toaster, toast } from 'sonner'
 import { DEFAULT_TEXT, MAX_INPUT_LENGTH } from '@/app/lib/constants'
 import { useTTSStore } from '@/app/lib/stores'
 
-import {
-  base64AudioToBlobUrl,
-  generateSSML,
-  getFormatDate,
-  getGenders,
-  parseSSML,
-  processVoiceName,
-  saveAs,
-} from '../../lib/tools'
-import { ListItem, Tran } from '../../lib/types'
+import { base64AudioToBlobUrl, generateSSML, getFormatDate, parseSSML, saveAs } from '../../lib/tools'
+import { ProcessedVoiceData, Tran } from '../../lib/types'
 
 import ConfigSlider from './components/config-slider'
 import { ExportImportSettingsButton } from './components/export-import-setting-button'
@@ -43,7 +35,7 @@ import { ImportTextButton } from './components/import-text-button'
 import LanguageSelect from './components/language-select'
 import { StopTimeButton } from './components/stop-time-button'
 
-export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
+export default function Content({ t, processedData }: { t: Tran; processedData: ProcessedVoiceData }) {
   // Zustand store
   const {
     config,
@@ -56,57 +48,17 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
     setInput,
     setIsLoading,
     setIsPlaying,
-    setVoiceList,
   } = useTTSStore()
 
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const cacheConfigRef = useRef<string | null>(null)
   const inputRef = useRef<HTMLTextAreaElement | null>(null)
 
-  // 初始化时设置语音列表
-  useEffect(() => {
-    if (list.length > 0) {
-      setVoiceList(list)
-    }
-  }, [list, setVoiceList])
-
-  const langs = useMemo(() => {
-    const map = new Map()
-    list.forEach(item => {
-      map.set(item.Locale, item.LocaleName)
-    })
-    return [...map].map(([value, label]) => ({ label, value }))
-  }, [list])
-
-  const selectedConfigs = useMemo(() => {
-    return list.filter(item => item.Locale === config.lang)
-  }, [list, config.lang])
-
-  const genders = useMemo(() => {
-    return getGenders(selectedConfigs)
-  }, [selectedConfigs])
-
-  const voiceNames = useMemo(() => {
-    const dataForVoiceName = selectedConfigs.filter(item => item.Gender.toLowerCase() === config.gender)
-    const _voiceNames = dataForVoiceName.map(item => {
-      return {
-        label: item.LocalName,
-        value: item.ShortName,
-        hasStyle: !!item.StyleList?.length,
-        hasRole: !!item.RolePlayList?.length,
-      }
-    })
-
-    processVoiceName(_voiceNames, config.gender, config.lang)
-
-    return _voiceNames
-  }, [config.gender, config.lang, selectedConfigs])
-
-  const { styles, roles } = useMemo(() => {
-    const data = selectedConfigs.find(item => item.ShortName === config.voiceName)
-    const { StyleList = [], RolePlayList = [] } = data || {}
-    return { styles: StyleList, roles: RolePlayList }
-  }, [config.voiceName, selectedConfigs])
+  // 从预处理数据直接获取
+  const langs = processedData.languages
+  const genders = processedData.gendersByLang[config.lang] || []
+  const voiceNames = processedData.voicesByLangGender[config.lang]?.[config.gender] || []
+  const { styles = [], roles = [] } = processedData.stylesAndRoles[config.voiceName] || {}
 
   useEffect(() => {
     if (voiceNames.length && (!config.voiceName || !voiceNames.some(v => v.value === config.voiceName))) {
@@ -165,7 +117,7 @@ export default function Content({ t, list }: { t: Tran; list: ListItem[] }) {
       setInput(lang.startsWith('zh') ? DEFAULT_TEXT.CN : DEFAULT_TEXT.EN)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [list])
+  }, [processedData])
 
   useEffect(() => {
     if (!genders.length || config.gender) return

@@ -51,6 +51,20 @@ export interface LangsItem extends KeyValue {
   value: string
 }
 
+export interface VoiceName {
+  label: string
+  value: string
+  hasStyle: boolean
+  hasRole: boolean
+}
+
+export interface ProcessedVoiceData {
+  languages: LangsItem[]
+  gendersByLang: Record<string, GenderItem[]>
+  voicesByLangGender: Record<string, Record<string, VoiceName[]>>
+  stylesAndRoles: Record<string, { styles: string[]; roles: string[] }>
+}
+
 export type Tran = Awaited<ReturnType<typeof getLocale>>
 
 export interface LanguageSelectProps {
