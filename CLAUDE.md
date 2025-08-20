@@ -11,13 +11,31 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `yarn start` - Start production server
 - `yarn lint` - Lint and fix TypeScript/JavaScript files with ESLint (max 0 warnings)
 
+### Docker Deployment
+Build and run with Docker:
+```bash
+docker build -t tts-azure-web .
+docker run -p 3000:3000 -e SPEECH_KEY=your_key -e SPEECH_REGION=your_region tts-azure-web
+```
+
+### TypeScript Checking
+No dedicated TypeScript check script - type checking happens during build process with `yarn build`
+
 ### Environment Setup
 Before development, create `.env.local` with:
-```
+```bash
+# Required: Azure Cognitive Services credentials
 SPEECH_KEY=your_azure_key
 SPEECH_REGION=your_azure_region
-NEXT_PUBLIC_MAX_INPUT_LENGTH=4000
+
+# Optional: Application configuration
+NEXT_PUBLIC_MAX_INPUT_LENGTH=4000  # Maximum text input length (default: 4000)
+
+# Optional: Next.js configuration
+NEXT_TELEMETRY_DISABLED=1         # Disable Next.js telemetry (uncomment in Dockerfile if needed)
 ```
+
+Common Azure regions: `eastus`, `westus2`, `eastasia`, `westeurope`, etc.
 
 ## Architecture Overview
 
@@ -26,8 +44,9 @@ NEXT_PUBLIC_MAX_INPUT_LENGTH=4000
 - **React 19**: Latest React version with enhanced performance
 - **State Management**: Zustand with persistence middleware for global state
 - **Internationalization**: Built-in i18n with `[lang]` dynamic routes supporting English (`en`) and Chinese (`cn`)
-- **UI Framework**: NextUI with Tailwind CSS and Framer Motion animations
+- **UI Framework**: HeroUI (NextUI v2) with Tailwind CSS v4 and Framer Motion animations
 - **Azure Integration**: Uses Microsoft Cognitive Services Speech SDK for TTS functionality
+- **Testing**: No test framework is currently configured
 
 ### Key Architectural Patterns
 
@@ -55,6 +74,14 @@ NEXT_PUBLIC_MAX_INPUT_LENGTH=4000
 3. **Audio Generation**: `app/api/audio/route.ts` - Converts text to speech using SSML
 4. **SSML Generation**: `app/lib/tools.ts` - Creates Speech Synthesis Markup Language
 
+#### Dual Mode System
+The application supports two distinct operating modes:
+
+- **Normal Mode**: Uses UI controls to configure TTS parameters (voice, speed, pitch, etc.), automatically generates SSML from configuration
+- **SSML Mode**: Allows direct input of Speech Synthesis Markup Language for fine-grained control
+- **Mode Switching**: `useTTSStore.toggleSSMLMode()` automatically caches current state when switching modes
+- **State Persistence**: Both modes maintain separate cached states in localStorage via Zustand persistence
+
 #### Component Architecture
 - **Page Structure**: `app/[lang]/page.tsx` serves as main entry point
 - **UI Components**: Modular components in `app/[lang]/ui/` (Nav, Content, etc.)
@@ -68,10 +95,12 @@ NEXT_PUBLIC_MAX_INPUT_LENGTH=4000
 - Security headers implemented in middleware (X-Frame-Options, CSP)
 
 ### Development Tools
-- **Linting**: ESLint v9 with TypeScript, Prettier, and import plugins
+- **Linting**: ESLint v9 with TypeScript, Prettier, and import plugins with import ordering rules
 - **State Management**: Zustand v5 with persistence middleware
-- **Git Hooks**: Husky with lint-staged for pre-commit linting
-- **Commit Convention**: Conventional commits enforced by commitlint
+- **Git Hooks**: Husky v8 with lint-staged for pre-commit automation
+  - Pre-commit: Runs `yarn lint` and `prettier --write` on staged TypeScript/JavaScript files
+  - Commit message: Conventional commits enforced by commitlint
+- **Package Management**: Yarn with lockfile validation in Docker builds
 
 ### Key Files for Understanding
 - `app/lib/stores/` - Zustand state management stores
@@ -83,6 +112,21 @@ NEXT_PUBLIC_MAX_INPUT_LENGTH=4000
 - `app/lib/hooks/use-theme.ts` - Theme hook using Zustand store
 - `middleware.ts` - Request routing and security headers
 - `app/api/audio/route.ts` - Core TTS functionality
+
+## API Structure
+
+### API Endpoints
+- `POST /api/audio` - Generate TTS audio from text or SSML
+  - Accepts: `{ input: string, config?: Config, isSSMLMode?: boolean }`
+  - Returns: `{ base64Audio: string }` or error response
+  - Validates input length against `MAX_INPUT_LENGTH`
+  - Handles both normal mode (with config) and SSML mode (raw SSML input)
+
+### Azure Integration
+- `app/api/token/fetch-token.ts` - Fetches Azure authentication tokens
+- `app/api/list/fetch-list.ts` - Retrieves available voice models from Azure
+- Uses Azure endpoints from `app/lib/constants.ts` with region-based URLs
+- Authentication via `SPEECH_KEY` environment variable
 
 ## State Management Guide
 
