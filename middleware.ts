@@ -41,6 +41,7 @@ export function middleware(request: NextRequest) {
     '/mstile-150x150.png',
     '/safari-pinned-tab.svg',
     '/browserconfig.xml',
+    '/.well-known/appspecific/com.chrome.devtools.json',
   ]
   if (excludedPaths.includes(pathname)) return
 

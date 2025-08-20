@@ -38,17 +38,25 @@ const LanguageSelect = ({ t, langs, selectedLang, handleSelectLang }: LanguageSe
     >
       {[
         // priority langs
-        ...sortedLangs.priorityLangs.map(item => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>),
+        ...sortedLangs.priorityLangs.map(item => (
+          <AutocompleteItem key={item.value} textValue={item.label}>
+            {item.label}
+          </AutocompleteItem>
+        )),
         // separator
         ...(sortedLangs.priorityLangs.length > 0 && sortedLangs.otherLangs.length > 0
           ? [
-              <AutocompleteItem key="separator" isDisabled className="!cursor-default">
+              <AutocompleteItem key="separator" isDisabled className="!cursor-default" textValue="separator">
                 <div className="w-full h-px bg-gray-300 dark:bg-gray-600 my-1"></div>
               </AutocompleteItem>,
             ]
           : []),
         // other langs
-        ...sortedLangs.otherLangs.map(item => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>),
+        ...sortedLangs.otherLangs.map(item => (
+          <AutocompleteItem key={item.value} textValue={item.label}>
+            {item.label}
+          </AutocompleteItem>
+        )),
       ]}
     </Autocomplete>
   )
