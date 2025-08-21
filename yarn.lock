@@ -1726,7 +1726,7 @@
     "@heroui/react-rsc-utils" "2.1.9"
     "@heroui/shared-utils" "2.1.10"
 
-"@heroui/react@2.8.2":
+"@heroui/react@^2.8.2":
   version "2.8.2"
   resolved "https://registry.yarnpkg.com/@heroui/react/-/react-2.8.2.tgz#ff98dba17914559aa2e1bf9b91f37aa7b9caff13"
   integrity sha512-Z0lG7N/jyCxRhh6CWb+WFEjbA6wyutYwAYyDAq5uOsGjRKUpAv5zm6ByNdS1YqrP4k8sp0g5HijXbLThQyR9BQ==
