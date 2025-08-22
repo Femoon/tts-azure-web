@@ -22,7 +22,7 @@ export const ImportFromNormalButton = ({ t, buttonIcon }: { t: Tran; buttonIcon:
         input: normalModeCache.input,
         config: normalModeCache.config,
       },
-      false,
+      { compression: false },
     ) // Use non-compressed format for better readability
 
     setInput(generatedSSML)

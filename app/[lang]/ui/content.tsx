@@ -222,7 +222,7 @@ export default function Content({ t, processedData }: { t: Tran; processedData: 
   }
 
   const getExportData = () => {
-    return generateSSML({ input, config }, false)
+    return generateSSML({ input, config }, { compression: false })
   }
 
   const resetStyleDegree = () => {
