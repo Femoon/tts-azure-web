@@ -82,7 +82,19 @@
     "sports-commentary-excited": "体育解说 - 兴奋",
     "documentary-narration": "纪录片 - 旁白",
     "livecommercial": "现场广告",
-    "advertisement-upbeat": "广告 - 欢快"
+    "advertisement-upbeat": "广告 - 欢快",
+    "assassin": "刺客",
+    "captain": "船长",
+    "cavalier": "骑士",
+    "drake": "龙族",
+    "gamenarrator": "游戏旁白",
+    "geomancer": "地术师",
+    "poet": "诗人",
+    "voiceassistant": "语音助手",
+    "funny": "有趣",
+    "relieved": "放松",
+    "shy": "害羞",
+    "sentiment": "情绪"
   },
   "roles": {
     "Boy": "男孩",

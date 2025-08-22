@@ -72,19 +72,44 @@ function sortWithSimplifiedMandarin(voiceNames: VoiceName[]) {
 
 function supplementaryTranslateForMale(voiceNames: VoiceName[]) {
   voiceNames.forEach(item => {
-    if (item.label === 'Yunxiao Multilingual') {
-      item.label = '云霄 多语言'
-    }
-    if (item.label === 'Yunfan Multilingual') {
-      item.label = '云帆 多语言'
+    switch (item.value) {
+      case 'zh-CN-YunxiaoMultilingualNeural':
+        item.label = '云霄 多语言'
+        break
+      case 'zh-CN-YunfanMultilingualNeural':
+        item.label = '云帆 多语言'
+        break
+      case 'zh-CN-Yunxiao:DragonHDFlashLatestNeural':
+        item.label = '云霄 Dragon HD Flash'
+        break
+      case 'zh-CN-Yunye:DragonHDFlashLatestNeural':
+        item.label = '云野 Dragon HD Flash'
+        break
+      case 'zh-CN-Yunyi:DragonHDFlashLatestNeural':
+        item.label = '云逸 Dragon HD Flash'
+        break
+      case 'zh-CN-Yunfan:DragonHDLatestNeural':
+        item.label = '云帆 Dragon HD'
+        break
     }
   })
 }
 
 function supplementaryTranslateForFemale(voiceNames: VoiceName[]) {
   voiceNames.forEach(item => {
-    if (item.label === 'Xiaochen Dragon HD Latest') {
-      item.label = '晓辰 Dragon HD'
+    switch (item.value) {
+      case 'zh-CN-Xiaochen:DragonHDLatestNeural':
+        item.label = '晓辰 Dragon HD'
+        break
+      case 'zh-CN-Xiaochen:DragonHDFlashLatestNeural':
+        item.label = '晓辰 Dragon HD Flash'
+        break
+      case 'zh-CN-Xiaoxiao:DragonHDFlashLatestNeural':
+        item.label = '晓晓 Dragon HD Flash'
+        break
+      case 'zh-CN-Xiaoxiao2:DragonHDFlashLatestNeural':
+        item.label = '晓晓2 Dragon HD Flash'
+        break
     }
   })
 }

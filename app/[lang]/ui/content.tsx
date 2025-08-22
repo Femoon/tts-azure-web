@@ -54,7 +54,6 @@ export default function Content({ t, processedData }: { t: Tran; processedData: 
   const cacheConfigRef = useRef<string | null>(null)
   const inputRef = useRef<HTMLTextAreaElement | null>(null)
 
-  // 从预处理数据直接获取
   const langs = processedData.languages
   const genders = processedData.gendersByLang[config.lang] || []
   const voiceNames = processedData.voicesByLangGender[config.lang]?.[config.gender] || []

@@ -82,7 +82,19 @@
     "sports-commentary-excited": "Sports-commentary-excited",
     "documentary-narration": "Documentary-narration",
     "livecommercial": "Livecommercial",
-    "advertisement-upbeat": "Advertisement-upbeat"
+    "advertisement-upbeat": "Advertisement-upbeat",
+    "assassin": "Assassin",
+    "captain": "Captain",
+    "cavalier": "Cavalier",
+    "drake": "Drake",
+    "gamenarrator": "Gamenarrator",
+    "geomancer": "Geomancer",
+    "poet": "Poet",
+    "voiceassistant": "Voiceassistant",
+    "funny": "Funny",
+    "relieved": "Relieved",
+    "shy": "Shy",
+    "sentiment": "Sentiment"
   },
   "roles": {
     "Boy": "Boy",
