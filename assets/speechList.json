@@ -1,0 +1,9476 @@
+{
+  "languages": [
+    {
+      "label": "Afrikaans (South Africa)",
+      "value": "af-ZA"
+    },
+    {
+      "label": "Amharic (Ethiopia)",
+      "value": "am-ET"
+    },
+    {
+      "label": "Arabic (United Arab Emirates)",
+      "value": "ar-AE"
+    },
+    {
+      "label": "Arabic (Bahrain)",
+      "value": "ar-BH"
+    },
+    {
+      "label": "Arabic (Algeria)",
+      "value": "ar-DZ"
+    },
+    {
+      "label": "Arabic (Egypt)",
+      "value": "ar-EG"
+    },
+    {
+      "label": "Arabic (Iraq)",
+      "value": "ar-IQ"
+    },
+    {
+      "label": "Arabic (Jordan)",
+      "value": "ar-JO"
+    },
+    {
+      "label": "Arabic (Kuwait)",
+      "value": "ar-KW"
+    },
+    {
+      "label": "Arabic (Lebanon)",
+      "value": "ar-LB"
+    },
+    {
+      "label": "Arabic (Libya)",
+      "value": "ar-LY"
+    },
+    {
+      "label": "Arabic (Morocco)",
+      "value": "ar-MA"
+    },
+    {
+      "label": "Arabic (Oman)",
+      "value": "ar-OM"
+    },
+    {
+      "label": "Arabic (Qatar)",
+      "value": "ar-QA"
+    },
+    {
+      "label": "Arabic (Saudi Arabia)",
+      "value": "ar-SA"
+    },
+    {
+      "label": "Arabic (Syria)",
+      "value": "ar-SY"
+    },
+    {
+      "label": "Arabic (Tunisia)",
+      "value": "ar-TN"
+    },
+    {
+      "label": "Arabic (Yemen)",
+      "value": "ar-YE"
+    },
+    {
+      "label": "Assamese (India)",
+      "value": "as-IN"
+    },
+    {
+      "label": "Azerbaijani (Latin, Azerbaijan)",
+      "value": "az-AZ"
+    },
+    {
+      "label": "Bulgarian (Bulgaria)",
+      "value": "bg-BG"
+    },
+    {
+      "label": "Bangla (Bangladesh)",
+      "value": "bn-BD"
+    },
+    {
+      "label": "Bengali (India)",
+      "value": "bn-IN"
+    },
+    {
+      "label": "Bosnian (Bosnia and Herzegovina)",
+      "value": "bs-BA"
+    },
+    {
+      "label": "Catalan",
+      "value": "ca-ES"
+    },
+    {
+      "label": "Czech (Czechia)",
+      "value": "cs-CZ"
+    },
+    {
+      "label": "Welsh (United Kingdom)",
+      "value": "cy-GB"
+    },
+    {
+      "label": "Danish (Denmark)",
+      "value": "da-DK"
+    },
+    {
+      "label": "German (Austria)",
+      "value": "de-AT"
+    },
+    {
+      "label": "German (Switzerland)",
+      "value": "de-CH"
+    },
+    {
+      "label": "German (Germany)",
+      "value": "de-DE"
+    },
+    {
+      "label": "Greek (Greece)",
+      "value": "el-GR"
+    },
+    {
+      "label": "English (Australia)",
+      "value": "en-AU"
+    },
+    {
+      "label": "English (Canada)",
+      "value": "en-CA"
+    },
+    {
+      "label": "English (United Kingdom)",
+      "value": "en-GB"
+    },
+    {
+      "label": "English (Hong Kong SAR)",
+      "value": "en-HK"
+    },
+    {
+      "label": "English (Ireland)",
+      "value": "en-IE"
+    },
+    {
+      "label": "English (India)",
+      "value": "en-IN"
+    },
+    {
+      "label": "English (Kenya)",
+      "value": "en-KE"
+    },
+    {
+      "label": "English (Nigeria)",
+      "value": "en-NG"
+    },
+    {
+      "label": "English (New Zealand)",
+      "value": "en-NZ"
+    },
+    {
+      "label": "English (Philippines)",
+      "value": "en-PH"
+    },
+    {
+      "label": "English (Singapore)",
+      "value": "en-SG"
+    },
+    {
+      "label": "English (Tanzania)",
+      "value": "en-TZ"
+    },
+    {
+      "label": "English (United States)",
+      "value": "en-US"
+    },
+    {
+      "label": "English (South Africa)",
+      "value": "en-ZA"
+    },
+    {
+      "label": "Spanish (Argentina)",
+      "value": "es-AR"
+    },
+    {
+      "label": "Spanish (Bolivia)",
+      "value": "es-BO"
+    },
+    {
+      "label": "Spanish (Chile)",
+      "value": "es-CL"
+    },
+    {
+      "label": "Spanish (Colombia)",
+      "value": "es-CO"
+    },
+    {
+      "label": "Spanish (Costa Rica)",
+      "value": "es-CR"
+    },
+    {
+      "label": "Spanish (Cuba)",
+      "value": "es-CU"
+    },
+    {
+      "label": "Spanish (Dominican Republic)",
+      "value": "es-DO"
+    },
+    {
+      "label": "Spanish (Ecuador)",
+      "value": "es-EC"
+    },
+    {
+      "label": "Spanish (Spain)",
+      "value": "es-ES"
+    },
+    {
+      "label": "Spanish (Equatorial Guinea)",
+      "value": "es-GQ"
+    },
+    {
+      "label": "Spanish (Guatemala)",
+      "value": "es-GT"
+    },
+    {
+      "label": "Spanish (Honduras)",
+      "value": "es-HN"
+    },
+    {
+      "label": "Spanish (Mexico)",
+      "value": "es-MX"
+    },
+    {
+      "label": "Spanish (Nicaragua)",
+      "value": "es-NI"
+    },
+    {
+      "label": "Spanish (Panama)",
+      "value": "es-PA"
+    },
+    {
+      "label": "Spanish (Peru)",
+      "value": "es-PE"
+    },
+    {
+      "label": "Spanish (Puerto Rico)",
+      "value": "es-PR"
+    },
+    {
+      "label": "Spanish (Paraguay)",
+      "value": "es-PY"
+    },
+    {
+      "label": "Spanish (El Salvador)",
+      "value": "es-SV"
+    },
+    {
+      "label": "Spanish (United States)",
+      "value": "es-US"
+    },
+    {
+      "label": "Spanish (Uruguay)",
+      "value": "es-UY"
+    },
+    {
+      "label": "Spanish (Venezuela)",
+      "value": "es-VE"
+    },
+    {
+      "label": "Estonian (Estonia)",
+      "value": "et-EE"
+    },
+    {
+      "label": "Basque",
+      "value": "eu-ES"
+    },
+    {
+      "label": "Persian (Iran)",
+      "value": "fa-IR"
+    },
+    {
+      "label": "Finnish (Finland)",
+      "value": "fi-FI"
+    },
+    {
+      "label": "Filipino (Philippines)",
+      "value": "fil-PH"
+    },
+    {
+      "label": "French (Belgium)",
+      "value": "fr-BE"
+    },
+    {
+      "label": "French (Canada)",
+      "value": "fr-CA"
+    },
+    {
+      "label": "French (Switzerland)",
+      "value": "fr-CH"
+    },
+    {
+      "label": "French (France)",
+      "value": "fr-FR"
+    },
+    {
+      "label": "Irish (Ireland)",
+      "value": "ga-IE"
+    },
+    {
+      "label": "Galician",
+      "value": "gl-ES"
+    },
+    {
+      "label": "Gujarati (India)",
+      "value": "gu-IN"
+    },
+    {
+      "label": "Hebrew (Israel)",
+      "value": "he-IL"
+    },
+    {
+      "label": "Hindi (India)",
+      "value": "hi-IN"
+    },
+    {
+      "label": "Croatian (Croatia)",
+      "value": "hr-HR"
+    },
+    {
+      "label": "Hungarian (Hungary)",
+      "value": "hu-HU"
+    },
+    {
+      "label": "Armenian (Armenia)",
+      "value": "hy-AM"
+    },
+    {
+      "label": "Indonesian (Indonesia)",
+      "value": "id-ID"
+    },
+    {
+      "label": "Icelandic (Iceland)",
+      "value": "is-IS"
+    },
+    {
+      "label": "Italian (Italy)",
+      "value": "it-IT"
+    },
+    {
+      "label": "Inuktitut (Syllabics, Canada)",
+      "value": "iu-Cans-CA"
+    },
+    {
+      "label": "Inuktitut (Latin, Canada)",
+      "value": "iu-Latn-CA"
+    },
+    {
+      "label": "Japanese (Japan)",
+      "value": "ja-JP"
+    },
+    {
+      "label": "Javanese (Latin, Indonesia)",
+      "value": "jv-ID"
+    },
+    {
+      "label": "Georgian (Georgia)",
+      "value": "ka-GE"
+    },
+    {
+      "label": "Kazakh (Kazakhstan)",
+      "value": "kk-KZ"
+    },
+    {
+      "label": "Khmer (Cambodia)",
+      "value": "km-KH"
+    },
+    {
+      "label": "Kannada (India)",
+      "value": "kn-IN"
+    },
+    {
+      "label": "Korean (Korea)",
+      "value": "ko-KR"
+    },
+    {
+      "label": "Lao (Laos)",
+      "value": "lo-LA"
+    },
+    {
+      "label": "Lithuanian (Lithuania)",
+      "value": "lt-LT"
+    },
+    {
+      "label": "Latvian (Latvia)",
+      "value": "lv-LV"
+    },
+    {
+      "label": "Macedonian (North Macedonia)",
+      "value": "mk-MK"
+    },
+    {
+      "label": "Malayalam (India)",
+      "value": "ml-IN"
+    },
+    {
+      "label": "Mongolian (Mongolia)",
+      "value": "mn-MN"
+    },
+    {
+      "label": "Marathi (India)",
+      "value": "mr-IN"
+    },
+    {
+      "label": "Malay (Malaysia)",
+      "value": "ms-MY"
+    },
+    {
+      "label": "Maltese (Malta)",
+      "value": "mt-MT"
+    },
+    {
+      "label": "Burmese (Myanmar)",
+      "value": "my-MM"
+    },
+    {
+      "label": "Norwegian Bokmål (Norway)",
+      "value": "nb-NO"
+    },
+    {
+      "label": "Nepali (Nepal)",
+      "value": "ne-NP"
+    },
+    {
+      "label": "Dutch (Belgium)",
+      "value": "nl-BE"
+    },
+    {
+      "label": "Dutch (Netherlands)",
+      "value": "nl-NL"
+    },
+    {
+      "label": "Odia (India)",
+      "value": "or-IN"
+    },
+    {
+      "label": "Punjabi (India)",
+      "value": "pa-IN"
+    },
+    {
+      "label": "Polish (Poland)",
+      "value": "pl-PL"
+    },
+    {
+      "label": "Pashto (Afghanistan)",
+      "value": "ps-AF"
+    },
+    {
+      "label": "Portuguese (Brazil)",
+      "value": "pt-BR"
+    },
+    {
+      "label": "Portuguese (Portugal)",
+      "value": "pt-PT"
+    },
+    {
+      "label": "Romanian (Romania)",
+      "value": "ro-RO"
+    },
+    {
+      "label": "Russian (Russia)",
+      "value": "ru-RU"
+    },
+    {
+      "label": "Sinhala (Sri Lanka)",
+      "value": "si-LK"
+    },
+    {
+      "label": "Slovak (Slovakia)",
+      "value": "sk-SK"
+    },
+    {
+      "label": "Slovenian (Slovenia)",
+      "value": "sl-SI"
+    },
+    {
+      "label": "Somali (Somalia)",
+      "value": "so-SO"
+    },
+    {
+      "label": "Albanian (Albania)",
+      "value": "sq-AL"
+    },
+    {
+      "label": "Serbian (Latin, Serbia)",
+      "value": "sr-Latn-RS"
+    },
+    {
+      "label": "Serbian (Cyrillic, Serbia)",
+      "value": "sr-RS"
+    },
+    {
+      "label": "Sundanese (Indonesia)",
+      "value": "su-ID"
+    },
+    {
+      "label": "Swedish (Sweden)",
+      "value": "sv-SE"
+    },
+    {
+      "label": "Swahili (Kenya)",
+      "value": "sw-KE"
+    },
+    {
+      "label": "Swahili (Tanzania)",
+      "value": "sw-TZ"
+    },
+    {
+      "label": "Tamil (India)",
+      "value": "ta-IN"
+    },
+    {
+      "label": "Tamil (Sri Lanka)",
+      "value": "ta-LK"
+    },
+    {
+      "label": "Tamil (Malaysia)",
+      "value": "ta-MY"
+    },
+    {
+      "label": "Tamil (Singapore)",
+      "value": "ta-SG"
+    },
+    {
+      "label": "Telugu (India)",
+      "value": "te-IN"
+    },
+    {
+      "label": "Thai (Thailand)",
+      "value": "th-TH"
+    },
+    {
+      "label": "Turkish (Türkiye)",
+      "value": "tr-TR"
+    },
+    {
+      "label": "Ukrainian (Ukraine)",
+      "value": "uk-UA"
+    },
+    {
+      "label": "Urdu (India)",
+      "value": "ur-IN"
+    },
+    {
+      "label": "Urdu (Pakistan)",
+      "value": "ur-PK"
+    },
+    {
+      "label": "Uzbek (Latin, Uzbekistan)",
+      "value": "uz-UZ"
+    },
+    {
+      "label": "Vietnamese (Vietnam)",
+      "value": "vi-VN"
+    },
+    {
+      "label": "Chinese (Wu, Simplified)",
+      "value": "wuu-CN"
+    },
+    {
+      "label": "Chinese (Cantonese, Simplified)",
+      "value": "yue-CN"
+    },
+    {
+      "label": "Chinese (Mandarin, Simplified)",
+      "value": "zh-CN"
+    },
+    {
+      "label": "Chinese (Guangxi Accent Mandarin, Simplified)",
+      "value": "zh-CN-guangxi"
+    },
+    {
+      "label": "Chinese (Zhongyuan Mandarin Henan, Simplified)",
+      "value": "zh-CN-henan"
+    },
+    {
+      "label": "Chinese (Northeastern Mandarin, Simplified)",
+      "value": "zh-CN-liaoning"
+    },
+    {
+      "label": "Chinese (Zhongyuan Mandarin Shaanxi, Simplified)",
+      "value": "zh-CN-shaanxi"
+    },
+    {
+      "label": "Chinese (Jilu Mandarin, Simplified)",
+      "value": "zh-CN-shandong"
+    },
+    {
+      "label": "Chinese (Southwestern Mandarin, Simplified)",
+      "value": "zh-CN-sichuan"
+    },
+    {
+      "label": "Chinese (Cantonese, Traditional)",
+      "value": "zh-HK"
+    },
+    {
+      "label": "Chinese (Taiwanese Mandarin, Traditional)",
+      "value": "zh-TW"
+    },
+    {
+      "label": "Zulu (South Africa)",
+      "value": "zu-ZA"
+    }
+  ],
+  "gendersByLang": {
+    "af-ZA": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "am-ET": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ar-AE": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ar-BH": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ar-DZ": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ar-EG": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ar-IQ": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ar-JO": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ar-KW": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ar-LB": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ar-LY": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ar-MA": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ar-OM": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ar-QA": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ar-SA": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ar-SY": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ar-TN": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ar-YE": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "as-IN": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "az-AZ": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "bg-BG": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "bn-BD": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "bn-IN": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "bs-BA": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ca-ES": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "cs-CZ": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "cy-GB": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "da-DK": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "de-AT": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "de-CH": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "de-DE": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "el-GR": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "en-AU": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "en-CA": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "en-GB": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "en-HK": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "en-IE": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "en-IN": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "en-KE": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "en-NG": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "en-NZ": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "en-PH": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "en-SG": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "en-TZ": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "en-US": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      },
+      {
+        "label": "neutral",
+        "value": "neutral"
+      }
+    ],
+    "en-ZA": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-AR": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-BO": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-CL": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-CO": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-CR": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-CU": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-DO": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-EC": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-ES": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-GQ": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-GT": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-HN": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-MX": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-NI": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-PA": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-PE": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-PR": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-PY": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-SV": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-US": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-UY": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "es-VE": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "et-EE": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "eu-ES": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "fa-IR": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "fi-FI": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "fil-PH": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "fr-BE": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "fr-CA": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "fr-CH": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "fr-FR": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ga-IE": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "gl-ES": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "gu-IN": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "he-IL": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "hi-IN": [
+      {
+        "label": "male",
+        "value": "male"
+      },
+      {
+        "label": "female",
+        "value": "female"
+      }
+    ],
+    "hr-HR": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "hu-HU": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "hy-AM": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "id-ID": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "is-IS": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "it-IT": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "iu-Cans-CA": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "iu-Latn-CA": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ja-JP": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "jv-ID": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ka-GE": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "kk-KZ": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "km-KH": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "kn-IN": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ko-KR": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "lo-LA": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "lt-LT": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "lv-LV": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "mk-MK": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ml-IN": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "mn-MN": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "mr-IN": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ms-MY": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "mt-MT": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "my-MM": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "nb-NO": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ne-NP": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "nl-BE": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "nl-NL": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "or-IN": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "pa-IN": [
+      {
+        "label": "male",
+        "value": "male"
+      },
+      {
+        "label": "female",
+        "value": "female"
+      }
+    ],
+    "pl-PL": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ps-AF": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "pt-BR": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "pt-PT": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ro-RO": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ru-RU": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "si-LK": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "sk-SK": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "sl-SI": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "so-SO": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "sq-AL": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "sr-Latn-RS": [
+      {
+        "label": "male",
+        "value": "male"
+      },
+      {
+        "label": "female",
+        "value": "female"
+      }
+    ],
+    "sr-RS": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "su-ID": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "sv-SE": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "sw-KE": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "sw-TZ": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ta-IN": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ta-LK": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ta-MY": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ta-SG": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "te-IN": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "th-TH": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "tr-TR": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "uk-UA": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ur-IN": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "ur-PK": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "uz-UZ": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "vi-VN": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "wuu-CN": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "yue-CN": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "zh-CN": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "zh-CN-guangxi": [
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "zh-CN-henan": [
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "zh-CN-liaoning": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "zh-CN-shaanxi": [
+      {
+        "label": "female",
+        "value": "female"
+      }
+    ],
+    "zh-CN-shandong": [
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "zh-CN-sichuan": [
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "zh-HK": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "zh-TW": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ],
+    "zu-ZA": [
+      {
+        "label": "female",
+        "value": "female"
+      },
+      {
+        "label": "male",
+        "value": "male"
+      }
+    ]
+  },
+  "voicesByLangGender": {
+    "af-ZA": {
+      "female": [
+        {
+          "label": "Adri",
+          "value": "af-ZA-AdriNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Willem",
+          "value": "af-ZA-WillemNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "am-ET": {
+      "female": [
+        {
+          "label": "መቅደስ",
+          "value": "am-ET-MekdesNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "አምሀ",
+          "value": "am-ET-AmehaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ar-AE": {
+      "female": [
+        {
+          "label": "فاطمة",
+          "value": "ar-AE-FatimaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "حمدان",
+          "value": "ar-AE-HamdanNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ar-BH": {
+      "female": [
+        {
+          "label": "ليلى",
+          "value": "ar-BH-LailaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "علي",
+          "value": "ar-BH-AliNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ar-DZ": {
+      "female": [
+        {
+          "label": "أمينة",
+          "value": "ar-DZ-AminaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "إسماعيل",
+          "value": "ar-DZ-IsmaelNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ar-EG": {
+      "female": [
+        {
+          "label": "سلمى",
+          "value": "ar-EG-SalmaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "شاكر",
+          "value": "ar-EG-ShakirNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ar-IQ": {
+      "female": [
+        {
+          "label": "رنا",
+          "value": "ar-IQ-RanaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "باسل",
+          "value": "ar-IQ-BasselNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ar-JO": {
+      "female": [
+        {
+          "label": "سناء",
+          "value": "ar-JO-SanaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "تيم",
+          "value": "ar-JO-TaimNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ar-KW": {
+      "female": [
+        {
+          "label": "نورا",
+          "value": "ar-KW-NouraNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "فهد",
+          "value": "ar-KW-FahedNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ar-LB": {
+      "female": [
+        {
+          "label": "ليلى",
+          "value": "ar-LB-LaylaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "رامي",
+          "value": "ar-LB-RamiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ar-LY": {
+      "female": [
+        {
+          "label": "إيمان",
+          "value": "ar-LY-ImanNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "أحمد",
+          "value": "ar-LY-OmarNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ar-MA": {
+      "female": [
+        {
+          "label": "منى",
+          "value": "ar-MA-MounaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "جمال",
+          "value": "ar-MA-JamalNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ar-OM": {
+      "female": [
+        {
+          "label": "عائشة",
+          "value": "ar-OM-AyshaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "عبدالله",
+          "value": "ar-OM-AbdullahNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ar-QA": {
+      "female": [
+        {
+          "label": "أمل",
+          "value": "ar-QA-AmalNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "معاذ",
+          "value": "ar-QA-MoazNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ar-SA": {
+      "female": [
+        {
+          "label": "زارية",
+          "value": "ar-SA-ZariyahNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "حامد",
+          "value": "ar-SA-HamedNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ar-SY": {
+      "female": [
+        {
+          "label": "أماني",
+          "value": "ar-SY-AmanyNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "ليث",
+          "value": "ar-SY-LaithNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ar-TN": {
+      "female": [
+        {
+          "label": "ريم",
+          "value": "ar-TN-ReemNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "هادي",
+          "value": "ar-TN-HediNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ar-YE": {
+      "female": [
+        {
+          "label": "مريم",
+          "value": "ar-YE-MaryamNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "صالح",
+          "value": "ar-YE-SalehNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "as-IN": {
+      "female": [
+        {
+          "label": "যাশিকা",
+          "value": "as-IN-YashicaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "প্ৰিয়ম",
+          "value": "as-IN-PriyomNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "az-AZ": {
+      "female": [
+        {
+          "label": "Banu",
+          "value": "az-AZ-BanuNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Babək",
+          "value": "az-AZ-BabekNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "bg-BG": {
+      "female": [
+        {
+          "label": "Калина",
+          "value": "bg-BG-KalinaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Борислав",
+          "value": "bg-BG-BorislavNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "bn-BD": {
+      "female": [
+        {
+          "label": "নবনীতা",
+          "value": "bn-BD-NabanitaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "প্রদ্বীপ",
+          "value": "bn-BD-PradeepNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "bn-IN": {
+      "female": [
+        {
+          "label": "তানিশা",
+          "value": "bn-IN-TanishaaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "ভাস্কর",
+          "value": "bn-IN-BashkarNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "bs-BA": {
+      "female": [
+        {
+          "label": "Vesna",
+          "value": "bs-BA-VesnaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Goran",
+          "value": "bs-BA-GoranNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ca-ES": {
+      "female": [
+        {
+          "label": "Alba",
+          "value": "ca-ES-AlbaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Joana",
+          "value": "ca-ES-JoanaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Enric",
+          "value": "ca-ES-EnricNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "cs-CZ": {
+      "female": [
+        {
+          "label": "Vlasta",
+          "value": "cs-CZ-VlastaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Antonín",
+          "value": "cs-CZ-AntoninNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "cy-GB": {
+      "female": [
+        {
+          "label": "Nia",
+          "value": "cy-GB-NiaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Aled",
+          "value": "cy-GB-AledNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "da-DK": {
+      "female": [
+        {
+          "label": "Christel",
+          "value": "da-DK-ChristelNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Jeppe",
+          "value": "da-DK-JeppeNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "de-AT": {
+      "female": [
+        {
+          "label": "Ingrid",
+          "value": "de-AT-IngridNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Jonas",
+          "value": "de-AT-JonasNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "de-CH": {
+      "female": [
+        {
+          "label": "Leni",
+          "value": "de-CH-LeniNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Jan",
+          "value": "de-CH-JanNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "de-DE": {
+      "female": [
+        {
+          "label": "Seraphina Mehrsprachig",
+          "value": "de-DE-SeraphinaMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Amala",
+          "value": "de-DE-AmalaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Elke",
+          "value": "de-DE-ElkeNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Gisela",
+          "value": "de-DE-GiselaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Katja",
+          "value": "de-DE-KatjaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Klarissa",
+          "value": "de-DE-KlarissaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Louisa",
+          "value": "de-DE-LouisaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Maja",
+          "value": "de-DE-MajaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Seraphina Dragon HD Latest",
+          "value": "de-DE-Seraphina:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Tanja",
+          "value": "de-DE-TanjaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Florian Mehrsprachig",
+          "value": "de-DE-FlorianMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Bernd",
+          "value": "de-DE-BerndNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Christoph",
+          "value": "de-DE-ChristophNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Conrad",
+          "value": "de-DE-ConradNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Florian Dragon HD Latest",
+          "value": "de-DE-Florian:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Kasper",
+          "value": "de-DE-KasperNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Killian",
+          "value": "de-DE-KillianNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Klaus",
+          "value": "de-DE-KlausNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Ralf",
+          "value": "de-DE-RalfNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "el-GR": {
+      "female": [
+        {
+          "label": "Αθηνά",
+          "value": "el-GR-AthinaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Νέστορας",
+          "value": "el-GR-NestorasNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "en-AU": {
+      "female": [
+        {
+          "label": "Annette",
+          "value": "en-AU-AnnetteNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Carly",
+          "value": "en-AU-CarlyNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Elsie",
+          "value": "en-AU-ElsieNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Freya",
+          "value": "en-AU-FreyaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Joanne",
+          "value": "en-AU-JoanneNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Kim",
+          "value": "en-AU-KimNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Natasha",
+          "value": "en-AU-NatashaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Tina",
+          "value": "en-AU-TinaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "William Multilingual",
+          "value": "en-AU-WilliamMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Darren",
+          "value": "en-AU-DarrenNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Duncan",
+          "value": "en-AU-DuncanNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Ken",
+          "value": "en-AU-KenNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Neil",
+          "value": "en-AU-NeilNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Tim",
+          "value": "en-AU-TimNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "William",
+          "value": "en-AU-WilliamNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "en-CA": {
+      "female": [
+        {
+          "label": "Clara",
+          "value": "en-CA-ClaraNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Liam",
+          "value": "en-CA-LiamNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "en-GB": {
+      "female": [
+        {
+          "label": "Ada Multilingual",
+          "value": "en-GB-AdaMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Abbi",
+          "value": "en-GB-AbbiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Bella",
+          "value": "en-GB-BellaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Hollie",
+          "value": "en-GB-HollieNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Libby",
+          "value": "en-GB-LibbyNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Maisie",
+          "value": "en-GB-MaisieNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Mia",
+          "value": "en-GB-MiaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Olivia",
+          "value": "en-GB-OliviaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Sonia",
+          "value": "en-GB-SoniaNeural",
+          "hasStyle": true,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Ollie Multilingual",
+          "value": "en-GB-OllieMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Alfie",
+          "value": "en-GB-AlfieNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Elliot",
+          "value": "en-GB-ElliotNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Ethan",
+          "value": "en-GB-EthanNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Noah",
+          "value": "en-GB-NoahNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Oliver",
+          "value": "en-GB-OliverNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Ryan",
+          "value": "en-GB-RyanNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Thomas",
+          "value": "en-GB-ThomasNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "en-HK": {
+      "female": [
+        {
+          "label": "Yan",
+          "value": "en-HK-YanNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Sam",
+          "value": "en-HK-SamNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "en-IE": {
+      "female": [
+        {
+          "label": "Emily",
+          "value": "en-IE-EmilyNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Connor",
+          "value": "en-IE-ConnorNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "en-IN": {
+      "female": [
+        {
+          "label": "Aarti",
+          "value": "en-IN-AartiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Aarti Indic",
+          "value": "en-IN-AartiIndicNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Aashi",
+          "value": "en-IN-AashiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Ananya",
+          "value": "en-IN-AnanyaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Kavya",
+          "value": "en-IN-KavyaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Neerja",
+          "value": "en-IN-NeerjaNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Neerja Indic",
+          "value": "en-IN-NeerjaIndicNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Aarav",
+          "value": "en-IN-AaravNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Arjun",
+          "value": "en-IN-ArjunNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Arjun Indic",
+          "value": "en-IN-ArjunIndicNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Kunal",
+          "value": "en-IN-KunalNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Prabhat",
+          "value": "en-IN-PrabhatNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Prabhat Indic",
+          "value": "en-IN-PrabhatIndicNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Rehaan",
+          "value": "en-IN-RehaanNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "en-KE": {
+      "female": [
+        {
+          "label": "Asilia",
+          "value": "en-KE-AsiliaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Chilemba",
+          "value": "en-KE-ChilembaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "en-NG": {
+      "female": [
+        {
+          "label": "Ezinne",
+          "value": "en-NG-EzinneNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Abeo",
+          "value": "en-NG-AbeoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "en-NZ": {
+      "female": [
+        {
+          "label": "Molly",
+          "value": "en-NZ-MollyNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Mitchell",
+          "value": "en-NZ-MitchellNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "en-PH": {
+      "female": [
+        {
+          "label": "Rosa",
+          "value": "en-PH-RosaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "James",
+          "value": "en-PH-JamesNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "en-SG": {
+      "female": [
+        {
+          "label": "Luna",
+          "value": "en-SG-LunaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Wayne",
+          "value": "en-SG-WayneNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "en-TZ": {
+      "female": [
+        {
+          "label": "Imani",
+          "value": "en-TZ-ImaniNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Elimu",
+          "value": "en-TZ-ElimuNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "en-US": {
+      "female": [
+        {
+          "label": "Amanda Multilingual",
+          "value": "en-US-AmandaMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Ava Multilingual",
+          "value": "en-US-AvaMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Cora Multilingual",
+          "value": "en-US-CoraMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Emma Multilingual",
+          "value": "en-US-EmmaMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Evelyn Multilingual",
+          "value": "en-US-EvelynMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Jenny Multilingual",
+          "value": "en-US-JennyMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Lola Multilingual",
+          "value": "en-US-LolaMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Nancy Multilingual",
+          "value": "en-US-NancyMultilingualNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Nova Turbo Multilingual",
+          "value": "en-US-NovaTurboMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Phoebe Multilingual",
+          "value": "en-US-PhoebeMultilingualNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Serena Multilingual",
+          "value": "en-US-SerenaMultilingualNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Shimmer Turbo Multilingual",
+          "value": "en-US-ShimmerTurboMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "AIGenerate2",
+          "value": "en-US-AIGenerate2Neural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Amber",
+          "value": "en-US-AmberNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Ana",
+          "value": "en-US-AnaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Aria",
+          "value": "en-US-AriaNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Aria Dragon HD Latest",
+          "value": "en-US-Aria:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Ashley",
+          "value": "en-US-AshleyNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Ava",
+          "value": "en-US-AvaNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Ava Dragon HD Latest",
+          "value": "en-US-Ava:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Ava3 Dragon HD Latest",
+          "value": "en-US-Ava3:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Bree Dragon HD Latest",
+          "value": "en-US-Bree:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Cora",
+          "value": "en-US-CoraNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Elizabeth",
+          "value": "en-US-ElizabethNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Emma",
+          "value": "en-US-EmmaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Emma Dragon HD Latest",
+          "value": "en-US-Emma:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Emma2 Dragon HD Latest",
+          "value": "en-US-Emma2:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Jane",
+          "value": "en-US-JaneNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Jane Dragon HD Latest",
+          "value": "en-US-Jane:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Jenny",
+          "value": "en-US-JennyNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Jenny Dragon HD Latest",
+          "value": "en-US-Jenny:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Luna",
+          "value": "en-US-LunaNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Michelle",
+          "value": "en-US-MichelleNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Monica",
+          "value": "en-US-MonicaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Nancy",
+          "value": "en-US-NancyNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Nova Dragon HD Latest",
+          "value": "en-US-Nova:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Phoebe Dragon HD Latest",
+          "value": "en-US-Phoebe:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Sara",
+          "value": "en-US-SaraNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Serena Dragon HD Latest",
+          "value": "en-US-Serena:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Adam Multilingual",
+          "value": "en-US-AdamMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Alloy Turbo Multilingual",
+          "value": "en-US-AlloyTurboMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Andrew Multilingual",
+          "value": "en-US-AndrewMultilingualNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Ash Turbo Multilingual",
+          "value": "en-US-AshTurboMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Brandon Multilingual",
+          "value": "en-US-BrandonMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Brian Multilingual",
+          "value": "en-US-BrianMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Christopher Multilingual",
+          "value": "en-US-ChristopherMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Davis Multilingual",
+          "value": "en-US-DavisMultilingualNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Derek Multilingual",
+          "value": "en-US-DerekMultilingualNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Dustin Multilingual",
+          "value": "en-US-DustinMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Echo Turbo Multilingual",
+          "value": "en-US-EchoTurboMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Lewis Multilingual",
+          "value": "en-US-LewisMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Onyx Turbo Multilingual",
+          "value": "en-US-OnyxTurboMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Ryan Multilingual",
+          "value": "en-US-RyanMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Samuel Multilingual",
+          "value": "en-US-SamuelMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Steffan Multilingual",
+          "value": "en-US-SteffanMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Adam Dragon HD Latest",
+          "value": "en-US-Adam:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "AIGenerate1",
+          "value": "en-US-AIGenerate1Neural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Alloy Dragon HD Latest",
+          "value": "en-US-Alloy:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Andrew",
+          "value": "en-US-AndrewNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Andrew Dragon HD Latest",
+          "value": "en-US-Andrew:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Andrew2 Dragon HD Latest",
+          "value": "en-US-Andrew2:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Andrew3 Dragon HD Latest",
+          "value": "en-US-Andrew3:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Brandon",
+          "value": "en-US-BrandonNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Brian",
+          "value": "en-US-BrianNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Brian Dragon HD Latest",
+          "value": "en-US-Brian:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Christopher",
+          "value": "en-US-ChristopherNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Davis",
+          "value": "en-US-DavisNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Davis Dragon HD Latest",
+          "value": "en-US-Davis:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Eric",
+          "value": "en-US-EricNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Guy",
+          "value": "en-US-GuyNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Jacob",
+          "value": "en-US-JacobNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Jason",
+          "value": "en-US-JasonNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Kai",
+          "value": "en-US-KaiNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Roger",
+          "value": "en-US-RogerNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Steffan",
+          "value": "en-US-SteffanNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Steffan Dragon HD Latest",
+          "value": "en-US-Steffan:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Tony",
+          "value": "en-US-TonyNeural",
+          "hasStyle": true,
+          "hasRole": false
+        }
+      ],
+      "neutral": [
+        {
+          "label": "Fable Turbo Multilingual",
+          "value": "en-US-FableTurboMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Ava & Andrew MultiTalker Dragon HD Latest",
+          "value": "en-US-MultiTalker-Ava-Andrew:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Ava & Steffan MultiTalker Dragon HD Latest",
+          "value": "en-US-MultiTalker-Ava-Steffan:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Blue",
+          "value": "en-US-BlueNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "en-ZA": {
+      "female": [
+        {
+          "label": "Leah",
+          "value": "en-ZA-LeahNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Luke",
+          "value": "en-ZA-LukeNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-AR": {
+      "female": [
+        {
+          "label": "Elena",
+          "value": "es-AR-ElenaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Tomas",
+          "value": "es-AR-TomasNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-BO": {
+      "female": [
+        {
+          "label": "Sofia",
+          "value": "es-BO-SofiaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Marcelo",
+          "value": "es-BO-MarceloNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-CL": {
+      "female": [
+        {
+          "label": "Catalina",
+          "value": "es-CL-CatalinaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Lorenzo",
+          "value": "es-CL-LorenzoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-CO": {
+      "female": [
+        {
+          "label": "Salome",
+          "value": "es-CO-SalomeNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Gonzalo",
+          "value": "es-CO-GonzaloNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-CR": {
+      "female": [
+        {
+          "label": "María",
+          "value": "es-CR-MariaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Juan",
+          "value": "es-CR-JuanNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-CU": {
+      "female": [
+        {
+          "label": "Belkys",
+          "value": "es-CU-BelkysNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Manuel",
+          "value": "es-CU-ManuelNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-DO": {
+      "female": [
+        {
+          "label": "Ramona",
+          "value": "es-DO-RamonaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Emilio",
+          "value": "es-DO-EmilioNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-EC": {
+      "female": [
+        {
+          "label": "Andrea",
+          "value": "es-EC-AndreaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Luis",
+          "value": "es-EC-LuisNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-ES": {
+      "female": [
+        {
+          "label": "Arabella Multilingual",
+          "value": "es-ES-ArabellaMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Isidora Multilingual",
+          "value": "es-ES-IsidoraMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Ximena Multilingual",
+          "value": "es-ES-XimenaMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Abril",
+          "value": "es-ES-AbrilNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Elvira",
+          "value": "es-ES-ElviraNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Estrella",
+          "value": "es-ES-EstrellaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Irene",
+          "value": "es-ES-IreneNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Laia",
+          "value": "es-ES-LaiaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Lia",
+          "value": "es-ES-LiaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Triana",
+          "value": "es-ES-TrianaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Vera",
+          "value": "es-ES-VeraNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Ximena",
+          "value": "es-ES-XimenaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Ximena Dragon HD Latest",
+          "value": "es-ES-Ximena:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Tristan Multilingual",
+          "value": "es-ES-TristanMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Álvaro",
+          "value": "es-ES-AlvaroNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Arnau",
+          "value": "es-ES-ArnauNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Dario",
+          "value": "es-ES-DarioNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Elias",
+          "value": "es-ES-EliasNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Nil",
+          "value": "es-ES-NilNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Saul",
+          "value": "es-ES-SaulNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Teo",
+          "value": "es-ES-TeoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Tristan Dragon HD Latest",
+          "value": "es-ES-Tristan:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-GQ": {
+      "female": [
+        {
+          "label": "Teresa",
+          "value": "es-GQ-TeresaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Javier",
+          "value": "es-GQ-JavierNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-GT": {
+      "female": [
+        {
+          "label": "Marta",
+          "value": "es-GT-MartaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Andrés",
+          "value": "es-GT-AndresNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-HN": {
+      "female": [
+        {
+          "label": "Karla",
+          "value": "es-HN-KarlaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Carlos",
+          "value": "es-HN-CarlosNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-MX": {
+      "female": [
+        {
+          "label": "Dalia Multilingual",
+          "value": "es-MX-DaliaMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Beatriz",
+          "value": "es-MX-BeatrizNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Candela",
+          "value": "es-MX-CandelaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Carlota",
+          "value": "es-MX-CarlotaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Dalia",
+          "value": "es-MX-DaliaNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Larissa",
+          "value": "es-MX-LarissaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Marina",
+          "value": "es-MX-MarinaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Nuria",
+          "value": "es-MX-NuriaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Renata",
+          "value": "es-MX-RenataNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Jorge Multilingual",
+          "value": "es-MX-JorgeMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Cecilio",
+          "value": "es-MX-CecilioNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Gerardo",
+          "value": "es-MX-GerardoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Jorge",
+          "value": "es-MX-JorgeNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Liberto",
+          "value": "es-MX-LibertoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Luciano",
+          "value": "es-MX-LucianoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Pelayo",
+          "value": "es-MX-PelayoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Yago",
+          "value": "es-MX-YagoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-NI": {
+      "female": [
+        {
+          "label": "Yolanda",
+          "value": "es-NI-YolandaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Federico",
+          "value": "es-NI-FedericoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-PA": {
+      "female": [
+        {
+          "label": "Margarita",
+          "value": "es-PA-MargaritaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Roberto",
+          "value": "es-PA-RobertoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-PE": {
+      "female": [
+        {
+          "label": "Camila",
+          "value": "es-PE-CamilaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Alex",
+          "value": "es-PE-AlexNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-PR": {
+      "female": [
+        {
+          "label": "Karina",
+          "value": "es-PR-KarinaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Víctor",
+          "value": "es-PR-VictorNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-PY": {
+      "female": [
+        {
+          "label": "Tania",
+          "value": "es-PY-TaniaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Mario",
+          "value": "es-PY-MarioNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-SV": {
+      "female": [
+        {
+          "label": "Lorena",
+          "value": "es-SV-LorenaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Rodrigo",
+          "value": "es-SV-RodrigoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-US": {
+      "female": [
+        {
+          "label": "Paloma",
+          "value": "es-US-PalomaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Alonso",
+          "value": "es-US-AlonsoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-UY": {
+      "female": [
+        {
+          "label": "Valentina",
+          "value": "es-UY-ValentinaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Mateo",
+          "value": "es-UY-MateoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "es-VE": {
+      "female": [
+        {
+          "label": "Paola",
+          "value": "es-VE-PaolaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Sebastián",
+          "value": "es-VE-SebastianNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "et-EE": {
+      "female": [
+        {
+          "label": "Anu",
+          "value": "et-EE-AnuNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Kert",
+          "value": "et-EE-KertNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "eu-ES": {
+      "female": [
+        {
+          "label": "Ainhoa",
+          "value": "eu-ES-AinhoaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Ander",
+          "value": "eu-ES-AnderNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "fa-IR": {
+      "female": [
+        {
+          "label": "دلارا",
+          "value": "fa-IR-DilaraNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "فرید",
+          "value": "fa-IR-FaridNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "fi-FI": {
+      "female": [
+        {
+          "label": "Noora",
+          "value": "fi-FI-NooraNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Selma",
+          "value": "fi-FI-SelmaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Harri",
+          "value": "fi-FI-HarriNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "fil-PH": {
+      "female": [
+        {
+          "label": "Blessica",
+          "value": "fil-PH-BlessicaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Angelo",
+          "value": "fil-PH-AngeloNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "fr-BE": {
+      "female": [
+        {
+          "label": "Charline",
+          "value": "fr-BE-CharlineNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Gerard",
+          "value": "fr-BE-GerardNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "fr-CA": {
+      "female": [
+        {
+          "label": "Sylvie",
+          "value": "fr-CA-SylvieNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Antoine",
+          "value": "fr-CA-AntoineNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Jean",
+          "value": "fr-CA-JeanNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Thierry",
+          "value": "fr-CA-ThierryNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "fr-CH": {
+      "female": [
+        {
+          "label": "Ariane",
+          "value": "fr-CH-ArianeNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Fabrice",
+          "value": "fr-CH-FabriceNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "fr-FR": {
+      "female": [
+        {
+          "label": "Vivienne Multilingue",
+          "value": "fr-FR-VivienneMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Brigitte",
+          "value": "fr-FR-BrigitteNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Celeste",
+          "value": "fr-FR-CelesteNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Coralie",
+          "value": "fr-FR-CoralieNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Denise",
+          "value": "fr-FR-DeniseNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Eloise",
+          "value": "fr-FR-EloiseNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Jacqueline",
+          "value": "fr-FR-JacquelineNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Josephine",
+          "value": "fr-FR-JosephineNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Vivienne Dragon HD Latest",
+          "value": "fr-FR-Vivienne:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Yvette",
+          "value": "fr-FR-YvetteNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Lucien Multilingual",
+          "value": "fr-FR-LucienMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Rémy Multilingue",
+          "value": "fr-FR-RemyMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Alain",
+          "value": "fr-FR-AlainNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Claude",
+          "value": "fr-FR-ClaudeNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Henri",
+          "value": "fr-FR-HenriNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Jerome",
+          "value": "fr-FR-JeromeNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Maurice",
+          "value": "fr-FR-MauriceNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Remy Dragon HD Latest",
+          "value": "fr-FR-Remy:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Yves",
+          "value": "fr-FR-YvesNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ga-IE": {
+      "female": [
+        {
+          "label": "Orla",
+          "value": "ga-IE-OrlaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Colm",
+          "value": "ga-IE-ColmNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "gl-ES": {
+      "female": [
+        {
+          "label": "Sabela",
+          "value": "gl-ES-SabelaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Roi",
+          "value": "gl-ES-RoiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "gu-IN": {
+      "female": [
+        {
+          "label": "ધ્વની",
+          "value": "gu-IN-DhwaniNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "નિરંજન",
+          "value": "gu-IN-NiranjanNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "he-IL": {
+      "female": [
+        {
+          "label": "הילה",
+          "value": "he-IL-HilaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "אברי",
+          "value": "he-IL-AvriNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "hi-IN": {
+      "male": [
+        {
+          "label": "अर्जुन",
+          "value": "hi-IN-ArjunNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "आरव ",
+          "value": "hi-IN-AaravNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "कुनाल ",
+          "value": "hi-IN-KunalNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "मधुर",
+          "value": "hi-IN-MadhurNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "रेहान",
+          "value": "hi-IN-RehaanNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "female": [
+        {
+          "label": "अनन्या",
+          "value": "hi-IN-AnanyaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "आरती",
+          "value": "hi-IN-AartiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "काव्या",
+          "value": "hi-IN-KavyaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "स्वरा",
+          "value": "hi-IN-SwaraNeural",
+          "hasStyle": true,
+          "hasRole": false
+        }
+      ]
+    },
+    "hr-HR": {
+      "female": [
+        {
+          "label": "Gabrijela",
+          "value": "hr-HR-GabrijelaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Srećko",
+          "value": "hr-HR-SreckoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "hu-HU": {
+      "female": [
+        {
+          "label": "Noémi",
+          "value": "hu-HU-NoemiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Tamás",
+          "value": "hu-HU-TamasNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "hy-AM": {
+      "female": [
+        {
+          "label": "Անահիտ",
+          "value": "hy-AM-AnahitNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Հայկ",
+          "value": "hy-AM-HaykNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "id-ID": {
+      "female": [
+        {
+          "label": "Gadis",
+          "value": "id-ID-GadisNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Ardi",
+          "value": "id-ID-ArdiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "is-IS": {
+      "female": [
+        {
+          "label": "Guðrún",
+          "value": "is-IS-GudrunNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Gunnar",
+          "value": "is-IS-GunnarNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "it-IT": {
+      "female": [
+        {
+          "label": "Isabella Multilingual",
+          "value": "it-IT-IsabellaMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Elsa",
+          "value": "it-IT-ElsaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Fabiola",
+          "value": "it-IT-FabiolaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Fiamma",
+          "value": "it-IT-FiammaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Imelda",
+          "value": "it-IT-ImeldaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Irma",
+          "value": "it-IT-IrmaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Isabella",
+          "value": "it-IT-IsabellaNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Isabella Dragon HD Latest",
+          "value": "it-IT-Isabella:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Palmira",
+          "value": "it-IT-PalmiraNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Pierina",
+          "value": "it-IT-PierinaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Alessio Multilingual",
+          "value": "it-IT-AlessioMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Giuseppe Multilingual",
+          "value": "it-IT-GiuseppeMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Marcello Multilingual",
+          "value": "it-IT-MarcelloMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Alessio Dragon HD Latest",
+          "value": "it-IT-Alessio:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Benigno",
+          "value": "it-IT-BenignoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Calimero",
+          "value": "it-IT-CalimeroNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Cataldo",
+          "value": "it-IT-CataldoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Diego",
+          "value": "it-IT-DiegoNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Gianni",
+          "value": "it-IT-GianniNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Giuseppe",
+          "value": "it-IT-GiuseppeNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Lisandro",
+          "value": "it-IT-LisandroNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Rinaldo",
+          "value": "it-IT-RinaldoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "iu-Cans-CA": {
+      "female": [
+        {
+          "label": "ᓯᕿᓂᖅ",
+          "value": "iu-Cans-CA-SiqiniqNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "ᑕᖅᑭᖅ",
+          "value": "iu-Cans-CA-TaqqiqNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "iu-Latn-CA": {
+      "female": [
+        {
+          "label": "ᓯᕿᓂᖅ",
+          "value": "iu-Latn-CA-SiqiniqNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "ᑕᖅᑭᖅ",
+          "value": "iu-Latn-CA-TaqqiqNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ja-JP": {
+      "female": [
+        {
+          "label": "碧衣",
+          "value": "ja-JP-AoiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "七海",
+          "value": "ja-JP-NanamiNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "真夕",
+          "value": "ja-JP-MayuNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "志織",
+          "value": "ja-JP-ShioriNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Nanami Dragon HD Latest",
+          "value": "ja-JP-Nanami:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "勝 多言語",
+          "value": "ja-JP-MasaruMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "大智",
+          "value": "ja-JP-DaichiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "圭太",
+          "value": "ja-JP-KeitaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "直紀",
+          "value": "ja-JP-NaokiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Masaru Dragon HD Latest",
+          "value": "ja-JP-Masaru:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "jv-ID": {
+      "female": [
+        {
+          "label": "Siti",
+          "value": "jv-ID-SitiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Dimas",
+          "value": "jv-ID-DimasNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ka-GE": {
+      "female": [
+        {
+          "label": "ეკა",
+          "value": "ka-GE-EkaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "გიორგი",
+          "value": "ka-GE-GiorgiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "kk-KZ": {
+      "female": [
+        {
+          "label": "Айгүл",
+          "value": "kk-KZ-AigulNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Дәулет",
+          "value": "kk-KZ-DauletNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "km-KH": {
+      "female": [
+        {
+          "label": "ស្រីមុំ",
+          "value": "km-KH-SreymomNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "ពិសិដ្ឋ",
+          "value": "km-KH-PisethNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "kn-IN": {
+      "female": [
+        {
+          "label": "ಸಪ್ನಾ",
+          "value": "kn-IN-SapnaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "ಗಗನ್",
+          "value": "kn-IN-GaganNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ko-KR": {
+      "female": [
+        {
+          "label": "서현",
+          "value": "ko-KR-SeoHyeonNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "선히",
+          "value": "ko-KR-SunHiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "순복",
+          "value": "ko-KR-SoonBokNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "유진",
+          "value": "ko-KR-YuJinNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "지민",
+          "value": "ko-KR-JiMinNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Hyunsu Multilingual",
+          "value": "ko-KR-HyunsuMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "국민",
+          "value": "ko-KR-GookMinNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "봉진",
+          "value": "ko-KR-BongJinNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "인준",
+          "value": "ko-KR-InJoonNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "현수",
+          "value": "ko-KR-HyunsuNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "lo-LA": {
+      "female": [
+        {
+          "label": "ແກ້ວມະນີ",
+          "value": "lo-LA-KeomanyNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "ຈັນທະວົງ",
+          "value": "lo-LA-ChanthavongNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "lt-LT": {
+      "female": [
+        {
+          "label": "Ona",
+          "value": "lt-LT-OnaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Leonas",
+          "value": "lt-LT-LeonasNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "lv-LV": {
+      "female": [
+        {
+          "label": "Everita",
+          "value": "lv-LV-EveritaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Nils",
+          "value": "lv-LV-NilsNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "mk-MK": {
+      "female": [
+        {
+          "label": "Марија",
+          "value": "mk-MK-MarijaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Александар",
+          "value": "mk-MK-AleksandarNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ml-IN": {
+      "female": [
+        {
+          "label": "ശോഭന",
+          "value": "ml-IN-SobhanaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "മിഥുൻ",
+          "value": "ml-IN-MidhunNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "mn-MN": {
+      "female": [
+        {
+          "label": "Есүй",
+          "value": "mn-MN-YesuiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Батаа",
+          "value": "mn-MN-BataaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "mr-IN": {
+      "female": [
+        {
+          "label": "आरोही",
+          "value": "mr-IN-AarohiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "मनोहर",
+          "value": "mr-IN-ManoharNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ms-MY": {
+      "female": [
+        {
+          "label": "Yasmin",
+          "value": "ms-MY-YasminNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Osman",
+          "value": "ms-MY-OsmanNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "mt-MT": {
+      "female": [
+        {
+          "label": "Grace",
+          "value": "mt-MT-GraceNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Joseph",
+          "value": "mt-MT-JosephNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "my-MM": {
+      "female": [
+        {
+          "label": "နီလာ",
+          "value": "my-MM-NilarNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "သီဟ",
+          "value": "my-MM-ThihaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "nb-NO": {
+      "female": [
+        {
+          "label": "Iselin",
+          "value": "nb-NO-IselinNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Pernille",
+          "value": "nb-NO-PernilleNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Finn",
+          "value": "nb-NO-FinnNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ne-NP": {
+      "female": [
+        {
+          "label": "हेमकला",
+          "value": "ne-NP-HemkalaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "सागर",
+          "value": "ne-NP-SagarNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "nl-BE": {
+      "female": [
+        {
+          "label": "Dena",
+          "value": "nl-BE-DenaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Arnaud",
+          "value": "nl-BE-ArnaudNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "nl-NL": {
+      "female": [
+        {
+          "label": "Colette",
+          "value": "nl-NL-ColetteNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Fenna",
+          "value": "nl-NL-FennaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Maarten",
+          "value": "nl-NL-MaartenNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "or-IN": {
+      "female": [
+        {
+          "label": "ସୁଭାସିନୀ",
+          "value": "or-IN-SubhasiniNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "ସୁକାନ୍ତ",
+          "value": "or-IN-SukantNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "pa-IN": {
+      "male": [
+        {
+          "label": "ਓਜਸ",
+          "value": "pa-IN-OjasNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "female": [
+        {
+          "label": "ਵਾਨੀ",
+          "value": "pa-IN-VaaniNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "pl-PL": {
+      "female": [
+        {
+          "label": "Agnieszka",
+          "value": "pl-PL-AgnieszkaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Zofia",
+          "value": "pl-PL-ZofiaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Marek",
+          "value": "pl-PL-MarekNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ps-AF": {
+      "female": [
+        {
+          "label": "لطيفه",
+          "value": "ps-AF-LatifaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": " ګل نواز",
+          "value": "ps-AF-GulNawazNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "pt-BR": {
+      "female": [
+        {
+          "label": "Thalita multilíngue",
+          "value": "pt-BR-ThalitaMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Brenda",
+          "value": "pt-BR-BrendaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Elza",
+          "value": "pt-BR-ElzaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Francisca",
+          "value": "pt-BR-FranciscaNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "Giovanna",
+          "value": "pt-BR-GiovannaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Leila",
+          "value": "pt-BR-LeilaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Leticia",
+          "value": "pt-BR-LeticiaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Manuela",
+          "value": "pt-BR-ManuelaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Thalita",
+          "value": "pt-BR-ThalitaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Thalita Dragon HD Latest",
+          "value": "pt-BR-Thalita:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Yara",
+          "value": "pt-BR-YaraNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Macerio Multilingual",
+          "value": "pt-BR-MacerioMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Antônio",
+          "value": "pt-BR-AntonioNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Donato",
+          "value": "pt-BR-DonatoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Fabio",
+          "value": "pt-BR-FabioNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Humberto",
+          "value": "pt-BR-HumbertoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Julio",
+          "value": "pt-BR-JulioNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Macerio Dragon HD Latest",
+          "value": "pt-BR-Macerio:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Nicolau",
+          "value": "pt-BR-NicolauNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Valerio",
+          "value": "pt-BR-ValerioNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "pt-PT": {
+      "female": [
+        {
+          "label": "Fernanda",
+          "value": "pt-PT-FernandaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Raquel",
+          "value": "pt-PT-RaquelNeural",
+          "hasStyle": true,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Duarte",
+          "value": "pt-PT-DuarteNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ro-RO": {
+      "female": [
+        {
+          "label": "Alina",
+          "value": "ro-RO-AlinaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Emil",
+          "value": "ro-RO-EmilNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ru-RU": {
+      "female": [
+        {
+          "label": "Дария",
+          "value": "ru-RU-DariyaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Светлана",
+          "value": "ru-RU-SvetlanaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Дмитрий",
+          "value": "ru-RU-DmitryNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "si-LK": {
+      "female": [
+        {
+          "label": "තිළිණි",
+          "value": "si-LK-ThiliniNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "සමීර",
+          "value": "si-LK-SameeraNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "sk-SK": {
+      "female": [
+        {
+          "label": "Viktória",
+          "value": "sk-SK-ViktoriaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Lukáš",
+          "value": "sk-SK-LukasNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "sl-SI": {
+      "female": [
+        {
+          "label": "Petra",
+          "value": "sl-SI-PetraNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Rok",
+          "value": "sl-SI-RokNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "so-SO": {
+      "female": [
+        {
+          "label": "Ubax",
+          "value": "so-SO-UbaxNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Muuse",
+          "value": "so-SO-MuuseNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "sq-AL": {
+      "female": [
+        {
+          "label": "Anila",
+          "value": "sq-AL-AnilaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Ilir",
+          "value": "sq-AL-IlirNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "sr-Latn-RS": {
+      "male": [
+        {
+          "label": "Nicholas",
+          "value": "sr-Latn-RS-NicholasNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "female": [
+        {
+          "label": "Sophie",
+          "value": "sr-Latn-RS-SophieNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "sr-RS": {
+      "female": [
+        {
+          "label": "Софија",
+          "value": "sr-RS-SophieNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Никола",
+          "value": "sr-RS-NicholasNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "su-ID": {
+      "female": [
+        {
+          "label": "Tuti",
+          "value": "su-ID-TutiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Jajang",
+          "value": "su-ID-JajangNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "sv-SE": {
+      "female": [
+        {
+          "label": "Hillevi",
+          "value": "sv-SE-HilleviNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "Sofie",
+          "value": "sv-SE-SofieNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Mattias",
+          "value": "sv-SE-MattiasNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "sw-KE": {
+      "female": [
+        {
+          "label": "Zuri",
+          "value": "sw-KE-ZuriNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Rafiki",
+          "value": "sw-KE-RafikiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "sw-TZ": {
+      "female": [
+        {
+          "label": "Rehema",
+          "value": "sw-TZ-RehemaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Daudi",
+          "value": "sw-TZ-DaudiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ta-IN": {
+      "female": [
+        {
+          "label": "பல்லவி",
+          "value": "ta-IN-PallaviNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "வள்ளுவர்",
+          "value": "ta-IN-ValluvarNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ta-LK": {
+      "female": [
+        {
+          "label": "சரண்யா",
+          "value": "ta-LK-SaranyaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "குமார்",
+          "value": "ta-LK-KumarNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ta-MY": {
+      "female": [
+        {
+          "label": "கனி",
+          "value": "ta-MY-KaniNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "சூர்யா",
+          "value": "ta-MY-SuryaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ta-SG": {
+      "female": [
+        {
+          "label": "வெண்பா",
+          "value": "ta-SG-VenbaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "அன்பு",
+          "value": "ta-SG-AnbuNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "te-IN": {
+      "female": [
+        {
+          "label": "శ్రుతి",
+          "value": "te-IN-ShrutiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "మోహన్",
+          "value": "te-IN-MohanNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "th-TH": {
+      "female": [
+        {
+          "label": "เปรมวดี",
+          "value": "th-TH-PremwadeeNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "อัจฉรา",
+          "value": "th-TH-AcharaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "นิวัฒน์",
+          "value": "th-TH-NiwatNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "tr-TR": {
+      "female": [
+        {
+          "label": "Emel",
+          "value": "tr-TR-EmelNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Ahmet",
+          "value": "tr-TR-AhmetNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "uk-UA": {
+      "female": [
+        {
+          "label": "Поліна",
+          "value": "uk-UA-PolinaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Остап",
+          "value": "uk-UA-OstapNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ur-IN": {
+      "female": [
+        {
+          "label": "گل",
+          "value": "ur-IN-GulNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "سلمان",
+          "value": "ur-IN-SalmanNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "ur-PK": {
+      "female": [
+        {
+          "label": "عظمیٰ",
+          "value": "ur-PK-UzmaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "اسد",
+          "value": "ur-PK-AsadNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "uz-UZ": {
+      "female": [
+        {
+          "label": "Madina",
+          "value": "uz-UZ-MadinaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Sardor",
+          "value": "uz-UZ-SardorNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "vi-VN": {
+      "female": [
+        {
+          "label": "Hoài My",
+          "value": "vi-VN-HoaiMyNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Nam Minh",
+          "value": "vi-VN-NamMinhNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "wuu-CN": {
+      "female": [
+        {
+          "label": "晓彤",
+          "value": "wuu-CN-XiaotongNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "云哲",
+          "value": "wuu-CN-YunzheNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "yue-CN": {
+      "female": [
+        {
+          "label": "晓敏",
+          "value": "yue-CN-XiaoMinNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "云松",
+          "value": "yue-CN-YunSongNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "zh-CN": {
+      "female": [
+        {
+          "label": "晓晓 多语言",
+          "value": "zh-CN-XiaoxiaoMultilingualNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "晓辰 多语言",
+          "value": "zh-CN-XiaochenMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "晓宇 多语言",
+          "value": "zh-CN-XiaoyuMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "晓辰",
+          "value": "zh-CN-XiaochenNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "晓涵",
+          "value": "zh-CN-XiaohanNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "晓梦",
+          "value": "zh-CN-XiaomengNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "晓墨",
+          "value": "zh-CN-XiaomoNeural",
+          "hasStyle": true,
+          "hasRole": true
+        },
+        {
+          "label": "晓秋",
+          "value": "zh-CN-XiaoqiuNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "晓柔",
+          "value": "zh-CN-XiaorouNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "晓睿",
+          "value": "zh-CN-XiaoruiNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "晓双",
+          "value": "zh-CN-XiaoshuangNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "晓晓",
+          "value": "zh-CN-XiaoxiaoNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "晓晓 方言",
+          "value": "zh-CN-XiaoxiaoDialectsNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "晓颜",
+          "value": "zh-CN-XiaoyanNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "晓伊",
+          "value": "zh-CN-XiaoyiNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "晓悠",
+          "value": "zh-CN-XiaoyouNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "晓甄",
+          "value": "zh-CN-XiaozhenNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "晓辰 Dragon HD",
+          "value": "zh-CN-Xiaochen:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "晓辰 Dragon HD Flash",
+          "value": "zh-CN-Xiaochen:DragonHDFlashLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "晓晓 Dragon HD Flash",
+          "value": "zh-CN-Xiaoxiao:DragonHDFlashLatestNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "晓晓2 Dragon HD Flash",
+          "value": "zh-CN-Xiaoxiao2:DragonHDFlashLatestNeural",
+          "hasStyle": true,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "云逸 多语言",
+          "value": "zh-CN-YunyiMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "云帆 多语言",
+          "value": "zh-CN-YunfanMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "云霄 多语言",
+          "value": "zh-CN-YunxiaoMultilingualNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "云枫",
+          "value": "zh-CN-YunfengNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "云皓",
+          "value": "zh-CN-YunhaoNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "云健",
+          "value": "zh-CN-YunjianNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "云杰",
+          "value": "zh-CN-YunjieNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "云希",
+          "value": "zh-CN-YunxiNeural",
+          "hasStyle": true,
+          "hasRole": true
+        },
+        {
+          "label": "云夏",
+          "value": "zh-CN-YunxiaNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "云扬",
+          "value": "zh-CN-YunyangNeural",
+          "hasStyle": true,
+          "hasRole": false
+        },
+        {
+          "label": "云野",
+          "value": "zh-CN-YunyeNeural",
+          "hasStyle": true,
+          "hasRole": true
+        },
+        {
+          "label": "云泽",
+          "value": "zh-CN-YunzeNeural",
+          "hasStyle": true,
+          "hasRole": true
+        },
+        {
+          "label": "云帆 Dragon HD",
+          "value": "zh-CN-Yunfan:DragonHDLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "云霄 Dragon HD Flash",
+          "value": "zh-CN-Yunxiao:DragonHDFlashLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "云野 Dragon HD Flash",
+          "value": "zh-CN-Yunye:DragonHDFlashLatestNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "云逸 Dragon HD Flash",
+          "value": "zh-CN-Yunyi:DragonHDFlashLatestNeural",
+          "hasStyle": true,
+          "hasRole": false
+        }
+      ]
+    },
+    "zh-CN-guangxi": {
+      "male": [
+        {
+          "label": "云奇 广西",
+          "value": "zh-CN-guangxi-YunqiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "zh-CN-henan": {
+      "male": [
+        {
+          "label": "云登",
+          "value": "zh-CN-henan-YundengNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "zh-CN-liaoning": {
+      "female": [
+        {
+          "label": "晓北 辽宁",
+          "value": "zh-CN-liaoning-XiaobeiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "云彪 辽宁",
+          "value": "zh-CN-liaoning-YunbiaoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "zh-CN-shaanxi": {
+      "female": [
+        {
+          "label": "晓妮",
+          "value": "zh-CN-shaanxi-XiaoniNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "zh-CN-shandong": {
+      "male": [
+        {
+          "label": "云翔",
+          "value": "zh-CN-shandong-YunxiangNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "zh-CN-sichuan": {
+      "male": [
+        {
+          "label": "云希 四川",
+          "value": "zh-CN-sichuan-YunxiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "zh-HK": {
+      "female": [
+        {
+          "label": "曉佳",
+          "value": "zh-HK-HiuGaaiNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "曉曼",
+          "value": "zh-HK-HiuMaanNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "雲龍",
+          "value": "zh-HK-WanLungNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "zh-TW": {
+      "female": [
+        {
+          "label": "曉雨",
+          "value": "zh-TW-HsiaoYuNeural",
+          "hasStyle": false,
+          "hasRole": false
+        },
+        {
+          "label": "曉臻",
+          "value": "zh-TW-HsiaoChenNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "雲哲",
+          "value": "zh-TW-YunJheNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    },
+    "zu-ZA": {
+      "female": [
+        {
+          "label": "Thando",
+          "value": "zu-ZA-ThandoNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ],
+      "male": [
+        {
+          "label": "Themba",
+          "value": "zu-ZA-ThembaNeural",
+          "hasStyle": false,
+          "hasRole": false
+        }
+      ]
+    }
+  },
+  "stylesAndRoles": {
+    "af-ZA-AdriNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "af-ZA-WillemNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "am-ET-MekdesNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "am-ET-AmehaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-AE-FatimaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-AE-HamdanNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-BH-LailaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-BH-AliNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-DZ-AminaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-DZ-IsmaelNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-EG-SalmaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-EG-ShakirNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-IQ-RanaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-IQ-BasselNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-JO-SanaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-JO-TaimNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-KW-NouraNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-KW-FahedNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-LB-LaylaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-LB-RamiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-LY-ImanNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-LY-OmarNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-MA-MounaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-MA-JamalNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-OM-AyshaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-OM-AbdullahNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-QA-AmalNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-QA-MoazNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-SA-ZariyahNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-SA-HamedNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-SY-AmanyNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-SY-LaithNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-TN-ReemNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-TN-HediNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-YE-MaryamNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ar-YE-SalehNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "as-IN-YashicaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "as-IN-PriyomNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "az-AZ-BanuNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "az-AZ-BabekNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "bg-BG-KalinaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "bg-BG-BorislavNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "bn-BD-NabanitaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "bn-BD-PradeepNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "bn-IN-TanishaaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "bn-IN-BashkarNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "bs-BA-VesnaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "bs-BA-GoranNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ca-ES-JoanaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ca-ES-AlbaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ca-ES-EnricNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "cs-CZ-VlastaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "cs-CZ-AntoninNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "cy-GB-NiaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "cy-GB-AledNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "da-DK-ChristelNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "da-DK-JeppeNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-AT-IngridNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-AT-JonasNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-CH-LeniNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-CH-JanNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-DE-KatjaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-DE-SeraphinaMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-DE-AmalaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-DE-ElkeNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-DE-GiselaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-DE-KlarissaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-DE-LouisaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-DE-MajaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-DE-TanjaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-DE-Seraphina:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-DE-ConradNeural": {
+      "styles": [
+        "cheerful",
+        "sad"
+      ],
+      "roles": []
+    },
+    "de-DE-FlorianMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-DE-BerndNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-DE-ChristophNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-DE-KasperNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-DE-KillianNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-DE-KlausNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-DE-RalfNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "de-DE-Florian:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "el-GR-AthinaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "el-GR-NestorasNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-AU-NatashaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-AU-AnnetteNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-AU-CarlyNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-AU-ElsieNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-AU-FreyaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-AU-JoanneNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-AU-KimNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-AU-TinaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-AU-WilliamNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-AU-WilliamMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-AU-DarrenNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-AU-DuncanNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-AU-KenNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-AU-NeilNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-AU-TimNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-CA-ClaraNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-CA-LiamNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-GB-SoniaNeural": {
+      "styles": [
+        "cheerful",
+        "sad"
+      ],
+      "roles": []
+    },
+    "en-GB-LibbyNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-GB-AdaMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-GB-AbbiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-GB-BellaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-GB-HollieNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-GB-MaisieNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-GB-OliviaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-GB-MiaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-GB-RyanNeural": {
+      "styles": [
+        "cheerful",
+        "chat",
+        "whispering",
+        "sad"
+      ],
+      "roles": []
+    },
+    "en-GB-OllieMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-GB-AlfieNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-GB-ElliotNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-GB-EthanNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-GB-NoahNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-GB-OliverNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-GB-ThomasNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-HK-YanNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-HK-SamNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-IE-EmilyNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-IE-ConnorNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-IN-AartiIndicNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-IN-NeerjaIndicNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-IN-AashiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-IN-AartiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-IN-AnanyaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-IN-KavyaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-IN-NeerjaNeural": {
+      "styles": [
+        "newscast",
+        "cheerful",
+        "empathetic"
+      ],
+      "roles": []
+    },
+    "en-IN-ArjunIndicNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-IN-PrabhatIndicNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-IN-AaravNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-IN-ArjunNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-IN-KunalNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-IN-PrabhatNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-IN-RehaanNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-KE-AsiliaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-KE-ChilembaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-NG-EzinneNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-NG-AbeoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-NZ-MollyNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-NZ-MitchellNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-PH-RosaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-PH-JamesNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-SG-LunaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-SG-WayneNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-TZ-ImaniNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-TZ-ElimuNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-AvaMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-AmandaMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-EmmaMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-PhoebeMultilingualNeural": {
+      "styles": [
+        "empathetic",
+        "sad",
+        "serious"
+      ],
+      "roles": []
+    },
+    "en-US-NovaTurboMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-ShimmerTurboMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-AvaNeural": {
+      "styles": [
+        "angry",
+        "fearful",
+        "sad"
+      ],
+      "roles": []
+    },
+    "en-US-EmmaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-JennyNeural": {
+      "styles": [
+        "assistant",
+        "chat",
+        "customerservice",
+        "newscast",
+        "angry",
+        "cheerful",
+        "sad",
+        "excited",
+        "friendly",
+        "terrified",
+        "shouting",
+        "unfriendly",
+        "whispering",
+        "hopeful"
+      ],
+      "roles": []
+    },
+    "en-US-AriaNeural": {
+      "styles": [
+        "chat",
+        "customerservice",
+        "narration-professional",
+        "newscast-casual",
+        "newscast-formal",
+        "cheerful",
+        "empathetic",
+        "angry",
+        "sad",
+        "excited",
+        "friendly",
+        "terrified",
+        "shouting",
+        "unfriendly",
+        "whispering",
+        "hopeful"
+      ],
+      "roles": []
+    },
+    "en-US-JaneNeural": {
+      "styles": [
+        "angry",
+        "cheerful",
+        "excited",
+        "friendly",
+        "hopeful",
+        "sad",
+        "shouting",
+        "terrified",
+        "unfriendly",
+        "whispering"
+      ],
+      "roles": []
+    },
+    "en-US-LunaNeural": {
+      "styles": [
+        "conversation"
+      ],
+      "roles": []
+    },
+    "en-US-SaraNeural": {
+      "styles": [
+        "angry",
+        "cheerful",
+        "excited",
+        "friendly",
+        "hopeful",
+        "sad",
+        "shouting",
+        "terrified",
+        "unfriendly",
+        "whispering"
+      ],
+      "roles": []
+    },
+    "en-US-NancyNeural": {
+      "styles": [
+        "angry",
+        "cheerful",
+        "excited",
+        "friendly",
+        "hopeful",
+        "sad",
+        "shouting",
+        "terrified",
+        "unfriendly",
+        "whispering"
+      ],
+      "roles": []
+    },
+    "en-US-CoraMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-AmberNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-AnaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-AshleyNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-CoraNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-ElizabethNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-JennyMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-LolaMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-MichelleNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-MonicaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-NancyMultilingualNeural": {
+      "styles": [
+        "excited",
+        "friendly",
+        "funny",
+        "relieved",
+        "shy"
+      ],
+      "roles": []
+    },
+    "en-US-SerenaMultilingualNeural": {
+      "styles": [
+        "empathetic",
+        "excited",
+        "friendly",
+        "shy",
+        "serious",
+        "relieved",
+        "sad"
+      ],
+      "roles": []
+    },
+    "en-US-AIGenerate2Neural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-EvelynMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-Ava:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-Emma:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-Emma2:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-Aria:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-Ava3:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-Bree:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-Jane:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-Jenny:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-Nova:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-Phoebe:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-Serena:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-AndrewMultilingualNeural": {
+      "styles": [
+        "empathetic",
+        "relieved"
+      ],
+      "roles": []
+    },
+    "en-US-AdamMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-AlloyTurboMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-EchoTurboMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-OnyxTurboMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-BrianMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-AndrewNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-BrianNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-GuyNeural": {
+      "styles": [
+        "newscast",
+        "angry",
+        "cheerful",
+        "sad",
+        "excited",
+        "friendly",
+        "terrified",
+        "shouting",
+        "unfriendly",
+        "whispering",
+        "hopeful"
+      ],
+      "roles": []
+    },
+    "en-US-DavisNeural": {
+      "styles": [
+        "chat",
+        "angry",
+        "cheerful",
+        "excited",
+        "friendly",
+        "hopeful",
+        "sad",
+        "shouting",
+        "terrified",
+        "unfriendly",
+        "whispering"
+      ],
+      "roles": []
+    },
+    "en-US-JasonNeural": {
+      "styles": [
+        "angry",
+        "cheerful",
+        "excited",
+        "friendly",
+        "hopeful",
+        "sad",
+        "shouting",
+        "terrified",
+        "unfriendly",
+        "whispering"
+      ],
+      "roles": []
+    },
+    "en-US-KaiNeural": {
+      "styles": [
+        "conversation"
+      ],
+      "roles": []
+    },
+    "en-US-TonyNeural": {
+      "styles": [
+        "angry",
+        "cheerful",
+        "excited",
+        "friendly",
+        "hopeful",
+        "sad",
+        "shouting",
+        "terrified",
+        "unfriendly",
+        "whispering"
+      ],
+      "roles": []
+    },
+    "en-US-ChristopherMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-BrandonMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-BrandonNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-ChristopherNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-DavisMultilingualNeural": {
+      "styles": [
+        "empathetic",
+        "funny",
+        "relieved"
+      ],
+      "roles": []
+    },
+    "en-US-DerekMultilingualNeural": {
+      "styles": [
+        "empathetic",
+        "excited",
+        "relieved",
+        "shy"
+      ],
+      "roles": []
+    },
+    "en-US-DustinMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-EricNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-JacobNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-LewisMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-RogerNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-RyanMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-SamuelMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-SteffanMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-SteffanNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-AIGenerate1Neural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-AshTurboMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-Adam:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-Andrew:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-Andrew2:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-Brian:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-Davis:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-Steffan:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-Alloy:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-Andrew3:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-FableTurboMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-BlueNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-MultiTalker-Ava-Andrew:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-US-MultiTalker-Ava-Steffan:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-ZA-LeahNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "en-ZA-LukeNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-AR-ElenaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-AR-TomasNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-BO-SofiaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-BO-MarceloNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-CL-CatalinaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-CL-LorenzoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-CO-SalomeNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-CO-GonzaloNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-CR-MariaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-CR-JuanNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-CU-BelkysNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-CU-ManuelNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-DO-RamonaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-DO-EmilioNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-EC-AndreaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-EC-LuisNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-ElviraNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-ArabellaMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-IsidoraMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-XimenaMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-AbrilNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-EstrellaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-IreneNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-LaiaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-LiaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-TrianaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-VeraNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-XimenaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-Ximena:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-AlvaroNeural": {
+      "styles": [
+        "cheerful",
+        "sad"
+      ],
+      "roles": []
+    },
+    "es-ES-TristanMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-ArnauNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-DarioNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-EliasNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-NilNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-SaulNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-TeoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-ES-Tristan:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-GQ-TeresaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-GQ-JavierNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-GT-MartaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-GT-AndresNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-HN-KarlaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-HN-CarlosNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-MX-DaliaNeural": {
+      "styles": [
+        "cheerful",
+        "sad",
+        "whispering"
+      ],
+      "roles": []
+    },
+    "es-MX-DaliaMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-MX-BeatrizNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-MX-CandelaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-MX-CarlotaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-MX-LarissaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-MX-MarinaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-MX-NuriaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-MX-RenataNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-MX-JorgeNeural": {
+      "styles": [
+        "cheerful",
+        "chat",
+        "whispering",
+        "sad",
+        "excited"
+      ],
+      "roles": []
+    },
+    "es-MX-JorgeMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-MX-CecilioNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-MX-GerardoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-MX-LibertoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-MX-LucianoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-MX-PelayoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-MX-YagoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-NI-YolandaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-NI-FedericoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-PA-MargaritaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-PA-RobertoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-PE-CamilaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-PE-AlexNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-PR-KarinaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-PR-VictorNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-PY-TaniaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-PY-MarioNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-SV-LorenaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-SV-RodrigoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-US-PalomaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-US-AlonsoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-UY-ValentinaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-UY-MateoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-VE-PaolaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "es-VE-SebastianNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "et-EE-AnuNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "et-EE-KertNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "eu-ES-AinhoaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "eu-ES-AnderNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fa-IR-DilaraNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fa-IR-FaridNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fi-FI-SelmaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fi-FI-NooraNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fi-FI-HarriNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fil-PH-BlessicaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fil-PH-AngeloNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-BE-CharlineNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-BE-GerardNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-CA-SylvieNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-CA-JeanNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-CA-AntoineNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-CA-ThierryNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-CH-ArianeNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-CH-FabriceNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-FR-DeniseNeural": {
+      "styles": [
+        "cheerful",
+        "sad",
+        "whispering",
+        "excited"
+      ],
+      "roles": []
+    },
+    "fr-FR-VivienneMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-FR-BrigitteNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-FR-CelesteNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-FR-CoralieNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-FR-EloiseNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-FR-JacquelineNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-FR-JosephineNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-FR-YvetteNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-FR-Vivienne:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-FR-HenriNeural": {
+      "styles": [
+        "cheerful",
+        "sad",
+        "whispering",
+        "excited"
+      ],
+      "roles": []
+    },
+    "fr-FR-RemyMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-FR-LucienMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-FR-AlainNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-FR-ClaudeNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-FR-JeromeNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-FR-MauriceNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-FR-YvesNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "fr-FR-Remy:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ga-IE-OrlaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ga-IE-ColmNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "gl-ES-SabelaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "gl-ES-RoiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "gu-IN-DhwaniNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "gu-IN-NiranjanNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "he-IL-HilaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "he-IL-AvriNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "hi-IN-AaravNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "hi-IN-ArjunNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "hi-IN-KunalNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "hi-IN-RehaanNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "hi-IN-MadhurNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "hi-IN-AnanyaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "hi-IN-AartiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "hi-IN-KavyaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "hi-IN-SwaraNeural": {
+      "styles": [
+        "newscast",
+        "cheerful",
+        "empathetic"
+      ],
+      "roles": []
+    },
+    "hr-HR-GabrijelaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "hr-HR-SreckoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "hu-HU-NoemiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "hu-HU-TamasNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "hy-AM-AnahitNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "hy-AM-HaykNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "id-ID-GadisNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "id-ID-ArdiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "is-IS-GudrunNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "is-IS-GunnarNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "it-IT-ElsaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "it-IT-IsabellaNeural": {
+      "styles": [
+        "cheerful",
+        "chat",
+        "whispering",
+        "sad",
+        "excited"
+      ],
+      "roles": []
+    },
+    "it-IT-IsabellaMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "it-IT-FabiolaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "it-IT-FiammaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "it-IT-ImeldaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "it-IT-IrmaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "it-IT-PalmiraNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "it-IT-PierinaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "it-IT-Isabella:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "it-IT-DiegoNeural": {
+      "styles": [
+        "cheerful",
+        "sad",
+        "excited"
+      ],
+      "roles": []
+    },
+    "it-IT-AlessioMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "it-IT-GiuseppeMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "it-IT-MarcelloMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "it-IT-BenignoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "it-IT-CalimeroNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "it-IT-CataldoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "it-IT-GianniNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "it-IT-GiuseppeNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "it-IT-LisandroNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "it-IT-RinaldoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "it-IT-Alessio:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "iu-Cans-CA-SiqiniqNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "iu-Cans-CA-TaqqiqNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "iu-Latn-CA-SiqiniqNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "iu-Latn-CA-TaqqiqNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ja-JP-NanamiNeural": {
+      "styles": [
+        "chat",
+        "customerservice",
+        "cheerful"
+      ],
+      "roles": []
+    },
+    "ja-JP-AoiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ja-JP-MayuNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ja-JP-ShioriNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ja-JP-Nanami:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ja-JP-KeitaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ja-JP-DaichiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ja-JP-NaokiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ja-JP-MasaruMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ja-JP-Masaru:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "jv-ID-SitiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "jv-ID-DimasNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ka-GE-EkaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ka-GE-GiorgiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "kk-KZ-AigulNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "kk-KZ-DauletNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "km-KH-SreymomNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "km-KH-PisethNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "kn-IN-SapnaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "kn-IN-GaganNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ko-KR-SunHiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ko-KR-JiMinNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ko-KR-SeoHyeonNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ko-KR-SoonBokNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ko-KR-YuJinNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ko-KR-InJoonNeural": {
+      "styles": [
+        "sad"
+      ],
+      "roles": []
+    },
+    "ko-KR-HyunsuMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ko-KR-BongJinNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ko-KR-GookMinNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ko-KR-HyunsuNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "lo-LA-KeomanyNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "lo-LA-ChanthavongNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "lt-LT-OnaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "lt-LT-LeonasNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "lv-LV-EveritaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "lv-LV-NilsNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "mk-MK-MarijaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "mk-MK-AleksandarNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ml-IN-SobhanaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ml-IN-MidhunNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "mn-MN-YesuiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "mn-MN-BataaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "mr-IN-AarohiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "mr-IN-ManoharNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ms-MY-YasminNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ms-MY-OsmanNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "mt-MT-GraceNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "mt-MT-JosephNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "my-MM-NilarNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "my-MM-ThihaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "nb-NO-PernilleNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "nb-NO-IselinNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "nb-NO-FinnNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ne-NP-HemkalaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ne-NP-SagarNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "nl-BE-DenaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "nl-BE-ArnaudNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "nl-NL-FennaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "nl-NL-ColetteNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "nl-NL-MaartenNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "or-IN-SubhasiniNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "or-IN-SukantNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pa-IN-OjasNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pa-IN-VaaniNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pl-PL-AgnieszkaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pl-PL-ZofiaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pl-PL-MarekNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ps-AF-LatifaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ps-AF-GulNawazNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-BR-FranciscaNeural": {
+      "styles": [
+        "calm"
+      ],
+      "roles": []
+    },
+    "pt-BR-ThalitaMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-BR-BrendaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-BR-ElzaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-BR-GiovannaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-BR-LeilaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-BR-LeticiaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-BR-ManuelaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-BR-ThalitaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-BR-YaraNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-BR-Thalita:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-BR-AntonioNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-BR-MacerioMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-BR-DonatoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-BR-FabioNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-BR-HumbertoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-BR-JulioNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-BR-NicolauNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-BR-ValerioNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-BR-Macerio:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-PT-RaquelNeural": {
+      "styles": [
+        "sad",
+        "whispering"
+      ],
+      "roles": []
+    },
+    "pt-PT-FernandaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "pt-PT-DuarteNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ro-RO-AlinaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ro-RO-EmilNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ru-RU-SvetlanaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ru-RU-DariyaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ru-RU-DmitryNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "si-LK-ThiliniNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "si-LK-SameeraNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "sk-SK-ViktoriaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "sk-SK-LukasNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "sl-SI-PetraNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "sl-SI-RokNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "so-SO-UbaxNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "so-SO-MuuseNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "sq-AL-AnilaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "sq-AL-IlirNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "sr-Latn-RS-NicholasNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "sr-Latn-RS-SophieNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "sr-RS-SophieNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "sr-RS-NicholasNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "su-ID-TutiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "su-ID-JajangNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "sv-SE-SofieNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "sv-SE-HilleviNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "sv-SE-MattiasNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "sw-KE-ZuriNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "sw-KE-RafikiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "sw-TZ-RehemaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "sw-TZ-DaudiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ta-IN-PallaviNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ta-IN-ValluvarNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ta-LK-SaranyaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ta-LK-KumarNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ta-MY-KaniNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ta-MY-SuryaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ta-SG-VenbaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ta-SG-AnbuNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "te-IN-ShrutiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "te-IN-MohanNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "th-TH-PremwadeeNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "th-TH-AcharaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "th-TH-NiwatNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "tr-TR-EmelNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "tr-TR-AhmetNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "uk-UA-PolinaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "uk-UA-OstapNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ur-IN-GulNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ur-IN-SalmanNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ur-PK-UzmaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "ur-PK-AsadNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "uz-UZ-MadinaNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "uz-UZ-SardorNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "vi-VN-HoaiMyNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "vi-VN-NamMinhNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "wuu-CN-XiaotongNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "wuu-CN-YunzheNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "yue-CN-XiaoMinNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "yue-CN-YunSongNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-XiaoxiaoNeural": {
+      "styles": [
+        "assistant",
+        "chat",
+        "customerservice",
+        "newscast",
+        "affectionate",
+        "angry",
+        "calm",
+        "cheerful",
+        "disgruntled",
+        "fearful",
+        "gentle",
+        "lyrical",
+        "sad",
+        "serious",
+        "poetry-reading",
+        "friendly",
+        "chat-casual",
+        "whispering",
+        "sorry",
+        "excited"
+      ],
+      "roles": []
+    },
+    "zh-CN-XiaoyiNeural": {
+      "styles": [
+        "angry",
+        "disgruntled",
+        "affectionate",
+        "cheerful",
+        "fearful",
+        "sad",
+        "embarrassed",
+        "serious",
+        "gentle"
+      ],
+      "roles": []
+    },
+    "zh-CN-XiaochenNeural": {
+      "styles": [
+        "livecommercial"
+      ],
+      "roles": []
+    },
+    "zh-CN-XiaochenMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-XiaohanNeural": {
+      "styles": [
+        "calm",
+        "fearful",
+        "cheerful",
+        "disgruntled",
+        "serious",
+        "angry",
+        "sad",
+        "gentle",
+        "affectionate",
+        "embarrassed"
+      ],
+      "roles": []
+    },
+    "zh-CN-XiaomengNeural": {
+      "styles": [
+        "chat"
+      ],
+      "roles": []
+    },
+    "zh-CN-XiaomoNeural": {
+      "styles": [
+        "embarrassed",
+        "calm",
+        "fearful",
+        "cheerful",
+        "disgruntled",
+        "serious",
+        "angry",
+        "sad",
+        "depressed",
+        "affectionate",
+        "gentle",
+        "envious"
+      ],
+      "roles": [
+        "YoungAdultFemale",
+        "YoungAdultMale",
+        "OlderAdultFemale",
+        "OlderAdultMale",
+        "SeniorFemale",
+        "SeniorMale",
+        "Girl",
+        "Boy"
+      ]
+    },
+    "zh-CN-XiaoqiuNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-XiaorouNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-XiaoruiNeural": {
+      "styles": [
+        "calm",
+        "fearful",
+        "angry",
+        "sad"
+      ],
+      "roles": []
+    },
+    "zh-CN-XiaoshuangNeural": {
+      "styles": [
+        "chat"
+      ],
+      "roles": []
+    },
+    "zh-CN-XiaoxiaoDialectsNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-XiaoxiaoMultilingualNeural": {
+      "styles": [
+        "affectionate",
+        "cheerful",
+        "empathetic",
+        "excited",
+        "poetry-reading",
+        "sorry",
+        "story"
+      ],
+      "roles": []
+    },
+    "zh-CN-XiaoyanNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-XiaoyouNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-XiaoyuMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-XiaozhenNeural": {
+      "styles": [
+        "angry",
+        "disgruntled",
+        "cheerful",
+        "fearful",
+        "sad",
+        "serious"
+      ],
+      "roles": []
+    },
+    "zh-CN-Xiaochen:DragonHDFlashLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-Xiaoxiao:DragonHDFlashLatestNeural": {
+      "styles": [
+        "angry",
+        "chat",
+        "cheerful",
+        "excited",
+        "fearful",
+        "sad",
+        "voiceassistant"
+      ],
+      "roles": []
+    },
+    "zh-CN-Xiaoxiao2:DragonHDFlashLatestNeural": {
+      "styles": [
+        "affectionate",
+        "angry",
+        "cheerful",
+        "empathetic",
+        "excited",
+        "fearful",
+        "poetry-reading",
+        "sad",
+        "sentiment",
+        "sorry",
+        "story",
+        "whisper"
+      ],
+      "roles": []
+    },
+    "zh-CN-Xiaochen:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-YunxiNeural": {
+      "styles": [
+        "narration-relaxed",
+        "embarrassed",
+        "fearful",
+        "cheerful",
+        "disgruntled",
+        "serious",
+        "angry",
+        "sad",
+        "depressed",
+        "chat",
+        "assistant",
+        "newscast"
+      ],
+      "roles": [
+        "Narrator",
+        "YoungAdultMale",
+        "Boy"
+      ]
+    },
+    "zh-CN-YunjianNeural": {
+      "styles": [
+        "narration-relaxed",
+        "sports-commentary",
+        "sports-commentary-excited",
+        "angry",
+        "disgruntled",
+        "cheerful",
+        "sad",
+        "serious",
+        "depressed",
+        "documentary-narration"
+      ],
+      "roles": []
+    },
+    "zh-CN-YunyangNeural": {
+      "styles": [
+        "customerservice",
+        "narration-professional",
+        "newscast-casual"
+      ],
+      "roles": []
+    },
+    "zh-CN-YunfengNeural": {
+      "styles": [
+        "angry",
+        "disgruntled",
+        "cheerful",
+        "fearful",
+        "sad",
+        "serious",
+        "depressed"
+      ],
+      "roles": []
+    },
+    "zh-CN-YunhaoNeural": {
+      "styles": [
+        "advertisement-upbeat"
+      ],
+      "roles": []
+    },
+    "zh-CN-YunjieNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-YunxiaNeural": {
+      "styles": [
+        "calm",
+        "fearful",
+        "cheerful",
+        "angry",
+        "sad"
+      ],
+      "roles": []
+    },
+    "zh-CN-YunxiaoMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-YunyeNeural": {
+      "styles": [
+        "embarrassed",
+        "calm",
+        "fearful",
+        "cheerful",
+        "disgruntled",
+        "serious",
+        "angry",
+        "sad"
+      ],
+      "roles": [
+        "YoungAdultFemale",
+        "YoungAdultMale",
+        "OlderAdultFemale",
+        "OlderAdultMale",
+        "SeniorFemale",
+        "SeniorMale",
+        "Girl",
+        "Boy"
+      ]
+    },
+    "zh-CN-YunyiMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-YunzeNeural": {
+      "styles": [
+        "calm",
+        "fearful",
+        "cheerful",
+        "disgruntled",
+        "serious",
+        "angry",
+        "sad",
+        "depressed",
+        "documentary-narration"
+      ],
+      "roles": [
+        "OlderAdultMale",
+        "SeniorMale"
+      ]
+    },
+    "zh-CN-YunfanMultilingualNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-Yunxiao:DragonHDFlashLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-Yunye:DragonHDFlashLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-Yunyi:DragonHDFlashLatestNeural": {
+      "styles": [
+        "assassin",
+        "captain",
+        "cavalier",
+        "drake",
+        "gamenarrator",
+        "geomancer",
+        "poet"
+      ],
+      "roles": []
+    },
+    "zh-CN-Yunfan:DragonHDLatestNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-guangxi-YunqiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-henan-YundengNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-liaoning-XiaobeiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-liaoning-YunbiaoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-shaanxi-XiaoniNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-shandong-YunxiangNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-CN-sichuan-YunxiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-HK-HiuMaanNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-HK-HiuGaaiNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-HK-WanLungNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-TW-HsiaoChenNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-TW-HsiaoYuNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zh-TW-YunJheNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zu-ZA-ThandoNeural": {
+      "styles": [],
+      "roles": []
+    },
+    "zu-ZA-ThembaNeural": {
+      "styles": [],
+      "roles": []
+    }
+  }
+}

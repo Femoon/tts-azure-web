@@ -30,6 +30,7 @@ SPEECH_REGION=your_azure_region
 
 # Optional: Application configuration
 NEXT_PUBLIC_MAX_INPUT_LENGTH=4000  # Maximum text input length (default: 4000)
+DEMO_MODE=true                     # Enable demo mode - uses local speechList.json and disables audio playback (default: false)
 
 # Optional: Next.js configuration
 NEXT_TELEMETRY_DISABLED=1         # Disable Next.js telemetry (uncomment in Dockerfile if needed)

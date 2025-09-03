@@ -111,5 +111,6 @@
   "ssml-mode-confirm-title": "切换到SSML模式",
   "ssml-mode-confirm-message": "当前语音配置将被保存，切换回来时可恢复。继续切换到SSML模式吗？",
   "normal-mode-confirm-title": "切换到普通模式",
-  "normal-mode-confirm-message": "当前SSML输入将被保存，切换回来时可恢复。继续切换到普通模式吗？"
+  "normal-mode-confirm-message": "当前SSML输入将被保存，切换回来时可恢复。继续切换到普通模式吗？",
+  "demo-mode-warning": "演示页面仅供预览，完整功能敬请期待！"
 }

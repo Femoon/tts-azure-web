@@ -111,5 +111,6 @@
   "ssml-mode-confirm-title": "Switch to SSML Mode",
   "ssml-mode-confirm-message": "Your current voice settings will be saved and can be restored when you switch back. Continue to SSML mode?",
   "normal-mode-confirm-title": "Switch to Normal Mode",
-  "normal-mode-confirm-message": "Your current SSML input will be saved and can be restored when you switch back. Continue to Normal mode?"
+  "normal-mode-confirm-message": "Your current SSML input will be saved and can be restored when you switch back. Continue to Normal mode?",
+  "demo-mode-warning": "Demo page for preview only, full features coming soon!"
 }

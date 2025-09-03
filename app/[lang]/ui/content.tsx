@@ -35,7 +35,15 @@ import { ImportTextButton } from './components/import-text-button'
 import LanguageSelect from './components/language-select'
 import { StopTimeButton } from './components/stop-time-button'
 
-export default function Content({ t, processedData }: { t: Tran; processedData: ProcessedVoiceData }) {
+export default function Content({
+  t,
+  processedData,
+  isDemoMode,
+}: {
+  t: Tran
+  processedData: ProcessedVoiceData
+  isDemoMode: boolean
+}) {
   // Zustand store
   const {
     config,
@@ -144,6 +152,11 @@ export default function Content({ t, processedData }: { t: Tran; processedData: 
   }
 
   const play = async () => {
+    if (isDemoMode) {
+      toast.warning(t['demo-mode-warning'])
+      return
+    }
+
     if (!input.length || isLoading) return
     const cacheString = getCacheMark()
     if (cacheConfigRef.current === cacheString) {
