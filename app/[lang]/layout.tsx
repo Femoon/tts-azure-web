@@ -2,7 +2,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Metadata } from 'next'
 
-import { i18n, type Locale } from '@/app/lib/i18n/i18n-config'
+import { i18n } from '@/app/lib/i18n/i18n-config'
 import '@/styles/globals.css'
 
 import { OverlayScrollbar } from './overlay-scrollbar'
@@ -22,7 +22,7 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode
-  params: Promise<{ lang: Locale }>
+  params: Promise<{ lang: string }>
 }) {
   const { lang: langParam } = await params
   const lang = langParam === 'cn' ? 'zh-CN' : 'en'
