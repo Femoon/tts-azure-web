@@ -8,9 +8,9 @@ import { ProcessedVoiceData } from '../lib/types'
 import Content from './ui/content'
 import Nav from './ui/nav'
 
-export default async function Home({ params }: { params: Promise<{ lang: Locale }> }) {
+export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params
-  const t = await getLocale(lang)
+  const t = await getLocale(lang as Locale)
   let processedData: ProcessedVoiceData = {
     languages: [],
     gendersByLang: {},
