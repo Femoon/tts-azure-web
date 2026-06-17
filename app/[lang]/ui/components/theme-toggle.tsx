@@ -39,6 +39,7 @@ export function ThemeToggle({ t }: { t: Tran }) {
         {
           duration: 500,
           easing: 'ease-in',
+          fill: 'both',
           pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)',
         },
       )
