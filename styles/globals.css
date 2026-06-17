@@ -24,20 +24,25 @@ body {
   }
 }
 
-/* 关闭 HeroUI(react-aria) 的 data-focus-visible 焦点环，但仅在“非键盘聚焦”时关闭：
-   react-aria 的 data-focus-visible 比浏览器原生 :focus-visible 更激进——鼠标点击会闪现、
-   浮窗关闭还原焦点后会残留。用 :not(:focus-visible) 限定，只抹掉这些非键盘场景的框框，
-   键盘 Tab 时（同时命中原生 :focus-visible）不抹，保留可见焦点。
-   排除自带焦点处理的 .theme-toggle。 */
-button[data-focus-visible='true']:not(:focus-visible):not(.theme-toggle) {
-  outline: none !important;
-}
-
-/* 真正的键盘导航（Tab）用浏览器原生 :focus-visible 给出焦点环。
-   也覆盖自定义 IconButton（其自身带 outline-none、本无 HeroUI 焦点环）。
-   颜色复用 HeroUI 的 --heroui-focus，保持与原焦点环一致。 */
-button:not(.theme-toggle):focus-visible {
-  outline: 2px solid hsl(var(--heroui-focus, 212 100% 47%));
-  outline-offset: 2px;
-  border-radius: inherit;
+/* Project preference: hide focus rings on concrete controls without touching overlay shadows. */
+button:focus,
+button:focus-visible,
+a:focus,
+a:focus-visible,
+input:focus,
+input:focus-visible,
+select:focus,
+select:focus-visible,
+textarea:focus,
+textarea:focus-visible,
+[role='button']:focus,
+[role='button']:focus-visible,
+svg:focus,
+svg:focus-visible,
+[tabindex]:focus,
+[tabindex]:focus-visible,
+[data-focus-visible='true'] {
+  outline-style: none !important;
+  outline-color: transparent !important;
+  box-shadow: none !important;
 }

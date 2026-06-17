@@ -1,6 +1,6 @@
 import { useState, useCallback, ReactElement } from 'react'
 import { Button } from '@heroui/button'
-import { Popover, PopoverTrigger, PopoverContent } from '@heroui/popover'
+import { Popover, PopoverContent } from '@heroui/popover'
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from '@heroui/react'
 import { toast } from 'sonner'
 import { faDownload, faUpload, faEye } from '@fortawesome/free-solid-svg-icons'
@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { getFormatDate, saveAs } from '@/app/lib/tools'
 import { Tran } from '@/app/lib/types'
+
+import { IconPopoverTrigger } from './icon-popover-trigger'
 
 export const ExportImportSettingsButton = ({
   t,
@@ -71,7 +73,7 @@ export const ExportImportSettingsButton = ({
   return (
     <>
       <Popover placement="right" isOpen={isPopoverOpen} onOpenChange={open => setIsPopoverOpen(open)}>
-        <PopoverTrigger>{buttonIcon}</PopoverTrigger>
+        <IconPopoverTrigger label={t['export-import-settings']}>{buttonIcon}</IconPopoverTrigger>
         <PopoverContent>
           <div className="px-3 pt-2 text-left font-bold w-full select-none">{t['export-import-settings']}</div>
           <div className="px-1 py-2 w-full flex flex-col gap-2">

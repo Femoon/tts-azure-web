@@ -1,8 +1,10 @@
 import { useState, ReactElement } from 'react'
-import { Popover, PopoverTrigger, PopoverContent } from '@heroui/popover'
+import { Popover, PopoverContent } from '@heroui/popover'
 
 import { TIMES } from '@/app/lib/constants'
 import { Tran } from '@/app/lib/types'
+
+import { IconPopoverTrigger } from './icon-popover-trigger'
 
 export const StopTimeButton = ({
   t,
@@ -16,7 +18,7 @@ export const StopTimeButton = ({
   const [isPopoverOpen, setIsPopoverOpen] = useState<boolean>(false)
   return (
     <Popover placement="right" isOpen={isPopoverOpen} onOpenChange={open => setIsPopoverOpen(open)}>
-      <PopoverTrigger>{buttonIcon}</PopoverTrigger>
+      <IconPopoverTrigger label={t['insert-pause']}>{buttonIcon}</IconPopoverTrigger>
       <PopoverContent>
         <div className="px-3 pt-2 text-left font-bold w-full select-none">{t['insert-pause']}</div>
         <ul className="px-1 py-2 w-full">

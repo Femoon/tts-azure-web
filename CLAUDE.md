@@ -103,6 +103,10 @@ The application supports two distinct operating modes:
   - Commit message: Conventional commits enforced by commitlint
 - **Package Management**: Yarn with lockfile validation in Docker builds
 
+### UI Implementation Standards
+- FontAwesome icons used as HeroUI Popover/Dropdown triggers must use the shared `IconPopoverTrigger` wrapper.
+- Project focus-ring suppression must set both `outline-style: none` and `outline-color: transparent`.
+
 ### Key Files for Understanding
 - `app/lib/stores/` - Zustand state management stores
   - `tts-store.ts` - TTS configuration and UI state

@@ -328,7 +328,7 @@ export default function Content({
                       title={t.import}
                       titleId="faFileArrowUp"
                       icon={faFileLines}
-                      className="text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
+                      className="transition-colors pointer-events-none"
                       style={{ width: '2rem', height: '2rem' }}
                     />
                   }
@@ -342,7 +342,7 @@ export default function Content({
                       title={t['insert-pause']}
                       titleId="faStopwatch"
                       icon={faStopwatch}
-                      className="text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
+                      className="transition-colors pointer-events-none"
                       style={{ width: '2rem', height: '2rem' }}
                     />
                   }
@@ -356,7 +356,7 @@ export default function Content({
                       title={t['export-import-settings']}
                       titleId="faFileCode"
                       icon={faFileCode}
-                      className="text-blue-600 hover:text-blue-500 transition-colors cursor-pointer"
+                      className="transition-colors pointer-events-none"
                       style={{ width: '2rem', height: '2rem' }}
                     />
                   }

@@ -1,9 +1,11 @@
 import { useState, ReactElement } from 'react'
-import { Popover, PopoverTrigger, PopoverContent } from '@heroui/popover'
+import { Popover, PopoverContent } from '@heroui/popover'
 import { toast } from 'sonner'
 
 import { DEFAULT_TEXT } from '@/app/lib/constants'
 import { Tran } from '@/app/lib/types'
+
+import { IconPopoverTrigger } from './icon-popover-trigger'
 
 export const ImportTextButton = ({
   t,
@@ -19,7 +21,7 @@ export const ImportTextButton = ({
 
   return (
     <Popover placement="right" isOpen={isPopoverOpen} onOpenChange={open => setIsPopoverOpen(open)}>
-      <PopoverTrigger>{buttonIcon}</PopoverTrigger>
+      <IconPopoverTrigger label={t.import}>{buttonIcon}</IconPopoverTrigger>
       <PopoverContent>
         <div className="px-3 pt-2 text-left font-bold w-full select-none">{t['import-example-text']}</div>
         <ul className="px-1 py-2 w-full">
