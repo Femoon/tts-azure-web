@@ -35,7 +35,7 @@
     "@heroui/react": "^2.8.2",
     "@svgr/webpack": "^8.1.0",
     "@types/negotiator": "^0.6.3",
-    "@vercel/analytics": "^1.2.2",
+    "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^1.0.10",
     "framer-motion": "^12.23.9",
     "microsoft-cognitiveservices-speech-sdk": "^1.36.0",
