@@ -185,11 +185,17 @@ Use Node.js 22 or newer and Yarn Classic (`1.22.22`). CI installs the frozen
 lockfile, checks lint without modifying files, and builds in demo mode without
 Azure credentials.
 
-Dependabot checks npm, Docker, and GitHub Actions dependencies weekly. With
-Dependabot security updates enabled in the repository settings, new fixable
-vulnerability alerts trigger security update PRs without waiting for the weekly
-schedule. npm security fixes are grouped to reduce PR noise. Review and merge
-these PRs after CI passes; updates are not automatically merged.
+Dependabot is configured for security updates only for npm and GitHub Actions.
+`open-pull-requests-limit: 0` disables routine version update PRs without blocking
+security update PRs. Keep Dependabot alerts and security updates enabled in the
+repository settings; fixable alerts trigger PRs without waiting for the required
+weekly schedule entry. Security fixes are not combined into a blanket group.
+
+Review and merge security PRs after CI passes; updates are not automatically
+merged. If a fix requires a major upgrade (or a minor upgrade of a 0.x package),
+review the migration and runtime behavior separately. Plan routine dependency
+and Docker base image upgrades manually; do not automatically jump Node.js
+release lines just because a newer image is available.
 
 Run `yarn audit` to check the full dependency tree locally. Keep `yarn.lock`
 committed with dependency changes. The `sharp` resolution also patches Next.js's
