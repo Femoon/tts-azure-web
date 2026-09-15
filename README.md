@@ -191,9 +191,17 @@ security update PRs. Keep Dependabot alerts and security updates enabled in the
 repository settings; fixable alerts trigger PRs without waiting for the required
 weekly schedule entry. Security fixes are not combined into a blanket group.
 
-Review and merge security PRs after CI passes; updates are not automatically
-merged. If a fix requires a major upgrade (or a minor upgrade of a 0.x package),
-review the migration and runtime behavior separately. Plan routine dependency
+Verified Dependabot npm security patches can merge automatically using squash
+after the required `quality` check passes and the PR branch is up to date.
+The policy accepts one dependency at a time, stable patch upgrades only, no
+maintainer changes, and changes only to `package.json` and `yarn.lock`. Public
+GitHub advisories must confirm that the old version is vulnerable and the new
+version has no known active reviewed advisories. The privileged workflow loads
+only trusted base-branch code and uses no personal access token.
+
+Minor/major upgrades, prereleases, grouped updates, and GitHub Actions changes
+require manual review. If a fix requires a major upgrade (or a minor upgrade of
+a 0.x package), review the migration and runtime behavior separately. Plan routine dependency
 and Docker base image upgrades manually; do not automatically jump Node.js
 release lines just because a newer image is available.
 

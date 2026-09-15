@@ -1,0 +1,39 @@
+name: Dependabot security auto-merge
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize, ready_for_review]
+    branches: [main]
+
+permissions: {}
+
+jobs:
+  enable-auto-merge:
+    if: >-
+      github.repository == 'Femoon/tts-azure-web' &&
+      github.event.pull_request.user.login == 'dependabot[bot]' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      !github.event.pull_request.draft
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      # Only load automation from the trusted base commit, never the PR branch.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          persist-credentials: false
+      - name: Verify Dependabot commits and read metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3
+      - name: Enable auto-merge for verified security patches
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        env:
+          DEPENDABOT_METADATA: ${{ steps.metadata.outputs.updated-dependencies-json }}
+        with:
+          script: |
+            const enableAutoMerge = require('./.github/scripts/enable-dependabot-auto-merge.cjs')
+            await enableAutoMerge({github, context, core,
+              updates: JSON.parse(process.env.DEPENDABOT_METADATA || '[]')})
