@@ -179,6 +179,22 @@ This project follows the Conventional Commits specification:
 3. **Commit validation**: Commitlint enforces conventional commit messages
 4. **Code quality**: Maximum 0 ESLint warnings allowed
 
+### Dependency security updates
+
+Use Node.js 22 or newer and Yarn Classic (`1.22.22`). CI installs the frozen
+lockfile, checks lint without modifying files, and builds in demo mode without
+Azure credentials.
+
+Dependabot checks npm, Docker, and GitHub Actions dependencies weekly. With
+Dependabot security updates enabled in the repository settings, new fixable
+vulnerability alerts trigger security update PRs without waiting for the weekly
+schedule. npm security fixes are grouped to reduce PR noise. Review and merge
+these PRs after CI passes; updates are not automatically merged.
+
+Run `yarn audit` to check the full dependency tree locally. Keep `yarn.lock`
+committed with dependency changes. The `sharp` resolution also patches Next.js's
+transitive copy; the other resolutions retain fixes for transitive dependencies.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
