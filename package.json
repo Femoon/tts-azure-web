@@ -40,7 +40,7 @@
     "framer-motion": "^12.23.9",
     "microsoft-cognitiveservices-speech-sdk": "^1.36.0",
     "negotiator": "^0.6.3",
-    "next": "^15.5.25",
+    "next": "^15.5.27",
     "overlayscrollbars": "^2.8.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
